@@ -574,6 +574,19 @@
             <command><code><codeLine>svn info</codeLine></code></command>
         </item>
     </subversion>
+    <git>
+        <item>
+            <goal>Stoker les login / mot de passe pour GitHub</goal>
+            <solution>utiliser le fichier <code>_netrc</code> stocker dans le profil utilisateur</solution>
+            <example>
+                <code>
+                    <codeLine level="1">machine github.com</codeLine>
+                    <codeLine level="1">login COMPTE_GITHUB</codeLine>
+                    <codeLine level="1">password MOT_DE_PASSE</codeLine>
+                </code>
+            </example>
+        </item>
+    </git>
     <sql>
         <item>
             <goal>sélectionner le maximum d'une colonne en fonction d'une autre colonne</goal>
@@ -592,7 +605,7 @@
             </example>
             <query><code lang="sql"><codeLine>select code, max(value) from max_test group by code</codeLine></code></query>
         </item>
-         <item>
+        <item>
             <goal>écrire un case dans un select</goal>
             <example>
                 <code lang="sql">
