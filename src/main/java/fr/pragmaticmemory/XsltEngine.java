@@ -5,36 +5,45 @@ import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 public class XsltEngine {
 
-    static final String PATH = "C:\\Users\\cignett\\Desktop\\PM";
+    static final String PATH = "C:\\dev\\projects\\PragmaticMemory\\knowledge\\data";
 
 
     public static void main(String[] args)
           throws TransformerException, IOException, SAXException, ParserConfigurationException {
 
         Document document = getDOM(PATH + "\\Data.xml");
-        Source source = new DOMSource(document);
+        File file = new File(PATH + "\\TEST_OUTPUT.xml");
 
-        File file = new File(PATH + "\\TEST_OUTPUT");
-        Result resultat = new StreamResult(file);
-
+        StreamSource xslt = new StreamSource(new File(PATH + "\\ViewOnly.xsl"));
         TransformerFactory factory = TransformerFactory.newInstance();
-        Transformer transformer = factory.newTransformer();
-        transformer.transform(source, resultat);
+        factory.setAttribute("indent-number", 6); // n'est pas pris en compte pour l'indentation de la sortie
+        
+        Transformer transformer = factory.newTransformer(xslt);
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+
+        // Vu dans un forum : If the Transformer implementation you're using is Xalan-J, then you should be able to use:
+        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+        transformer.setParameter(OutputKeys.INDENT, "yes");
+
+        
+        transformer.transform(new DOMSource(document), new StreamResult(file));
     }
 
 
-    private static Document getDOM(String filePath) throws ParserConfigurationException, SAXException, IOException {
+    private static Document getDOM(String filePath)
+          throws ParserConfigurationException, SAXException, IOException, TransformerException {
         DocumentBuilderFactory fabrique = DocumentBuilderFactory.newInstance();
 
         // création d'un constructeur de documents
@@ -42,6 +51,15 @@ public class XsltEngine {
 
         // lecture du contenu d'un fichier XML avec DOM
         File xml = new File(filePath);
-        return constructeur.parse(xml);
+        Document document = constructeur.parse(xml);
+        displayDomInConsole(document);
+        return document;
+    }
+
+
+    private static void displayDomInConsole(Document document) throws TransformerException {
+        TransformerFactory factory = TransformerFactory.newInstance();
+        Transformer transformer = factory.newTransformer();
+        transformer.transform(new DOMSource(document), new StreamResult(System.out));
     }
 }

@@ -26,7 +26,11 @@
         </group>
         <group>
             <name>Fait</name>
-              <task>
+            <task>
+                <goal>Trouver un moyen de stoker le code</goal>
+                <selected>GitHub</selected>
+            </task>
+            <task>
                 <goal>Gérer l'imbrication de code dans un tableau dans Wikispaces</goal>
             </task>
             <task>
@@ -867,9 +871,9 @@
                 <class>ArrayList</class>
             </package>
             <code lang="java">
-                <codeLine level="1">public static List&openTag;String&closeTag; readLines(File file) throws IOException {</codeLine>
+                <codeLine level="1">public static List&#60;String&#62; readLines(File file) throws IOException {</codeLine>
                 <codeLine level="2">BufferedReader reader = new BufferedReader(new FileReader(file));</codeLine>
-                <codeLine level="2">List&openTag;String&closeTag; lines = new ArrayList&openTag;String&closeTag;();</codeLine>
+                <codeLine level="2">List&#60;String&#62; lines = new ArrayList&#60;String&#62;();</codeLine>
                 <codeLine level="2">String line = reader.readLine();</codeLine>
                 <codeLine level="2">while (line != null) {</codeLine>
                 <codeLine level="3">lines.add(line);</codeLine>
@@ -898,9 +902,9 @@
                 <class>BufferedWriter</class>
             </package>
             <code lang="java">
-                <codeLine level="1">public static void writeLines(List&openTag;String&closeTag; lines, File file) throws IOException {</codeLine>
+                <codeLine level="1">public static void writeLines(List&#60;String&#62; lines, File file) throws IOException {</codeLine>
                 <codeLine level="2">BufferedWriter writer = new BufferedWriter(new FileWriter(file));</codeLine>
-                <codeLine level="2">for (int i = 0; i &openTag; lines.size() - 1; i++) {</codeLine>
+                <codeLine level="2">for (int i = 0; i &#60; lines.size() - 1; i++) {</codeLine>
                 <codeLine level="3">writer.write(lines.get(i));</codeLine>
                 <codeLine level="3">writer.newLine();</codeLine>
                 <codeLine level="2">}</codeLine>
@@ -951,12 +955,12 @@
                 <class>ArrayList</class>
             </package>
             <code lang="java">
-                <codeLine level="1">public List&openTag;String&closeTag; getAllFilePath() {</codeLine>
+                <codeLine level="1">public List&#60;String&#62; getAllFilePath() {</codeLine>
                 <codeLine level="2">String[] pathArray = {</codeLine>
                 <codeLine level="3">"C:\\dev\\file1.xml",</codeLine>
                 <codeLine level="3">"C:\\dev\\file2.txt"</codeLine>
                 <codeLine level="2">};</codeLine>
-                <codeLine level="2">List&openTag;String&closeTag; stringList = new ArrayList&openTag;String&closeTag;();</codeLine>
+                <codeLine level="2">List&#60;String&#62; stringList = new ArrayList&#60;String&#62;();</codeLine>
                 <codeLine level="2">stringList.addAll(Arrays.asList(pathArray));</codeLine>
                 <codeLine level="2">return stringList;</codeLine>
                 <codeLine level="1">}</codeLine>
@@ -968,8 +972,8 @@
                 <codeLine level="1">public void process() throws Exception {</codeLine>
                 <codeLine level="2">for (String filePath : getAllFilePath()) {</codeLine>
                 <codeLine level="3">File file = new File(filePath);</codeLine>
-                <codeLine level="3">List&openTag;String&closeTag; lines = readLines(file);</codeLine>
-                <codeLine level="3">List&openTag;String&closeTag; processedLines = process(lines);</codeLine>
+                <codeLine level="3">List&#60;String&#62; lines = readLines(file);</codeLine>
+                <codeLine level="3">List&#60;String&#62; processedLines = process(lines);</codeLine>
                 <codeLine level="3">writeLines(processedLines, file);</codeLine>
                 <codeLine level="2">}</codeLine>
                 <codeLine level="1">}</codeLine>
@@ -996,7 +1000,7 @@
                 <codeLine level="3">System.out.println("offset before first matched character = " + matcher.start());</codeLine>
                 <codeLine level="3">System.out.println("offset after last matched character= " + matcher.end());</codeLine>
                 <codeLine level="3">System.out.println("groupCount = " + matcher.groupCount());</codeLine>
-                <codeLine level="3">for (int i = 0; i &openTag; matcher.groupCount() + 1; i++) {</codeLine>
+                <codeLine level="3">for (int i = 0; i &#60; matcher.groupCount() + 1; i++) {</codeLine>
                 <codeLine level="4">System.out.println("\tgroup(" + i + ") = " + matcher.group(i));</codeLine>
                 <codeLine level="4">System.out.println("\t\toffset before group(" + i + ") first character= " + matcher.start(i));</codeLine>
                 <codeLine level="4">System.out.println("\t\toffset after group(" + i + ") last character = " + matcher.end(i));</codeLine>
