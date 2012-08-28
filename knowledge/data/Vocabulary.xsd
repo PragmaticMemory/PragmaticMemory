@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:complexType name="englishWord">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="phonetic" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType> 
+
+	<xs:complexType name="frenchWord">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType> 
+
+	<xs:complexType name="english">
+		<xs:sequence>
+			<xs:element name="word" type="englishWord" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="french">
+		<xs:sequence>
+			<xs:element name="word" type="frenchWord" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="language">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="english" type="english"/>
+				<xs:element name="french" type="french"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
+

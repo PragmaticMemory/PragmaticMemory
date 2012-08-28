@@ -1,0 +1,1070 @@
+﻿<data>
+    <dashboard>
+        <group>
+            <name>En cours</name>
+        </group>
+        <group>
+            <name>A faire</name>
+            <task>
+                <goal>Ecrire une xslt de vue et une xslt de media appelables successivement</goal>
+            </task>
+            <task>
+                <goal>Trouver le moyen le plus simple d'appliquer une xslt à un xml</goal>
+            </task>
+            <task>
+                <goal>Compléter le fichier de données avec la liste de mots en français</goal>
+            </task>
+            <task>
+                <goal>Compléter le fichier de données avec la liste de mots en anglais</goal>
+            </task>
+            <task>
+                <goal>Rédiger la xsd validant <technic>Data.xml</technic></goal>
+            </task>
+            <task>
+                <goal>Afficher les packages / classes sous forme de tableaux dans la section java</goal>
+            </task>
+        </group>
+        <group>
+            <name>Fait</name>
+              <task>
+                <goal>Gérer l'imbrication de code dans un tableau dans Wikispaces</goal>
+            </task>
+            <task>
+                <goal>Rédiger :<newLine/>
+                    <list level="2">les fichiers xml correspondant aux pages existantes sur PragmaticMemory.wikispaces</list>
+                    <list level="2">les fichiers xslt de mise en page au format wikispaces</list>
+                </goal>
+            </task>
+            <task>
+                <goal>Choix du lieu de stockage des fichiers de données (xml), styles (xslt) et schemas (xsd)</goal>
+                <candidate>
+                    <name>Wikispaces</name>
+                    <advantage>Wiki gratuit pour un usage privé</advantage>
+                    <disadvantage>les versions des fichiers téléchargés dans Wikispaces ne peuvent pas être supprimées. Conséquence : la limite de taille risque d'être atteinte rapidement si les mises à jour sont fréquentes.</disadvantage>
+                </candidate>
+                <candidate>
+                    <name>Google Docs</name>
+                    <advantage>Gratuit</advantage>
+                    <disadvantage>Site non accessible à partir du bureau</disadvantage>
+                </candidate>
+                <candidate>
+                    <name>Digiposte</name>
+                    <advantage>Gratuit</advantage>
+                    <advantage>Structure ayant plus de chance de durer que d'autre sites</advantage>
+                    <disadvantage>Pas de gestion de version : deux fichiers avec un nom identique sont stockés comme deux fichiers différents</disadvantage>
+                </candidate>
+                <selected>Digiposte</selected>
+            </task>
+            <task>
+                <goal>Séparer les données du formattage</goal>
+                <selected>Utilation des xslt</selected>
+            </task>
+            <task>
+                <goal>Séparer le formattage lié à la vue du formattage lié au media de diffusion</goal>
+                <selected>Création de xslt de vue et de xslt de media</selected>
+            </task>
+             <task>
+                <goal>Gérer les indentations de ligne de code</goal>
+            </task>
+            <task>
+                <goal>Gérer le language (java, sql,...) dans la balise de code</goal>
+            </task>
+        </group>
+    </dashboard>
+    <principles>
+        <goal>L'objectif de cette section est de lister les principes permettant d'améliorer la forme du wiki, afin d'éliminer tout ce qui n'est pas indispensable ou qui peut minimiser la compréhension.</goal>
+        <principle>
+            <name>Clarté</name>
+            <item>
+                <description>Entre deux formulations d'une même information, utiliser la plus claire.</description>
+                <remark><list level="1">(à développer) Utiliser la mise en forme pour permettre une distinction des types d'information</list></remark>
+            </item>
+        </principle>
+        <principle>
+            <name>Homogénéité</name>
+            <item>
+                <description>Forme : utiliser la même forme pour transmettre un même type d'information.</description>
+                <remark>
+                    <list level="1">Règles à déterminer :</list>
+                        <list level="2">utilisation des temps (futur, présent, ...)</list>
+                        <list level="2">utilisation de la casse (majuscule ou minuscule)</list>
+                        <list level="2">ponctuation</list>
+                </remark>
+            </item>
+            <item>
+                <description>Terme : utiliser toujours les mêmes termes pour désigner une même notion.</description>
+            </item>
+        </principle>
+        <principle>
+            <name>Séparation</name>
+            <item>
+                <description>Distinguer les informations utiles (données à transmettre) de la mise en page (manière de transmettre les données).</description>
+                <remark>
+                    <list level="1">Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée.</list>
+                    <list level="1">Les différentes vues peuvent être destinées :</list>
+                        <list level="2">à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)</list>
+                        <list level="2">à insiter sur différents aspects d'un ensemble de données au sein d'un même outil</list>
+                    <list level="1">La mise en oeuvre de ce principe est faite par l'utilisation de fichiers xml et xslt.</list>
+                    <list level="1">3 types de fichiers sont utilisés :</list>
+                        <list level="2">un fichier de "données", d'extension xml, stockant les données utiles</list>
+                        <list level="2">des fichiers "style", d'extension xslt, définissant chacun un style de présentation</list>
+                        <list level="2">des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style</list>
+                            <list level="3">
+                                <code lang="xml">
+                                    <codeLine><![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]></codeLine>
+                                    <codeLine><![CDATA[<?xml-stylesheet href="StyleUrl" type="text/xsl" ?>]]></codeLine>
+                                    <codeLine><![CDATA[<!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>]]></codeLine>
+                                    <codeLine><![CDATA[<linkedData>]]></codeLine>
+                                    <codeLine><![CDATA[&data;]]></codeLine>
+                                    <codeLine><![CDATA[</linkedData>]]></codeLine>
+                                </code>
+                            </list>
+                            <list level="3">à remplacer dans le template (+ exemple dans le cas de Subversion):</list>
+                                <list level="4">StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)</list>
+                                <list level="4">DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)</list>
+                                <list level="4">Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt</list>
+                    <list level="1">les fichiers xml doivent être encodés en UTF-8</list>
+                    <list level="1">concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :</list>
+                        <list level="2">toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link</list>
+                        <list level="2">toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé</list>
+                </remark>
+            </item>
+        </principle>
+        <principle>
+            <name>Concision</name>
+            <item>
+                <description>Taille : entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité</description>
+                <remark>
+                    <list level="1">Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.</list>
+                        <list level="2">par exemple : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)</list>
+                        <list level="2">un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)</list>
+                    <list level="1">Utiliser les participes-présent plutôt que les subordonnées</list>
+                        <list level="2">"permettant" au lieu de "qui permettent" (gain de 4 caractères)</list>
+                </remark>
+            </item>
+            <item>
+                <description>Factorisation : éliminer les redondances de mots ou de groupes de mots</description>
+                <remark>
+                    <list level="1">Eliminer les redondances d'informations d'un texte avec son titre (à développer)</list>
+                    <list level="1">Principe des "code smell"</list>
+                        <list level="2">"code smell" de répétition de mot</list>
+                            <list level="3">La liste :</list>
+                                <list level="4">Principes d'homogénéité</list>
+                                <list level="4">Principe de séparation</list>
+                                <list level="4">Principe de concision</list>
+                            <list level="3">peut être remplacée par :</list>
+                                <list level="4">Principes</list>
+                                    <list level="5">Homogéneité</list>
+                                    <list level="5">Séparation</list>
+                                    <list level="5">Concision</list>
+                </remark>
+            </item>
+        </principle>
+    </principles>
+    <sandbox>
+        <example>phrase dont une partie est <technic>mise en évidence</technic> car elle représente un élément technique</example>
+        <example>phrase contenant un <link>lien</link> hypertexte.</example>
+        <example>exemple de liste : <newLine/>
+                <list level="1">item 1 du niveau 1</list>
+                    <list level="2">item 1 du niveau 2</list>
+                        <list level="3">item 1 du niveau 3</list>
+                        <list level="3">item 2 du niveau 3</list>
+                    <list level="2">item 2 du niveau 2</list>
+                <list level="1">item 2 du niveau 1</list>
+        </example>
+    </sandbox>
+    <powershell>
+        <typeInformation>
+            <notation>
+                <item>
+                    <type><technic>file</technic></type>
+                    <description>correspond à un fichier (<technic>FileInfo</technic>) ou un répertoire (<technic>DirectoryInfo</technic>)</description>
+                </item>
+                <item>
+                    <type><technic>string</technic></type>
+                    <description>une chaîne de caractères. La nature de l'objet représenté est indiqué entre parenthèses (path par exemple)</description>
+                </item>
+                <item>
+                    <type><technic>file set</technic></type>
+                    <description> un ensemble de <technic>file</technic> passé sur le pipe</description>
+                </item>
+                <item>
+                    <type><technic>string set</technic></type>
+                    <description> un ensemble de chaînes de caractères passé sur le pipe</description>
+                </item>
+                <item>
+                    <type><technic>string list</technic></type>
+                    <description>une liste de chaînes caractères séparées par des ,</description>
+                </item>
+                <item>
+                    <type><technic>object</technic></type>
+                    <description> un objet au sens large</description>
+                </item>
+            </notation>
+            <compatibility>
+                <item>
+                    <expectedType><technic>file set</technic></expectedType>
+                    <compatibleType><technic>file</technic></compatibleType>
+                </item>
+                <item>
+                    <expectedType><technic>string set</technic></expectedType>
+                    <compatibleType><technic>string</technic></compatibleType>
+                </item>
+                <item>
+                    <expectedType><technic>string list</technic></expectedType>
+                    <compatibleType><technic>string</technic></compatibleType>
+                </item>
+                <item>
+                    <expectedType><technic>object</technic></expectedType>
+                    <compatibleType><technic>tout type d'objet</technic></compatibleType>
+                </item>
+            </compatibility>
+            <properties>
+                <type>
+                    <name><technic>file</technic></name>
+                    <property>
+                        <name><technic>BaseName</technic></name>
+                        <description>nom du fichier sans son extension</description>
+                    </property>
+                    <property>
+                        <name><technic>Extension</technic></name>
+                        <description>extension du fichier</description>
+                    </property>
+                    <property>
+                        <name><technic>FullName</technic></name>
+                        <description>nom complet du fichier (avec son path)</description>
+                    </property>
+                    <property>
+                        <name><technic>Name</technic></name>
+                        <description>nom du fichier avec son extension</description>
+                    </property>
+                    <property>
+                        <name><technic>PSParentPath</technic></name>
+                        <description>nom du répertoire parent</description>
+                    </property>
+                </type>
+            </properties>
+        </typeInformation>
+        <group>
+            <name>Template des commandes</name>
+            <goal>
+                <target>objectif de la commande</target>
+                <pipe>
+                    <source>type d'entrée 1</source>
+                    <command>commande 1</command>
+                    <target>type de sortie 1</target>
+                </pipe>
+                <pipe>
+                    <source>type d'entrée 2</source>
+                    <command>commande 2</command>
+                    <target>type de sortie 2</target>
+                </pipe>
+                <alias>alias 1</alias>
+                <alias>alias 2</alias>
+                <alias>alias 3</alias>
+                <option>
+                    <name>option 1</name>
+                    <shortcut>shortcut 1</shortcut>
+                </option>
+                <option>
+                    <name>option 2</name>
+                    <shortcut>shortcut 2</shortcut>
+                </option>
+                <remark>remarque 1</remark>
+                <remark>remarque 2</remark>
+            </goal>
+        </group>
+        <group>
+            <name>IO</name>
+            <goal>
+                <target>lister tous les éléments (fichiers et répertoires) d'un répertoire donné</target>
+                <pipe>
+                    <source>directory path</source>
+                    <command>Get-ChildItem -r "...</command>
+                    <target>file set</target>
+                </pipe>
+                <pipe>
+                    <source>directory path</source>
+                    <command>$dir="...";Get-ChildItem -r $dir</command>
+                    <target>file set</target>
+                </pipe>
+                <alias>dir</alias>
+                <alias>ls</alias>
+                <option>
+                    <name>-recurse</name>
+                    <shortcut>-r</shortcut>
+                </option>
+            </goal>
+            <goal>
+                <target>lire le contenu d'un fichier</target>
+                <pipe>
+                    <source>string (path) list</source>
+                    <command>Get-Content(...)</command>
+                    <target>string set</target>
+                </pipe>
+                <pipe>
+                    <source>string (path) list</source>
+                    <command>Get-Content(...)</command>
+                    <target>file list</target>
+                </pipe>
+            </goal>
+            <goal>
+                <target>récupérer un file set à partir d'une liste de path</target>                
+                <pipe>
+                    <source>string (path) list</source>
+                    <command>Get-Content(...)</command>
+                    <target>file</target>
+                </pipe>
+            </goal>
+            <goal>
+                <target>écrire dans un fichier</target>
+                <pipe>
+                    <source>object, string (path)</source>
+                    <command>... | Out-File -filepath "..."</command>
+                    <target>file</target>
+                </pipe>
+                <option>
+                    <name>-append</name>
+                    <shortcut>permet de compléter un fichier déjà existant</shortcut>
+                </option>
+                <option>
+                    <name>-inputObject</name>
+                    <shortcut>permet de préciser un objet à écrire</shortcut>
+                </option>
+            </goal>
+        </group>
+        <group>
+            <name>Filtrage</name>
+            <goal>
+                <target>ne conserver que les répertoires d'un file set (et pas les fichiers)</target>
+                <pipe>
+                    <source>file set</source>
+                    <command>... | where {$_.PsIsContainer}</command>
+                    <target>file set</target>
+                </pipe>
+            </goal>
+            <goal>
+                <target>ne conserver que les fichiers d'un file set (et pas les répertoires)</target>
+                <pipe>
+                    <source>file set</source>
+                    <command>... | where {!$_.PsIsContainer}</command>
+                    <target>file set</target>
+                </pipe>
+            </goal>
+            <goal>
+                <target>ne conserver que les entrées qui correspondent à une expression régulière</target>
+                <pipe>
+                    <source>string set, regular expression</source>
+                    <command>... | where {$_ -match "..."}</command>
+                    <target>string set</target>
+                </pipe>
+            </goal>
+        </group>
+        <group>
+            <name>Boucle</name>
+            <goal>
+                <target>effectuer un même traitement sur un ensemble de données</target>
+                <pipe>
+                    <source>string set + commande powershell</source>
+                    <command>... | Foreach{...}</command>
+                    <target>string set (si écriture par la commande)</target>
+                </pipe>
+                <pipe>
+                    <source>file set + commande powershell</source>
+                    <command>... | Foreach{...}</command>
+                    <target>string set (si écriture par la commande)</target>
+                </pipe>
+                <remark>Au début du Foreach, créer les variables qui seront utilisées dans la commande</remark>
+                <remark>l'expression <technic>$_</technic> désigne l'entrée courante du <technic>string set</technic></remark>
+                <remark>plusieurs sous-commandes peuvent être séparées par un <technic>;</technic></remark>
+            </goal>
+        </group>
+        <group>
+            <name>Pipeline</name>
+            <goal>
+                <target>écrire un objet sur le pipeline</target>
+                <pipe>
+                    <source>objet</source>
+                    <command>Write-Output(...)</command>
+                    <target>objet</target>
+                </pipe>
+            </goal>
+        </group>
+        <group>
+            <name>Information sur les objets</name>
+            <goal>
+                <target>connaître le type et les membres d'un objet</target>
+                <pipe>
+                    <source>objet</source>
+                    <command>... | Get-Member</command>
+                    <target>MemberDefinition</target>
+                </pipe>
+            </goal>
+            <goal>
+                <target>lister les noms d'un ensemble de fichiers</target>
+                <pipe>
+                    <source>file set</source>
+                    <command>... | Foreach{$_.FullName}</command>
+                    <target>string set</target>
+                </pipe>
+                <pipe>
+                    <source>file set</source>
+                    <command>... | Foreach{$_.Name}</command>
+                    <target>string set</target>
+                </pipe>
+            </goal>
+        </group>
+        <example>
+            <item>
+                <goal>copie de tous les fichiers contenus dans le répertoire "C:\Temp\PS", avec ajout de BEGIN sur la première ligne et de END sur la dernière lignes</goal>
+                <answer>sans utilisation de pipe au sein du Foreach : <newLine/>
+                    <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}</codeLine></code>
+                </answer>
+                <answer>avec utilisation de pipe au sein du Foreach : <newLine/>
+                    <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}</codeLine></code>
+                </answer>
+                <answer>variante avec utilisation du caractère d'échappemnt `r signifiant un retour à la ligne  : <newLine/>
+                    <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}</codeLine></code>
+                </answer>
+            </item>
+        </example>
+    </powershell>
+    <fileModification>
+        <metadata xpath="//data/fileModification/endOfLine/character">Caractères pouvant intervenir dans la séquence indiquant une fin de ligne</metadata>
+        <metadata xpath="//data/fileModification/endOfLine/sequence">Séquences de caractères indiquant une fin de ligne</metadata>
+        <goal>L'objectif de cette section est de donner des méthodes de modification de fichiers. Elle détaille les outils utilisés, ainsi que les commandes au sein de ces outils.</goal>
+        <endOfLine>
+            <character>Carriage return (CR): <technic>\r</technic></character>
+            <character>Line feed (LF) : <technic>\n</technic></character>
+            <sequence>sous UNIX : <technic>\n</technic></sequence>
+            <sequence>sous Windows : <technic>\r\n</technic></sequence>
+            <sequence>sous Mac : <technic>\r</technic></sequence>
+        </endOfLine>
+        <item>
+            <goal>Convertir les fins de ligne d'un fichier (Windows/Unix/Mac)</goal>
+            <answer>
+                <tool>Notepad++</tool>
+                <method>vers UNIX : Edition > Convertir les sauts de ligne > Convertir en Format UNIX (LF)</method>
+                <method>vers Windows : Edition > Convertir les sauts de ligne > Convertir en Format Windows (CR+LF)</method>
+                <method>vers Mac : Edition > Convertir les sauts de ligne > Convertir en Format Mac (CR)</method>
+            </answer>
+        </item>
+        <item>
+            <goal>Voir les séquences de fin de ligne</goal>
+            <answer>
+                <tool>Notepad++</tool>
+                <method>Affichage > Symboles spéciaux > Afficher les symboles de fin de ligne</method>
+            </answer>
+        </item>
+        <item>
+            <goal>Voir les blancs et les tabulations</goal>
+            <answer>
+                <tool>Notepad++ </tool>
+                <method> Affichage > Symboles spéciaux > Afficher les blancs et les tabulations</method>
+            </answer>
+        </item>
+        <item>
+            <goal>Supprimer des lignes vides (i.e ne contenant aucun caractère, pas même des espaces)</goal>
+            <answer>
+                <tool>Notepad++</tool>
+                <method>plugin TextFX : TextFX > TextFX Edit > Delete Blank Lines</method>
+            </answer>
+        </item>
+        <item>
+            <goal>Compacter des lignes vides consécutives en une seule ligne vide</goal>
+            <answer>
+                <tool>Notepad++</tool>
+                <method>plugin TextFX : TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)</method>
+            </answer>
+        </item>
+        <item>
+            <goal>Distribuer sur différentes lignes des items faisant partie d'une liste</goal>
+            <example>
+                <source><code><codeLine>A, B, C</codeLine></code></source>
+                <target><code><codeLine>A</codeLine><codeLine>B</codeLine><codeLine>C</codeLine></code></target>
+            </example>
+            <answer>
+                <tool>Notepad++</tool>
+                <method>remplacer (<technic>CTRL + H</technic>)</method>
+                <method>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</method>
+                <method>recherche : <technic>,</technic></method>
+                <method>remplacer par : <technic>\r\n</technic></method>
+            </answer>
+        </item>
+        <item>
+            <goal>Assembler différentes lignes en une liste</goal>
+            <example>
+                <source><code><codeLine>A</codeLine><codeLine>B</codeLine><codeLine>C</codeLine></code></source>
+                <target><code><codeLine>A, B, C</codeLine></code></target>
+            </example>
+            <answer>
+                <tool>Notepad++</tool>
+                <method>remplacer (<technic>CTRL + H</technic>)</method>
+                <method>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</method>
+                <method>recherche : <technic>\r\n</technic></method>
+                <method>remplacer par : <technic>,</technic></method>
+            </answer>
+        </item>
+        <item>
+            <goal>Trier des lignes en supprimant les doublons</goal>
+            <answer>
+                <tool>Notepad++ (plugin TextFX)</tool>
+                <method>Notepad++TextFX > TextFX Tools > cocher "+Sort outputs only UNIQUE (at column) lines"</method>
+                <method>Notepad++TextFX > TextFX Tools > cocher "+Sort ascending" pour un tri par ordre alphabétique / décocher pour un ordre inverse</method>
+                <method>Notepad++TextFX > TextFX Tools > cliquer sur "Sort lines case sensitive (at column)" ou sur "Sort lines case insensitive (at column)"</method>
+            </answer>
+        </item>
+        <item>
+            <goal>Indenter les xml</goal>
+            <answer>
+                <tool>IntelliJ</tool>
+                <method>Code > Reformat Code...</method>
+                <method>Raccourci par défaut : CTRL + ALT + L</method>
+                <method>Fonctionne sur tous les fichiers du projet ou sur un ensemble de fichiers sélectionnés.</method>
+            </answer>
+        </item>
+        <item>
+            <goal>Convertir "underscore" vers "camelcase"</goal>
+            <example>
+                <source>iinvCEqSector</source>
+                <target>IINV_C_EQ_SECTOR</target>
+            </example>
+            <answer>
+                <tool>Notepad++</tool>
+                <method>étape 1 : remplacer l'expression régulière ([A-Z]) par _\1 (cocher Respecter la casse)</method>
+                <method>étape 2 : passer en majuscule (CTRL + SHIFT + U)</method>
+            </answer>
+        </item>
+        <item>
+            <goal>Comparer 2 listes</goal>
+            <answer>
+                <tool>Excel</tool>
+                <method>en A1, saisir le formattage conditionnel <code><codeLine>=ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)</codeLine></code></method>
+                <method>en B1, saisir le formattage conditionnel <code><codeLine>=ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)</codeLine></code></method>
+                <method>copier le format de A1 sur la colonne A</method>
+                <method>copier le format de B1 sur la colonne B</method>
+                <method>Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND</method>
+                <method>Inspiré de l'article <link>http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310</link></method>
+            </answer>
+        </item>        
+    </fileModification>
+    <subversion>
+        <item>
+            <description>Différences entre le working directory et la base</description>
+            <command><code><codeLine>svn diff</codeLine></code></command>
+        </item>
+        <item>
+            <description>Différences entre le working directory et le serveur</description>
+            <command><code><codeLine>svn diff -r HEAD</codeLine></code></command>
+        </item>
+        <item>
+            <description>Résumé des modifications locales</description>
+            <command><code><codeLine>svn status</codeLine></code></command>
+        </item>
+        <item>
+            <description>"Nettoyage" du working directory</description>
+            <command><code><codeLine>svn cleanup</codeLine></code></command>
+        </item>
+        <item>
+            <description>Informations sur le repository (branche, numéro de révision)</description>
+            <command><code><codeLine>svn info</codeLine></code></command>
+        </item>
+    </subversion>
+    <sql>
+        <item>
+            <goal>sélectionner le maximum d'une colonne en fonction d'une autre colonne</goal>
+            <example>
+                <code lang="sql">
+                    <codeLine level="1">create table max_test(code varchar(3), value int)</codeLine>
+                    <codeLine level="1">insert into max_test(code, value) values ('A', 3)</codeLine>
+                    <codeLine level="1">insert into max_test(code, value) values ('A', 4)</codeLine>
+                    <codeLine level="1">insert into max_test(code, value) values ('A', 5)</codeLine>
+                    <codeLine level="1">insert into max_test(code, value) values ('B', 1)</codeLine>
+                    <codeLine level="1">insert into max_test(code, value) values ('B', 4)</codeLine>
+                    <codeLine level="1">insert into max_test(code, value) values ('C', 7)</codeLine>
+                    <codeLine level="1">insert into max_test(code, value) values ('C', 6)</codeLine>
+                    <codeLine level="1">insert into max_test(code, value) values ('C', 5)</codeLine>
+                </code>
+            </example>
+            <query><code lang="sql"><codeLine>select code, max(value) from max_test group by code</codeLine></code></query>
+        </item>
+         <item>
+            <goal>écrire un case dans un select</goal>
+            <example>
+                <code lang="sql">
+                    <codeLine level="1">case</codeLine>
+                    <codeLine level="2">when condition_1 then value_1</codeLine>
+                    <codeLine level="2">when condition_2 then value_2</codeLine>
+                    <codeLine level="2">...</codeLine>
+                    <codeLine level="2">when condition_n then value_n</codeLine>
+                    <codeLine level="2">else value_else</codeLine>
+                    <codeLine level="1">end</codeLine>
+                </code>
+            </example>
+            <query><code lang="sql"><codeLine>select code, max(value) from max_test group by code</codeLine></code></query>
+        </item>
+    </sql>
+    <sybase>
+        <item>
+            <goal>Vérifier l'existence d'une table</goal>
+            <command><code lang="sql"><codeLine>select 1 from sysobjects where type = 'U' and name = 'nom_de_table'</codeLine></code></command>
+        </item>
+        <item>
+            <goal>Vérifier l'existence d'une procédure stockée</goal>
+            <command><code lang="sql"><codeLine>select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'</codeLine></code></command>
+        </item>
+        <item>
+            <goal>Vérifier l'existence d'une table temporaire</goal>
+            <command><code lang="sql"><codeLine>select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'</codeLine></code></command>
+        </item>
+        <item>
+            <goal>Déclarer une variable</goal>
+            <command><code lang="sql"><codeLine>declare @nom_de_la_variable type_de_la_variable</codeLine></code></command>
+            <example>declare @ptf_cod varchar(12)</example>
+        </item>
+        <item>
+            <goal>Affecter une valeur à une variable</goal>
+            <command><code lang="sql"><codeLine>select @nom_de_la_variable = @valeur_de_la_variable</codeLine></code></command>
+            <example>select @ptf_cod = 'ZX23'</example>
+        </item>
+        <item>
+            <goal>Voir le code d'une procédure stockée</goal>
+            <command><code lang="sql"><codeLine>sp_helptext 'nom_de_procedure'</codeLine></code></command>
+        </item>
+        <item>
+            <goal>Obtenir la liste des utilisateurs</goal>
+            <command><code lang="sql"><codeLine>sp_helpuser</codeLine></code></command>
+        </item>
+        <item>
+            <goal>Obtenir la liste des groupes</goal>
+            <command><code lang="sql"><codeLine>sp_helpgroup</codeLine></code></command>
+        </item>
+        <item>
+            <goal>Ajouter à une base un groupe défini sur le data serveur</goal>
+            <command><code lang="sql"><codeLine>sp_addgroup 'nom_de_groupe'</codeLine></code></command>
+        </item>
+        <object>
+            <name>Le fichier <technic>sql.ini</technic></name>
+            <definition>Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier <technic>sql.ini</technic> ( présent par exemple dans <technic>C:\Program Files\sybase\12.5.1\ini</technic>)
+            Ils sont définis suivant le template :<newLine/>
+                <code>
+                    <codeLine level="1">[DATA_SERVEUR_NAME]</codeLine>
+                    <codeLine level="1">query=TCP,server-name,port</codeLine>
+                </code>
+            où server-name est le nom ou l'alias d'une machine.
+            </definition>
+            <remark>un data serveur peut héberger plusieurs bases</remark>
+            <remark>si <technic>A</technic> et <technic>B</technic> sont 2 bases sur un même data server, et si <technic>a</technic> est un objet de <technic>A</technic> et <technic>b</technic> un objet de <technic>B</technic>, <technic>a</technic> peut référencer <technic>b</technic> en utilisant la syntaxe <technic>B..b</technic></remark>
+        </object>
+        <object>
+            <name>L'outil <technic>isql</technic></name>
+            <definition>Outil Sybase permettant l'exécution d'un script sql via la syntaxe<newLine/>
+                <code><codeLine>isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql</codeLine></code>
+            </definition>
+            <remark>Le fichier d'entrée (ex: <technic>script.sql</technic>) passé à <technic>isql</technic> peut inclure un fichier (ex : <technic>include.sql</technic>) à l'aide de la syntaxe :<newLine/>
+                <code><codeLine>:r C:\Temp\include.sql</codeLine></code></remark>
+            <remark>il ne doit pas y avoir d'espace entre le début de la ligne et le <technic>:r</technic></remark>
+        </object>
+    </sybase>
+    <dos>
+        <item>
+            <goal>Lister récursivement les fichiers d'un répertoire</goal>
+            <command><code lang="dos"><codeLine>dir /S /A:-D /B</codeLine></code></command>
+            <options>
+                <option>
+                    <shortcut>/S</shortcut>
+                    <meaning>subdirectories</meaning>
+                    <description>permet la récursion sur les sous-répertoires</description>
+                </option>
+                <option>
+                    <shortcut>/A</shortcut>
+                    <meaning>attribute</meaning>
+                    <description><technic>-D</technic> : ne possédant pas l'attribut "Directory"</description>
+                </option>
+                <option>
+                    <shortcut>/B</shortcut>
+                    <meaning>bare format (format nu)</meaning>
+                    <description>présente seulement les noms de fichiers sans formattage</description>
+                </option>
+            </options>
+        </item>
+    </dos>
+    <keyboard>
+        <item>
+            <goal>Basculer entre anglais et français</goal>
+            <shortcut>ALT + SHIFT</shortcut>
+        </item>
+    </keyboard>
+    <regexp>
+        <metadata xpath="//data/regexp/tool/remplacement">Expression désignant le premier groupe capturé</metadata>
+        <tool>
+            <name>IntelliJ</name>
+            <matching>
+                <expression>\t</expression>
+                <behaviour>matche avec les tabulations</behaviour>
+            </matching>
+            <matching>
+                <expression>\r</expression>
+                <behaviour>non reconnu</behaviour>
+            </matching>
+            <matching>
+                <expression>\n</expression>
+                <behaviour>matche avec la séquence de fin de ligne (<technic>\r\n</technic> sous Windows et <technic>\n</technic> sous Unix)</behaviour>
+            </matching>
+            <replacement>$1</replacement>
+        </tool>
+        <tool>
+            <name>Notepad++</name>
+            <matching>
+                <expression>\t</expression>
+                <behaviour>matche avec les tabulations</behaviour>
+            </matching>
+            <matching>
+                <expression>\r</expression>
+                <behaviour>non reconnu</behaviour>
+            </matching>
+            <matching>
+                <expression>\n</expression>
+                <behaviour>non reconnu</behaviour>
+            </matching>
+            <replacement>\1</replacement>
+        </tool>
+    </regexp>
+    <language>
+        <name>Anglais</name>
+        <reference>
+            <name>phonétique</name>
+            <link>http://www.wordreference.com</link>
+        </reference>
+        <reference>
+            <name>traduction</name>
+            <link>http://www.wordreference.com</link>
+        </reference>
+        <reference>
+            <name>Liste des symboles phonétiques</name>
+            <link>http://www.wordreference.com/fr/French-Pronunciation.aspx</link>
+        </reference>
+        <reference>
+            <name>ipa</name>
+            <link>http://www.antimoon.com/how/pronunc-soundsipa.htm</link>
+        </reference>
+        <word>
+            <name></name>
+            <phonetic></phonetic>
+            <description></description>
+        </word>
+        <word>
+            <name>comfort</name>
+            <phonetic>ˈkʌmfət</phonetic>
+            <description>confort</description>
+        </word>
+        <word>
+            <name>comfortable</name>
+            <phonetic>ˈkʌmftəbl, US :ˈkʌmfərtbl</phonetic>
+            <description>confortable</description>
+        </word>
+        <word>
+            <name>database</name>
+            <phonetic>ˈdeɪtəˌbeɪs</phonetic>
+            <description>base de données</description>
+        </word>
+        <word>
+            <name>flaccid</name>
+            <phonetic>ˈflæksɪd / ˈflæsɪd</phonetic>
+            <description>flasque, mou</description>
+        </word>
+        <word>
+            <name>pawn</name>
+            <phonetic>pɔːn</phonetic>
+            <description>pions (aux échecs)</description>
+        </word>
+    </language>
+    <language>
+        <name>Français</name>
+        <reference>
+            <name>Définition</name>
+            <link>http://www.lexilogos.com/francais_langue_dictionnaires.htm</link>
+        </reference>
+        <word>
+            <name>atermoiement</name>
+            <description>(souvent au pluriel) action de différer, retarder; hésitation, tergiversation</description>
+        </word>
+    </language>
+    <webAndWiki>
+        <reference>
+            <name>Créer son wiki</name>
+            <link>http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki</link>
+        </reference>
+        <reference>
+            <name>Créer son site web</name>
+            <link>http://www.2createawebsite.com</link>
+        </reference>
+    </webAndWiki>
+    <xmlTechno>
+        <group>
+            <name>XSLT</name>
+            <item>
+                <name>Testeurs Xslt online</name>
+                <reference>
+                    <name>mark bucayan</name>
+                    <link>http://markbucayan.appspot.com/xslt/index.html</link>
+                </reference>
+                <reference>
+                    <name>xslt cake</name>
+                    <link>http://www.xsltcake.com</link>
+                </reference>
+            </item>
+            <item>
+                <name>Tutoriaux Xslt</name>
+                <reference>
+                    <name>Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné)</name>
+                    <link>http://xmlfr.org/documentations/faq/041013-0001</link>
+                </reference>
+                <reference>
+                    <name>Traitement des espaces blancs : décrire la problèmatique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.</name>
+                    <link></link>
+                </reference>
+            </item>
+        </group>
+        <group>
+            <name>XSD / DTD</name>
+            <item>
+               <name>Tutoriaux XSD</name>
+               <reference>
+                    <name>Tutorial Xsd 1</name>
+                    <link>http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes</link>
+                </reference>
+                <reference>
+                    <name>Tutorial Xsd 2</name>
+                    <link>http://www.w3schools.com/schema/default.asp</link>
+                </reference>
+                <reference>
+                    <name>DTD et XSD</name>
+                    <link>http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas</link>
+                </reference>
+            </item>
+            <item>
+                <name>Validateur XSD online</name>
+                <reference>
+                    <name>Xsd online validator</name>
+                    <link>http://www.corefiling.com/opensource/schemaValidate.html</link>
+                </reference>
+            </item>
+        </group>
+        
+    </xmlTechno>
+    <java>
+        <item>
+            <goal>Lire les lignes d'un fichier</goal>
+            <tested>jdk6</tested>
+            <package>
+                <name>java.lang</name>
+                <class>String</class>
+            </package>
+            <package>
+                <name>java.util</name>
+                <class>List</class>
+                <class>ArrayList</class>
+            </package>
+            <code lang="java">
+                <codeLine level="1">public static List&openTag;String&closeTag; readLines(File file) throws IOException {</codeLine>
+                <codeLine level="2">BufferedReader reader = new BufferedReader(new FileReader(file));</codeLine>
+                <codeLine level="2">List&openTag;String&closeTag; lines = new ArrayList&openTag;String&closeTag;();</codeLine>
+                <codeLine level="2">String line = reader.readLine();</codeLine>
+                <codeLine level="2">while (line != null) {</codeLine>
+                <codeLine level="3">lines.add(line);</codeLine>
+                <codeLine level="3">line = reader.readLine();</codeLine>
+                <codeLine level="2">}</codeLine>
+                <codeLine level="2">reader.close();</codeLine>
+                <codeLine level="2">return lines;</codeLine>
+                <codeLine level="1">}</codeLine>
+            </code>
+            <remark>Pour deux fichiers contenant respectivement <technic>A\r\nB</technic> et <technic>A\r\nB\r\n</technic>, la méthode <technic>readLines</technic> renvoie une liste identique (contenant les 2 éléments <technic>A</technic> et <technic>B</technic>).</remark>
+        </item>
+        <item>
+            <goal>Insérer des lignes dans un fichier</goal>
+            <tested>jdk6</tested>
+            <package>
+                <name>java.lang</name>
+                <class>String</class>
+            </package>
+            <package>
+                <name>java.util</name>
+                <class>List</class>
+            </package>
+            <package>
+                <name>java.io</name>
+                <class>FileWriter</class>
+                <class>BufferedWriter</class>
+            </package>
+            <code lang="java">
+                <codeLine level="1">public static void writeLines(List&openTag;String&closeTag; lines, File file) throws IOException {</codeLine>
+                <codeLine level="2">BufferedWriter writer = new BufferedWriter(new FileWriter(file));</codeLine>
+                <codeLine level="2">for (int i = 0; i &openTag; lines.size() - 1; i++) {</codeLine>
+                <codeLine level="3">writer.write(lines.get(i));</codeLine>
+                <codeLine level="3">writer.newLine();</codeLine>
+                <codeLine level="2">}</codeLine>
+                <codeLine level="2">writer.write(lines.get(lines.size() - 1));</codeLine>
+                <codeLine level="2">writer.flush();</codeLine>
+                <codeLine level="2">writer.close();</codeLine>
+                <codeLine level="1">}</codeLine>
+            </code>
+            <remark>la méthode <technic>writeLines</technic> n'ajoute pas de séquence de fin de ligne après la dernière ligne</remark>
+        </item>
+        <item>
+            <goal>Manipuler les listes</goal>
+            <tested>jdk6</tested>
+            <package>
+                <name>java.lang</name>
+                <class>String</class>
+            </package>
+            <package>
+                <name>java.util</name>
+                <class>List</class>
+                <class>ArrayList</class>
+                <class>Arrays</class>
+            </package>
+            <code lang="java">
+                <codeLine level="1">SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");</codeLine>
+                <codeLine level="1">Date date = sdf.parse("10/11/2011");</codeLine>
+            </code>
+        </item>
+        <item>
+            <goal>Récupérer les propriétés systèmes</goal>
+            <package>
+                <name>java.lang</name>
+                <class>System</class>
+            </package>
+            <code lang="java">
+                <codeLine level="1">System.getProperties()</codeLine>
+            </code>
+        </item>
+        <item>
+            <goal>Récupérer une liste fixe de chaînes de caractères</goal>
+            <package>
+                <name>java.lang</name>
+                <class>String</class>
+            </package>
+            <package>
+                <name>java.util</name>
+                <class>List</class>
+                <class>ArrayList</class>
+            </package>
+            <code lang="java">
+                <codeLine level="1">public List&openTag;String&closeTag; getAllFilePath() {</codeLine>
+                <codeLine level="2">String[] pathArray = {</codeLine>
+                <codeLine level="3">"C:\\dev\\file1.xml",</codeLine>
+                <codeLine level="3">"C:\\dev\\file2.txt"</codeLine>
+                <codeLine level="2">};</codeLine>
+                <codeLine level="2">List&openTag;String&closeTag; stringList = new ArrayList&openTag;String&closeTag;();</codeLine>
+                <codeLine level="2">stringList.addAll(Arrays.asList(pathArray));</codeLine>
+                <codeLine level="2">return stringList;</codeLine>
+                <codeLine level="1">}</codeLine>
+            </code>
+        </item>
+        <item>
+            <goal>Modifier plusieurs fichiers</goal>
+            <code lang="java">
+                <codeLine level="1">public void process() throws Exception {</codeLine>
+                <codeLine level="2">for (String filePath : getAllFilePath()) {</codeLine>
+                <codeLine level="3">File file = new File(filePath);</codeLine>
+                <codeLine level="3">List&openTag;String&closeTag; lines = readLines(file);</codeLine>
+                <codeLine level="3">List&openTag;String&closeTag; processedLines = process(lines);</codeLine>
+                <codeLine level="3">writeLines(processedLines, file);</codeLine>
+                <codeLine level="2">}</codeLine>
+                <codeLine level="1">}</codeLine>
+            </code>
+            <remark><technic>getAllFilePath</technic>, <technic>readLines</technic>, <technic>writeLines</technic> sont 3 méthodes définies dans cette section</remark>
+            <remark>La méthode <technic>process</technic>est la seule qui reste à définir</remark>
+            <remark>D'après les remarques sur les méthodes <technic>readLines</technic> et <technic>writeLines</technic>, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence</remark>
+        </item>
+         <item>
+            <goal>Utiliser les expressions régulières</goal>
+            <tested>jdk6</tested>
+             <package>
+                <name>java.util.regex</name>
+                <class>Pattern</class>
+                <class>Matcher</class>
+            </package>
+            <code lang="java">
+                <codeLine level="1">public static void main(String[] args) {</codeLine>
+                <codeLine level="2">Pattern pattern = Pattern.compile("(\\w)(..)(.)");</codeLine>
+                <codeLine level="2">Matcher matcher = pattern.matcher("abcd efghijklmn");</codeLine>
+                <codeLine level="2">while (matcher.find()) {</codeLine>
+                <codeLine level="3">System.out.println("MATCH !");</codeLine>
+                <codeLine level="3">System.out.println("group()= " + matcher.group());</codeLine>
+                <codeLine level="3">System.out.println("offset before first matched character = " + matcher.start());</codeLine>
+                <codeLine level="3">System.out.println("offset after last matched character= " + matcher.end());</codeLine>
+                <codeLine level="3">System.out.println("groupCount = " + matcher.groupCount());</codeLine>
+                <codeLine level="3">for (int i = 0; i &openTag; matcher.groupCount() + 1; i++) {</codeLine>
+                <codeLine level="4">System.out.println("\tgroup(" + i + ") = " + matcher.group(i));</codeLine>
+                <codeLine level="4">System.out.println("\t\toffset before group(" + i + ") first character= " + matcher.start(i));</codeLine>
+                <codeLine level="4">System.out.println("\t\toffset after group(" + i + ") last character = " + matcher.end(i));</codeLine>
+                <codeLine level="3">}</codeLine>
+                <codeLine level="2">}</codeLine>
+                <codeLine level="2">System.out.println("modifiedString = " + matcher.replaceAll("X"));</codeLine>
+                <codeLine level="1">}</codeLine>
+            </code>
+            <remark>L'éxécution du code précédent affiche la sortie suivante :<newLine/>
+                <code>
+                    <codeLine level="1">MATCH !</codeLine>
+                    <codeLine level="1">group()= abcd</codeLine>
+                    <codeLine level="1">offset before first matched character = 0</codeLine>
+                    <codeLine level="1">offset after last matched character= 4</codeLine>
+                    <codeLine level="1">groupCount = 3</codeLine>
+                    <codeLine level="1">group(0) = abcd</codeLine>
+                    <codeLine level="1">offset before group(0) first character= 0</codeLine>
+                    <codeLine level="1">offset after group(0) last character = 4</codeLine>
+                    <codeLine level="1">group(1) = a</codeLine>
+                    <codeLine level="1">offset before group(1) first character= 0</codeLine>
+                    <codeLine level="1">offset after group(1) last character = 1</codeLine>
+                    <codeLine level="1">group(2) = bc</codeLine>
+                    <codeLine level="1">offset before group(2) first character= 1</codeLine>
+                    <codeLine level="1">offset after group(2) last character = 3</codeLine>
+                    <codeLine level="1">group(3) = d</codeLine>
+                    <codeLine level="1">offset before group(3) first character= 3</codeLine>
+                    <codeLine level="1">offset after group(3) last character = 4</codeLine>
+                    <codeLine level="1">MATCH !</codeLine>
+                    <codeLine level="1">group()= efgh</codeLine>
+                    <codeLine level="1">offset before first matched character = 5</codeLine>
+                    <codeLine level="1">offset after last matched character= 9</codeLine>
+                    <codeLine level="1">groupCount = 3</codeLine>
+                    <codeLine level="1">group(0) = efgh</codeLine>
+                    <codeLine level="1">offset before group(0) first character= 5</codeLine>
+                    <codeLine level="1">offset after group(0) last character = 9</codeLine>
+                    <codeLine level="1">group(1) = e</codeLine>
+                    <codeLine level="1">offset before group(1) first character= 5</codeLine>
+                    <codeLine level="1">offset after group(1) last character = 6</codeLine>
+                    <codeLine level="1">group(2) = fg</codeLine>
+                    <codeLine level="1">offset before group(2) first character= 6</codeLine>
+                    <codeLine level="1">offset after group(2) last character = 8</codeLine>
+                    <codeLine level="1">group(3) = h</codeLine>
+                    <codeLine level="1">offset before group(3) first character= 8</codeLine>
+                    <codeLine level="1">offset after group(3) last character = 9</codeLine>
+                    <codeLine level="1">MATCH !</codeLine>
+                    <codeLine level="1">group()= ijkl</codeLine>
+                    <codeLine level="1">offset before first matched character = 9</codeLine>
+                    <codeLine level="1">offset after last matched character= 13</codeLine>
+                    <codeLine level="1">groupCount = 3</codeLine>
+                    <codeLine level="1">group(0) = ijkl</codeLine>
+                    <codeLine level="1">offset before group(0) first character= 9</codeLine>
+                    <codeLine level="1">offset after group(0) last character = 13</codeLine>
+                    <codeLine level="1">group(1) = i</codeLine>
+                    <codeLine level="1">offset before group(1) first character= 9</codeLine>
+                    <codeLine level="1">offset after group(1) last character = 10</codeLine>
+                    <codeLine level="1">group(2) = jk</codeLine>
+                    <codeLine level="1">offset before group(2) first character= 10</codeLine>
+                    <codeLine level="1">offset after group(2) last character = 12</codeLine>
+                    <codeLine level="1">group(3) = l</codeLine>
+                    <codeLine level="1">offset before group(3) first character= 12</codeLine>
+                    <codeLine level="1">offset after group(3) last character = 13</codeLine>
+                    <codeLine level="1">modifiedString = X XXmn</codeLine>
+                </code>
+            </remark>
+        </item>
+        <item>
+            <goal>Décompiler des classes java</goal>
+            <answer>utiliser l'outil <technic>JD-GUI</technic> (<link>http://java.decompiler.free.fr/?q=jdgui</link>)</answer>
+        </item>
+    </java>
+</data>
