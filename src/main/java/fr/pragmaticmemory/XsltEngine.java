@@ -16,19 +16,47 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 public class XsltEngine {
 
-    static final String PATH = "C:\\dev\\projects\\PragmaticMemory\\knowledge\\data";
+    static final String ROOT_PATH = "C:\\dev\\projects\\PragmaticMemory\\knowledge\\data";
 
 
-    public static void main(String[] args)
-          throws TransformerException, IOException, SAXException, ParserConfigurationException {
+    public static void main(String[] args) throws Exception {
 
-        Document document = getDOM(PATH + "\\Data.xml");
-        File file = new File(PATH + "\\TEST_OUTPUT.xml");
+        final String inputXmlPath;
+        final String outputXmlPath;
+        final String xsltPath;
+        if (args.length == 0) {
+            inputXmlPath = ROOT_PATH + "\\Data.xml";
+            xsltPath = ROOT_PATH + "\\ViewOnly.xsl";
+            outputXmlPath = ROOT_PATH + "\\TEST_OUTPUT2.xml";
+        }
+        else if (args.length != 3) {
+            // se placer dans PragmaticMemory\target\classes et executer : java fr.pragmaticmemory.XsltEngine "input" "xslt" "output"
+            String helpMessage = "usage : \n"
+                                 + "premier argument : chemin du fichier xml d'entree\n"
+                                 + "second argument : chemin du fichier xslt\n"
+                                 + "troisieme argument : chemin du fichier xslt de sortie\n";
+            System.out.println(helpMessage);
+            return;
+        }
+        else {
+            inputXmlPath = args[0];
+            xsltPath = args[1];
+            outputXmlPath = args[2];
+        }
 
-        StreamSource xslt = new StreamSource(new File(PATH + "\\ViewOnly.xsl"));
+        System.out.println("java fr.pragmaticmemory.XsltEngine" + quote(inputXmlPath) + quote(xsltPath) + quote(outputXmlPath));
+        transform(inputXmlPath, xsltPath, outputXmlPath);
+    }
+
+
+    private static void transform(String inputXmlPath, String xsltPath, String outputXmlPath) throws Exception {
+        Document document = getDOM(inputXmlPath);
+        File file = new File(outputXmlPath);
+
+        StreamSource xslt = new StreamSource(new File(xsltPath));
         TransformerFactory factory = TransformerFactory.newInstance();
         factory.setAttribute("indent-number", 6); // n'est pas pris en compte pour l'indentation de la sortie
-        
+
         Transformer transformer = factory.newTransformer(xslt);
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         transformer.setOutputProperty(OutputKeys.METHOD, "xml");
@@ -37,7 +65,6 @@ public class XsltEngine {
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
         transformer.setParameter(OutputKeys.INDENT, "yes");
 
-        
         transformer.transform(new DOMSource(document), new StreamResult(file));
     }
 
@@ -52,7 +79,7 @@ public class XsltEngine {
         // lecture du contenu d'un fichier XML avec DOM
         File xml = new File(filePath);
         Document document = constructeur.parse(xml);
-        displayDomInConsole(document);
+//        displayDomInConsole(document);
         return document;
     }
 
@@ -61,5 +88,10 @@ public class XsltEngine {
         TransformerFactory factory = TransformerFactory.newInstance();
         Transformer transformer = factory.newTransformer();
         transformer.transform(new DOMSource(document), new StreamResult(System.out));
+    }
+
+
+    static private String quote(String string) {
+        return " \"" + string + "\"";
     }
 }
