@@ -28,13 +28,13 @@
                 <xsl:for-each select="candidate">
                     <list level="2"><xsl:copy-of select="name"/></list>
                     <xsl:if test="advantage">
-                        <list level="3">Avantages : </list>
+                        <list level="3">Avantages :</list>
                         <xsl:for-each select="advantage">
                             <list level="4"><xsl:copy-of select="."/></list>
                         </xsl:for-each>
                     </xsl:if>
                     <xsl:if test="disadvantage">
-                        <list level="3">Inconvénients : </list>
+                        <list level="3">Inconvénients :</list>
                         <xsl:for-each select="disadvantage">
                             <list level="4"><xsl:copy-of select="."/></list>
                         </xsl:for-each>
@@ -111,13 +111,13 @@
                     <newLine/>
                 </xsl:for-each>
                 <xsl:if test="alias">
-                    <xsl:text>Alias : </xsl:text><newLine/>
+                    <xsl:text>Alias :</xsl:text><newLine/>
                 </xsl:if>
                 <xsl:for-each select="alias">
                     <list level="2"><technic><xsl:copy-of select="."/></technic></list>
                 </xsl:for-each>
                 <xsl:if test="option">
-                    <xsl:text>Options : </xsl:text><newLine/>
+                    <xsl:text>Options :</xsl:text><newLine/>
                 </xsl:if>
                 <xsl:for-each select="option">
                     <list level="2">
@@ -126,7 +126,7 @@
                     </list>
                 </xsl:for-each>
                 <xsl:if test="remark">
-                    <xsl:text>Remarques : </xsl:text><newLine/>
+                    <xsl:text>Remarques :</xsl:text><newLine/>
                 </xsl:if>
                 <xsl:for-each select="remark">
                    <list level="2"><xsl:copy-of select="."/></list>

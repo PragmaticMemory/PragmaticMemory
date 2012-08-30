@@ -1,154 +1,156 @@
 [[toc|flat]]
 ----
-=DASHBOARD= 
-==En cours== 
-==A faire== 
+=DASHBOARD=
+==En cours==
+==A faire==
 * Ecrire une xslt de vue et une xslt de media appelables successivement
-* Trouver le moyen le plus simple d'appliquer une xslt à un xml
-* Compléter le fichier de données avec la liste de mots en français
-* Compléter le fichier de données avec la liste de mots en anglais
-* Rédiger la xsd validant {{Data.xml}}
+* Trouver le moyen le plus simple d'appliquer une xslt Ã  un xml
+* ComplÃ©ter le fichier de donnÃ©es avec la liste de mots en franÃ§ais
+* ComplÃ©ter le fichier de donnÃ©es avec la liste de mots en anglais
+* RÃ©diger la xsd validant {{Data.xml}}
 * Afficher les packages / classes sous forme de tableaux dans la section java
-==Fait== 
-* Gérer l'imbrication de code dans un tableau dans Wikispaces
-* Rédiger : 
+==Fait==
+* Trouver un moyen de stoker le code
+** Solution retenue : GitHub
+* GÃ©rer l'imbrication de code dans un tableau dans Wikispaces
+* RÃ©diger :
 ** les fichiers xml correspondant aux pages existantes sur PragmaticMemory.wikispaces
 ** les fichiers xslt de mise en page au format wikispaces
 
-* Choix du lieu de stockage des fichiers de données (xml), styles (xslt) et schemas (xsd) 
-** Wikispaces 
-*** Avantages : 
-**** Wiki gratuit pour un usage privé
-*** Inconvénients : 
-**** les versions des fichiers téléchargés dans Wikispaces ne peuvent pas être supprimées. Conséquence : la limite de taille risque d'être atteinte rapidement si les mises à jour sont fréquentes.
-** Google Docs 
-*** Avantages : 
+* Choix du lieu de stockage des fichiers de donnÃ©es (xml), styles (xslt) et schemas (xsd)
+** Wikispaces
+*** Avantages :
+**** Wiki gratuit pour un usage privÃ©
+*** InconvÃ©nients :
+**** les versions des fichiers tÃ©lÃ©chargÃ©s dans Wikispaces ne peuvent pas Ãªtre supprimÃ©es. ConsÃ©quence : la limite de taille risque d'Ãªtre atteinte rapidement si les mises Ã  jour sont frÃ©quentes.
+** Google Docs
+*** Avantages :
 **** Gratuit
-*** Inconvénients : 
-**** Site non accessible à partir du bureau
-** Digiposte 
-*** Avantages : 
+*** InconvÃ©nients :
+**** Site non accessible Ã  partir du bureau
+** Digiposte
+*** Avantages :
 **** Gratuit
 **** Structure ayant plus de chance de durer que d'autre sites
-*** Inconvénients : 
-**** Pas de gestion de version : deux fichiers avec un nom identique sont stockés comme deux fichiers différents
+*** InconvÃ©nients :
+**** Pas de gestion de version : deux fichiers avec un nom identique sont stockÃ©s comme deux fichiers diffÃ©rents
 ** Solution retenue : Digiposte
-* Séparer les données du formattage 
-** Solution retenue : Utilation des xslt
-* Séparer le formattage lié à la vue du formattage lié au media de diffusion 
-** Solution retenue : Création de xslt de vue et de xslt de media
-* Gérer les indentations de ligne de code
-* Gérer le language (java, sql,...) dans la balise de code
+* SÃ©parer les donnÃ©es du formattage
+** Solution retenue : Utilisation des xslt
+* SÃ©parer le formattage liÃ© Ã  la vue du formattage liÃ© au media de diffusion
+** Solution retenue : CrÃ©ation de xslt de vue et de xslt de media
+* GÃ©rer les indentations de ligne de code
+* GÃ©rer le language (java, sql,...) dans la balise de code
 ----
-=PRINCIPES DE REDACTION= 
-L'objectif de cette section est de lister les principes permettant d'améliorer la forme du wiki, afin d'éliminer tout ce qui n'est pas indispensable ou qui peut minimiser la compréhension.
-==Clarté== 
+=PRINCIPES DE REDACTION=
+L'objectif de cette section est de lister les principes permettant d'amÃ©liorer la forme du wiki, afin d'Ã©liminer tout ce qui n'est pas indispensable ou qui peut minimiser la comprÃ©hension.
+==ClartÃ©==
 [[code]]
-Entre deux formulations d'une même information, utiliser la plus claire.
+Entre deux formulations d'une mÃªme information, utiliser la plus claire.
 [[code]]
-* (à développer) Utiliser la mise en forme pour permettre une distinction des types d'information
-==Homogénéité== 
+* (Ã  dÃ©velopper) Utiliser la mise en forme pour permettre une distinction des types d'information
+==HomogÃ©nÃ©itÃ©==
 [[code]]
-Forme : utiliser la même forme pour transmettre un même type d'information.
+Forme : utiliser la mÃªme forme pour transmettre un mÃªme type d'information.
 [[code]]
-* Règles à déterminer : 
-** utilisation des temps (futur, présent, ...)
+* RÃ¨gles Ã  dÃ©terminer :
+** utilisation des temps (futur, prÃ©sent, ...)
 ** utilisation de la casse (majuscule ou minuscule)
 ** ponctuation
 [[code]]
-Terme : utiliser toujours les mêmes termes pour désigner une même notion.
+Terme : utiliser toujours les mÃªmes termes pour dÃ©signer une mÃªme notion.
 [[code]]
-==Séparation== 
+==SÃ©paration==
 [[code]]
-Distinguer les informations utiles (données à transmettre) de la mise en page (manière de transmettre les données).
+Distinguer les informations utiles (donnÃ©es Ã  transmettre) de la mise en page (maniÃ¨re de transmettre les donnÃ©es).
 [[code]]
-* Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée.
-* Les différentes vues peuvent être destinées : 
-** à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)
-** à insiter sur différents aspects d'un ensemble de données au sein d'un même outil
+* Il est ainsi possible d'avoir diffÃ©rentes vues d'un mÃªme ensemble de donnÃ©e.
+* Les diffÃ©rentes vues peuvent Ãªtre destinÃ©es :
+** Ã  un rendu par diffÃ©rents outils (wikispaces, wikipedia, navigateur web, ...)
+** Ã  insiter sur diffÃ©rents aspects d'un ensemble de donnÃ©es au sein d'un mÃªme outil
 * La mise en oeuvre de ce principe est faite par l'utilisation de fichiers xml et xslt.
-* 3 types de fichiers sont utilisés : 
-** un fichier de "données", d'extension xml, stockant les données utiles
-** des fichiers "style", d'extension xslt, définissant chacun un style de présentation
-** des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style 
+* 3 types de fichiers sont utilisÃ©s :
+** un fichier de "donnÃ©es", d'extension xml, stockant les donnÃ©es utiles
+** des fichiers "style", d'extension xslt, dÃ©finissant chacun un style de prÃ©sentation
+** des fichiers "link", d'extension xml, chancun associant le fichier de donnÃ©es Ã  un fichier de style
 *** [[code format="xml"]]
- <?xml version="1.0" encoding="UTF-8"?>
- <?xml-stylesheet href="StyleUrl" type="text/xsl" ?>
- <!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>
- <linkedData>
- &data;
- </linkedData>
+  <?xml version="1.0" encoding="UTF-8"?>
+  <?xml-stylesheet href="StyleUrl" type="text/xsl" ?>
+  <!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>
+  <linkedData>
+  &data;
+  </linkedData>
 [[code]]
-*** à remplacer dans le template (+ exemple dans le cas de Subversion): 
+*** Ã  remplacer dans le template (+ exemple dans le cas de Subversion):
 **** StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)
 **** DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)
-**** Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt
-* les fichiers xml doivent être encodés en UTF-8
-* concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers : 
-** toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link
-** toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé
-==Concision== 
+**** Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de donnÃ©es de Data.xml Ã  la feuille de style Wikispaces.xslt
+* les fichiers xml doivent Ãªtre encodÃ©s en UTF-8
+* concernant les liens vers les piÃ¨ces jointes Wikispaces contenant les versions de ces fichiers :
+** toute mise Ã  jour du fichier de donnÃ©es nÃ©cessite la mise Ã  jour de tous les fichiers de link
+** toute mise Ã  jour d'un fichier de vue nÃ©cessite la mise Ã  jour du fichier link associÃ©
+==Concision==
 [[code]]
-Taille : entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité
+Taille : entre deux formulations aussi claire d'une mÃªme information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogÃ©nÃ©itÃ©
 [[code]]
-* Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité. 
-** par exemple : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)
-** un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)
-* Utiliser les participes-présent plutôt que les subordonnées 
-** "permettant" au lieu de "qui permettent" (gain de 4 caractères)
+* Utiliser les formulations avec verbe plutÃ´t que celles avec substantif : ces formulations sont gÃ©nÃ©ralement plus courtes. MÃªme s'il exite des cas oÃ¹ elles sont plus longues, on les utilisera systÃ©matiquement au nom du principe d'homogÃ©nitÃ©.
+** par exemple : dire "Utiliser une variable" plutÃ´t que "Utilisation d'une variable" (gain de 5 caratÃ¨res)
+** un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractÃ¨res de plus)
+* Utiliser les participes-prÃ©sent plutÃ´t que les subordonnÃ©es
+** "permettant" au lieu de "qui permettent" (gain de 4 caractÃ¨res)
 [[code]]
-Factorisation : éliminer les redondances de mots ou de groupes de mots
+Factorisation : Ã©liminer les redondances de mots ou de groupes de mots
 [[code]]
-* Eliminer les redondances d'informations d'un texte avec son titre (à développer)
-* Principe des "code smell" 
-** "code smell" de répétition de mot 
-*** La liste : 
-**** Principes d'homogénéité
-**** Principe de séparation
+* Eliminer les redondances d'informations d'un texte avec son titre (Ã  dÃ©velopper)
+* Principe des "code smell"
+** "code smell" de rÃ©pÃ©tition de mot
+*** La liste :
+**** Principes d'homogÃ©nÃ©itÃ©
+**** Principe de sÃ©paration
 **** Principe de concision
-*** peut être remplacée par : 
-**** Principes 
-***** Homogéneité
-***** Séparation
+*** peut Ãªtre remplacÃ©e par :
+**** Principes
+***** HomogÃ©neitÃ©
+***** SÃ©paration
 ***** Concision
 ----
-=SANDBOX= 
-phrase dont une partie est {{mise en évidence}} car elle représente un élément technique
-phrase contenant un [[pragmaticmemory/lien|lien]] hypertexte.
+=SANDBOX=
+phrase dont une partie est {{mise en Ã©vidence}} car elle reprÃ©sente un Ã©lÃ©ment technique
+phrase contenant un [[lien]] hypertexte.
 exemple de liste :
-* item 1 du niveau 1 
-** item 1 du niveau 2 
+* item 1 du niveau 1
+** item 1 du niveau 2
 *** item 1 du niveau 3
 *** item 2 du niveau 3
 ** item 2 du niveau 2
 * item 2 du niveau 1
 
 ----
-=POWERSHELL= 
-==Notation de types== 
-* {{file}} : correspond à un fichier ({{FileInfo}}) ou un répertoire ({{DirectoryInfo}})
-* {{string}} : une chaîne de caractères. La nature de l'objet représenté est indiqué entre parenthèses (path par exemple)
-* {{file set}} : un ensemble de {{file}} passé sur le pipe
-* {{string set}} : un ensemble de chaînes de caractères passé sur le pipe
-* {{string list}} : une liste de chaînes caractères séparées par des ,
+=POWERSHELL=
+==Notation de types==
+* {{file}} : correspond Ã  un fichier ({{FileInfo}}) ou un rÃ©pertoire ({{DirectoryInfo}})
+* {{string}} : une chaÃ®ne de caractÃ¨res. La nature de l'objet reprÃ©sentÃ© est indiquÃ© entre parenthÃ¨ses (path par exemple)
+* {{file set}} : un ensemble de {{file}} passÃ© sur le pipe
+* {{string set}} : un ensemble de chaÃ®nes de caractÃ¨res passÃ© sur le pipe
+* {{string list}} : une liste de chaÃ®nes caractÃ¨res sÃ©parÃ©es par des ,
 * {{object}} : un objet au sens large
-==Compatibilité entre types== 
+==CompatibilitÃ© entre types==
 || **Type attendu** || **Type particulier utilisable** ||
 || {{file set}} || {{file}} ||
 || {{string set}} || {{string}} ||
 || {{string list}} || {{string}} ||
 || {{object}} || {{tout type d'objet}} ||
-==Membres par type== 
+==Membres par type==
 * Objet de type {{file}} :
 || {{BaseName}} || nom du fichier sans son extension ||
 || {{Extension}} || extension du fichier ||
 || {{FullName}} || nom complet du fichier (avec son path) ||
 || {{Name}} || nom du fichier avec son extension ||
-|| {{PSParentPath}} || nom du répertoire parent ||
-==Template des commandes== 
+|| {{PSParentPath}} || nom du rÃ©pertoire parent ||
+==Template des commandes==
 * __objectif de la commande__
-{{type d'entrée 1 > <span style="background-color: #a5ddf8;">commande 1</span> > type de sortie 1}}
-{{type d'entrée 2 > <span style="background-color: #a5ddf8;">commande 2</span> > type de sortie 2}}
+{{type d'entrÃ©e 1 > <span style="background-color: #a5ddf8;">commande 1</span> > type de sortie 1}}
+{{type d'entrÃ©e 2 > <span style="background-color: #a5ddf8;">commande 2</span> > type de sortie 2}}
 Alias :
 ** {{alias 1}}
 ** {{alias 2}}
@@ -159,8 +161,8 @@ Options :
 Remarques :
 ** remarque 1
 ** remarque 2
-==IO== 
-* __lister tous les éléments (fichiers et répertoires) d'un répertoire donné__
+==IO==
+* __lister tous les Ã©lÃ©ments (fichiers et rÃ©pertoires) d'un rÃ©pertoire donnÃ©__
 {{directory path > <span style="background-color: #a5ddf8;">Get-ChildItem -r "...</span> > file set}}
 {{directory path > <span style="background-color: #a5ddf8;">$dir="...";Get-ChildItem -r $dir</span> > file set}}
 Alias :
@@ -171,132 +173,130 @@ Options :
 * __lire le contenu d'un fichier__
 {{string (path) list > <span style="background-color: #a5ddf8;">Get-Content(...)</span> > string set}}
 {{string (path) list > <span style="background-color: #a5ddf8;">Get-Content(...)</span> > file list}}
-* __récupérer un file set à partir d'une liste de path__
+* __rÃ©cupÃ©rer un file set Ã  partir d'une liste de path__
 {{string (path) list > <span style="background-color: #a5ddf8;">Get-Content(...)</span> > file}}
-* __écrire dans un fichier__
+* __Ã©crire dans un fichier__
 {{object, string (path) > <span style="background-color: #a5ddf8;">... | Out-File -filepath "..."</span> > file}}
 Options :
-** {{-append}} ({{permet de compléter un fichier déjà existant}})
-** {{-inputObject}} ({{permet de préciser un objet à écrire}})
-==Filtrage== 
-* __ne conserver que les répertoires d'un file set (et pas les fichiers)__
+** {{-append}} ({{permet de complÃ©ter un fichier dÃ©jÃ  existant}})
+** {{-inputObject}} ({{permet de prÃ©ciser un objet Ã  Ã©crire}})
+==Filtrage==
+* __ne conserver que les rÃ©pertoires d'un file set (et pas les fichiers)__
 {{file set > <span style="background-color: #a5ddf8;">... | where {$_.PsIsContainer}</span> > file set}}
-* __ne conserver que les fichiers d'un file set (et pas les répertoires)__
+* __ne conserver que les fichiers d'un file set (et pas les rÃ©pertoires)__
 {{file set > <span style="background-color: #a5ddf8;">... | where {!$_.PsIsContainer}</span> > file set}}
-* __ne conserver que les entrées qui correspondent à une expression régulière__
+* __ne conserver que les entrÃ©es qui correspondent Ã  une expression rÃ©guliÃ¨re__
 {{string set, regular expression > <span style="background-color: #a5ddf8;">... | where {$_ -match "..."}</span> > string set}}
-==Boucle== 
-* __effectuer un même traitement sur un ensemble de données__
-{{string set + commande powershell > <span style="background-color: #a5ddf8;">... | Foreach{...}</span> > string set (si écriture par la commande)}}
-{{file set + commande powershell > <span style="background-color: #a5ddf8;">... | Foreach{...}</span> > string set (si écriture par la commande)}}
+==Boucle==
+* __effectuer un mÃªme traitement sur un ensemble de donnÃ©es__
+{{string set + commande powershell > <span style="background-color: #a5ddf8;">... | Foreach{...}</span> > string set (si Ã©criture par la commande)}}
+{{file set + commande powershell > <span style="background-color: #a5ddf8;">... | Foreach{...}</span> > string set (si Ã©criture par la commande)}}
 Remarques :
-** Au début du Foreach, créer les variables qui seront utilisées dans la commande
-** l'expression {{$_}} désigne l'entrée courante du {{string set}}
-** plusieurs sous-commandes peuvent être séparées par un {{;}}
-==Pipeline== 
-* __écrire un objet sur le pipeline__
+** Au dÃ©but du Foreach, crÃ©er les variables qui seront utilisÃ©es dans la commande
+** l'expression {{$_}} dÃ©signe l'entrÃ©e courante du {{string set}}
+** plusieurs sous-commandes peuvent Ãªtre sÃ©parÃ©es par un {{;}}
+==Pipeline==
+* __Ã©crire un objet sur le pipeline__
 {{objet > <span style="background-color: #a5ddf8;">Write-Output(...)</span> > objet}}
-==Information sur les objets== 
-* __connaître le type et les membres d'un objet__
+==Information sur les objets==
+* __connaÃ®tre le type et les membres d'un objet__
 {{objet > <span style="background-color: #a5ddf8;">... | Get-Member</span> > MemberDefinition}}
 * __lister les noms d'un ensemble de fichiers__
 {{file set > <span style="background-color: #a5ddf8;">... | Foreach{$_.FullName}</span> > string set}}
 {{file set > <span style="background-color: #a5ddf8;">... | Foreach{$_.Name}</span> > string set}}
-==Exemples== 
-* copie de tous les fichiers contenus dans le répertoire "C:\Temp\PS", avec ajout de BEGIN sur la première ligne et de END sur la dernière lignes 
+==Exemples==
+* copie de tous les fichiers contenus dans le rÃ©pertoire "C:\Temp\PS", avec ajout de BEGIN sur la premiÃ¨re ligne et de END sur la derniÃ¨re lignes
 ** sans utilisation de pipe au sein du Foreach :
 [[code format="powershell"]]
- Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}
+  Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}
 [[code]]
 ** avec utilisation de pipe au sein du Foreach :
 [[code format="powershell"]]
- Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}
+  Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}
 [[code]]
-** variante avec utilisation du caractère d'échappemnt `r signifiant un retour à la ligne :
+** variante avec utilisation du caractÃ¨re d'Ã©chappemnt `r signifiant un retour Ã  la ligne :
 [[code format="powershell"]]
- Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}
+  Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}
 [[code]]
 ----
-=FILE MODIFICATIONS= 
-L'objectif de cette section est de donner des méthodes de modification de fichiers. Elle détaille les outils utilisés, ainsi que les commandes au sein de ces outils.
-==Fin de lignes dans les fichiers== 
-* Caractères pouvant intervenir dans la séquence indiquant une fin de ligne 
+=FILE MODIFICATIONS=
+L'objectif de cette section est de donner des mÃ©thodes de modification de fichiers. Elle dÃ©taille les outils utilisÃ©s, ainsi que les commandes au sein de ces outils.
+==Fin de lignes dans les fichiers==
+* CaractÃ¨res pouvant intervenir dans la sÃ©quence indiquant une fin de ligne
 ** Carriage return (CR): {{\r}}
 ** Line feed (LF) : {{\n}}
-* Séquences de caractères indiquant une fin de ligne 
+* SÃ©quences de caractÃ¨res indiquant une fin de ligne
 ** sous UNIX : {{\n}}
 ** sous Windows : {{\r\n}}
 ** sous Mac : {{\r}}
-==Catalogue des méthodes de modifications== 
-* Convertir les fins de ligne d'un fichier (Windows/Unix/Mac) 
-** Notepad++ 
+==Catalogue des mÃ©thodes de modifications==
+* Convertir les fins de ligne d'un fichier (Windows/Unix/Mac)
+** Notepad++
 *** vers UNIX : Edition > Convertir les sauts de ligne > Convertir en Format UNIX (LF)
 *** vers Windows : Edition > Convertir les sauts de ligne > Convertir en Format Windows (CR+LF)
 *** vers Mac : Edition > Convertir les sauts de ligne > Convertir en Format Mac (CR)
-* Voir les séquences de fin de ligne 
-** Notepad++ 
-*** Affichage > Symboles spéciaux > Afficher les symboles de fin de ligne
-* Voir les blancs et les tabulations 
-** Notepad++ 
-*** Affichage > Symboles spéciaux > Afficher les blancs et les tabulations
-* Supprimer des lignes vides (i.e ne contenant aucun caractère, pas même des espaces) 
-** Notepad++ 
+* Voir les sÃ©quences de fin de ligne
+** Notepad++
+*** Affichage > Symboles spÃ©ciaux > Afficher les symboles de fin de ligne
+* Voir les blancs et les tabulations
+** Notepad++
+*** Affichage > Symboles spÃ©ciaux > Afficher les blancs et les tabulations
+* Supprimer des lignes vides (i.e ne contenant aucun caractÃ¨re, pas mÃªme des espaces)
+** Notepad++
 *** plugin TextFX : TextFX > TextFX Edit > Delete Blank Lines
-* Compacter des lignes vides consécutives en une seule ligne vide 
-** Notepad++ 
-*** plugin TextFX : TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)
-* Distribuer sur différentes lignes des items faisant partie d'une liste
+* Compacter des lignes vides consÃ©cutives en une seule ligne vide
+** Notepad++
+*** plugin TextFX : TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement Ã©trange avec les lignes contenant uniquement des espaces)
+* Distribuer sur diffÃ©rentes lignes des items faisant partie d'une liste
 || **Source** || **Cible** ||
-|| 
+||
 [[code]]
- A, B, C
-[[code]] || 
-[[code]]
- A
-
- B
- C
+  A, B, C
 [[code]] ||
-** Notepad++ 
+[[code]]
+  A
+  B
+  C
+[[code]] ||
+** Notepad++
 *** remplacer ({{CTRL + H}})
-*** mode étendu ({{\n}}, {{\r}}, {{\t}}, {{\0}}, {{\x}}...)
+*** mode Ã©tendu ({{\n}}, {{\r}}, {{\t}}, {{\0}}, {{\x}}...)
 *** recherche : {{,}}
 *** remplacer par : {{\r\n}}
-* Assembler différentes lignes en une liste
+* Assembler diffÃ©rentes lignes en une liste
 || **Source** || **Cible** ||
-|| 
+||
 [[code]]
- A
-
- B
- C
-[[code]] || 
-[[code]]
- A, B, C
+  A
+  B
+  C
 [[code]] ||
-** Notepad++ 
+[[code]]
+  A, B, C
+[[code]] ||
+** Notepad++
 *** remplacer ({{CTRL + H}})
-*** mode étendu ({{\n}}, {{\r}}, {{\t}}, {{\0}}, {{\x}}...)
+*** mode Ã©tendu ({{\n}}, {{\r}}, {{\t}}, {{\0}}, {{\x}}...)
 *** recherche : {{\r\n}}
 *** remplacer par : {{,}}
-* Trier des lignes en supprimant les doublons 
-** Notepad++ (plugin TextFX) 
+* Trier des lignes en supprimant les doublons
+** Notepad++ (plugin TextFX)
 *** Notepad++TextFX > TextFX Tools > cocher "+Sort outputs only UNIQUE (at column) lines"
-*** Notepad++TextFX > TextFX Tools > cocher "+Sort ascending" pour un tri par ordre alphabétique / décocher pour un ordre inverse
+*** Notepad++TextFX > TextFX Tools > cocher "+Sort ascending" pour un tri par ordre alphabÃ©tique / dÃ©cocher pour un ordre inverse
 *** Notepad++TextFX > TextFX Tools > cliquer sur "Sort lines case sensitive (at column)" ou sur "Sort lines case insensitive (at column)"
-* Indenter les xml 
-** IntelliJ 
+* Indenter les xml
+** IntelliJ
 *** Code > Reformat Code...
-*** Raccourci par défaut : CTRL + ALT + L
-*** Fonctionne sur tous les fichiers du projet ou sur un ensemble de fichiers sélectionnés.
+*** Raccourci par dÃ©faut : CTRL + ALT + L
+*** Fonctionne sur tous les fichiers du projet ou sur un ensemble de fichiers sÃ©lectionnÃ©s.
 * Convertir "underscore" vers "camelcase"
 || **Source** || **Cible** ||
 || iinvCEqSector || IINV_C_EQ_SECTOR ||
-** Notepad++ 
-*** étape 1 : remplacer l'expression régulière ([A-Z]) par _\1 (cocher Respecter la casse)
-*** étape 2 : passer en majuscule (CTRL + SHIFT + U)
-* Comparer 2 listes 
-** Excel 
+** Notepad++
+*** Ã©tape 1 : remplacer l'expression rÃ©guliÃ¨re ([A-Z]) par _\1 (cocher Respecter la casse)
+*** Ã©tape 2 : passer en majuscule (CTRL + SHIFT + U)
+* Comparer 2 listes
+** Excel
 *** en A1, saisir le formattage conditionnel [[pragmaticmemory/code|code]]
 =ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)
 [[code]]
@@ -306,465 +306,348 @@ L'objectif de cette section est de donner des méthodes de modification de fichie
 [[code]]
 *** copier le format de A1 sur la colonne A
 *** copier le format de B1 sur la colonne B
-*** Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND
-*** Inspiré de l'article [[http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310]]
+*** Equivalence franÃ§ais / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND
+*** InspirÃ© de l'article [[http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310]]
 ** sous UNIX : {{\n}}
 ** sous Windows : {{\r\n}}
 ** sous Mac : {{\r}}
-=SUBVERSION= 
-* Différences entre le working directory et la base
+=SUBVERSION=
+* DiffÃ©rences entre le working directory et la base
 [[code]]
- svn diff
+  svn diff
 [[code]]
-* Différences entre le working directory et le serveur
+* DiffÃ©rences entre le working directory et le serveur
 [[code]]
- svn diff -r HEAD
+  svn diff -r HEAD
 [[code]]
-* Résumé des modifications locales
+* RÃ©sumÃ© des modifications locales
 [[code]]
- svn status
+  svn status
 [[code]]
 * "Nettoyage" du working directory
 [[code]]
- svn cleanup
+  svn cleanup
 [[code]]
-* Informations sur le repository (branche, numéro de révision)
+* Informations sur le repository (branche, numÃ©ro de rÃ©vision)
 [[code]]
- svn info
-[[code]]
-----
-=SQL= 
-* sélectionner le maximum d'une colonne en fonction d'une autre colonne 
-** Exemple :
-[[code format="sql"]]
- create table max_test(code varchar(3), value int)
-
- insert into max_test(code, value) values ('A', 3)
-
- insert into max_test(code, value) values ('A', 4)
-
- insert into max_test(code, value) values ('A', 5)
-
- insert into max_test(code, value) values ('B', 1)
-
- insert into max_test(code, value) values ('B', 4)
-
- insert into max_test(code, value) values ('C', 7)
-
- insert into max_test(code, value) values ('C', 6)
-
- insert into max_test(code, value) values ('C', 5)
-[[code]]
-** Requête :
-[[code format="sql"]]
- select code, max(value) from max_test group by code
-[[code]]
-* écrire un case dans un select 
-** Exemple :
-[[code format="sql"]]
- case
-
- when condition_1 then value_1
-
- when condition_2 then value_2
-
- ...
-
- when condition_n then value_n
-
- else value_else
-
- end
-[[code]]
-** Requête :
-[[code format="sql"]]
- select code, max(value) from max_test group by code
+  svn info
 [[code]]
 ----
-=SYBASE= 
-* Vérifier l'existence d'une table
+=SQL=
+* sÃ©lectionner le maximum d'une colonne en fonction d'une autre colonne
+** Exemple :
 [[code format="sql"]]
- select 1 from sysobjects where type = 'U' and name = 'nom_de_table'
+  create table max_test(code varchar(3), value int)
+  insert into max_test(code, value) values ('A', 3)
+  insert into max_test(code, value) values ('A', 4)
+  insert into max_test(code, value) values ('A', 5)
+  insert into max_test(code, value) values ('B', 1)
+  insert into max_test(code, value) values ('B', 4)
+  insert into max_test(code, value) values ('C', 7)
+  insert into max_test(code, value) values ('C', 6)
+  insert into max_test(code, value) values ('C', 5)
 [[code]]
-* Vérifier l'existence d'une procédure stockée
+** RequÃªte :
 [[code format="sql"]]
- select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'
+  select code, max(value) from max_test group by code
 [[code]]
-* Vérifier l'existence d'une table temporaire
+* Ã©crire un case dans un select
+** Exemple :
 [[code format="sql"]]
- select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'
+  case
+    when condition_1 then value_1
+    when condition_2 then value_2
+    ...
+    when condition_n then value_n
+    else value_else
+  end
 [[code]]
-* Déclarer une variable
+** RequÃªte :
 [[code format="sql"]]
- declare @nom_de_la_variable type_de_la_variable
+  select code, max(value) from max_test group by code
+[[code]]
+----
+=SYBASE=
+* VÃ©rifier l'existence d'une table
+[[code format="sql"]]
+  select 1 from sysobjects where type = 'U' and name = 'nom_de_table'
+[[code]]
+* VÃ©rifier l'existence d'une procÃ©dure stockÃ©e
+[[code format="sql"]]
+  select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'
+[[code]]
+* VÃ©rifier l'existence d'une table temporaire
+[[code format="sql"]]
+  select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'
+[[code]]
+* DÃ©clarer une variable
+[[code format="sql"]]
+  declare @nom_de_la_variable type_de_la_variable
 [[code]]
 ** example : {{declare @ptf_cod varchar(12)}}
-* Affecter une valeur à une variable
+* Affecter une valeur Ã  une variable
 [[code format="sql"]]
- select @nom_de_la_variable = @valeur_de_la_variable
+  select @nom_de_la_variable = @valeur_de_la_variable
 [[code]]
 ** example : {{select @ptf_cod = 'ZX23'}}
-* Voir le code d'une procédure stockée
+* Voir le code d'une procÃ©dure stockÃ©e
 [[code format="sql"]]
- sp_helptext 'nom_de_procedure'
+  sp_helptext 'nom_de_procedure'
 [[code]]
 * Obtenir la liste des utilisateurs
 [[code format="sql"]]
- sp_helpuser
+  sp_helpuser
 [[code]]
 * Obtenir la liste des groupes
 [[code format="sql"]]
- sp_helpgroup
+  sp_helpgroup
 [[code]]
-* Ajouter à une base un groupe défini sur le data serveur
+* Ajouter Ã  une base un groupe dÃ©fini sur le data serveur
 [[code format="sql"]]
- sp_addgroup 'nom_de_groupe'
+  sp_addgroup 'nom_de_groupe'
 [[code]]
-==Le fichier {{sql.ini}}== 
-Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier {{sql.ini}} ( présent par exemple dans {{C:\Program Files\sybase\12.5.1\ini}}) Ils sont définis suivant le template :
+==Le fichier {{sql.ini}}==
+Les adaptive server (Ã©galement appelÃ©s data server dans cette page, par opposition aux serveurs physiques) sont dÃ©finis dans le fichier {{sql.ini}} ( prÃ©sent par exemple dans {{C:\Program Files\sybase\12.5.1\ini}}) Ils sont dÃ©finis suivant le template :
 [[code]]
- [DATA_SERVEUR_NAME]
-
- query=TCP,server-name,port
+  [DATA_SERVEUR_NAME]
+  query=TCP,server-name,port
 [[code]]
-où server-name est le nom ou l'alias d'une machine. Remarques :
-** un data serveur peut héberger plusieurs bases
-** si {{A}} et {{B}} sont 2 bases sur un même data server, et si {{a}} est un objet de {{A}} et {{b}} un objet de {{B}}, {{a}} peut référencer {{b}} en utilisant la syntaxe {{B..b}}
-==L'outil {{isql}}== 
-Outil Sybase permettant l'exécution d'un script sql via la syntaxe
+oÃ¹ server-name est le nom ou l'alias d'une machine. Remarques :
+** un data serveur peut hÃ©berger plusieurs bases
+** si {{A}} et {{B}} sont 2 bases sur un mÃªme data server, et si {{a}} est un objet de {{A}} et {{b}} un objet de {{B}}, {{a}} peut rÃ©fÃ©rencer {{b}} en utilisant la syntaxe {{B..b}}
+==L'outil {{isql}}==
+Outil Sybase permettant l'exÃ©cution d'un script sql via la syntaxe
 [[code]]
- isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql
+  isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql
 [[code]]
 Remarques :
-** Le fichier d'entrée (ex: {{script.sql}}) passé à {{isql}} peut inclure un fichier (ex : {{include.sql}}) à l'aide de la syntaxe :
+** Le fichier d'entrÃ©e (ex: {{script.sql}}) passÃ© Ã  {{isql}} peut inclure un fichier (ex : {{include.sql}}) Ã  l'aide de la syntaxe :
 [[code]]
- :r C:\Temp\include.sql
+  :r C:\Temp\include.sql
 [[code]]
-** il ne doit pas y avoir d'espace entre le début de la ligne et le {{:r}}
+** il ne doit pas y avoir d'espace entre le dÃ©but de la ligne et le {{:r}}
 ----
-=DOS= 
-* Lister récursivement les fichiers d'un répertoire
+=DOS=
+* Lister rÃ©cursivement les fichiers d'un rÃ©pertoire
 [[code format="dos"]]
- dir /S /A:-D /B
+  dir /S /A:-D /B
 [[code]]
-* {{/S}} (subdirectories) :permet la récursion sur les sous-répertoires
-* {{/A}} (attribute) :{{-D}} : ne possédant pas l'attribut "Directory"
-* {{/B}} (bare format (format nu)) :présente seulement les noms de fichiers sans formattage
+* {{/S}} (subdirectories) :permet la rÃ©cursion sur les sous-rÃ©pertoires
+* {{/A}} (attribute) :{{-D}} : ne possÃ©dant pas l'attribut "Directory"
+* {{/B}} (bare format (format nu)) :prÃ©sente seulement les noms de fichiers sans formattage
 ----
-=KEYBOARD= 
-* Basculer entre anglais et français : ALT + SHIFT
+=KEYBOARD=
+* Basculer entre anglais et franÃ§ais : ALT + SHIFT
 ----
-=REGULAR EXPRESSIONS= 
-==IntelliJ== 
+=REGULAR EXPRESSIONS=
+==IntelliJ==
 * {{\t}} : matche avec les tabulations
 * {{\r}} : non reconnu
-* {{\n}} : matche avec la séquence de fin de ligne ({{\r\n}} sous Windows et {{\n}} sous Unix)
-* Expression désignant le premier groupe capturé : {{$1}}
-==Notepad++== 
+* {{\n}} : matche avec la sÃ©quence de fin de ligne ({{\r\n}} sous Windows et {{\n}} sous Unix)
+* Expression dÃ©signant le premier groupe capturÃ© : {{$1}}
+==Notepad++==
 * {{\t}} : matche avec les tabulations
 * {{\r}} : non reconnu
 * {{\n}} : non reconnu
-* Expression désignant le premier groupe capturé : {{\1}}
+* Expression dÃ©signant le premier groupe capturÃ© : {{\1}}
 ----
-=Anglais= 
-==Références== 
-* phonétique : [[http://www.wordreference.com/|http://www.wordreference.com]]
+=Anglais=
+==RÃ©fÃ©rences==
+* phonÃ©tique : [[http://www.wordreference.com/|http://www.wordreference.com]]
 * traduction : [[http://www.wordreference.com/|http://www.wordreference.com]]
-* Liste des symboles phonétiques : [[http://www.wordreference.com/fr/French-Pronunciation.aspx]]
+* Liste des symboles phonÃ©tiques : [[http://www.wordreference.com/fr/French-Pronunciation.aspx]]
 * ipa : [[http://www.antimoon.com/how/pronunc-soundsipa.htm]]
-==Liste== 
-|| **Mot** || **Phonétique** || **Description** ||
+==Liste==
+|| **Mot** || **PhonÃ©tique** || **Description** ||
 || comfort || ['k?mf?t] || confort ||
 || comfortable || ['k?mft?bl, US :'k?mf?rtbl] || confortable ||
-|| database || ['de?t??be?s] || base de données ||
-|| flaccid || ['flæks?d / 'flæs?d] || flasque, mou ||
-|| pawn || [p??n] || pions (aux échecs) ||
+|| database || ['de?t??be?s] || base de donnÃ©es ||
+|| flaccid || ['flÃ¦ks?d / 'flÃ¦s?d] || flasque, mou ||
+|| pawn || [p??n] || pions (aux Ã©checs) ||
 ----
-=Français= 
-==Références== 
-* Définition : [[http://www.lexilogos.com/francais_langue_dictionnaires.htm]]
-==Liste== 
+=FranÃ§ais=
+==RÃ©fÃ©rences==
+* DÃ©finition : [[http://www.lexilogos.com/francais_langue_dictionnaires.htm]]
+==Liste==
 || **Mot** || **Description** ||
-|| atermoiement || (souvent au pluriel) action de différer, retarder; hésitation, tergiversation ||
+|| atermoiement || (souvent au pluriel) action de diffÃ©rer, retarder; hÃ©sitation, tergiversation ||
 ----
-=WEB AND WIKI= 
-* Créer son wiki : [[http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki]]
-* Créer son site web : [[http://www.2createawebsite.com/|http://www.2createawebsite.com]]
+=WEB AND WIKI=
+* CrÃ©er son wiki : [[http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki]]
+* CrÃ©er son site web : [[http://www.2createawebsite.com/|http://www.2createawebsite.com]]
 ----
-=XML TECHNO= 
-==XSLT== 
-* Testeurs Xslt online 
+=XML TECHNO=
+==XSLT==
+* Testeurs Xslt online
 ** mark bucayan : [[http://markbucayan.appspot.com/xslt/index.html]]
 ** xslt cake : [[http://www.xsltcake.com/|http://www.xsltcake.com]]
-* Tutoriaux Xslt 
-** Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné) : [[http://xmlfr.org/documentations/faq/041013-0001]]
-** Traitement des espaces blancs : décrire la problèmatique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles. : [[#]]
-==XSD / DTD== 
-* Tutoriaux XSD 
+* Tutoriaux Xslt
+** Article sur les node set intermÃ©diaires (utilisÃ© pour l'imbrication de formatages comme Ã©lÃ©ment de liste soulignÃ©) : [[http://xmlfr.org/documentations/faq/041013-0001]]
+** Traitement des espaces blancs : dÃ©crire la problÃ¨matique en citant le livre "XSLT Fondamental" de Philippe Drix, aux Ã©ditions Eyrolles. : [[#]]
+==XSD / DTD==
+* Tutoriaux XSD
 ** Tutorial Xsd 1 : [[http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes]]
 ** Tutorial Xsd 2 : [[http://www.w3schools.com/schema/default.asp]]
 ** DTD et XSD : [[http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas]]
-* Validateur XSD online 
+* Validateur XSD online
 ** Xsd online validator : [[http://www.corefiling.com/opensource/schemaValidate.html]]
 ----
-=JAVA= 
-==Lire les lignes d'un fichier== 
+=JAVA=
+==Lire les lignes d'un fichier==
 * java.lang : String,
 * java.util : List, ArrayList,
 [[code format="java"]]
- public static List‹String› readLines(File file) throws IOException {
-
- BufferedReader reader = new BufferedReader(new FileReader(file));
-
- List‹String› lines = new ArrayList‹String›();
-
- String line = reader.readLine();
-
- while (line != null) {
-
- lines.add(line);
-
- line = reader.readLine();
-
- }
-
- reader.close();
-
- return lines;
-
- }
+  public static List<String> readLines(File file) throws IOException {
+    BufferedReader reader = new BufferedReader(new FileReader(file));
+    List<String> lines = new ArrayList<String>();
+    String line = reader.readLine();
+    while (line != null) {
+      lines.add(line);
+      line = reader.readLine();
+    }
+    reader.close();
+    return lines;
+  }
 [[code]]
 Remarques :
-* Pour deux fichiers contenant respectivement {{A\r\nB}} et {{A\r\nB\r\n}}, la méthode {{readLines}} renvoie une liste identique (contenant les 2 éléments {{A}} et {{B}}).
-==Insérer des lignes dans un fichier== 
+* Pour deux fichiers contenant respectivement {{A\r\nB}} et {{A\r\nB\r\n}}, la mÃ©thode {{readLines}} renvoie une liste identique (contenant les 2 Ã©lÃ©ments {{A}} et {{B}}).
+==InsÃ©rer des lignes dans un fichier==
 * java.lang : String,
 * java.util : List,
 * java.io : FileWriter, BufferedWriter,
 [[code format="java"]]
- public static void writeLines(List‹String› lines, File file) throws IOException {
-
- BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-
- for (int i = 0; i ‹ lines.size() - 1; i++) {
-
- writer.write(lines.get(i));
-
- writer.newLine();
-
- }
-
- writer.write(lines.get(lines.size() - 1));
-
- writer.flush();
-
- writer.close();
-
- }
+  public static void writeLines(List<String> lines, File file) throws IOException {
+    BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+    for (int i = 0; i < lines.size() - 1; i++) {
+      writer.write(lines.get(i));
+      writer.newLine();
+    }
+    writer.write(lines.get(lines.size() - 1));
+    writer.flush();
+    writer.close();
+  }
 [[code]]
 Remarques :
-* la méthode {{writeLines}} n'ajoute pas de séquence de fin de ligne après la dernière ligne
-==Manipuler les listes== 
+* la mÃ©thode {{writeLines}} n'ajoute pas de sÃ©quence de fin de ligne aprÃ¨s la derniÃ¨re ligne
+==Manipuler les listes==
 * java.lang : String,
 * java.util : List, ArrayList, Arrays,
 [[code format="java"]]
- SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
- Date date = sdf.parse("10/11/2011");
+  SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+  Date date = sdf.parse("10/11/2011");
 [[code]]
-==Récupérer les propriétés systèmes== 
+==RÃ©cupÃ©rer les propriÃ©tÃ©s systÃ¨mes==
 * java.lang : System,
 [[code format="java"]]
- System.getProperties()
+  System.getProperties()
 [[code]]
-==Récupérer une liste fixe de chaînes de caractères== 
+==RÃ©cupÃ©rer une liste fixe de chaÃ®nes de caractÃ¨res==
 * java.lang : String,
 * java.util : List, ArrayList,
 [[code format="java"]]
- public List‹String› getAllFilePath() {
-
- String[] pathArray = {
-
- "C:\\dev\\file1.xml",
-
- "C:\\dev\\file2.txt"
-
- };
-
- List‹String› stringList = new ArrayList‹String›();
-
- stringList.addAll(Arrays.asList(pathArray));
-
- return stringList;
-
- }
+  public List<String> getAllFilePath() {
+    String[] pathArray = {
+      "C:\\dev\\file1.xml",
+      "C:\\dev\\file2.txt"
+    };
+    List<String> stringList = new ArrayList<String>();
+    stringList.addAll(Arrays.asList(pathArray));
+    return stringList;
+  }
 [[code]]
-==Modifier plusieurs fichiers== 
+==Modifier plusieurs fichiers==
 [[code format="java"]]
- public void process() throws Exception {
-
- for (String filePath : getAllFilePath()) {
-
- File file = new File(filePath);
-
- List‹String› lines = readLines(file);
-
- List‹String› processedLines = process(lines);
-
- writeLines(processedLines, file);
-
- }
-
- }
+  public void process() throws Exception {
+    for (String filePath : getAllFilePath()) {
+      File file = new File(filePath);
+      List<String> lines = readLines(file);
+      List<String> processedLines = process(lines);
+      writeLines(processedLines, file);
+    }
+  }
 [[code]]
 Remarques :
-* {{getAllFilePath}}, {{readLines}}, {{writeLines}} sont 3 méthodes définies dans cette section
-* La méthode {{process}}est la seule qui reste à définir
-* D'après les remarques sur les méthodes {{readLines}} et {{writeLines}}, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence
-==Utiliser les expressions régulières== 
+* {{getAllFilePath}}, {{readLines}}, {{writeLines}} sont 3 mÃ©thodes dÃ©finies dans cette section
+* La mÃ©thode {{process}}est la seule qui reste Ã  dÃ©finir
+* D'aprÃ¨s les remarques sur les mÃ©thodes {{readLines}} et {{writeLines}}, la lecture puis la rÃ©Ã©criture d'un fichier se terminant par une sÃ©quence de fin de ligne aura pour consÃ©quence la suppression de cette sÃ©quence
+==Utiliser les expressions rÃ©guliÃ¨res==
 * java.util.regex : Pattern, Matcher,
 [[code format="java"]]
- public static void main(String[] args) {
-
- Pattern pattern = Pattern.compile("(\\w)(..)(.)");
-
- Matcher matcher = pattern.matcher("abcd efghijklmn");
-
- while (matcher.find()) {
-
- System.out.println("MATCH !");
-
- System.out.println("group()= " + matcher.group());
-
- System.out.println("offset before first matched character = " + matcher.start());
-
- System.out.println("offset after last matched character= " + matcher.end());
-
- System.out.println("groupCount = " + matcher.groupCount());
-
- for (int i = 0; i ‹ matcher.groupCount() + 1; i++) {
-
- System.out.println("\tgroup(" + i + ") = " + matcher.group(i));
-
- System.out.println("\t\toffset before group(" + i + ") first character= " + matcher.start(i));
-
- System.out.println("\t\toffset after group(" + i + ") last character = " + matcher.end(i));
-
- }
-
- }
-
- System.out.println("modifiedString = " + matcher.replaceAll("X"));
-
- }
+  public static void main(String[] args) {
+    Pattern pattern = Pattern.compile("(\\w)(..)(.)");
+    Matcher matcher = pattern.matcher("abcd efghijklmn");
+    while (matcher.find()) {
+      System.out.println("MATCH !");
+      System.out.println("group()= " + matcher.group());
+      System.out.println("offset before first matched character = " + matcher.start());
+      System.out.println("offset after last matched character= " + matcher.end());
+      System.out.println("groupCount = " + matcher.groupCount());
+      for (int i = 0; i < matcher.groupCount() + 1; i++) {
+        System.out.println("\tgroup(" + i + ") = " + matcher.group(i));
+        System.out.println("\t\toffset before group(" + i + ") first character= " + matcher.start(i));
+        System.out.println("\t\toffset after group(" + i + ") last character = " + matcher.end(i));
+      }
+    }
+    System.out.println("modifiedString = " + matcher.replaceAll("X"));
+  }
 [[code]]
 Remarques :
-* L'éxécution du code précédent affiche la sortie suivante :
+* L'Ã©xÃ©cution du code prÃ©cÃ©dent affiche la sortie suivante :
 [[code]]
- MATCH !
-
- group()= abcd
-
- offset before first matched character = 0
-
- offset after last matched character= 4
-
- groupCount = 3
-
- group(0) = abcd
-
- offset before group(0) first character= 0
-
- offset after group(0) last character = 4
-
- group(1) = a
-
- offset before group(1) first character= 0
-
- offset after group(1) last character = 1
-
- group(2) = bc
-
- offset before group(2) first character= 1
-
- offset after group(2) last character = 3
-
- group(3) = d
-
- offset before group(3) first character= 3
-
- offset after group(3) last character = 4
-
- MATCH !
-
- group()= efgh
-
- offset before first matched character = 5
-
- offset after last matched character= 9
-
- groupCount = 3
-
- group(0) = efgh
-
- offset before group(0) first character= 5
-
- offset after group(0) last character = 9
-
- group(1) = e
-
- offset before group(1) first character= 5
-
- offset after group(1) last character = 6
-
- group(2) = fg
-
- offset before group(2) first character= 6
-
- offset after group(2) last character = 8
-
- group(3) = h
-
- offset before group(3) first character= 8
-
- offset after group(3) last character = 9
-
- MATCH !
-
- group()= ijkl
-
- offset before first matched character = 9
-
- offset after last matched character= 13
-
- groupCount = 3
-
- group(0) = ijkl
-
- offset before group(0) first character= 9
-
- offset after group(0) last character = 13
-
- group(1) = i
-
- offset before group(1) first character= 9
-
- offset after group(1) last character = 10
-
- group(2) = jk
-
- offset before group(2) first character= 10
-
- offset after group(2) last character = 12
-
- group(3) = l
-
- offset before group(3) first character= 12
-
- offset after group(3) last character = 13
-
- modifiedString = X XXmn
+  MATCH !
+  group()= abcd
+  offset before first matched character = 0
+  offset after last matched character= 4
+  groupCount = 3
+  group(0) = abcd
+  offset before group(0) first character= 0
+  offset after group(0) last character = 4
+  group(1) = a
+  offset before group(1) first character= 0
+  offset after group(1) last character = 1
+  group(2) = bc
+  offset before group(2) first character= 1
+  offset after group(2) last character = 3
+  group(3) = d
+  offset before group(3) first character= 3
+  offset after group(3) last character = 4
+  MATCH !
+  group()= efgh
+  offset before first matched character = 5
+  offset after last matched character= 9
+  groupCount = 3
+  group(0) = efgh
+  offset before group(0) first character= 5
+  offset after group(0) last character = 9
+  group(1) = e
+  offset before group(1) first character= 5
+  offset after group(1) last character = 6
+  group(2) = fg
+  offset before group(2) first character= 6
+  offset after group(2) last character = 8
+  group(3) = h
+  offset before group(3) first character= 8
+  offset after group(3) last character = 9
+  MATCH !
+  group()= ijkl
+  offset before first matched character = 9
+  offset after last matched character= 13
+  groupCount = 3
+  group(0) = ijkl
+  offset before group(0) first character= 9
+  offset after group(0) last character = 13
+  group(1) = i
+  offset before group(1) first character= 9
+  offset after group(1) last character = 10
+  group(2) = jk
+  offset before group(2) first character= 10
+  offset after group(2) last character = 12
+  group(3) = l
+  offset before group(3) first character= 12
+  offset after group(3) last character = 13
+  modifiedString = X XXmn
 [[code]]
-==Décompiler des classes java== 
+==DÃ©compiler des classes java==
 * Solution : utiliser l'outil {{JD-GUI}} ([[http://java.decompiler.free.fr/?q=jdgui]])
 
 ----

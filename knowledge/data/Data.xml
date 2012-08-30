@@ -61,7 +61,7 @@
             </task>
             <task>
                 <goal>Séparer les données du formattage</goal>
-                <selected>Utilation des xslt</selected>
+                <selected>Utilisation des xslt</selected>
             </task>
             <task>
                 <goal>Séparer le formattage lié à la vue du formattage lié au media de diffusion</goal>
@@ -168,7 +168,7 @@
     <sandbox>
         <example>phrase dont une partie est <technic>mise en évidence</technic> car elle représente un élément technique</example>
         <example>phrase contenant un <link>lien</link> hypertexte.</example>
-        <example>exemple de liste : <newLine/>
+        <example>exemple de liste :<newLine/>
                 <list level="1">item 1 du niveau 1</list>
                     <list level="2">item 1 du niveau 2</list>
                         <list level="3">item 1 du niveau 3</list>
@@ -576,7 +576,7 @@
     </subversion>
     <git>
         <item>
-            <goal>Stoker les login / mot de passe pour GitHub</goal>
+            <goal>Stocker les login / mot de passe pour GitHub</goal>
             <solution>utiliser le fichier <code>_netrc</code> stocker dans le profil utilisateur</solution>
             <example>
                 <code>

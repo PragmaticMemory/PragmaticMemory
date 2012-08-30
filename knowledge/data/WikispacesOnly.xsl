@@ -2,7 +2,7 @@
 <!DOCTYPE biblio SYSTEM "entities.dtd">
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:strip-space elements="*"/>
-<xsl:output method="text"/>
+<xsl:output method="text" omit-xml-declaration="yes"/>
 <xsl:include href="Common2.xsl"/>
     <!--........................................................................-->
     <!-- Templates de media = template correspondant au language de destination -->
@@ -49,7 +49,9 @@
     <xsl:template match="codeLine">
         <xsl:call-template name="iter-text">
             <xsl:with-param name="level" select="@level"/>
-            <xsl:with-param name="text" select="'&space;&space;'"/><!-- * est entre ' ' car c'est un littéral -->
+            <!-- <xsl:with-param name="text" select="'&space;&space;'"/> -->
+            <!-- * est entre ' ' car c'est un littéral -->
+            <xsl:with-param name="text" select="'  '"/>
         </xsl:call-template>
         <!-- <xsl:apply-templates disable-output-escaping="yes"//> -->
         <xsl:value-of select="." disable-output-escaping="yes"/>
