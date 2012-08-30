@@ -55,7 +55,7 @@
     <!-- Principles -->
     <xsl:template match="data/principles">
        <header level="1">PRINCIPES DE REDACTION</header>
-       <xsl:copy-of select="goal"/><br/>
+       <xsl:copy-of select="goal"/><newLine/>
        <xsl:for-each select="principle">
             <header level="2"><xsl:copy-of select="name"/></header>
             <xsl:for-each select="item">
@@ -111,13 +111,13 @@
                     <newLine/>
                 </xsl:for-each>
                 <xsl:if test="alias">
-                    <xsl:text>Alias : </xsl:text><br/>
+                    <xsl:text>Alias : </xsl:text><newLine/>
                 </xsl:if>
                 <xsl:for-each select="alias">
                     <list level="2"><technic><xsl:copy-of select="."/></technic></list>
                 </xsl:for-each>
                 <xsl:if test="option">
-                    <xsl:text>Options : </xsl:text><br/>
+                    <xsl:text>Options : </xsl:text><newLine/>
                 </xsl:if>
                 <xsl:for-each select="option">
                     <list level="2">
@@ -126,7 +126,7 @@
                     </list>
                 </xsl:for-each>
                 <xsl:if test="remark">
-                    <xsl:text>Remarques : </xsl:text><br/>
+                    <xsl:text>Remarques : </xsl:text><newLine/>
                 </xsl:if>
                 <xsl:for-each select="remark">
                    <list level="2"><xsl:copy-of select="."/></list>
@@ -147,7 +147,7 @@
     <!-- File modifications -->
     <xsl:template match="data/fileModification">       
         <header level="1">FILE MODIFICATIONS</header>
-        <xsl:copy-of select="goal"/><br/>
+        <xsl:copy-of select="goal"/><newLine/>
         <header level="2">Fin de lignes dans les fichiers</header>
         <list level="1"><xsl:copy-of select="key('metadata', '//data/fileModification/endOfLine/character')"/></list>
         <xsl:for-each select="endOfLine/character">
@@ -207,7 +207,7 @@
         <xsl:for-each select="object">
             <header level="2"><xsl:copy-of select="name"/></header>
             <xsl:copy-of select="definition"/><newLine/>
-            <xsl:if test="remark">Remarques :<br/></xsl:if>
+            <xsl:if test="remark">Remarques :<newLine/></xsl:if>
             <xsl:for-each select="remark">
                 <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
@@ -324,15 +324,15 @@
                 <list level="1">Solution : <xsl:copy-of select="answer"/></list>
             </xsl:if>
             <xsl:for-each select="package">
-                <list level="1"><xsl:copy-of select="name"/> : 
-                     <xsl:for-each select="class">
+                <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text>
+                    <xsl:for-each select="class">
                         <xsl:copy-of select="."/><xsl:text>, </xsl:text>
                     </xsl:for-each>
                 </list>
             </xsl:for-each>
             <xsl:copy-of select="code"/><newLine/>
             <xsl:if test="remark">
-                <xsl:text>Remarques :</xsl:text><br/>
+                <xsl:text>Remarques :</xsl:text><newLine/>
                 <xsl:for-each select="remark">
                    <list level="1"><xsl:copy-of select="."/></list>
                 </xsl:for-each>

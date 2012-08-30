@@ -1,0 +1,2 @@
+java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\Data.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\ViewOnly.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\Output1.xml"
+java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\Output1.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\WikispacesOnly.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\Output2.txt"

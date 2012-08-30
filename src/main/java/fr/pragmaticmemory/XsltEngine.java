@@ -25,9 +25,13 @@ public class XsltEngine {
         final String outputXmlPath;
         final String xsltPath;
         if (args.length == 0) {
-            inputXmlPath = ROOT_PATH + "\\Data.xml";
-            xsltPath = ROOT_PATH + "\\ViewOnly.xsl";
-            outputXmlPath = ROOT_PATH + "\\TEST_OUTPUT2.xml";
+//            inputXmlPath = ROOT_PATH + "\\Data.xml";
+//            xsltPath = ROOT_PATH + "\\ViewOnly.xsl";
+//            outputXmlPath = ROOT_PATH + "\\TEST_OUTPUT2.xml";
+
+            inputXmlPath = ROOT_PATH + "\\Output1.xml";
+            xsltPath = ROOT_PATH + "\\WikispacesOnly.xsl";
+            outputXmlPath = ROOT_PATH + "\\Output2.xml";
         }
         else if (args.length != 3) {
             // se placer dans PragmaticMemory\target\classes et executer : java fr.pragmaticmemory.XsltEngine "input" "xslt" "output"
@@ -44,7 +48,9 @@ public class XsltEngine {
             outputXmlPath = args[2];
         }
 
-        System.out.println("java fr.pragmaticmemory.XsltEngine" + quote(inputXmlPath) + quote(xsltPath) + quote(outputXmlPath));
+        System.out
+              .println("java fr.pragmaticmemory.XsltEngine" + quote(inputXmlPath) + quote(xsltPath) + quote(
+                    outputXmlPath));
         transform(inputXmlPath, xsltPath, outputXmlPath);
     }
 
@@ -64,6 +70,10 @@ public class XsltEngine {
         // Vu dans un forum : If the Transformer implementation you're using is Xalan-J, then you should be able to use:
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
         transformer.setParameter(OutputKeys.INDENT, "yes");
+
+        // TODO : utiliser un URIResolver pour gérer le cas des xsl:includes
+        transformer.setURIResolver(new XsltResolver());
+        // TODO : afficher < au lieu de &lt; : utiliser disable-output-escaping ?
 
         transformer.transform(new DOMSource(document), new StreamResult(file));
     }
