@@ -27,11 +27,11 @@ public class XsltEngine {
         if (args.length == 0) {
 //            inputXmlPath = ROOT_PATH + "\\Data.xml";
 //            xsltPath = ROOT_PATH + "\\ViewOnly.xsl";
-//            outputXmlPath = ROOT_PATH + "\\TEST_OUTPUT2.xml";
+//            outputXmlPath = ROOT_PATH + "\\Output1.xml";
 
             inputXmlPath = ROOT_PATH + "\\Output1.xml";
             xsltPath = ROOT_PATH + "\\WikispacesOnly.xsl";
-            outputXmlPath = ROOT_PATH + "\\Output2.xml";
+            outputXmlPath = ROOT_PATH + "\\Output2.txt";
         }
         else if (args.length != 3) {
             // se placer dans PragmaticMemory\target\classes et executer : java fr.pragmaticmemory.XsltEngine "input" "xslt" "output"
@@ -61,7 +61,7 @@ public class XsltEngine {
 
         StreamSource xslt = new StreamSource(new File(xsltPath));
         TransformerFactory factory = TransformerFactory.newInstance();
-        factory.setAttribute("indent-number", 6); // n'est pas pris en compte pour l'indentation de la sortie
+        factory.setAttribute("indent-number", 6); // non pris en compte pour l'indentation de la sortie
 
         Transformer transformer = factory.newTransformer(xslt);
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -70,9 +70,7 @@ public class XsltEngine {
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
         transformer.setParameter(OutputKeys.INDENT, "yes");
 
-        // TODO : utiliser un URIResolver pour gérer le cas des xsl:includes
-        transformer.setURIResolver(new XsltResolver());
-        // TODO : afficher < au lieu de &lt; : utiliser disable-output-escaping ?
+        transformer.setURIResolver(new XsltResolver());// permet de gérer les include de xslt
 
         transformer.transform(new DOMSource(document), new StreamResult(file));
     }
@@ -87,9 +85,7 @@ public class XsltEngine {
 
         // lecture du contenu d'un fichier XML avec DOM
         File xml = new File(filePath);
-        Document document = constructeur.parse(xml);
-//        displayDomInConsole(document);
-        return document;
+        return constructeur.parse(xml);
     }
 
 

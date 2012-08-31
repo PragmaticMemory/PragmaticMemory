@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0"?>
-<!DOCTYPE biblio SYSTEM "entities.dtd">
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:strip-space elements="*"/>
 <xsl:output method="text" omit-xml-declaration="yes"/>
@@ -46,11 +45,10 @@
 
     <xsl:template match="codeLine">
         <xsl:call-template name="iter-text">
-            <xsl:with-param name="level" select="@level"/>            
+            <xsl:with-param name="level" select="@level"/>
             <xsl:with-param name="text" select="'  '"/><!-- les espaces sont entre ' ' car c'est un littéral -->
         </xsl:call-template>
-        <!-- L'attribut disable-output-escaping à "yes" permet de ne pas afficher &lt; et &gt; mais les caractères correspondant -->
-        <xsl:value-of select="." disable-output-escaping="yes"/>
+        <xsl:value-of select="."/>
         <xsl:value-of select="$newline"/>
     </xsl:template>
 
