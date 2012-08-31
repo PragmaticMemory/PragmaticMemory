@@ -436,6 +436,7 @@
                 <xsl:with-param name="node">
                     <header level="2"><xsl:copy-of select="name"/></header>
                     <xsl:copy-of select="definition"/><newLine/>
+                    <xsl:copy-of select="example"/><newLine/>
                 </xsl:with-param>
             </xsl:call-template>
             <xsl:if test="remark">Remarques :<br/></xsl:if>

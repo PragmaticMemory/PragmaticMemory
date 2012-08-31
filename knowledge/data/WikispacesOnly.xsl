@@ -12,9 +12,7 @@
 <xsl:text>
 </xsl:text>
     </xsl:variable>
- 
 
- 
     <xsl:template match="list">
         <xsl:call-template name="iter-text">
             <xsl:with-param name="level" select="@level"/>
@@ -48,12 +46,10 @@
 
     <xsl:template match="codeLine">
         <xsl:call-template name="iter-text">
-            <xsl:with-param name="level" select="@level"/>
-            <!-- <xsl:with-param name="text" select="'&space;&space;'"/> -->
-            <!-- * est entre ' ' car c'est un littéral -->
-            <xsl:with-param name="text" select="'  '"/>
+            <xsl:with-param name="level" select="@level"/>            
+            <xsl:with-param name="text" select="'  '"/><!-- les espaces sont entre ' ' car c'est un littéral -->
         </xsl:call-template>
-        <!-- <xsl:apply-templates disable-output-escaping="yes"//> -->
+        <!-- L'attribut disable-output-escaping à "yes" permet de ne pas afficher &lt; et &gt; mais les caractères correspondant -->
         <xsl:value-of select="." disable-output-escaping="yes"/>
         <xsl:value-of select="$newline"/>
     </xsl:template>
@@ -115,7 +111,7 @@
     </xsl:template>
 
     <xsl:template match="headerRow/cell">
-        <xsl:text>**</xsl:text><xsl:apply-templates/><xsl:text>**||</xsl:text>
+        <xsl:text> **</xsl:text><xsl:apply-templates/><xsl:text>** ||</xsl:text>
     </xsl:template>
 
 </xsl:stylesheet>

@@ -249,11 +249,9 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 *** plugin TextFX : TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)
 * Distribuer sur différentes lignes des items faisant partie d'une liste
 || **Source** || **Cible** ||
-||
-[[code]]
+|| [[code]]
   A, B, C
-[[code]] ||
-[[code]]
+[[code]] || [[code]]
   A
   B
   C
@@ -265,13 +263,11 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 *** remplacer par : {{\r\n}}
 * Assembler différentes lignes en une liste
 || **Source** || **Cible** ||
-||
-[[code]]
+|| [[code]]
   A
   B
   C
-[[code]] ||
-[[code]]
+[[code]] || [[code]]
   A, B, C
 [[code]] ||
 ** Notepad++
@@ -297,12 +293,13 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 *** étape 2 : passer en majuscule (CTRL + SHIFT + U)
 * Comparer 2 listes
 ** Excel
-*** en A1, saisir le formattage conditionnel [[pragmaticmemory/code|code]]
-=ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)
+*** en A1, saisir le formattage conditionnel
 [[code]]
-*** en B1, saisir le formattage conditionnel [[code]]
-
- =ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)
+  =ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)
+[[code]]
+*** en B1, saisir le formattage conditionnel
+[[code]]
+  =ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)
 [[code]]
 *** copier le format de A1 sur la colonne A
 *** copier le format de B1 sur la colonne B
@@ -331,6 +328,15 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 * Informations sur le repository (branche, numéro de révision)
 [[code]]
   svn info
+[[code]]
+----
+=GIT=
+* Stocker les login / mot de passe pour GitHub
+utiliser le fichier {{_netrc}} stocker dans le profil utilisateur
+[[code]]
+  machine github.com
+  login COMPTE_GITHUB
+  password MOT_DE_PASSE
 [[code]]
 ----
 =SQL=
@@ -407,16 +413,17 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
   sp_addgroup 'nom_de_groupe'
 [[code]]
 ==Le fichier {{sql.ini}}==
-Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier {{sql.ini}} ( présent par exemple dans {{C:\Program Files\sybase\12.5.1\ini}}) Ils sont définis suivant le template :
+Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier {{sql.ini}} ( présent par exemple dans {{C:\Program Files\sybase\12.5.1\ini}}). Ils sont définis suivant le template :
 [[code]]
   [DATA_SERVEUR_NAME]
   query=TCP,server-name,port
 [[code]]
-où server-name est le nom ou l'alias d'une machine. Remarques :
+Remarques :
+** dans l'exemple,{{server-name}} est le nom ou l'alias d'une machine
 ** un data serveur peut héberger plusieurs bases
 ** si {{A}} et {{B}} sont 2 bases sur un même data server, et si {{a}} est un objet de {{A}} et {{b}} un objet de {{B}}, {{a}} peut référencer {{b}} en utilisant la syntaxe {{B..b}}
 ==L'outil {{isql}}==
-Outil Sybase permettant l'exécution d'un script sql via la syntaxe
+Outil Sybase permettant l'exécution d'un script sql via la syntaxe :
 [[code]]
   isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql
 [[code]]
@@ -453,17 +460,17 @@ Remarques :
 ----
 =Anglais=
 ==Références==
-* phonétique : [[http://www.wordreference.com/|http://www.wordreference.com]]
-* traduction : [[http://www.wordreference.com/|http://www.wordreference.com]]
+* phonétique : [[http://www.wordreference.com]]
+* traduction : [[http://www.wordreference.com]]
 * Liste des symboles phonétiques : [[http://www.wordreference.com/fr/French-Pronunciation.aspx]]
 * ipa : [[http://www.antimoon.com/how/pronunc-soundsipa.htm]]
 ==Liste==
 || **Mot** || **Phonétique** || **Description** ||
-|| comfort || ['k?mf?t] || confort ||
-|| comfortable || ['k?mft?bl, US :'k?mf?rtbl] || confortable ||
-|| database || ['de?t??be?s] || base de données ||
-|| flaccid || ['flæks?d / 'flæs?d] || flasque, mou ||
-|| pawn || [p??n] || pions (aux échecs) ||
+|| comfort || [ˈkʌmfət] || confort ||
+|| comfortable || [ˈkʌmftəbl, US :ˈkʌmfərtbl] || confortable ||
+|| database || [ˈdeɪtəˌbeɪs] || base de données ||
+|| flaccid || [ˈflæksɪd / ˈflæsɪd] || flasque, mou ||
+|| pawn || [pɔːn] || pions (aux échecs) ||
 ----
 =Français=
 ==Références==
@@ -474,16 +481,16 @@ Remarques :
 ----
 =WEB AND WIKI=
 * Créer son wiki : [[http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki]]
-* Créer son site web : [[http://www.2createawebsite.com/|http://www.2createawebsite.com]]
+* Créer son site web : [[http://www.2createawebsite.com]]
 ----
 =XML TECHNO=
 ==XSLT==
 * Testeurs Xslt online
 ** mark bucayan : [[http://markbucayan.appspot.com/xslt/index.html]]
-** xslt cake : [[http://www.xsltcake.com/|http://www.xsltcake.com]]
+** xslt cake : [[http://www.xsltcake.com]]
 * Tutoriaux Xslt
 ** Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné) : [[http://xmlfr.org/documentations/faq/041013-0001]]
-** Traitement des espaces blancs : décrire la problèmatique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles. : [[#]]
+** Traitement des espaces blancs : décrire la problèmatique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.
 ==XSD / DTD==
 * Tutoriaux XSD
 ** Tutorial Xsd 1 : [[http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes]]
@@ -495,7 +502,7 @@ Remarques :
 =JAVA=
 ==Lire les lignes d'un fichier==
 * java.lang : String,
-* java.util : List, ArrayList,
+* java.util : List,ArrayList,
 [[code format="java"]]
   public static List<String> readLines(File file) throws IOException {
     BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -514,7 +521,7 @@ Remarques :
 ==Insérer des lignes dans un fichier==
 * java.lang : String,
 * java.util : List,
-* java.io : FileWriter, BufferedWriter,
+* java.io : FileWriter,BufferedWriter,
 [[code format="java"]]
   public static void writeLines(List<String> lines, File file) throws IOException {
     BufferedWriter writer = new BufferedWriter(new FileWriter(file));
@@ -531,7 +538,7 @@ Remarques :
 * la méthode {{writeLines}} n'ajoute pas de séquence de fin de ligne après la dernière ligne
 ==Manipuler les listes==
 * java.lang : String,
-* java.util : List, ArrayList, Arrays,
+* java.util : List,ArrayList,Arrays,
 [[code format="java"]]
   SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
   Date date = sdf.parse("10/11/2011");
@@ -543,7 +550,7 @@ Remarques :
 [[code]]
 ==Récupérer une liste fixe de chaînes de caractères==
 * java.lang : String,
-* java.util : List, ArrayList,
+* java.util : List,ArrayList,
 [[code format="java"]]
   public List<String> getAllFilePath() {
     String[] pathArray = {
@@ -571,7 +578,7 @@ Remarques :
 * La méthode {{process}}est la seule qui reste à définir
 * D'après les remarques sur les méthodes {{readLines}} et {{writeLines}}, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence
 ==Utiliser les expressions régulières==
-* java.util.regex : Pattern, Matcher,
+* java.util.regex : Pattern,Matcher,
 [[code format="java"]]
   public static void main(String[] args) {
     Pattern pattern = Pattern.compile("(\\w)(..)(.)");

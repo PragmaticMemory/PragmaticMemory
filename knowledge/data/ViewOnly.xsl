@@ -91,7 +91,7 @@
         </xsl:for-each>
         <header level="2">Membres par type</header>                
         <xsl:for-each select="typeInformation/properties/type">
-            <list>Objet de type <xsl:copy-of select="name"/> : </list>
+            <list>Objet de type <xsl:copy-of select="name"/> :</list>
             <xsl:for-each select ="property">
                 <row><cell><xsl:copy-of select="name"/></cell><cell><xsl:copy-of select="description"/></cell></row>
             </xsl:for-each>
@@ -185,6 +185,16 @@
         <endOfSection/>
     </xsl:template>
 
+    <!-- Git -->
+     <xsl:template match="data/git">
+        <header level="1">GIT</header>
+        <xsl:for-each select="item">
+            <list level="1"><xsl:copy-of select="goal"/></list>
+            <xsl:copy-of select="solution"/><newLine/>
+            <xsl:copy-of select="example"/><newLine/>
+        </xsl:for-each>
+        <endOfSection/>
+    </xsl:template>
 
     <!-- Sql -->
     <xsl:template match="data/sql">
@@ -207,6 +217,7 @@
         <xsl:for-each select="object">
             <header level="2"><xsl:copy-of select="name"/></header>
             <xsl:copy-of select="definition"/><newLine/>
+            <xsl:copy-of select="example"/><newLine/>
             <xsl:if test="remark">Remarques :<newLine/></xsl:if>
             <xsl:for-each select="remark">
                 <list level="2"><xsl:copy-of select="."/></list>
@@ -307,7 +318,7 @@
             <xsl:for-each select="item">
                 <list level="1"><xsl:copy-of select="name"/></list>
                 <xsl:for-each select="reference">
-                    <list level="2"><xsl:copy-of select="name"/> : <xsl:copy-of select="link"/></list>
+                    <list level="2"><xsl:copy-of select="name"/><xsl:if test="link"> : <xsl:copy-of select="link"/></xsl:if></list>
                 </xsl:for-each>
             </xsl:for-each>
         </xsl:for-each>
@@ -326,7 +337,7 @@
             <xsl:for-each select="package">
                 <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text>
                     <xsl:for-each select="class">
-                        <xsl:copy-of select="."/><xsl:text>, </xsl:text>
+                        <xsl:copy-of select="."/><xsl:text>,</xsl:text>
                     </xsl:for-each>
                 </list>
             </xsl:for-each>

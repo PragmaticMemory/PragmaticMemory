@@ -190,11 +190,11 @@
                 </item>
                 <item>
                     <type><technic>file set</technic></type>
-                    <description> un ensemble de <technic>file</technic> passé sur le pipe</description>
+                    <description>un ensemble de <technic>file</technic> passé sur le pipe</description>
                 </item>
                 <item>
                     <type><technic>string set</technic></type>
-                    <description> un ensemble de chaînes de caractères passé sur le pipe</description>
+                    <description>un ensemble de chaînes de caractères passé sur le pipe</description>
                 </item>
                 <item>
                     <type><technic>string list</technic></type>
@@ -202,7 +202,7 @@
                 </item>
                 <item>
                     <type><technic>object</technic></type>
-                    <description> un objet au sens large</description>
+                    <description>un objet au sens large</description>
                 </item>
             </notation>
             <compatibility>
@@ -421,13 +421,13 @@
         <example>
             <item>
                 <goal>copie de tous les fichiers contenus dans le répertoire "C:\Temp\PS", avec ajout de BEGIN sur la première ligne et de END sur la dernière lignes</goal>
-                <answer>sans utilisation de pipe au sein du Foreach : <newLine/>
+                <answer>sans utilisation de pipe au sein du Foreach :<newLine/>
                     <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}</codeLine></code>
                 </answer>
-                <answer>avec utilisation de pipe au sein du Foreach : <newLine/>
+                <answer>avec utilisation de pipe au sein du Foreach :<newLine/>
                     <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}</codeLine></code>
                 </answer>
-                <answer>variante avec utilisation du caractère d'échappemnt `r signifiant un retour à la ligne  : <newLine/>
+                <answer>variante avec utilisation du caractère d'échappemnt `r signifiant un retour à la ligne :<newLine/>
                     <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}</codeLine></code>
                 </answer>
             </item>
@@ -463,8 +463,8 @@
         <item>
             <goal>Voir les blancs et les tabulations</goal>
             <answer>
-                <tool>Notepad++ </tool>
-                <method> Affichage > Symboles spéciaux > Afficher les blancs et les tabulations</method>
+                <tool>Notepad++</tool>
+                <method>Affichage > Symboles spéciaux > Afficher les blancs et les tabulations</method>
             </answer>
         </item>
         <item>
@@ -543,8 +543,8 @@
             <goal>Comparer 2 listes</goal>
             <answer>
                 <tool>Excel</tool>
-                <method>en A1, saisir le formattage conditionnel <code><codeLine>=ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)</codeLine></code></method>
-                <method>en B1, saisir le formattage conditionnel <code><codeLine>=ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)</codeLine></code></method>
+                <method>en A1, saisir le formattage conditionnel<newLine/><code><codeLine>=ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)</codeLine></code></method>
+                <method>en B1, saisir le formattage conditionnel<newLine/><code><codeLine>=ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)</codeLine></code></method>
                 <method>copier le format de A1 sur la colonne A</method>
                 <method>copier le format de B1 sur la colonne B</method>
                 <method>Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND</method>
@@ -577,7 +577,7 @@
     <git>
         <item>
             <goal>Stocker les login / mot de passe pour GitHub</goal>
-            <solution>utiliser le fichier <code>_netrc</code> stocker dans le profil utilisateur</solution>
+            <solution>utiliser le fichier <technic>_netrc</technic> stocker dans le profil utilisateur</solution>
             <example>
                 <code>
                     <codeLine level="1">machine github.com</codeLine>
@@ -662,22 +662,23 @@
         </item>
         <object>
             <name>Le fichier <technic>sql.ini</technic></name>
-            <definition>Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier <technic>sql.ini</technic> ( présent par exemple dans <technic>C:\Program Files\sybase\12.5.1\ini</technic>)
-            Ils sont définis suivant le template :<newLine/>
-                <code>
+            <definition>Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier <technic>sql.ini</technic> ( présent par exemple dans <technic>C:\Program Files\sybase\12.5.1\ini</technic>). Ils sont définis suivant le template :</definition>
+            <example>
+              <code>
                     <codeLine level="1">[DATA_SERVEUR_NAME]</codeLine>
                     <codeLine level="1">query=TCP,server-name,port</codeLine>
                 </code>
-            où server-name est le nom ou l'alias d'une machine.
-            </definition>
+            </example>
+            <remark>dans l'exemple,<technic>server-name</technic> est le nom ou l'alias d'une machine</remark>
             <remark>un data serveur peut héberger plusieurs bases</remark>
             <remark>si <technic>A</technic> et <technic>B</technic> sont 2 bases sur un même data server, et si <technic>a</technic> est un objet de <technic>A</technic> et <technic>b</technic> un objet de <technic>B</technic>, <technic>a</technic> peut référencer <technic>b</technic> en utilisant la syntaxe <technic>B..b</technic></remark>
         </object>
         <object>
             <name>L'outil <technic>isql</technic></name>
-            <definition>Outil Sybase permettant l'exécution d'un script sql via la syntaxe<newLine/>
+            <definition>Outil Sybase permettant l'exécution d'un script sql via la syntaxe :</definition>
+            <example>
                 <code><codeLine>isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql</codeLine></code>
-            </definition>
+            </example>
             <remark>Le fichier d'entrée (ex: <technic>script.sql</technic>) passé à <technic>isql</technic> peut inclure un fichier (ex : <technic>include.sql</technic>) à l'aide de la syntaxe :<newLine/>
                 <code><codeLine>:r C:\Temp\include.sql</codeLine></code></remark>
             <remark>il ne doit pas y avoir d'espace entre le début de la ligne et le <technic>:r</technic></remark>
@@ -839,7 +840,6 @@
                 </reference>
                 <reference>
                     <name>Traitement des espaces blancs : décrire la problèmatique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.</name>
-                    <link></link>
                 </reference>
             </item>
         </group>
