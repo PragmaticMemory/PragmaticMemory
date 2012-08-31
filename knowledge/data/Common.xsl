@@ -19,4 +19,9 @@
         </xsl:if>
     </xsl:template>
 
+    <!-- variable définissant un retour à la ligne-->
+    <xsl:variable name="newline">
+<xsl:text>
+</xsl:text>
+    </xsl:variable>
 </xsl:stylesheet>

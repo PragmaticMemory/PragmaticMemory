@@ -1,2 +1,3 @@
-java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\Data.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\ViewOnly.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\Output1.xml"
-java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\Output1.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\WikispacesOnly.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\Output2.txt"
+java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\Data.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\View.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\View.xml"
+java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\View.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\Wikispaces.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\Wikispaces.txt"
+java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\View.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\Text.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\Text.txt"

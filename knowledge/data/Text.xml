@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="Text.xsl" type="text/xsl" ?>
-<!DOCTYPE docType [<!ENTITY data SYSTEM "Data.xml">]>
-<linkedData>
-&data;
-</linkedData>

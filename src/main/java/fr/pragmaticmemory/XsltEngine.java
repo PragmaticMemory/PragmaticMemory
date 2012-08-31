@@ -26,11 +26,11 @@ public class XsltEngine {
         final String xsltPath;
         if (args.length == 0) {
 //            inputXmlPath = ROOT_PATH + "\\Data.xml";
-//            xsltPath = ROOT_PATH + "\\ViewOnly.xsl";
-//            outputXmlPath = ROOT_PATH + "\\Output1.xml";
+//            xsltPath = ROOT_PATH + "\\View.xsl";
+//            outputXmlPath = ROOT_PATH + "\\View.xml";
 
-            inputXmlPath = ROOT_PATH + "\\Output1.xml";
-            xsltPath = ROOT_PATH + "\\WikispacesOnly.xsl";
+            inputXmlPath = ROOT_PATH + "\\View.xml";
+            xsltPath = ROOT_PATH + "\\Wikispaces.xsl";
             outputXmlPath = ROOT_PATH + "\\Output2.txt";
         }
         else if (args.length != 3) {

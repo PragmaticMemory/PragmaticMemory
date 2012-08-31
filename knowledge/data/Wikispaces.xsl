@@ -2,15 +2,10 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:strip-space elements="*"/>
 <xsl:output method="text" omit-xml-declaration="yes"/>
-<xsl:include href="Common2.xsl"/>
+<xsl:include href="Common.xsl"/>
     <!--........................................................................-->
     <!-- Templates de media = template correspondant au language de destination -->
     <!--........................................................................-->
-
-    <xsl:variable name="newline">
-<xsl:text>
-</xsl:text>
-    </xsl:variable>
 
     <xsl:template match="list">
         <xsl:call-template name="iter-text">
