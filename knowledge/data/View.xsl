@@ -59,7 +59,7 @@
             <header level="2"><xsl:copy-of select="name"/></header>
             <xsl:for-each select="item">
                 <code><xsl:copy-of select="description"/><newLine/></code><newLine/>
-                <xsl:copy-of select="remark"/>            
+                <xsl:copy-of select="remark"/>
             </xsl:for-each>
         </xsl:for-each>
         <endOfSection/>
@@ -82,13 +82,13 @@
         <header level="2">Notation de types</header>
         <xsl:for-each select="typeInformation/notation/item">
             <list level="1"><xsl:copy-of select="type"/> : <xsl:copy-of select="description"/></list>
-        </xsl:for-each>        
+        </xsl:for-each>
         <header level="2">Compatibilité entre types</header>
         <headerRow><cell>Type attendu</cell><cell>Type particulier utilisable</cell></headerRow>
         <xsl:for-each select="typeInformation/compatibility/item">
             <row><cell><xsl:copy-of select="expectedType"/></cell><cell><xsl:copy-of select="compatibleType"/></cell></row>
         </xsl:for-each>
-        <header level="2">Membres par type</header>                
+        <header level="2">Membres par type</header>
         <xsl:for-each select="typeInformation/properties/type">
             <list>Objet de type <xsl:copy-of select="name"/> :</list>
             <xsl:for-each select ="property">
@@ -144,7 +144,7 @@
 
 
     <!-- File modifications -->
-    <xsl:template match="data/fileModification">       
+    <xsl:template match="data/fileModification">
         <header level="1">FILE MODIFICATIONS</header>
         <xsl:copy-of select="goal"/><newLine/>
         <header level="2">Fin de lignes dans les fichiers</header>
@@ -202,6 +202,26 @@
             <list level="1"><xsl:copy-of select="goal"/></list>
             <list level="2">Exemple :<newLine/><xsl:copy-of select="example"/></list>
             <list level="2">Requête :<newLine/><xsl:copy-of select="query"/></list>
+        </xsl:for-each>
+        <endOfSection/>
+    </xsl:template>
+
+     <!-- Git -->
+    <xsl:template match="data/git">
+        <header level="1">GIT</header>
+        <header level="2">Objets</header>
+        <xsl:for-each select="item">
+            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
+        </xsl:for-each>
+        <header level="2">Méthodes</header>
+        <xsl:for-each select="method">
+            <list level="1"><xsl:copy-of select="goal"/></list>
+            <xsl:for-each select="command">
+                <xsl:copy-of select="."/><newLine/>
+            </xsl:for-each>
+            <xsl:for-each select="comment">
+                <list level="1"><xsl:copy-of select="."/></list>
+            </xsl:for-each>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -351,4 +371,16 @@
         <endOfSection/>
     </xsl:template>
 
+    <!--Unix -->
+    <xsl:template match="data/unix">
+        <header level="1">UNIX</header>
+        <xsl:for-each select="item">
+            <list level="1"><xsl:copy-of select="name"/></list>
+            <list level="2"><xsl:text>Description : </xsl:text><xsl:copy-of select="description"/></list>
+            <xsl:for-each select="comment">
+                <xsl:copy-of select="."/>
+            </xsl:for-each>
+        </xsl:for-each>
+        <endOfSection/>
+    </xsl:template>
 </xsl:stylesheet>

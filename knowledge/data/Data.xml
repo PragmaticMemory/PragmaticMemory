@@ -313,7 +313,7 @@
                 </pipe>
             </goal>
             <goal>
-                <target>récupérer un file set à partir d'une liste de path</target>                
+                <target>récupérer un file set à partir d'une liste de path</target>
                 <pipe>
                     <source>string (path) list</source>
                     <command>Get-Content(...)</command>
@@ -550,7 +550,7 @@
                 <method>Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND</method>
                 <method>Inspiré de l'article <link>http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310</link></method>
             </answer>
-        </item>        
+        </item>
     </fileModification>
     <subversion>
         <item>
@@ -576,16 +576,194 @@
     </subversion>
     <git>
         <item>
+            <name>Fichier de configurationo globale Git</name>
+            <description>fichier <technic>.gitConfig</technic> dans le répertoire %HOME%</description>
+        </item>
+        <item>
+            <name>HEAD</name>
+            <description>Pointeur vers le dernier commit (sauf lorsqu'il est déplacé)</description>
+        </item>
+        <item>
+            <name>HEAD~</name>
+            <description>Pointeur vers le parent du commit pointé par HEAD</description>
+        </item>
+        <item>
+            <name>HEAD~2</name>
+            <description>Pointeur vers le parent du commit parent du commit pointé par HEAD (et de même HEAD~3, HEAD~4, etc...)</description>
+        </item>
+        <item>
+            <name>Index / Staging area</name>
+            <description>Versions d'un ensemble de fichiers qui feront parti du prochain commit</description>
+        </item>
+        <item>
+            <name>Action "Stage"</name>
+            <description>Ajouter des fichiers à l'index</description>
+        </item>
+        <item>
+            <name>Action "Unstage"</name>
+            <description>Retirer des des fichiers de l'index</description>
+        </item>
+        <item>
+            <name>Répertoire de travail (working directory)</name>
+            <description>Ensemble de fichiers modifiés localement et dont les modifications n'ont pas étées ajoutées à l'index</description>
+        </item>
+        <method>
+            <goal>Afficher la configuration globale</goal>
+            <command><code><codeLine>git config --global -l</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Afficher la configuration locale à un répertoire git</goal>
+            <command><code><codeLine>git config --local -l</codeLine></code></command>
+            <command><code><codeLine>git config --local --list</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Supprimer une variable locale</goal>
+            <command><code><codeLine>git config --local --unset nom_de_variable</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Configurer Notepad++ comme editeur (en local)</goal>
+            <command><code><codeLine>git config --local core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Configurer Notepad++ comme editeur (en local) en utilisant un fichier de script</goal>
+            <command><code><codeLine>git config --local core.editor C:/GitEditor.bat</codeLine></code></command>
+            <comment>Contenu de <technic>GitEditor.bat</technic> :<newLine/>
+                <code>
+                    <codeLine>#!/bin/sh</codeLine>
+                    <codeLine>"c:/Program Files/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin "$*"</codeLine>
+                </code>
+            </comment>
+        </method>
+        <method>
+            <goal>Initialiser un répertoire git</goal>
+            <command><code><codeLine>git init</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Ajouter un fichier à l'index (faire un stage)</goal>
+            <command><code><codeLine>git add nom_de_fichier</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Ajouter récursivement tous les fichiers à l'index</goal>
+            <command><code><codeLine>git add .</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Annuler l'opération d'ajout d'un fichier à l'index</goal>
+            <command><code><codeLine>git reset HEAD nom_de_fichier</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Faire un commit (ajouter les fichiers de l'index au repository)</goal>
+            <command><code><codeLine>git commit -m "message de commit</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Afficher le status des fichiers</goal>
+            <command><code><codeLine>git status</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Afficher l'historique des commit</goal>
+            <command><code><codeLine>git log</codeLine></code></command>
+            <command><code><codeLine>git log --pretty=oneline</codeLine></code></command>
+            <command><code><codeLine>git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short</codeLine></code></command>
+            <command><code><codeLine>git reflog</codeLine></code></command>
+            <comment>Principaux formats :<newLine/>
+                <table>
+                    <headerRow><cell>Format</cell><cell>Description</cell></headerRow>
+                    <row><cell>%H</cell><cell>Commit hash</cell></row>
+                    <row><cell>%h</cell><cell>Abbreviated commit hash</cell></row>
+                    <row><cell>%T</cell><cell>Tree hash</cell></row>
+                    <row><cell>%t</cell><cell>Abbreviated tree hash</cell></row>
+                    <row><cell>%P</cell><cell>Parent hashes</cell></row>
+                    <row><cell>%p</cell><cell>Abbreviated parent hashes</cell></row>
+                    <row><cell>%an</cell><cell>Author name</cell></row>
+                    <row><cell>%ae</cell><cell>Author e-mail</cell></row>
+                    <row><cell>%ad</cell><cell>Author date (format respects the –date= option)</cell></row>
+                    <row><cell>%ar</cell><cell>Author date, relative</cell></row>
+                    <row><cell>%cn</cell><cell>Committer name</cell></row>
+                    <row><cell>%ce</cell><cell>Committer email</cell></row>
+                    <row><cell>%cd</cell><cell>Committer date</cell></row>
+                    <row><cell>%cr</cell><cell>Committer date, relative</cell></row>
+                    <row><cell>%s</cell><cell>Subject</cell></row>
+                </table>
+            </comment>
+        </method>
+        <method>
+            <goal>Afficher l'historique des commit (version graphique)</goal>
+            <command><code><codeLine>gitk</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Afficher les différences entre le répertoire de travail et l'index</goal>
+            <command><code><codeLine>git diff</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Afficher les différences entre l'index et le repository</goal>
+            <command><code><codeLine>git diff --cached</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Afficher les différences entre le répertoire de travail et le repository</goal>
+            <command><code><codeLine>git diff HEAD</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Afficher les différences entre le HEAD et son parent</goal>
+            <command><code><codeLine>git diff HEAD HEAD~</codeLine></code></command>
+        </method>
+        <!--
+        Question : Sometimes git suggests git rm - -cached to unstage a file, sometimes git reset HEAD file. When should I use which?
+        Answer : git rm - -cached doesn't unstage a file. It stages the removal of the file. git reset on the other hand, will unstage any staged changes for a given file.
+                 Edit: Thinking about it, though, if you used git rm - -cached on a new file that is staged, it would basically look like you had just unstaged it since it had never been committed before. Maybe that's what you were seeing?
+        Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git-rm-cached-asd-and-git-reset-head-asd
+        -->
+        <method>
+            <goal>Déplacer le HEAD sans modifier l'index ni le répertoire de travail</goal>
+            <command><code><codeLine>git reset --soft version</codeLine></code></command>
+            <comment>Il me semble donc que <technic>git reset --soft HEAD</technic>n'a aucun effet puisqu'ul deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail</comment>
+        </method>
+        <method>
+            <goal>Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail</goal>
+            <command><code><codeLine>git reset --medium version</codeLine></code></command>
+            <command><code><codeLine>git reset version</codeLine></code></command>
+        </method>
+        <method>
+            <goal>Déplacer le HEAD en modifiant l'index et le répertoire de travail</goal>
+            <command><code><codeLine>git reset --hard version</codeLine></code></command>
+        </method>
+        <method>
             <goal>Stocker les login / mot de passe pour GitHub</goal>
-            <solution>utiliser le fichier <technic>_netrc</technic> stocker dans le profil utilisateur</solution>
-            <example>
+            <command>
                 <code>
                     <codeLine level="1">machine github.com</codeLine>
                     <codeLine level="1">login COMPTE_GITHUB</codeLine>
                     <codeLine level="1">password MOT_DE_PASSE</codeLine>
                 </code>
-            </example>
-        </item>
+            </command>
+            <comment>Ces lignes de code doivent être stockées dans le fichier <technic>_netrc</technic> qui doit se trouver dans le profil utilisateur</comment>
+        </method>
+        <reference>
+            <name>Commande <technic>reset</technic></name>
+            <link>http://git-scm.com/2011/07/11/reset.html</link>
+        </reference>
+        <reference>
+            <name>Git Community Book en français</name>
+            <link>http://alx.github.com/gitbook/index.html</link>
+        </reference>
+        <reference>
+            <name>Tutorial "Immersion"</name>
+            <link>http://gitimmersion.com</link>
+        </reference>
+        <reference>
+            <name>Tutorial "Git c'est  facile 2"</name>
+            <link>http://www.yterium.net/GIT-c-est-facile-2</link>
+        </reference>
+        <reference>
+            <name>Tutorial "Git ready"</name>
+            <link>http://gitready.com</link>
+        </reference>
+        <reference>
+            <name>Tutorial "Learn GitHub"</name>
+            <link>http://learn.github.com/p/intro.html</link>
+        </reference>
+        <reference>
+            <name>Tutorial "Learn GitHub" (suite)</name>
+            <link>http://learn.github.com/p/diff.html</link>
+        </reference>
     </git>
     <sql>
         <item>
@@ -705,6 +883,26 @@
                     <description>présente seulement les noms de fichiers sans formattage</description>
                 </option>
             </options>
+        </item>
+        <item>
+            <goal>Lister les répertoires</goal>
+            <command><code lang="dos"><codeLine>dir</codeLine></code></command>
+        </item>
+        <item>
+            <goal>Créer un répertoire</goal>
+            <command><code lang="dos"><codeLine>mkdir nom_de_repertoire</codeLine></code></command>
+        </item>
+        <item>
+            <goal>Changer de répertoire</goal>
+            <command><code lang="dos"><codeLine>cd nom_de_repertoire</codeLine></code></command>
+        </item>
+        <item>
+            <goal>Afficher le contenu d'un fichier</goal>
+            <command><code lang="dos"><codeLine>more nom_de_fichier</codeLine></code></command>
+        </item>
+        <item>
+            <goal>Créer un fichier</goal>
+            <command><code lang="dos"><codeLine>echo "contenu du fichier" > nom_de_fichier</codeLine></code></command>
         </item>
     </dos>
     <keyboard>
@@ -868,7 +1066,7 @@
                 </reference>
             </item>
         </group>
-        
+
     </xmlTechno>
     <java>
         <item>
@@ -1084,4 +1282,19 @@
             <answer>utiliser l'outil <technic>JD-GUI</technic> (<link>http://java.decompiler.free.fr/?q=jdgui</link>)</answer>
         </item>
     </java>
+    <unix>
+        <item>
+            <name>shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling</name>
+            <description>Ligne en début de fichier débutant par <technic>#!</technic>, indiquant au système que le fichier est un script et par quel est son interpréteur associé</description>
+            <comment>
+                <headerRow><cell>shebang</cell><cell>language de script</cell></headerRow>
+                <row><cell><technic>#!/bin/sh</technic></cell><cell>Bourne shell (ou autre shell compatible)</cell></row>
+                <row><cell><technic>#!/bin/csh</technic></cell><cell>C shell (ou autre shell compatible)</cell></row>
+                <row><cell><technic>#!/usr/bin/perl</technic></cell><cell>Perl</cell></row>
+                <row><cell><technic>#!/usr/bin/php</technic></cell><cell>PHP</cell></row>
+                <row><cell><technic>#!/usr/bin/python</technic></cell><cell>Python</cell></row>
+                <row><cell><technic>#!/usr/bin/ruby</technic></cell><cell>Ruby</cell></row>
+            </comment>
+        </item>
+    </unix>
 </data>

@@ -331,13 +331,143 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
 ----
 =GIT=
+==Objets==
+* Fichier de configurationo globale Git : fichier {{.gitConfig}} dans le répertoire %HOME%
+* HEAD : Pointeur vers le dernier commit (sauf lorsqu'il est déplacé)
+* HEAD~ : Pointeur vers le parent du commit pointé par HEAD
+* HEAD~2 : Pointeur vers le parent du commit parent du commit pointé par HEAD (et de même HEAD~3, HEAD~4, etc...)
+* Index / Staging area : Versions d'un ensemble de fichiers qui feront parti du prochain commit
+* Action "Stage" : Ajouter des fichiers à l'index
+* Action "Unstage" : Retirer des des fichiers de l'index
+* Répertoire de travail (working directory) : Ensemble de fichiers modifiés localement et dont les modifications n'ont pas étées ajoutées à l'index
+==Méthodes==
+* Afficher la configuration globale
+[[code]]
+  git config --global -l
+[[code]]
+* Afficher la configuration locale à un répertoire git
+[[code]]
+  git config --local -l
+[[code]]
+[[code]]
+  git config --local --list
+[[code]]
+* Supprimer une variable locale
+[[code]]
+  git config --local --unset nom_de_variable
+[[code]]
+* Configurer Notepad++ comme editeur (en local)
+[[code]]
+  git config --local core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+[[code]]
+* Configurer Notepad++ comme editeur (en local) en utilisant un fichier de script
+[[code]]
+  git config --local core.editor C:/GitEditor.bat
+[[code]]
+* Contenu de {{GitEditor.bat}} :
+[[code]]
+  #!/bin/sh
+  "c:/Program Files/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin "$*"
+[[code]]
+* Initialiser un répertoire git
+[[code]]
+  git init
+[[code]]
+* Ajouter un fichier à l'index (faire un stage)
+[[code]]
+  git add nom_de_fichier
+[[code]]
+* Ajouter récursivement tous les fichiers à l'index
+[[code]]
+  git add .
+[[code]]
+* Annuler l'opération d'ajout d'un fichier à l'index
+[[code]]
+  git reset HEAD nom_de_fichier
+[[code]]
+* Faire un commit (ajouter les fichiers de l'index au repository)
+[[code]]
+  git commit -m "message de commit
+[[code]]
+* Afficher le status des fichiers
+[[code]]
+  git status
+[[code]]
+* Afficher l'historique des commit
+[[code]]
+  git log
+[[code]]
+[[code]]
+  git log --pretty=oneline
+[[code]]
+[[code]]
+  git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
+[[code]]
+[[code]]
+  git reflog
+[[code]]
+* Principaux formats :
+|| **Format** || **Description** ||
+|| %H || Commit hash ||
+|| %h || Abbreviated commit hash ||
+|| %T || Tree hash ||
+|| %t || Abbreviated tree hash ||
+|| %P || Parent hashes ||
+|| %p || Abbreviated parent hashes ||
+|| %an || Author name ||
+|| %ae || Author e-mail ||
+|| %ad || Author date (format respects the –date= option) ||
+|| %ar || Author date, relative ||
+|| %cn || Committer name ||
+|| %ce || Committer email ||
+|| %cd || Committer date ||
+|| %cr || Committer date, relative ||
+|| %s || Subject ||
+
+* Afficher l'historique des commit (version graphique)
+[[code]]
+  gitk
+[[code]]
+* Afficher les différences entre le répertoire de travail et l'index
+[[code]]
+  git diff
+[[code]]
+* Afficher les différences entre l'index et le repository
+[[code]]
+  git diff --cached
+[[code]]
+* Afficher les différences entre le répertoire de travail et le repository
+[[code]]
+  git diff HEAD
+[[code]]
+* Afficher les différences entre le HEAD et son parent
+[[code]]
+  git diff HEAD HEAD~
+[[code]]
+* Déplacer le HEAD sans modifier l'index ni le répertoire de travail
+[[code]]
+  git reset --soft version
+[[code]]
+* Il me semble donc que {{git reset --soft HEAD}}n'a aucun effet puisqu'ul deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail
+* Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail
+[[code]]
+  git reset --medium version
+[[code]]
+[[code]]
+  git reset version
+[[code]]
+* Déplacer le HEAD en modifiant l'index et le répertoire de travail
+[[code]]
+  git reset --hard version
+[[code]]
 * Stocker les login / mot de passe pour GitHub
-utiliser le fichier {{_netrc}} stocker dans le profil utilisateur
+
 [[code]]
   machine github.com
   login COMPTE_GITHUB
   password MOT_DE_PASSE
 [[code]]
+* Ces lignes de code doivent être stockées dans le fichier {{_netrc}} qui doit se trouver dans le profil utilisateur
 ----
 =SQL=
 * sélectionner le maximum d'une colonne en fonction d'une autre colonne
@@ -442,6 +572,26 @@ Remarques :
 * {{/S}} (subdirectories) :permet la récursion sur les sous-répertoires
 * {{/A}} (attribute) :{{-D}} : ne possédant pas l'attribut "Directory"
 * {{/B}} (bare format (format nu)) :présente seulement les noms de fichiers sans formattage
+* Lister les répertoires
+[[code format="dos"]]
+  dir
+[[code]]
+* Créer un répertoire
+[[code format="dos"]]
+  mkdir nom_de_repertoire
+[[code]]
+* Changer de répertoire
+[[code format="dos"]]
+  cd nom_de_repertoire
+[[code]]
+* Afficher le contenu d'un fichier
+[[code format="dos"]]
+  more nom_de_fichier
+[[code]]
+* Créer un fichier
+[[code format="dos"]]
+  echo "contenu du fichier" > nom_de_fichier
+[[code]]
 ----
 =KEYBOARD=
 * Basculer entre anglais et français : ALT + SHIFT
@@ -657,4 +807,15 @@ Remarques :
 ==Décompiler des classes java==
 * Solution : utiliser l'outil {{JD-GUI}} ([[http://java.decompiler.free.fr/?q=jdgui]])
 
+----
+=UNIX=
+* shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling
+** Description : Ligne en début de fichier débutant par {{#!}}, indiquant au système que le fichier est un script et par quel est son interpréteur associé
+|| **shebang** || **language de script** ||
+|| {{#!/bin/sh}} || Bourne shell (ou autre shell compatible) ||
+|| {{#!/bin/csh}} || C shell (ou autre shell compatible) ||
+|| {{#!/usr/bin/perl}} || Perl ||
+|| {{#!/usr/bin/php}} || PHP ||
+|| {{#!/usr/bin/python}} || Python ||
+|| {{#!/usr/bin/ruby}} || Ruby ||
 ----
