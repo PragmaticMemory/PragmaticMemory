@@ -353,13 +353,24 @@
             <xsl:if test="answer">
                 <list level="1">Solution : <xsl:copy-of select="answer"/></list>
             </xsl:if>
-            <xsl:for-each select="package">
-                <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text>
-                    <xsl:for-each select="class">
-                        <xsl:copy-of select="."/><xsl:text>,</xsl:text>
-                    </xsl:for-each>
-                </list>
-            </xsl:for-each>
+            <table>
+                <headerRow>
+                    <cell>Package</cell><cell>Classes</cell>
+                </headerRow>
+                <xsl:for-each select="package">
+                    <row>
+                        <cell>
+                            <xsl:copy-of select="name"/>
+                        </cell>
+                        <cell>
+                            <xsl:for-each select="class">
+                                <xsl:copy-of select="."/>
+                                <xsl:if test="not(position()=last())"><xsl:text>, </xsl:text></xsl:if>
+                            </xsl:for-each>
+                        </cell>
+                    </row>
+                </xsl:for-each>
+            </table>
             <xsl:copy-of select="code"/><newLine/>
             <xsl:if test="remark">
                 <xsl:text>Remarques :</xsl:text><newLine/>

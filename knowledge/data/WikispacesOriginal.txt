@@ -3,13 +3,15 @@
 =DASHBOARD=
 ==En cours==
 ==A faire==
-* Ecrire une xslt de vue et une xslt de media appelables successivement
-* Trouver le moyen le plus simple d'appliquer une xslt à un xml
+* Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)
 * Compléter le fichier de données avec la liste de mots en français
 * Compléter le fichier de données avec la liste de mots en anglais
 * Rédiger la xsd validant {{Data.xml}}
-* Afficher les packages / classes sous forme de tableaux dans la section java
 ==Fait==
+* Afficher les packages / classes sous forme de tableaux dans la section java
+* Trouver le moyen le plus simple d'appliquer une xslt à un xml
+** Solution retenue : Ecriture d'une classe java
+* Ecrire une xslt de vue et une xslt de media appelables successivement
 * Trouver un moyen de stoker le code
 ** Solution retenue : GitHub
 * Gérer l'imbrication de code dans un tableau dans Wikispaces
@@ -448,7 +450,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
   git reset --soft version
 [[code]]
-* Il me semble donc que {{git reset --soft HEAD}}n'a aucun effet puisqu'ul deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail
+* Ainsi, {{git reset --soft HEAD}}n'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail
 * Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail
 [[code]]
   git reset --medium version
@@ -461,7 +463,6 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
   git reset --hard version
 [[code]]
 * Stocker les login / mot de passe pour GitHub
-
 [[code]]
   machine github.com
   login COMPTE_GITHUB
@@ -651,8 +652,9 @@ Remarques :
 ----
 =JAVA=
 ==Lire les lignes d'un fichier==
-* java.lang : String,
-* java.util : List,ArrayList,
+|| **Package** || **Classes** ||
+|| java.lang || String ||
+|| java.util || List, ArrayList ||
 [[code format="java"]]
   public static List<String> readLines(File file) throws IOException {
     BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -669,9 +671,10 @@ Remarques :
 Remarques :
 * Pour deux fichiers contenant respectivement {{A\r\nB}} et {{A\r\nB\r\n}}, la méthode {{readLines}} renvoie une liste identique (contenant les 2 éléments {{A}} et {{B}}).
 ==Insérer des lignes dans un fichier==
-* java.lang : String,
-* java.util : List,
-* java.io : FileWriter,BufferedWriter,
+|| **Package** || **Classes** ||
+|| java.lang || String ||
+|| java.util || List ||
+|| java.io || FileWriter, BufferedWriter ||
 [[code format="java"]]
   public static void writeLines(List<String> lines, File file) throws IOException {
     BufferedWriter writer = new BufferedWriter(new FileWriter(file));
@@ -687,20 +690,23 @@ Remarques :
 Remarques :
 * la méthode {{writeLines}} n'ajoute pas de séquence de fin de ligne après la dernière ligne
 ==Manipuler les listes==
-* java.lang : String,
-* java.util : List,ArrayList,Arrays,
+|| **Package** || **Classes** ||
+|| java.lang || String ||
+|| java.util || List, ArrayList, Arrays ||
 [[code format="java"]]
   SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
   Date date = sdf.parse("10/11/2011");
 [[code]]
 ==Récupérer les propriétés systèmes==
-* java.lang : System,
+|| **Package** || **Classes** ||
+|| java.lang || System ||
 [[code format="java"]]
   System.getProperties()
 [[code]]
 ==Récupérer une liste fixe de chaînes de caractères==
-* java.lang : String,
-* java.util : List,ArrayList,
+|| **Package** || **Classes** ||
+|| java.lang || String ||
+|| java.util || List, ArrayList ||
 [[code format="java"]]
   public List<String> getAllFilePath() {
     String[] pathArray = {
@@ -713,6 +719,7 @@ Remarques :
   }
 [[code]]
 ==Modifier plusieurs fichiers==
+|| **Package** || **Classes** ||
 [[code format="java"]]
   public void process() throws Exception {
     for (String filePath : getAllFilePath()) {
@@ -728,7 +735,8 @@ Remarques :
 * La méthode {{process}}est la seule qui reste à définir
 * D'après les remarques sur les méthodes {{readLines}} et {{writeLines}}, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence
 ==Utiliser les expressions régulières==
-* java.util.regex : Pattern,Matcher,
+|| **Package** || **Classes** ||
+|| java.util.regex || Pattern, Matcher ||
 [[code format="java"]]
   public static void main(String[] args) {
     Pattern pattern = Pattern.compile("(\\w)(..)(.)");
@@ -806,6 +814,7 @@ Remarques :
 [[code]]
 ==Décompiler des classes java==
 * Solution : utiliser l'outil {{JD-GUI}} ([[http://java.decompiler.free.fr/?q=jdgui]])
+|| **Package** || **Classes** ||
 
 ----
 =UNIX=

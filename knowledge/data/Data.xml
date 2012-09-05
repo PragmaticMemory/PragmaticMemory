@@ -6,10 +6,7 @@
         <group>
             <name>A faire</name>
             <task>
-                <goal>Ecrire une xslt de vue et une xslt de media appelables successivement</goal>
-            </task>
-            <task>
-                <goal>Trouver le moyen le plus simple d'appliquer une xslt à un xml</goal>
+                <goal>Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)</goal>
             </task>
             <task>
                 <goal>Compléter le fichier de données avec la liste de mots en français</goal>
@@ -20,12 +17,19 @@
             <task>
                 <goal>Rédiger la xsd validant <technic>Data.xml</technic></goal>
             </task>
-            <task>
-                <goal>Afficher les packages / classes sous forme de tableaux dans la section java</goal>
-            </task>
         </group>
         <group>
             <name>Fait</name>
+            <task>
+                <goal>Afficher les packages / classes sous forme de tableaux dans la section java</goal>
+            </task>
+            <task>
+                <goal>Trouver le moyen le plus simple d'appliquer une xslt à un xml</goal>
+                <selected>Ecriture d'une classe java</selected>
+            </task>
+            <task>
+                <goal>Ecrire une xslt de vue et une xslt de media appelables successivement</goal>
+            </task>
             <task>
                 <goal>Trouver un moyen de stoker le code</goal>
                 <selected>GitHub</selected>
@@ -714,7 +718,7 @@
         <method>
             <goal>Déplacer le HEAD sans modifier l'index ni le répertoire de travail</goal>
             <command><code><codeLine>git reset --soft version</codeLine></code></command>
-            <comment>Il me semble donc que <technic>git reset --soft HEAD</technic>n'a aucun effet puisqu'ul deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail</comment>
+            <comment>Ainsi, <technic>git reset --soft HEAD</technic>n'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail</comment>
         </method>
         <method>
             <goal>Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail</goal>
