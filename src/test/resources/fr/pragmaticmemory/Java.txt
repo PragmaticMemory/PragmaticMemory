@@ -1,0 +1,11 @@
+public static List<String> readLines(String file) throws IOException {
+  BufferedReader reader = new BufferedReader(new FileReader(file));
+  List<String> lines = new ArrayList<String>();
+  String line = reader.readLine();
+  while (line != null) {
+    lines.add(line);
+    line = reader.readLine();
+  }
+  reader.close();
+  return lines;
+}

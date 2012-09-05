@@ -7,13 +7,18 @@ import java.util.regex.Pattern;
 
 public class Convertor {
 
-    private final static String SPACE = " ";
-    static int indentLevel = 2;
     static final String OPENING_TARGET = "<";
     static final String CLOSING_TAG = ">";
     static final String OPENING_TAG_ENTITY = "&openTag;";
     static final String CLOSING_TAG_ENTITY = "&closeTag;";
-    static String oneLevelIndent;
+    private final static String SPACE = " ";
+    private int oneLevelIndentSize = 2;
+    private String oneLevelIndent = null;
+
+
+    public Convertor(int oneLevelIndentSize) {
+        this.oneLevelIndentSize = oneLevelIndentSize;
+    }
 
 
     public static void main(String[] args) throws IOException {
@@ -27,30 +32,34 @@ public class Convertor {
             return;
         }
 
+        int oneLevelIndentSize = 2;
         if (args.length > 3) {
             try {
-                indentLevel = Integer.parseInt(args[3]);
+                oneLevelIndentSize = Integer.parseInt(args[3]);
             }
             catch (NumberFormatException e) {
-                System.out.println("ERREUR :Le quatrieme argument doit etre un entier");
+                System.out.println("ERREUR : Le quatrieme argument doit etre un entier");
                 return;
             }
         }
 
-        oneLevelIndent = "";
-        for (int i = 0; i < indentLevel; i++) {
-            oneLevelIndent += SPACE;
-        }
-
+        Convertor convertor = new Convertor(oneLevelIndentSize);
         for (String arg : args) {
             System.out.println("arg = " + arg);
         }
 
         String inputFilePath = args[1];
         String outputFilePath = args[2];
-        List<String> outputLines = new ArrayList<String>();
+
         List<String> inputLines = FileUtils.readLines(inputFilePath);
-        if ("code2xml".equals(args[0])) {
+        final List<String> outputLines = convertor.convert(args[0], inputLines);
+        FileUtils.writeLines(outputLines, outputFilePath);
+    }
+
+
+    protected List<String> convert(String convertionMode, List<String> inputLines) {
+        List<String> outputLines = new ArrayList<String>();
+        if ("code2xml".equals(convertionMode)) {
             Pattern pattern = Pattern.compile("(\\s*)\\.*");
             for (String inputLine : inputLines) {
                 Matcher matcher = pattern.matcher(inputLine);
@@ -64,7 +73,7 @@ public class Convertor {
                 outputLines.add(outputLine);
             }
         }
-        else if ("xml2code".equals(args[0])) {
+        else if ("xml2code".equals(convertionMode)) {
             Pattern pattern = Pattern.compile("<codeLine\\s+level=\"(\\d+)\">(.*?)</codeLine>");
             for (String inputLine : inputLines) {
                 Matcher matcher = pattern.matcher(inputLine);
@@ -73,17 +82,28 @@ public class Convertor {
                 String line = matcher.group(2);
                 String outputLine = "";
                 for (int i = 0; i < level; i++) {
-                    outputLine += oneLevelIndent;
+                    outputLine += getOneLevelIndent();
                 }
                 outputLine += line.replace(OPENING_TAG_ENTITY, OPENING_TARGET).replace("&closeTag;", CLOSING_TAG);
                 outputLines.add(outputLine);
             }
         }
-        FileUtils.writeLines(outputLines, outputFilePath);
+        return outputLines;
     }
 
 
-    private static int getLevel(String group) {
-        return group.length() / oneLevelIndent.length() + 1;
+    private int getLevel(String group) {
+        return group.length() / getOneLevelIndent().length() + 1;
+    }
+
+
+    private String getOneLevelIndent() {
+        if (oneLevelIndent == null) {
+            oneLevelIndent = "";
+            for (int i = 0; i < oneLevelIndentSize; i++) {
+                oneLevelIndent += SPACE;
+            }
+        }
+        return oneLevelIndent;
     }
 }

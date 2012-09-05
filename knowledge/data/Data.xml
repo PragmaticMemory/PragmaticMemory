@@ -1285,6 +1285,10 @@
             <goal>Décompiler des classes java</goal>
             <answer>utiliser l'outil <technic>JD-GUI</technic> (<link>http://java.decompiler.free.fr/?q=jdgui</link>)</answer>
         </item>
+        <reference>
+            <name>Tutorial IO</name>
+            <link>http://tutorials.jenkov.com/java-io/index.html</link>
+        </reference>
     </java>
     <unix>
         <item>
