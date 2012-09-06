@@ -47,22 +47,26 @@
 =PRINCIPES DE REDACTION=
 L'objectif de cette section est de lister les principes permettant d'améliorer la forme du wiki, afin d'éliminer tout ce qui n'est pas indispensable ou qui peut minimiser la compréhension.
 ==Clarté==
+===Formulation===
 [[code]]
 Entre deux formulations d'une même information, utiliser la plus claire.
 [[code]]
 * (à développer) Utiliser la mise en forme pour permettre une distinction des types d'information
 ==Homogénéité==
+===Forme===
 [[code]]
-Forme : utiliser la même forme pour transmettre un même type d'information.
+Utiliser la même forme pour transmettre un même type d'information.
 [[code]]
 * Règles à déterminer :
 ** utilisation des temps (futur, présent, ...)
 ** utilisation de la casse (majuscule ou minuscule)
 ** ponctuation
+===Terme===
 [[code]]
-Terme : utiliser toujours les mêmes termes pour désigner une même notion.
+Utiliser toujours les mêmes termes pour désigner une même notion.
 [[code]]
 ==Séparation==
+===Données / présentation===
 [[code]]
 Distinguer les informations utiles (données à transmettre) de la mise en page (manière de transmettre les données).
 [[code]]
@@ -91,17 +95,23 @@ Distinguer les informations utiles (données à transmettre) de la mise en page 
 * concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :
 ** toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link
 ** toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé
-==Concision==
+===Concepts dans les métadonnées===
 [[code]]
-Taille : entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité
+Liste des concepts : item, group, reference, method
+[[code]]
+==Concision==
+===Taille===
+[[code]]
+Entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité
 [[code]]
 * Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.
 ** par exemple : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)
 ** un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)
 * Utiliser les participes-présent plutôt que les subordonnées
 ** "permettant" au lieu de "qui permettent" (gain de 4 caractères)
+===Factorisation===
 [[code]]
-Factorisation : éliminer les redondances de mots ou de groupes de mots
+Eliminer les redondances de mots ou de groupes de mots
 [[code]]
 * Eliminer les redondances d'informations d'un texte avec son titre (à développer)
 * Principe des "code smell"
@@ -334,7 +344,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 ----
 =GIT=
 ==Objets==
-* Fichier de configurationo globale Git : fichier {{.gitConfig}} dans le répertoire %HOME%
+* Fichier de configuration globale Git : fichier {{.gitConfig}} dans le répertoire %USERPROFILE%
 * HEAD : Pointeur vers le dernier commit (sauf lorsqu'il est déplacé)
 * HEAD~ : Pointeur vers le parent du commit pointé par HEAD
 * HEAD~2 : Pointeur vers le parent du commit parent du commit pointé par HEAD (et de même HEAD~3, HEAD~4, etc...)
@@ -433,6 +443,10 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 * Afficher les différences entre le répertoire de travail et l'index
 [[code]]
   git diff
+[[code]]
+* Afficher les différences en utilisant un outil de diff spécifique
+[[code]]
+  git difftool
 [[code]]
 * Afficher les différences entre l'index et le repository
 [[code]]

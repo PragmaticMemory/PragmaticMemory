@@ -22,7 +22,7 @@
         <header level="1">DASHBOARD</header>
         <xsl:for-each select="group">
             <header level="2"><xsl:copy-of select="name"/></header>
-            <xsl:for-each select="task">
+            <xsl:for-each select="method">
                 <list level="1"><xsl:copy-of select="goal"/></list>
                 <xsl:for-each select="candidate">
                     <list level="2"><xsl:copy-of select="name"/></list>
@@ -55,11 +55,12 @@
     <xsl:template match="data/principles">
        <header level="1">PRINCIPES DE REDACTION</header>
        <xsl:copy-of select="goal"/><newLine/>
-       <xsl:for-each select="principle">
+       <xsl:for-each select="group">
             <header level="2"><xsl:copy-of select="name"/></header>
             <xsl:for-each select="item">
+                <header level="3"><xsl:copy-of select="name"/></header>
                 <code><xsl:copy-of select="description"/><newLine/></code><newLine/>
-                <xsl:copy-of select="remark"/>
+                <xsl:copy-of select="comment"/>
             </xsl:for-each>
         </xsl:for-each>
         <endOfSection/>
@@ -81,7 +82,7 @@
         <header level="1">POWERSHELL</header>
         <header level="2">Notation de types</header>
         <xsl:for-each select="typeInformation/notation/item">
-            <list level="1"><xsl:copy-of select="type"/> : <xsl:copy-of select="description"/></list>
+            <list level="1"><xsl:copy-of select="name"/> : <xsl:copy-of select="description"/></list>
         </xsl:for-each>
         <header level="2">Compatibilité entre types</header>
         <headerRow><cell>Type attendu</cell><cell>Type particulier utilisable</cell></headerRow>
@@ -89,9 +90,9 @@
             <row><cell><xsl:copy-of select="expectedType"/></cell><cell><xsl:copy-of select="compatibleType"/></cell></row>
         </xsl:for-each>
         <header level="2">Membres par type</header>
-        <xsl:for-each select="typeInformation/properties/type">
+        <xsl:for-each select="typeInformation/properties/group">
             <list>Objet de type <xsl:copy-of select="name"/> :</list>
-            <xsl:for-each select ="property">
+            <xsl:for-each select ="item">
                 <row><cell><xsl:copy-of select="name"/></cell><cell><xsl:copy-of select="description"/></cell></row>
             </xsl:for-each>
         </xsl:for-each>
@@ -124,10 +125,10 @@
                         <note><technic><xsl:copy-of select="shortcut"/></technic></note>
                     </list>
                 </xsl:for-each>
-                <xsl:if test="remark">
+                <xsl:if test="comment">
                     <xsl:text>Remarques :</xsl:text><newLine/>
                 </xsl:if>
-                <xsl:for-each select="remark">
+                <xsl:for-each select="comment">
                    <list level="2"><xsl:copy-of select="."/></list>
                 </xsl:for-each>
             </xsl:for-each>
@@ -157,7 +158,7 @@
             <list level="2"><xsl:copy-of select="."/></list>
         </xsl:for-each>
         <header level="2">Catalogue des méthodes de modifications</header>
-        <xsl:for-each select="item">
+        <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/></list>
             <xsl:if test="example">
                 <headerRow><cell>Source</cell><cell>Cible</cell></headerRow>
@@ -178,8 +179,8 @@
     <!-- Subversion -->
     <xsl:template match="data/subversion">
         <header level="1">SUBVERSION</header>
-        <xsl:for-each select="item">
-            <list level="1"><xsl:copy-of select="description"/><newLine/><xsl:copy-of select="command"/></list>
+        <xsl:for-each select="method">
+            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="command"/></list>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -198,10 +199,10 @@
     <!-- Sql -->
     <xsl:template match="data/sql">
         <header level="1">SQL</header>
-        <xsl:for-each select="item">
+        <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/></list>
             <list level="2">Exemple :<newLine/><xsl:copy-of select="example"/></list>
-            <list level="2">Requête :<newLine/><xsl:copy-of select="query"/></list>
+            <list level="2">Requête :<newLine/><xsl:copy-of select="command"/></list>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -229,16 +230,16 @@
     <!-- Sybase -->
     <xsl:template match="data/sybase">
         <header level="1">SYBASE</header>
-        <xsl:for-each select="item">
+        <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="command"/></list>
             <xsl:if test="example"><list level="2">example : <technic><xsl:copy-of select="example"/></technic></list></xsl:if>
         </xsl:for-each>
-        <xsl:for-each select="object">
+        <xsl:for-each select="item">
             <header level="2"><xsl:copy-of select="name"/></header>
             <xsl:copy-of select="definition"/><newLine/>
             <xsl:copy-of select="example"/><newLine/>
-            <xsl:if test="remark">Remarques :<newLine/></xsl:if>
-            <xsl:for-each select="remark">
+            <xsl:if test="comment">Remarques :<newLine/></xsl:if>
+            <xsl:for-each select="comment">
                 <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
         </xsl:for-each>
@@ -249,7 +250,7 @@
     <!-- Dos -->
     <xsl:template match="data/dos">
         <header level="1">DOS</header>
-        <xsl:for-each select="item">
+        <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="command"/></list>
             <xsl:for-each select="options/option">
                 <list level="1">
@@ -269,7 +270,7 @@
     <!-- Keyboard -->
     <xsl:template match="data/keyboard">
         <header level="1">KEYBOARD</header>
-        <xsl:for-each select="item">
+        <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/> : <xsl:copy-of select="shortcut"/></list>
         </xsl:for-each>
         <endOfSection/>
@@ -334,7 +335,7 @@
         <header level="1">XML TECHNO</header>
         <xsl:for-each select="group">
             <header level="2"><xsl:copy-of select="name"/></header>
-            <xsl:for-each select="item">
+            <xsl:for-each select="group">
                 <list level="1"><xsl:copy-of select="name"/></list>
                 <xsl:for-each select="reference">
                     <list level="2"><xsl:copy-of select="name"/><xsl:if test="link"> : <xsl:copy-of select="link"/></xsl:if></list>
@@ -348,7 +349,7 @@
     <!-- Java -->
     <xsl:template match="data/java">
         <header level="1">JAVA</header>
-        <xsl:for-each select="item">
+        <xsl:for-each select="method">
             <header level="2"><xsl:copy-of select="goal"/></header>
             <xsl:if test="answer">
                 <list level="1">Solution : <xsl:copy-of select="answer"/></list>
@@ -371,10 +372,10 @@
                     </row>
                 </xsl:for-each>
             </table>
-            <xsl:copy-of select="code"/><newLine/>
-            <xsl:if test="remark">
+            <xsl:copy-of select="command"/><newLine/>
+            <xsl:if test="comment">
                 <xsl:text>Remarques :</xsl:text><newLine/>
-                <xsl:for-each select="remark">
+                <xsl:for-each select="comment">
                    <list level="1"><xsl:copy-of select="."/></list>
                 </xsl:for-each>
             </xsl:if>
