@@ -18,8 +18,10 @@ public class ConvertorTest extends TestCase {
 
         final List<String> actualXmlLines = convertor.convert("code2xml", inputJavaLines);
 
-        Assert.assertEquals(expectedXmlLines, actualXmlLines);
+        assertEquals(expectedXmlLines, actualXmlLines);
+
     }
+
 
     public void testConvertFromXmlToJava() throws Exception {
         final List<String> inputXmlLines = getTestFileLines("Xml.txt");
@@ -27,7 +29,7 @@ public class ConvertorTest extends TestCase {
 
         final List<String> actualJavaLines = convertor.convert("xml2code", inputXmlLines);
 
-        Assert.assertEquals(expectedJavaLines, actualJavaLines);
+        assertEquals(expectedJavaLines, actualJavaLines);
     }
 
 
@@ -35,5 +37,18 @@ public class ConvertorTest extends TestCase {
         final InputStream javaStream = getClass().getResourceAsStream(name);
         Reader javaFileReader = new InputStreamReader(javaStream);
         return FileUtils.readLines(javaFileReader);
+    }
+
+
+    private void assertEquals(List<String> expectedLines, List<String> actualLines) {
+        if (expectedLines.size() != actualLines.size()) {
+            Assert.fail("Nombre de ligne différent : expected : " + expectedLines.size() + "; actual : "
+                        + actualLines.size());
+        }
+        for (int lineIndex = 0; lineIndex < expectedLines.size(); lineIndex++) {
+            String expectedLine = expectedLines.get(lineIndex);
+            String actualLine = actualLines.get(lineIndex);
+            Assert.assertEquals("Ligne " + lineIndex, expectedLine, actualLine);
+        }
     }
 }

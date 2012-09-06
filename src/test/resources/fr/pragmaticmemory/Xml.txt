@@ -1,6 +1,6 @@
-<codeLine level="1">public static List&openTag;String&closeTag; readLines(String file) throws IOException {</codeLine>
+<codeLine level="1">public static List&#60;String&#62; readLines(String file) throws IOException {</codeLine>
 <codeLine level="2">BufferedReader reader = new BufferedReader(new FileReader(file));</codeLine>
-<codeLine level="2">List&openTag;String&closeTag; lines = new ArrayList&openTag;String&closeTag;();</codeLine>
+<codeLine level="2">List&#60;String&#62; lines = new ArrayList&#60;String&#62;();</codeLine>
 <codeLine level="2">String line = reader.readLine();</codeLine>
 <codeLine level="2">while (line != null) {</codeLine>
 <codeLine level="3">lines.add(line);</codeLine>

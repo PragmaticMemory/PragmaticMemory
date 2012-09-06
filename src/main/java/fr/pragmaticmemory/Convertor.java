@@ -7,10 +7,10 @@ import java.util.regex.Pattern;
 
 public class Convertor {
 
-    static final String OPENING_TARGET = "<";
+    static final String OPENING_TAG = "<";
     static final String CLOSING_TAG = ">";
-    static final String OPENING_TAG_ENTITY = "&openTag;";
-    static final String CLOSING_TAG_ENTITY = "&closeTag;";
+    static final String OPENING_TAG_CODE = "&#60;";
+    static final String CLOSING_TAG_CODE = "&#62;";
     private final static String SPACE = " ";
     private int oneLevelIndentSize = 2;
     private String oneLevelIndent = null;
@@ -66,8 +66,8 @@ public class Convertor {
                 matcher.find();
                 String spaces = matcher.group(1);
                 int level = getLevel(spaces);
-                String outputLine = inputLine.replace(OPENING_TARGET, OPENING_TAG_ENTITY).replace(CLOSING_TAG,
-                                                                                                  CLOSING_TAG_ENTITY);
+                String outputLine = inputLine.replace(OPENING_TAG, OPENING_TAG_CODE).replace(CLOSING_TAG,
+                                                                                                CLOSING_TAG_CODE);
                 outputLine = outputLine.trim();
                 outputLine = "<codeLine level=\"" + level + "\">" + outputLine + "</codeLine>";
                 outputLines.add(outputLine);
@@ -84,7 +84,7 @@ public class Convertor {
                 for (int i = 0; i < level; i++) {
                     outputLine += getOneLevelIndent();
                 }
-                outputLine += line.replace(OPENING_TAG_ENTITY, OPENING_TARGET).replace("&closeTag;", CLOSING_TAG);
+                outputLine += line.replace(OPENING_TAG_CODE, OPENING_TAG).replace(CLOSING_TAG_CODE, CLOSING_TAG);
                 outputLines.add(outputLine);
             }
         }
