@@ -48,9 +48,7 @@
     </xsl:template>
 
     <xsl:template match="technic">
-        <xsl:text>{{</xsl:text>
-        <xsl:apply-templates/>
-        <xsl:text>}}</xsl:text>
+        <xsl:text>{{</xsl:text><xsl:apply-templates/><xsl:text>}}</xsl:text>
     </xsl:template>
 
     <xsl:template match="link">

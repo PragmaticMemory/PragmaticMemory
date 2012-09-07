@@ -9,6 +9,9 @@
                 <goal>Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)</goal>
             </method>
             <method>
+                <goal>Gérer les tag reference au lieu des tag link uniquement ?</goal>
+            </method>
+            <method>
                 <goal>Compléter le fichier de données avec la liste de mots en français</goal>
             </method>
             <method>
@@ -135,7 +138,7 @@
                                 <list level="4">StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)</list>
                                 <list level="4">DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)</list>
                                 <list level="4">Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt</list>
-                    <list level="1">les fichiers xml doivent être encodés en UTF-8</list>
+                    <list level="1">les fichiers xml doivent être encodés en <technic>UTF-8</technic></list>
                     <list level="1">concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :</list>
                         <list level="2">toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link</list>
                         <list level="2">toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé</list>
@@ -565,6 +568,43 @@
                 <method>Inspiré de l'article <link>http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310</link></method>
             </answer>
         </method>
+        <item>
+            <name>Table <technic>ASCII</technic></name>
+            <description>Table contenant 128 caractères</description>
+            <comment>Chaque caractère est codé sur 7 bit, ce qui permet bien la représentation de (2 puissance 7 =) 128 caractères</comment>
+            <comment>Chaque caractère peut être représenté par un chiffre hexadécimal (entre 0 et F) suivi par un chiffre entre 0 et 7, ce qui permet bien la représentation des (16 x 8 =) 128 caractères.</comment>
+        </item>
+         <item>
+            <name>Table <technic>ASCII</technic> étendue</name>
+            <description>Table contenant 256 caractères</description>
+            <comment>Chaque caractère est codé sur 8 bit, ce qui permet bien la représentation de (2 puissance 8 =) 256 caractères</comment>
+            <comment>Chaque caractère peut être représenté par deux chiffres hexadécimal (entre 0 et F), ce qui permet bien la représentation des (16 x 16 =) 256 caractères.</comment>
+            <comment>Ceci n'est pas une mise à jour de la table <technic>ASCII</technic></comment>
+            <comment>Il existe plusieurs extensions propriétaires de la table <technic>ASCII</technic>, incompatibles entre elles.</comment>
+            <comment>Il existe plusieurs tables <technic>ASCII</technic> étendues définie par l'ISO : ce sont les table ISO 8859.</comment>
+            <comment>La plus populaire des tables ISO 8859 est la table SO 8859-1, appelée également ISO Latin1</comment>
+        </item>
+        <item>
+            <name><technic>UTF-8</technic></name>
+            <description>Système d'encodage des caractères internationaux d'Unicode rétro-compatible avec <technic>ASCII</technic></description>
+            <comment>Chaque caractère est codé sur un ensemble de 1 à 4 octets.</comment>
+            <comment>La rétro-compatibilité avec <technic>ASCII</technic> signifie que tout caractère <technic>ASCII</technic> se code en <technic>UTF-8</technic> sous forme d'un unique octet, identique au code <technic>ASCII</technic>.</comment>
+        </item>
+        <item>
+            <name>Page de code</name>
+            <description>Jeu de caractère associant un nombre à chaque caractère d'une langue.</description>
+            <comment>De nombreuse pages de code ont été définies autour de la norme <technic>ASCII</technic>, sous-ensemble commun à plusieurs pages de code.</comment>
+        </item>
+        <item>
+            <name>Unicode</name>
+            <description>Standard informatique qui vise à permettre le codage de texte écrit en donnant à tout caractère de n’importe quel système d’écriture un nom et un identifiant numérique, et ce de manière unifiée, quelle que soit la plate-forme informatique ou le logiciel. Son but est de remplacer l’utilisation de pages de code nationales.</description>
+            <comment>Chaque caractère est associé à un nombre entier appelé point de code.</comment>
+            <comment>L'espace de codage de ces nombres est divisé en 17 zones de 65 536 points de codes. Ces zones sont appelées plans.</comment>
+            <comment>Un point de code est noté <technic>U+xxxx</technic> où <technic>xxxx</technic> est un nombre hexadécimal comportant de 4 à 6 chiffres.</comment>
+            <comment>Les points de code du premier plan (appelé plan multilingue de base) comportent 4 chiffres (entre <technic>U+0000</technic> et <technic>U+FFFF</technic>)</comment>
+            <comment>Les points de code des 15 plans suivants comportent 5 chiffres (entre <technic>U+10000</technic> et <technic>U+FFFFF</technic>)</comment>
+            <comment>Les points de code du dernier plans comportent 6 chiffres (entre <technic>U+100000</technic> et <technic>U+10FFFF</technic>).</comment>
+        </item>
     </fileModification>
     <subversion>
         <method>
@@ -929,6 +969,45 @@
             <goal>Créer un fichier</goal>
             <command><code lang="dos"><codeLine>echo "contenu du fichier" > nom_de_fichier</codeLine></code></command>
         </method>
+        <item>
+            <name>Commande externe</name>
+            <description>Une commande non incluse dans <technic>command.com</technic></description>
+            <reference>
+                <name>Commande externe MD-DOS</name>
+                <link>http://www.computerhope.com/jargon/e/extecomm.htm</link>
+            </reference>
+        </item>
+        <item>
+            <name><technic>Less</technic></name>
+            <description><technic>Less</technic> est le programme de mise en page (pager) par défaut utilisé par les fenêtres DOS.</description>
+            <comment><technic>Less</technic> peut utiliser les variables d'environnement LESSCHARSET et LESSCHARDEF.</comment>
+            <reference>
+                <name>FAQ sur <technic>Less</technic></name>
+                <link>http://www.greenwoodsoftware.com/less/faq.html</link>
+            </reference>
+         </item>
+         <item>
+            <name><technic>LESSCHARSET</technic></name>
+            <description>Variable d'environnement lue par <technic>Less</technic>, qui permet de préciser le jeux de caractère prédéfini à utiliser.</description>
+            <comment>Valeurs possibles : ascii, iso8859, latin1, dos, ebcdic, koi8-r, utf-8</comment>
+            <comment><code><codeLine lang="dos">set LESSCHARSET = latin1</codeLine></code></comment>
+
+         </item>
+         <item>
+            <name><technic>LESSCHARDEF</technic></name>
+            <description>Variable d'environnement lue par <technic>Less</technic>, permettant de définir un jeux de caractères</description>
+            <comment>La chaîne de caractère affectée à cette variable défini le type des caractères de 0 à 255.</comment>
+            <comment>Les caractères possibles sont les suivants :<newLine/>
+                <table>
+                    <headerRow><cell>Caractère</cell><cell>Signification</cell></headerRow>
+                    <row><cell>.</cell><cell>caractère normal</cell></row>
+                    <row><cell>c</cell><cell>caractère de contrôle</cell></row>
+                    <row><cell>b</cell><cell>binaire</cell></row>
+                </table>
+            </comment>
+            <comment>Chacun des caractères ci-dessus peut être précédé par un nombre indiquent sur combien de caractères () porte le caractère suivant dans la chaîne</comment>
+            <comment>Exemple : le jeu prédéfini ascii correspond à 8bcccbcc18b95.b (caractères : 8 binaires + 3 contrôles + 1 binaire + 2 contrôles + 18 binaires + 95 normaux + 1 binaire soit 128 caractères définis)</comment>
+         </item>
     </dos>
     <keyboard>
         <method>
@@ -1329,13 +1408,15 @@
             <name>shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling</name>
             <description>Ligne en début de fichier débutant par <technic>#!</technic>, indiquant au système que le fichier est un script et par quel est son interpréteur associé</description>
             <comment>
-                <headerRow><cell>shebang</cell><cell>language de script</cell></headerRow>
-                <row><cell><technic>#!/bin/sh</technic></cell><cell>Bourne shell (ou autre shell compatible)</cell></row>
-                <row><cell><technic>#!/bin/csh</technic></cell><cell>C shell (ou autre shell compatible)</cell></row>
-                <row><cell><technic>#!/usr/bin/perl</technic></cell><cell>Perl</cell></row>
-                <row><cell><technic>#!/usr/bin/php</technic></cell><cell>PHP</cell></row>
-                <row><cell><technic>#!/usr/bin/python</technic></cell><cell>Python</cell></row>
-                <row><cell><technic>#!/usr/bin/ruby</technic></cell><cell>Ruby</cell></row>
+                <table>
+                    <headerRow><cell>shebang</cell><cell>language de script</cell></headerRow>
+                    <row><cell><technic>#!/bin/sh</technic></cell><cell>Bourne shell (ou autre shell compatible)</cell></row>
+                    <row><cell><technic>#!/bin/csh</technic></cell><cell>C shell (ou autre shell compatible)</cell></row>
+                    <row><cell><technic>#!/usr/bin/perl</technic></cell><cell>Perl</cell></row>
+                    <row><cell><technic>#!/usr/bin/php</technic></cell><cell>PHP</cell></row>
+                    <row><cell><technic>#!/usr/bin/python</technic></cell><cell>Python</cell></row>
+                    <row><cell><technic>#!/usr/bin/ruby</technic></cell><cell>Ruby</cell></row>
+                </table>
             </comment>
         </item>
     </unix>

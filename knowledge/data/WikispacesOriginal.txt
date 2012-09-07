@@ -4,6 +4,7 @@
 ==En cours==
 ==A faire==
 * Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)
+* Gérer les tag reference au lieu des tag link uniquement ?
 * Compléter le fichier de données avec la liste de mots en français
 * Compléter le fichier de données avec la liste de mots en anglais
 * Rédiger la xsd validant {{Data.xml}}
@@ -91,7 +92,7 @@ Distinguer les informations utiles (données à transmettre) de la mise en page 
 **** StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)
 **** DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)
 **** Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt
-* les fichiers xml doivent être encodés en UTF-8
+* les fichiers xml doivent être encodés en {{UTF-8}}
 * concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :
 ** toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link
 ** toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé
@@ -317,9 +318,30 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 *** copier le format de B1 sur la colonne B
 *** Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND
 *** Inspiré de l'article [[http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310]]
-** sous UNIX : {{\n}}
-** sous Windows : {{\r\n}}
-** sous Mac : {{\r}}
+==Définitions==
+* Table {{ASCII}} : Table contenant 128 caractères
+** Chaque caractère est codé sur 7 bit, ce qui permet bien la représentation de (2 puissance 7 =) 128 caractères
+** Chaque caractère peut être représenté par un chiffre hexadécimal (entre 0 et F) suivi par un chiffre entre 0 et 7, ce qui permet bien la représentation des (16 x 8 =) 128 caractères.
+* Table {{ASCII}} étendue : Table contenant 256 caractères
+** Chaque caractère est codé sur 8 bit, ce qui permet bien la représentation de (2 puissance 8 =) 256 caractères
+** Chaque caractère peut être représenté par deux chiffres hexadécimal (entre 0 et F), ce qui permet bien la représentation des (16 x 16 =) 256 caractères.
+** Ceci n'est pas une mise à jour de la table {{ASCII}}
+** Il existe plusieurs extensions propriétaires de la table {{ASCII}}, incompatibles entre elles.
+** Il existe plusieurs tables {{ASCII}} étendues définie par l'ISO : ce sont les table ISO 8859.
+** La plus populaire des tables ISO 8859 est la table SO 8859-1, appelée également ISO Latin1
+* {{UTF-8}} : Système d'encodage des caractères internationaux d'Unicode rétro-compatible avec {{ASCII}}
+** Chaque caractère est codé sur un ensemble de 1 à 4 octets.
+** La rétro-compatibilité avec {{ASCII}} signifie que tout caractère {{ASCII}} se code en {{UTF-8}} sous forme d'un unique octet, identique au code {{ASCII}}.
+* Page de code : Jeu de caractère associant un nombre à chaque caractère d'une langue.
+** De nombreuse pages de code ont été définies autour de la norme {{ASCII}}, sous-ensemble commun à plusieurs pages de code.
+* Unicode : Standard informatique qui vise à permettre le codage de texte écrit en donnant à tout caractère de n’importe quel système d’écriture un nom et un identifiant numérique, et ce de manière unifiée, quelle que soit la plate-forme informatique ou le logiciel. Son but est de remplacer l’utilisation de pages de code nationales.
+** Chaque caractère est associé à un nombre entier appelé point de code.
+** L'espace de codage de ces nombres est divisé en 17 zones de 65 536 points de codes. Ces zones sont appelées plans.
+** Un point de code est noté {{U+xxxx}} où {{xxxx}} est un nombre hexadécimal comportant de 4 à 6 chiffres.
+** Les points de code du premier plan (appelé plan multilingue de base) comportent 4 chiffres (entre {{U+0000}} et {{U+FFFF}})
+** Les points de code des 15 plans suivants comportent 5 chiffres (entre {{U+10000}} et {{U+FFFFF}})
+** Les points de code du dernier plans comportent 6 chiffres (entre {{U+100000}} et {{U+10FFFF}}).
+----
 =SUBVERSION=
 * Différences entre le working directory et la base
 [[code]]
@@ -580,6 +602,26 @@ Remarques :
 ** il ne doit pas y avoir d'espace entre le début de la ligne et le {{:r}}
 ----
 =DOS=
+* Commande externe : Une commande non incluse dans {{command.com}}
+** Commande externe MD-DOS : [[http://www.computerhope.com/jargon/e/extecomm.htm]]
+* {{Less}} : {{Less}} est le programme de mise en page (pager) par défaut utilisé par les fenêtres DOS.
+** {{Less}} peut utiliser les variables d'environnement LESSCHARSET et LESSCHARDEF.
+** FAQ sur {{Less}} : [[http://www.greenwoodsoftware.com/less/faq.html]]
+* {{LESSCHARSET}} : Variable d'environnement lue par {{Less}}, qui permet de préciser le jeux de caractère prédéfini à utiliser.
+** Valeurs possibles : ascii, iso8859, latin1, dos, ebcdic, koi8-r, utf-8
+** [[code]]
+  set LESSCHARSET = latin1
+[[code]]
+* {{LESSCHARDEF}} : Variable d'environnement lue par {{Less}}, permettant de définir un jeux de caractères
+** La chaîne de caractère affectée à cette variable défini le type des caractères de 0 à 255.
+** Les caractères possibles sont les suivants :
+|| **Caractère** || **Signification** ||
+|| . || caractère normal ||
+|| c || caractère de contrôle ||
+|| b || binaire ||
+
+** Chacun des caractères ci-dessus peut être précédé par un nombre indiquent sur combien de caractères () porte le caractère suivant dans la chaîne
+** Exemple : le jeu prédéfini ascii correspond à 8bcccbcc18b95.b (caractères : 8 binaires + 3 contrôles + 1 binaire + 2 contrôles + 18 binaires + 95 normaux + 1 binaire soit 128 caractères définis)
 * Lister récursivement les fichiers d'un répertoire
 [[code format="dos"]]
   dir /S /A:-D /B

@@ -171,9 +171,14 @@
                 </xsl:for-each>
             </xsl:for-each>
         </xsl:for-each>
-        <xsl:for-each select="endOfLine/sequence">
-            <list level="2"><xsl:copy-of select="."/></list>
+        <header level="2">Définitions</header>
+        <xsl:for-each select="item">
+            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
+            <xsl:for-each select="comment">
+                <list level="2"><xsl:copy-of select="."/></list>
+            </xsl:for-each>
         </xsl:for-each>
+        <endOfSection/>
     </xsl:template>
 
     <!-- Subversion -->
@@ -250,6 +255,15 @@
     <!-- Dos -->
     <xsl:template match="data/dos">
         <header level="1">DOS</header>
+        <xsl:for-each select="item">
+            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
+            <xsl:for-each select="comment">
+                <list level="2"><xsl:copy-of select="."/></list>
+            </xsl:for-each>
+            <xsl:for-each select="reference">
+                <list level="2"><xsl:copy-of select="name"/> : <xsl:copy-of select="link"/></list>
+            </xsl:for-each>
+        </xsl:for-each>
         <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="command"/></list>
             <xsl:for-each select="options/option">
