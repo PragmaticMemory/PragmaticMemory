@@ -574,7 +574,7 @@
             <comment>Chaque caractère est codé sur 7 bit, ce qui permet bien la représentation de (2 puissance 7 =) 128 caractères</comment>
             <comment>Chaque caractère peut être représenté par un chiffre hexadécimal (entre 0 et F) suivi par un chiffre entre 0 et 7, ce qui permet bien la représentation des (16 x 8 =) 128 caractères.</comment>
         </item>
-         <item>
+        <item>
             <name>Table <technic>ASCII</technic> étendue</name>
             <description>Table contenant 256 caractères</description>
             <comment>Chaque caractère est codé sur 8 bit, ce qui permet bien la représentation de (2 puissance 8 =) 256 caractères</comment>
@@ -828,6 +828,10 @@
         <reference>
             <name>Utiliser Git en entreprise</name>
             <link>http://canop.org/blog/?p=101</link>
+        </reference>
+        <reference>
+            <name>A Visual Git Reference</name>
+            <link>http://marklodato.github.com/visual-git-guide/index-en.html</link>
         </reference>
     </git>
     <sql>
@@ -1420,4 +1424,22 @@
             </comment>
         </item>
     </unix>
+    <security>
+        <reference>
+            <name>Convivialité des mots de passe</name>
+            <link>http://www.baekdal.com/insights/password-security-usability</link>
+        </reference>
+        <reference>
+            <name>Convivialité des mots de passe (FAQ)</name>
+            <link>http://www.baekdal.com/insights/the-usability-of-passwords-faq</link>
+        </reference>
+        <reference>
+            <name>Comprendre et maîtriser les clés SSH</name>
+            <link>http://www.git-attitude.fr/2010/09/13/comprendre-et-maitriser-les-cles-ssh/</link>
+        </reference>
+        <reference>
+            <name>L’importance de la taille des clés en cryptographie</name>
+            <link>http://blogresearch.smalsrech.be/?p=4299</link>
+        </reference>
+    </security>
 </data>

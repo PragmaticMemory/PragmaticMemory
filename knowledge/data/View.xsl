@@ -143,7 +143,6 @@
         <endOfSection/>
     </xsl:template>
 
-
     <!-- File modifications -->
     <xsl:template match="data/fileModification">
         <header level="1">FILE MODIFICATIONS</header>
@@ -189,30 +188,8 @@
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
-
+    
     <!-- Git -->
-     <xsl:template match="data/git">
-        <header level="1">GIT</header>
-        <xsl:for-each select="item">
-            <list level="1"><xsl:copy-of select="goal"/></list>
-            <xsl:copy-of select="solution"/><newLine/>
-            <xsl:copy-of select="example"/><newLine/>
-        </xsl:for-each>
-        <endOfSection/>
-    </xsl:template>
-
-    <!-- Sql -->
-    <xsl:template match="data/sql">
-        <header level="1">SQL</header>
-        <xsl:for-each select="method">
-            <list level="1"><xsl:copy-of select="goal"/></list>
-            <list level="2">Exemple :<newLine/><xsl:copy-of select="example"/></list>
-            <list level="2">Requête :<newLine/><xsl:copy-of select="command"/></list>
-        </xsl:for-each>
-        <endOfSection/>
-    </xsl:template>
-
-     <!-- Git -->
     <xsl:template match="data/git">
         <header level="1">GIT</header>
         <header level="2">Objets</header>
@@ -228,6 +205,21 @@
             <xsl:for-each select="comment">
                 <list level="1"><xsl:copy-of select="."/></list>
             </xsl:for-each>
+        </xsl:for-each>
+        <header level="2">Références</header>
+        <xsl:for-each select="reference">
+            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="link"/></list>
+        </xsl:for-each>
+        <endOfSection/>
+    </xsl:template>
+
+    <!-- Sql -->
+    <xsl:template match="data/sql">
+        <header level="1">SQL</header>
+        <xsl:for-each select="method">
+            <list level="1"><xsl:copy-of select="goal"/></list>
+            <list level="2">Exemple :<newLine/><xsl:copy-of select="example"/></list>
+            <list level="2">Requête :<newLine/><xsl:copy-of select="command"/></list>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -397,7 +389,7 @@
         <endOfSection/>
     </xsl:template>
 
-    <!--Unix -->
+    <!-- Unix -->
     <xsl:template match="data/unix">
         <header level="1">UNIX</header>
         <xsl:for-each select="item">
@@ -406,6 +398,15 @@
             <xsl:for-each select="comment">
                 <xsl:copy-of select="."/>
             </xsl:for-each>
+        </xsl:for-each>
+        <endOfSection/>
+    </xsl:template>
+    
+    <!-- Security -->
+    <xsl:template match="data/security">
+        <header level="1">SECURITEE</header>
+        <xsl:for-each select="reference">
+            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="link"/></list>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
