@@ -1,3 +1,3 @@
-java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\Data.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\View.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\View.xml"
-java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\View.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\Wikispaces.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\Wikispaces.txt"
-java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\View.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\Text.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\Text.txt"
+java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\input\Data.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\input\View.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\output\View.xml"
+java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\output\View.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\input\Wikispaces.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\output\Wikispaces.txt"
+java fr.pragmaticmemory.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\output\View.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\input\Text.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\output\Text.txt"
