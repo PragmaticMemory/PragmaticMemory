@@ -802,6 +802,10 @@
             <link>http://git-scm.com/2011/07/11/reset.html</link>
         </reference>
         <reference>
+            <name>Pro Git</name>
+            <link>http://git-scm.com/book</link>
+        </reference>
+        <reference>
             <name>Git Community Book en français</name>
             <link>http://alx.github.com/gitbook/index.html</link>
         </reference>
@@ -833,6 +837,10 @@
             <name>A Visual Git Reference</name>
             <link>http://marklodato.github.com/visual-git-guide/index-en.html</link>
         </reference>
+        <reference>
+            <name>Understanding Git Conceptually</name>
+            <link>http://www.sbf5.com/~cduan/technical/git/</link>
+        </reference>
     </git>
     <sql>
         <method>
@@ -854,7 +862,7 @@
         </method>
         <method>
             <goal>écrire un case dans un select</goal>
-            <example>
+            <solution>
                 <code lang="sql">
                     <codeLine level="1">case</codeLine>
                     <codeLine level="2">when condition_1 then value_1</codeLine>
@@ -864,8 +872,7 @@
                     <codeLine level="2">else value_else</codeLine>
                     <codeLine level="1">end</codeLine>
                 </code>
-            </example>
-            <solution><code lang="sql"><codeLine>select code, max(value) from max_test group by code</codeLine></code></solution>
+            </solution>
         </method>
     </sql>
     <sybase>
@@ -1406,6 +1413,10 @@
             <name>Tutorial IO</name>
             <link>http://tutorials.jenkov.com/java-io/index.html</link>
         </reference>
+        <reference>
+            <name>Tutorial JXTreeTable</name>
+            <link>http://www.informit.com/guides/content.aspx?g=java&#38;seqNum=528</link>
+        </reference>
     </java>
     <unix>
         <item>
@@ -1442,4 +1453,10 @@
             <link>http://blogresearch.smalsrech.be/?p=4299</link>
         </reference>
     </security>
+    <miscellaneous>
+        <reference>
+            <name>Comprendre nos impôts</name>
+            <link>http://www.yterium.net/Comprendre-nos-impots</link>
+        </reference>
+    </miscellaneous>
 </data>

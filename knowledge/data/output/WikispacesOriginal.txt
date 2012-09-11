@@ -507,6 +507,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 * Ces lignes de code doivent être stockées dans le fichier {{_netrc}} qui doit se trouver dans le profil utilisateur
 ==Références==
 * [[http://git-scm.com/2011/07/11/reset.html|Commande reset]]
+* [[http://git-scm.com/book|Pro Git]]
 * [[http://alx.github.com/gitbook/index.html|Git Community Book en français]]
 * [[http://gitimmersion.com|Tutorial "Immersion"]]
 * [[http://www.yterium.net/GIT-c-est-facile-2|Tutorial "Git c'est  facile 2"]]
@@ -515,6 +516,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 * [[http://learn.github.com/p/diff.html|Tutorial "Learn GitHub" (suite)]]
 * [[http://canop.org/blog/?p=101|Utiliser Git en entreprise]]
 * [[http://marklodato.github.com/visual-git-guide/index-en.html|A Visual Git Reference]]
+* [[http://www.sbf5.com/~cduan/technical/git/|Understanding Git Conceptually]]
 ----
 =SQL=
 * sélectionner le maximum d'une colonne en fonction d'une autre colonne
@@ -535,7 +537,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
   select code, max(value) from max_test group by code
 [[code]]
 * écrire un case dans un select
-** Exemple :
+** Requête :
 [[code format="sql"]]
   case
     when condition_1 then value_1
@@ -544,10 +546,6 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
     when condition_n then value_n
     else value_else
   end
-[[code]]
-** Requête :
-[[code format="sql"]]
-  select code, max(value) from max_test group by code
 [[code]]
 ----
 =SYBASE=
@@ -879,6 +877,9 @@ Remarques :
 [[code]]
 ==Décompiler des classes java==
 utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
+Références :
+* [[http://tutorials.jenkov.com/java-io/index.html|Tutorial IO]]
+* [[http://www.informit.com/guides/content.aspx?g=java&seqNum=528|Tutorial JXTreeTable]]
 ----
 =UNIX=
 * shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling
@@ -896,4 +897,7 @@ utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
 * [[http://www.baekdal.com/insights/the-usability-of-passwords-faq|Convivialité des mots de passe (FAQ)]]
 * [[http://www.git-attitude.fr/2010/09/13/comprendre-et-maitriser-les-cles-ssh/|Comprendre et maîtriser les clés SSH]]
 * [[http://blogresearch.smalsrech.be/?p=4299|L’importance de la taille des clés en cryptographie]]
+----
+=DIVERS=
+* [[http://www.yterium.net/Comprendre-nos-impots|Comprendre nos impôts]]
 ----

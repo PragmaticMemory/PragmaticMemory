@@ -218,8 +218,8 @@
         <header level="1">SQL</header>
         <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/></list>
-            <list level="2">Exemple :<newLine/><xsl:copy-of select="example"/></list>
-            <list level="2">Requête :<newLine/><xsl:copy-of select="solution"/></list>
+            <xsl:if test="example"><list level="2">Exemple :<newLine/><xsl:copy-of select="example"/></list></xsl:if>
+            <xsl:if test="solution"><list level="2">Requête :<newLine/><xsl:copy-of select="solution"/></list></xsl:if>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -390,6 +390,13 @@
                 </xsl:for-each>
             </xsl:if>
         </xsl:for-each>
+        <xsl:if test="reference">
+            <xsl:text>Références :</xsl:text><newLine/>
+             <xsl:for-each select="reference">
+                <list level="1"><xsl:copy-of select="."/></list>
+             </xsl:for-each>
+         </xsl:if>
+         
         <endOfSection/>
     </xsl:template>
 
@@ -414,4 +421,14 @@
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
+    
+    <!-- Divers -->
+    <xsl:template match="data/miscellaneous">
+        <header level="1">DIVERS</header>
+        <xsl:for-each select="reference">
+            <list level="1"><xsl:copy-of select="."/></list>
+        </xsl:for-each>
+        <endOfSection/>
+    </xsl:template>
+    
 </xsl:stylesheet>
