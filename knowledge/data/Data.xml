@@ -28,14 +28,14 @@
             </method>
             <method>
                 <goal>Trouver le moyen le plus simple d'appliquer une xslt à un xml</goal>
-                <selected>Ecriture d'une classe java</selected>
+                <solution>Ecriture d'une classe java</solution>
             </method>
             <method>
                 <goal>Ecrire une xslt de vue et une xslt de media appelables successivement</goal>
             </method>
             <method>
                 <goal>Trouver un moyen de stoker le code</goal>
-                <selected>GitHub</selected>
+                <solution>GitHub</solution>
             </method>
             <method>
                 <goal>Gérer l'imbrication de code dans un tableau dans Wikispaces</goal>
@@ -64,15 +64,15 @@
                     <advantage>Structure ayant plus de chance de durer que d'autre sites</advantage>
                     <disadvantage>Pas de gestion de version : deux fichiers avec un nom identique sont stockés comme deux fichiers différents</disadvantage>
                 </candidate>
-                <selected>Digiposte</selected>
+                <solution>Digiposte</solution>
             </method>
             <method>
                 <goal>Séparer les données du formattage</goal>
-                <selected>Utilisation des xslt</selected>
+                <solution>Utilisation des xslt</solution>
             </method>
             <method>
                 <goal>Séparer le formattage lié à la vue du formattage lié au media de diffusion</goal>
-                <selected>Création de xslt de vue et de xslt de media</selected>
+                <solution>Création de xslt de vue et de xslt de media</solution>
             </method>
             <method>
                 <goal>Gérer les indentations de ligne de code</goal>
@@ -184,7 +184,7 @@
     </principles>
     <sandbox>
         <example>phrase dont une partie est <technic>mise en évidence</technic> car elle représente un élément technique</example>
-        <example>phrase contenant un <link>lien</link> hypertexte.</example>
+        <example>phrase contenant une <reference><name>référence</name><link>lien</link></reference></example>
         <example>exemple de liste :<newLine/>
                 <list level="1">item 1 du niveau 1</list>
                     <list level="2">item 1 du niveau 2</list>
@@ -436,18 +436,18 @@
             </goal>
         </group>
         <example>
-            <item>
+            <method>
                 <goal>copie de tous les fichiers contenus dans le répertoire "C:\Temp\PS", avec ajout de BEGIN sur la première ligne et de END sur la dernière lignes</goal>
-                <answer>sans utilisation de pipe au sein du Foreach :<newLine/>
+                <solution>sans utilisation de pipe au sein du Foreach :<newLine/>
                     <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}</codeLine></code>
-                </answer>
-                <answer>avec utilisation de pipe au sein du Foreach :<newLine/>
+                </solution>
+                <solution>avec utilisation de pipe au sein du Foreach :<newLine/>
                     <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}</codeLine></code>
-                </answer>
-                <answer>variante avec utilisation du caractère d'échappemnt `r signifiant un retour à la ligne :<newLine/>
+                </solution>
+                <solution>variante avec utilisation du caractère d'échappemnt `r signifiant un retour à la ligne :<newLine/>
                     <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}</codeLine></code>
-                </answer>
-            </item>
+                </solution>
+            </method>
         </example>
     </powershell>
     <fileModification>
@@ -463,40 +463,40 @@
         </endOfLine>
         <method>
             <goal>Convertir les fins de ligne d'un fichier (Windows/Unix/Mac)</goal>
-            <answer>
+            <solution>
                 <tool>Notepad++</tool>
-                <method>vers UNIX : Edition > Convertir les sauts de ligne > Convertir en Format UNIX (LF)</method>
-                <method>vers Windows : Edition > Convertir les sauts de ligne > Convertir en Format Windows (CR+LF)</method>
-                <method>vers Mac : Edition > Convertir les sauts de ligne > Convertir en Format Mac (CR)</method>
-            </answer>
+                <step>vers UNIX : Edition > Convertir les sauts de ligne > Convertir en Format UNIX (LF)</step>
+                <step>vers Windows : Edition > Convertir les sauts de ligne > Convertir en Format Windows (CR+LF)</step>
+                <step>vers Mac : Edition > Convertir les sauts de ligne > Convertir en Format Mac (CR)</step>
+            </solution>
         </method>
         <method>
             <goal>Voir les séquences de fin de ligne</goal>
-            <answer>
+            <solution>
                 <tool>Notepad++</tool>
-                <method>Affichage > Symboles spéciaux > Afficher les symboles de fin de ligne</method>
-            </answer>
+                <step>Affichage > Symboles spéciaux > Afficher les symboles de fin de ligne</step>
+            </solution>
         </method>
         <method>
             <goal>Voir les blancs et les tabulations</goal>
-            <answer>
+            <solution>
                 <tool>Notepad++</tool>
-                <method>Affichage > Symboles spéciaux > Afficher les blancs et les tabulations</method>
-            </answer>
+                <step>Affichage > Symboles spéciaux > Afficher les blancs et les tabulations</step>
+            </solution>
         </method>
         <method>
             <goal>Supprimer des lignes vides (i.e ne contenant aucun caractère, pas même des espaces)</goal>
-            <answer>
-                <tool>Notepad++</tool>
-                <method>plugin TextFX : TextFX > TextFX Edit > Delete Blank Lines</method>
-            </answer>
+            <solution>
+                <tool>Notepad++ (plugin TextFX)</tool>
+                <step>TextFX > TextFX Edit > Delete Blank Lines</step>
+            </solution>
         </method>
         <method>
             <goal>Compacter des lignes vides consécutives en une seule ligne vide</goal>
-            <answer>
-                <tool>Notepad++</tool>
-                <method>plugin TextFX : TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)</method>
-            </answer>
+            <solution>
+                <tool>Notepad++ (plugin TextFX)</tool>
+                <step>TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)</step>
+            </solution>
         </method>
         <method>
             <goal>Distribuer sur différentes lignes des items faisant partie d'une liste</goal>
@@ -504,13 +504,13 @@
                 <source><code><codeLine>A, B, C</codeLine></code></source>
                 <target><code><codeLine>A</codeLine><codeLine>B</codeLine><codeLine>C</codeLine></code></target>
             </example>
-            <answer>
+            <solution>
                 <tool>Notepad++</tool>
-                <method>remplacer (<technic>CTRL + H</technic>)</method>
-                <method>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</method>
-                <method>recherche : <technic>,</technic></method>
-                <method>remplacer par : <technic>\r\n</technic></method>
-            </answer>
+                <step>remplacer (<technic>CTRL + H</technic>)</step>
+                <step>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</step>
+                <step>recherche : <technic>,</technic></step>
+                <step>remplacer par : <technic>\r\n</technic></step>
+            </solution>
         </method>
         <method>
             <goal>Assembler différentes lignes en une liste</goal>
@@ -518,31 +518,31 @@
                 <source><code><codeLine>A</codeLine><codeLine>B</codeLine><codeLine>C</codeLine></code></source>
                 <target><code><codeLine>A, B, C</codeLine></code></target>
             </example>
-            <answer>
+            <solution>
                 <tool>Notepad++</tool>
-                <method>remplacer (<technic>CTRL + H</technic>)</method>
-                <method>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</method>
-                <method>recherche : <technic>\r\n</technic></method>
-                <method>remplacer par : <technic>,</technic></method>
-            </answer>
+                <step>remplacer (<technic>CTRL + H</technic>)</step>
+                <step>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</step>
+                <step>recherche : <technic>\r\n</technic></step>
+                <step>remplacer par : <technic>,</technic></step>
+            </solution>
         </method>
         <method>
             <goal>Trier des lignes en supprimant les doublons</goal>
-            <answer>
+            <solution>
                 <tool>Notepad++ (plugin TextFX)</tool>
-                <method>Notepad++TextFX > TextFX Tools > cocher "+Sort outputs only UNIQUE (at column) lines"</method>
-                <method>Notepad++TextFX > TextFX Tools > cocher "+Sort ascending" pour un tri par ordre alphabétique / décocher pour un ordre inverse</method>
-                <method>Notepad++TextFX > TextFX Tools > cliquer sur "Sort lines case sensitive (at column)" ou sur "Sort lines case insensitive (at column)"</method>
-            </answer>
+                <step>Notepad++TextFX > TextFX Tools > cocher "+Sort outputs only UNIQUE (at column) lines"</step>
+                <step>Notepad++TextFX > TextFX Tools > cocher "+Sort ascending" pour un tri par ordre alphabétique / décocher pour un ordre inverse</step>
+                <step>Notepad++TextFX > TextFX Tools > cliquer sur "Sort lines case sensitive (at column)" ou sur "Sort lines case insensitive (at column)"</step>
+            </solution>
         </method>
         <method>
             <goal>Indenter les xml</goal>
-            <answer>
+            <solution>
                 <tool>IntelliJ</tool>
-                <method>Code > Reformat Code...</method>
-                <method>Raccourci par défaut : CTRL + ALT + L</method>
-                <method>Fonctionne sur tous les fichiers du projet ou sur un ensemble de fichiers sélectionnés.</method>
-            </answer>
+                <step>Code > Reformat Code...</step>
+                <step>Raccourci par défaut : CTRL + ALT + L</step>
+                <step>Fonctionne sur tous les fichiers du projet ou sur un ensemble de fichiers sélectionnés.</step>
+            </solution>
         </method>
         <method>
             <goal>Convertir "underscore" vers "camelcase"</goal>
@@ -550,23 +550,23 @@
                 <source>iinvCEqSector</source>
                 <target>IINV_C_EQ_SECTOR</target>
             </example>
-            <answer>
+            <solution>
                 <tool>Notepad++</tool>
-                <method>étape 1 : remplacer l'expression régulière ([A-Z]) par _\1 (cocher Respecter la casse)</method>
-                <method>étape 2 : passer en majuscule (CTRL + SHIFT + U)</method>
-            </answer>
+                <step>étape 1 : remplacer l'expression régulière ([A-Z]) par _\1 (cocher Respecter la casse)</step>
+                <step>étape 2 : passer en majuscule (CTRL + SHIFT + U)</step>
+            </solution>
         </method>
         <method>
             <goal>Comparer 2 listes</goal>
-            <answer>
+            <solution>
                 <tool>Excel</tool>
-                <method>en A1, saisir le formattage conditionnel<newLine/><code><codeLine>=ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)</codeLine></code></method>
-                <method>en B1, saisir le formattage conditionnel<newLine/><code><codeLine>=ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)</codeLine></code></method>
-                <method>copier le format de A1 sur la colonne A</method>
-                <method>copier le format de B1 sur la colonne B</method>
-                <method>Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND</method>
-                <method>Inspiré de l'article <link>http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310</link></method>
-            </answer>
+                <step>en A1, saisir le formattage conditionnel<newLine/><code><codeLine>=ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)</codeLine></code></step>
+                <step>en B1, saisir le formattage conditionnel<newLine/><code><codeLine>=ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)</codeLine></code></step>
+                <step>copier le format de A1 sur la colonne A</step>
+                <step>copier le format de B1 sur la colonne B</step>
+                <step>Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND</step>
+                <step><reference><name>Inspiré de l'article</name><link>http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310</link></reference></step>
+            </solution>
         </method>
         <item>
             <name>Table <technic>ASCII</technic></name>
@@ -609,23 +609,23 @@
     <subversion>
         <method>
             <goal>Différences entre le working directory et la base</goal>
-            <command><code><codeLine>svn diff</codeLine></code></command>
+            <solution><code><codeLine>svn diff</codeLine></code></solution>
         </method>
         <method>
             <goal>Différences entre le working directory et le serveur</goal>
-            <command><code><codeLine>svn diff -r HEAD</codeLine></code></command>
+            <solution><code><codeLine>svn diff -r HEAD</codeLine></code></solution>
         </method>
         <method>
             <goal>Résumé des modifications locales</goal>
-            <command><code><codeLine>svn status</codeLine></code></command>
+            <solution><code><codeLine>svn status</codeLine></code></solution>
         </method>
         <method>
             <goal>"Nettoyage" du working directory</goal>
-            <command><code><codeLine>svn cleanup</codeLine></code></command>
+            <solution><code><codeLine>svn cleanup</codeLine></code></solution>
         </method>
         <method>
             <goal>Informations sur le repository (branche, numéro de révision)</goal>
-            <command><code><codeLine>svn info</codeLine></code></command>
+            <solution><code><codeLine>svn info</codeLine></code></solution>
         </method>
     </subversion>
     <git>
@@ -666,24 +666,24 @@
         </item>
         <method>
             <goal>Afficher la configuration globale</goal>
-            <command><code><codeLine>git config --global -l</codeLine></code></command>
+            <solution><code><codeLine>git config --global -l</codeLine></code></solution>
         </method>
         <method>
             <goal>Afficher la configuration locale à un répertoire git</goal>
-            <command><code><codeLine>git config --local -l</codeLine></code></command>
-            <command><code><codeLine>git config --local --list</codeLine></code></command>
+            <solution><code><codeLine>git config --local -l</codeLine></code></solution>
+            <solution><code><codeLine>git config --local --list</codeLine></code></solution>
         </method>
         <method>
             <goal>Supprimer une variable locale</goal>
-            <command><code><codeLine>git config --local --unset nom_de_variable</codeLine></code></command>
+            <solution><code><codeLine>git config --local --unset nom_de_variable</codeLine></code></solution>
         </method>
         <method>
             <goal>Configurer Notepad++ comme editeur (en local)</goal>
-            <command><code><codeLine>git config --local core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</codeLine></code></command>
+            <solution><code><codeLine>git config --local core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</codeLine></code></solution>
         </method>
         <method>
             <goal>Configurer Notepad++ comme editeur (en local) en utilisant un fichier de script</goal>
-            <command><code><codeLine>git config --local core.editor C:/GitEditor.bat</codeLine></code></command>
+            <solution><code><codeLine>git config --local core.editor C:/GitEditor.bat</codeLine></code></solution>
             <comment>Contenu de <technic>GitEditor.bat</technic> :<newLine/>
                 <code>
                     <codeLine>#!/bin/sh</codeLine>
@@ -693,34 +693,34 @@
         </method>
         <method>
             <goal>Initialiser un répertoire git</goal>
-            <command><code><codeLine>git init</codeLine></code></command>
+            <solution><code><codeLine>git init</codeLine></code></solution>
         </method>
         <method>
             <goal>Ajouter un fichier à l'index (faire un stage)</goal>
-            <command><code><codeLine>git add nom_de_fichier</codeLine></code></command>
+            <solution><code><codeLine>git add nom_de_fichier</codeLine></code></solution>
         </method>
         <method>
             <goal>Ajouter récursivement tous les fichiers à l'index</goal>
-            <command><code><codeLine>git add .</codeLine></code></command>
+            <solution><code><codeLine>git add .</codeLine></code></solution>
         </method>
         <method>
             <goal>Annuler l'opération d'ajout d'un fichier à l'index</goal>
-            <command><code><codeLine>git reset HEAD nom_de_fichier</codeLine></code></command>
+            <solution><code><codeLine>git reset HEAD nom_de_fichier</codeLine></code></solution>
         </method>
         <method>
             <goal>Faire un commit (ajouter les fichiers de l'index au repository)</goal>
-            <command><code><codeLine>git commit -m "message de commit</codeLine></code></command>
+            <solution><code><codeLine>git commit -m "message de commit</codeLine></code></solution>
         </method>
         <method>
             <goal>Afficher le status des fichiers</goal>
-            <command><code><codeLine>git status</codeLine></code></command>
+            <solution><code><codeLine>git status</codeLine></code></solution>
         </method>
         <method>
             <goal>Afficher l'historique des commit</goal>
-            <command><code><codeLine>git log</codeLine></code></command>
-            <command><code><codeLine>git log --pretty=oneline</codeLine></code></command>
-            <command><code><codeLine>git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short</codeLine></code></command>
-            <command><code><codeLine>git reflog</codeLine></code></command>
+            <solution><code><codeLine>git log</codeLine></code></solution>
+            <solution><code><codeLine>git log --pretty=oneline</codeLine></code></solution>
+            <solution><code><codeLine>git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short</codeLine></code></solution>
+            <solution><code><codeLine>git reflog</codeLine></code></solution>
             <comment>Principaux formats :<newLine/>
                 <table>
                     <headerRow><cell>Format</cell><cell>Description</cell></headerRow>
@@ -744,27 +744,27 @@
         </method>
         <method>
             <goal>Afficher l'historique des commit (version graphique)</goal>
-            <command><code><codeLine>gitk</codeLine></code></command>
+            <solution><code><codeLine>gitk</codeLine></code></solution>
         </method>
         <method>
             <goal>Afficher les différences entre le répertoire de travail et l'index</goal>
-            <command><code><codeLine>git diff</codeLine></code></command>
+            <solution><code><codeLine>git diff</codeLine></code></solution>
         </method>
           <method>
             <goal>Afficher les différences en utilisant un outil de diff spécifique</goal>
-            <command><code><codeLine>git difftool</codeLine></code></command>
+            <solution><code><codeLine>git difftool</codeLine></code></solution>
         </method>
         <method>
             <goal>Afficher les différences entre l'index et le repository</goal>
-            <command><code><codeLine>git diff --cached</codeLine></code></command>
+            <solution><code><codeLine>git diff --cached</codeLine></code></solution>
         </method>
         <method>
             <goal>Afficher les différences entre le répertoire de travail et le repository</goal>
-            <command><code><codeLine>git diff HEAD</codeLine></code></command>
+            <solution><code><codeLine>git diff HEAD</codeLine></code></solution>
         </method>
         <method>
             <goal>Afficher les différences entre le HEAD et son parent</goal>
-            <command><code><codeLine>git diff HEAD HEAD~</codeLine></code></command>
+            <solution><code><codeLine>git diff HEAD HEAD~</codeLine></code></solution>
         </method>
         <!--
         Question : Sometimes git suggests git rm - -cached to unstage a file, sometimes git reset HEAD file. When should I use which?
@@ -774,27 +774,27 @@
         -->
         <method>
             <goal>Déplacer le HEAD sans modifier l'index ni le répertoire de travail</goal>
-            <command><code><codeLine>git reset --soft version</codeLine></code></command>
+            <solution><code><codeLine>git reset --soft version</codeLine></code></solution>
             <comment>Ainsi, <technic>git reset --soft HEAD</technic>n'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail</comment>
         </method>
         <method>
             <goal>Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail</goal>
-            <command><code><codeLine>git reset --medium version</codeLine></code></command>
-            <command><code><codeLine>git reset version</codeLine></code></command>
+            <solution><code><codeLine>git reset --medium version</codeLine></code></solution>
+            <solution><code><codeLine>git reset version</codeLine></code></solution>
         </method>
         <method>
             <goal>Déplacer le HEAD en modifiant l'index et le répertoire de travail</goal>
-            <command><code><codeLine>git reset --hard version</codeLine></code></command>
+            <solution><code><codeLine>git reset --hard version</codeLine></code></solution>
         </method>
         <method>
             <goal>Stocker les login / mot de passe pour GitHub</goal>
-            <command>
+            <solution>
                 <code>
                     <codeLine level="1">machine github.com</codeLine>
                     <codeLine level="1">login COMPTE_GITHUB</codeLine>
                     <codeLine level="1">password MOT_DE_PASSE</codeLine>
                 </code>
-            </command>
+            </solution>
             <comment>Ces lignes de code doivent être stockées dans le fichier <technic>_netrc</technic> qui doit se trouver dans le profil utilisateur</comment>
         </method>
         <reference>
@@ -850,7 +850,7 @@
                     <codeLine level="1">insert into max_test(code, value) values ('C', 5)</codeLine>
                 </code>
             </example>
-            <command><code lang="sql"><codeLine>select code, max(value) from max_test group by code</codeLine></code></command>
+            <solution><code lang="sql"><codeLine>select code, max(value) from max_test group by code</codeLine></code></solution>
         </method>
         <method>
             <goal>écrire un case dans un select</goal>
@@ -865,47 +865,47 @@
                     <codeLine level="1">end</codeLine>
                 </code>
             </example>
-            <command><code lang="sql"><codeLine>select code, max(value) from max_test group by code</codeLine></code></command>
+            <solution><code lang="sql"><codeLine>select code, max(value) from max_test group by code</codeLine></code></solution>
         </method>
     </sql>
     <sybase>
         <method>
             <goal>Vérifier l'existence d'une table</goal>
-            <command><code lang="sql"><codeLine>select 1 from sysobjects where type = 'U' and name = 'nom_de_table'</codeLine></code></command>
+            <solution><code lang="sql"><codeLine>select 1 from sysobjects where type = 'U' and name = 'nom_de_table'</codeLine></code></solution>
         </method>
         <method>
             <goal>Vérifier l'existence d'une procédure stockée</goal>
-            <command><code lang="sql"><codeLine>select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'</codeLine></code></command>
+            <solution><code lang="sql"><codeLine>select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'</codeLine></code></solution>
         </method>
         <method>
             <goal>Vérifier l'existence d'une table temporaire</goal>
-            <command><code lang="sql"><codeLine>select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'</codeLine></code></command>
+            <solution><code lang="sql"><codeLine>select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'</codeLine></code></solution>
         </method>
         <method>
             <goal>Déclarer une variable</goal>
-            <command><code lang="sql"><codeLine>declare @nom_de_la_variable type_de_la_variable</codeLine></code></command>
+            <solution><code lang="sql"><codeLine>declare @nom_de_la_variable type_de_la_variable</codeLine></code></solution>
             <example>declare @ptf_cod varchar(12)</example>
         </method>
         <method>
             <goal>Affecter une valeur à une variable</goal>
-            <command><code lang="sql"><codeLine>select @nom_de_la_variable = @valeur_de_la_variable</codeLine></code></command>
+            <solution><code lang="sql"><codeLine>select @nom_de_la_variable = @valeur_de_la_variable</codeLine></code></solution>
             <example>select @ptf_cod = 'ZX23'</example>
         </method>
         <method>
             <goal>Voir le code d'une procédure stockée</goal>
-            <command><code lang="sql"><codeLine>sp_helptext 'nom_de_procedure'</codeLine></code></command>
+            <solution><code lang="sql"><codeLine>sp_helptext 'nom_de_procedure'</codeLine></code></solution>
         </method>
         <method>
             <goal>Obtenir la liste des utilisateurs</goal>
-            <command><code lang="sql"><codeLine>sp_helpuser</codeLine></code></command>
+            <solution><code lang="sql"><codeLine>sp_helpuser</codeLine></code></solution>
         </method>
         <method>
             <goal>Obtenir la liste des groupes</goal>
-            <command><code lang="sql"><codeLine>sp_helpgroup</codeLine></code></command>
+            <solution><code lang="sql"><codeLine>sp_helpgroup</codeLine></code></solution>
         </method>
         <method>
             <goal>Ajouter à une base un groupe défini sur le data serveur</goal>
-            <command><code lang="sql"><codeLine>sp_addgroup 'nom_de_groupe'</codeLine></code></command>
+            <solution><code lang="sql"><codeLine>sp_addgroup 'nom_de_groupe'</codeLine></code></solution>
         </method>
         <item>
             <name>Le fichier <technic>sql.ini</technic></name>
@@ -934,7 +934,7 @@
     <dos>
         <method>
             <goal>Lister récursivement les fichiers d'un répertoire</goal>
-            <command><code lang="dos"><codeLine>dir /S /A:-D /B</codeLine></code></command>
+            <solution><code lang="dos"><codeLine>dir /S /A:-D /B</codeLine></code></solution>
             <options>
                 <option>
                     <shortcut>/S</shortcut>
@@ -955,23 +955,23 @@
         </method>
         <method>
             <goal>Lister les répertoires</goal>
-            <command><code lang="dos"><codeLine>dir</codeLine></code></command>
+            <solution><code lang="dos"><codeLine>dir</codeLine></code></solution>
         </method>
         <method>
             <goal>Créer un répertoire</goal>
-            <command><code lang="dos"><codeLine>mkdir nom_de_repertoire</codeLine></code></command>
+            <solution><code lang="dos"><codeLine>mkdir nom_de_repertoire</codeLine></code></solution>
         </method>
         <method>
             <goal>Changer de répertoire</goal>
-            <command><code lang="dos"><codeLine>cd nom_de_repertoire</codeLine></code></command>
+            <solution><code lang="dos"><codeLine>cd nom_de_repertoire</codeLine></code></solution>
         </method>
         <method>
             <goal>Afficher le contenu d'un fichier</goal>
-            <command><code lang="dos"><codeLine>more nom_de_fichier</codeLine></code></command>
+            <solution><code lang="dos"><codeLine>more nom_de_fichier</codeLine></code></solution>
         </method>
         <method>
             <goal>Créer un fichier</goal>
-            <command><code lang="dos"><codeLine>echo "contenu du fichier" > nom_de_fichier</codeLine></code></command>
+            <solution><code lang="dos"><codeLine>echo "contenu du fichier" > nom_de_fichier</codeLine></code></solution>
         </method>
         <item>
             <name>Commande externe</name>
@@ -1016,7 +1016,7 @@
     <keyboard>
         <method>
             <goal>Basculer entre anglais et français</goal>
-            <shortcut>ALT + SHIFT</shortcut>
+            <solution><technic>ALT + SHIFT</technic></solution>
         </method>
     </keyboard>
     <regexp>
@@ -1145,7 +1145,7 @@
                     <link>http://xmlfr.org/documentations/faq/041013-0001</link>
                 </reference>
                 <reference>
-                    <name>Traitement des espaces blancs : décrire la problèmatique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.</name>
+                    <name>Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.</name>
                 </reference>
             </group>
         </group>
@@ -1178,17 +1178,17 @@
     <java>
         <method>
             <goal>Lire les lignes d'un fichier</goal>
-            <tested>jdk6</tested>
-            <package>
-                <name>java.lang</name>
-                <class>String</class>
-            </package>
-            <package>
-                <name>java.util</name>
-                <class>List</class>
-                <class>ArrayList</class>
-            </package>
-            <command>
+            <solution>
+                <tested>jdk6</tested>
+                <package>
+                    <name>java.lang</name>
+                    <class>String</class>
+                </package>
+                <package>
+                    <name>java.util</name>
+                    <class>List</class>
+                    <class>ArrayList</class>
+                </package>
                 <code lang="java">
                     <codeLine level="1">public static List&#60;String&#62; readLines(File file) throws IOException {</codeLine>
                     <codeLine level="2">BufferedReader reader = new BufferedReader(new FileReader(file));</codeLine>
@@ -1202,26 +1202,26 @@
                     <codeLine level="2">return lines;</codeLine>
                     <codeLine level="1">}</codeLine>
                 </code>
-            </command>
+            </solution>
             <comment>Pour deux fichiers contenant respectivement <technic>A\r\nB</technic> et <technic>A\r\nB\r\n</technic>, la méthode <technic>readLines</technic> renvoie une liste identique (contenant les 2 éléments <technic>A</technic> et <technic>B</technic>).</comment>
         </method>
         <method>
             <goal>Insérer des lignes dans un fichier</goal>
-            <tested>jdk6</tested>
-            <package>
-                <name>java.lang</name>
-                <class>String</class>
-            </package>
-            <package>
-                <name>java.util</name>
-                <class>List</class>
-            </package>
-            <package>
-                <name>java.io</name>
-                <class>FileWriter</class>
-                <class>BufferedWriter</class>
-            </package>
-            <command>
+            <solution>
+                <tested>jdk6</tested>
+                <package>
+                    <name>java.lang</name>
+                    <class>String</class>
+                </package>
+                <package>
+                    <name>java.util</name>
+                    <class>List</class>
+                </package>
+                <package>
+                    <name>java.io</name>
+                    <class>FileWriter</class>
+                    <class>BufferedWriter</class>
+                </package>
                 <code lang="java">
                     <codeLine level="1">public static void writeLines(List&#60;String&#62; lines, File file) throws IOException {</codeLine>
                     <codeLine level="2">BufferedWriter writer = new BufferedWriter(new FileWriter(file));</codeLine>
@@ -1234,53 +1234,53 @@
                     <codeLine level="2">writer.close();</codeLine>
                     <codeLine level="1">}</codeLine>
                 </code>
-            </command>
+            </solution>
             <comment>la méthode <technic>writeLines</technic> n'ajoute pas de séquence de fin de ligne après la dernière ligne</comment>
         </method>
         <method>
             <goal>Manipuler les listes</goal>
-            <tested>jdk6</tested>
-            <package>
-                <name>java.lang</name>
-                <class>String</class>
-            </package>
-            <package>
-                <name>java.util</name>
-                <class>List</class>
-                <class>ArrayList</class>
-                <class>Arrays</class>
-            </package>
-            <command>
+            <solution>
+                <tested>jdk6</tested>
+                <package>
+                    <name>java.lang</name>
+                    <class>String</class>
+                </package>
+                <package>
+                    <name>java.util</name>
+                    <class>List</class>
+                    <class>ArrayList</class>
+                    <class>Arrays</class>
+                </package>
                 <code lang="java">
                     <codeLine level="1">SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");</codeLine>
                     <codeLine level="1">Date date = sdf.parse("10/11/2011");</codeLine>
                 </code>
-            </command>
+            </solution>
         </method>
         <method>
             <goal>Récupérer les propriétés systèmes</goal>
-            <package>
-                <name>java.lang</name>
-                <class>System</class>
-            </package>
-            <command>
+            <solution>
+                <package>
+                    <name>java.lang</name>
+                    <class>System</class>
+                </package>
                 <code lang="java">
                     <codeLine level="1">System.getProperties()</codeLine>
                 </code>
-            </command>
+            </solution>
         </method>
         <method>
             <goal>Récupérer une liste fixe de chaînes de caractères</goal>
-            <package>
-                <name>java.lang</name>
-                <class>String</class>
-            </package>
-            <package>
-                <name>java.util</name>
-                <class>List</class>
-                <class>ArrayList</class>
-            </package>
-            <command>
+            <solution>
+                <package>
+                    <name>java.lang</name>
+                    <class>String</class>
+                </package>
+                <package>
+                    <name>java.util</name>
+                    <class>List</class>
+                    <class>ArrayList</class>
+                </package>
                 <code lang="java">
                     <codeLine level="1">public List&#60;String&#62; getAllFilePath() {</codeLine>
                     <codeLine level="2">String[] pathArray = {</codeLine>
@@ -1292,11 +1292,11 @@
                     <codeLine level="2">return stringList;</codeLine>
                     <codeLine level="1">}</codeLine>
                 </code>
-            </command>
+            </solution>
         </method>
         <method>
             <goal>Modifier plusieurs fichiers</goal>
-            <command>
+            <solution>
                 <code lang="java">
                     <codeLine level="1">public void process() throws Exception {</codeLine>
                     <codeLine level="2">for (String filePath : getAllFilePath()) {</codeLine>
@@ -1307,20 +1307,20 @@
                     <codeLine level="2">}</codeLine>
                     <codeLine level="1">}</codeLine>
                 </code>
-            </command>
+            </solution>
             <comment><technic>getAllFilePath</technic>, <technic>readLines</technic>, <technic>writeLines</technic> sont 3 méthodes définies dans cette section</comment>
             <comment>La méthode <technic>process</technic>est la seule qui reste à définir</comment>
             <comment>D'après les remarques sur les méthodes <technic>readLines</technic> et <technic>writeLines</technic>, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence</comment>
         </method>
         <method>
             <goal>Utiliser les expressions régulières</goal>
-            <tested>jdk6</tested>
-            <package>
-                <name>java.util.regex</name>
-                <class>Pattern</class>
-                <class>Matcher</class>
-            </package>
-            <command>
+            <solution>
+                <tested>jdk6</tested>
+                <package>
+                    <name>java.util.regex</name>
+                    <class>Pattern</class>
+                    <class>Matcher</class>
+                </package>
                 <code lang="java">
                     <codeLine level="1">public static void main(String[] args) {</codeLine>
                     <codeLine level="2">Pattern pattern = Pattern.compile("(\\w)(..)(.)");</codeLine>
@@ -1340,7 +1340,7 @@
                     <codeLine level="2">System.out.println("modifiedString = " + matcher.replaceAll("X"));</codeLine>
                     <codeLine level="1">}</codeLine>
                 </code>
-            </command>
+            </solution>
             <comment>L'éxécution du code précédent affiche la sortie suivante :<newLine/>
                 <code>
                     <codeLine level="1">MATCH !</codeLine>
@@ -1400,7 +1400,7 @@
         </method>
         <method>
             <goal>Décompiler des classes java</goal>
-            <answer>utiliser l'outil <technic>JD-GUI</technic> (<link>http://java.decompiler.free.fr/?q=jdgui</link>)</answer>
+            <solution><step>utiliser l'outil <reference><name><technic>JD-GUI</technic></name><link>http://java.decompiler.free.fr/?q=jdgui</link></reference></step></solution>
         </method>
         <reference>
             <name>Tutorial IO</name>

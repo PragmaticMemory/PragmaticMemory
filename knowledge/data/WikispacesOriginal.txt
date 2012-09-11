@@ -129,7 +129,7 @@ Eliminer les redondances de mots ou de groupes de mots
 ----
 =SANDBOX=
 phrase dont une partie est {{mise en évidence}} car elle représente un élément technique
-phrase contenant un [[lien]] hypertexte.
+phrase contenant une [[lien|référence]]
 exemple de liste :
 * item 1 du niveau 1
 ** item 1 du niveau 2
@@ -255,11 +255,11 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 ** Notepad++
 *** Affichage > Symboles spéciaux > Afficher les blancs et les tabulations
 * Supprimer des lignes vides (i.e ne contenant aucun caractère, pas même des espaces)
-** Notepad++
-*** plugin TextFX : TextFX > TextFX Edit > Delete Blank Lines
+** Notepad++ (plugin TextFX)
+*** TextFX > TextFX Edit > Delete Blank Lines
 * Compacter des lignes vides consécutives en une seule ligne vide
-** Notepad++
-*** plugin TextFX : TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)
+** Notepad++ (plugin TextFX)
+*** TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)
 * Distribuer sur différentes lignes des items faisant partie d'une liste
 || **Source** || **Cible** ||
 || [[code]]
@@ -317,7 +317,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 *** copier le format de A1 sur la colonne A
 *** copier le format de B1 sur la colonne B
 *** Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND
-*** Inspiré de l'article [[http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310]]
+*** [[http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310|Inspiré de l'article]]
 ==Définitions==
 * Table {{ASCII}} : Table contenant 128 caractères
 ** Chaque caractère est codé sur 7 bit, ce qui permet bien la représentation de (2 puissance 7 =) 128 caractères
@@ -505,6 +505,16 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
   password MOT_DE_PASSE
 [[code]]
 * Ces lignes de code doivent être stockées dans le fichier {{_netrc}} qui doit se trouver dans le profil utilisateur
+==Références==
+* [[http://git-scm.com/2011/07/11/reset.html|Commande reset]]
+* [[http://alx.github.com/gitbook/index.html|Git Community Book en français]]
+* [[http://gitimmersion.com|Tutorial "Immersion"]]
+* [[http://www.yterium.net/GIT-c-est-facile-2|Tutorial "Git c'est  facile 2"]]
+* [[http://gitready.com|Tutorial "Git ready"]]
+* [[http://learn.github.com/p/intro.html|Tutorial "Learn GitHub"]]
+* [[http://learn.github.com/p/diff.html|Tutorial "Learn GitHub" (suite)]]
+* [[http://canop.org/blog/?p=101|Utiliser Git en entreprise]]
+* [[http://marklodato.github.com/visual-git-guide/index-en.html|A Visual Git Reference]]
 ----
 =SQL=
 * sélectionner le maximum d'une colonne en fonction d'une autre colonne
@@ -603,10 +613,10 @@ Remarques :
 ----
 =DOS=
 * Commande externe : Une commande non incluse dans {{command.com}}
-** Commande externe MD-DOS : [[http://www.computerhope.com/jargon/e/extecomm.htm]]
+** [[http://www.computerhope.com/jargon/e/extecomm.htm|Commande externe MD-DOS]]
 * {{Less}} : {{Less}} est le programme de mise en page (pager) par défaut utilisé par les fenêtres DOS.
 ** {{Less}} peut utiliser les variables d'environnement LESSCHARSET et LESSCHARDEF.
-** FAQ sur {{Less}} : [[http://www.greenwoodsoftware.com/less/faq.html]]
+** [[http://www.greenwoodsoftware.com/less/faq.html|FAQ sur Less]]
 * {{LESSCHARSET}} : Variable d'environnement lue par {{Less}}, qui permet de préciser le jeux de caractère prédéfini à utiliser.
 ** Valeurs possibles : ascii, iso8859, latin1, dos, ebcdic, koi8-r, utf-8
 ** [[code]]
@@ -651,7 +661,7 @@ Remarques :
 [[code]]
 ----
 =KEYBOARD=
-* Basculer entre anglais et français : ALT + SHIFT
+* Basculer entre anglais et français : {{ALT + SHIFT}}
 ----
 =REGULAR EXPRESSIONS=
 ==IntelliJ==
@@ -667,10 +677,10 @@ Remarques :
 ----
 =Anglais=
 ==Références==
-* phonétique : [[http://www.wordreference.com]]
-* traduction : [[http://www.wordreference.com]]
-* Liste des symboles phonétiques : [[http://www.wordreference.com/fr/French-Pronunciation.aspx]]
-* ipa : [[http://www.antimoon.com/how/pronunc-soundsipa.htm]]
+* [[http://www.wordreference.com|phonétique]]
+* [[http://www.wordreference.com|traduction]]
+* [[http://www.wordreference.com/fr/French-Pronunciation.aspx|Liste des symboles phonétiques]]
+* [[http://www.antimoon.com/how/pronunc-soundsipa.htm|ipa]]
 ==Liste==
 || **Mot** || **Phonétique** || **Description** ||
 || comfort || [ˈkʌmfət] || confort ||
@@ -681,30 +691,30 @@ Remarques :
 ----
 =Français=
 ==Références==
-* Définition : [[http://www.lexilogos.com/francais_langue_dictionnaires.htm]]
+* [[http://www.lexilogos.com/francais_langue_dictionnaires.htm|Définition]]
 ==Liste==
 || **Mot** || **Description** ||
 || atermoiement || (souvent au pluriel) action de différer, retarder; hésitation, tergiversation ||
 ----
 =WEB AND WIKI=
-* Créer son wiki : [[http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki]]
-* Créer son site web : [[http://www.2createawebsite.com]]
+* [[http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki|Créer son wiki]]
+* [[http://www.2createawebsite.com|Créer son site web]]
 ----
 =XML TECHNO=
 ==XSLT==
 * Testeurs Xslt online
-** mark bucayan : [[http://markbucayan.appspot.com/xslt/index.html]]
-** xslt cake : [[http://www.xsltcake.com]]
+** [[http://markbucayan.appspot.com/xslt/index.html|mark bucayan]]
+** [[http://www.xsltcake.com|xslt cake]]
 * Tutoriaux Xslt
-** Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné) : [[http://xmlfr.org/documentations/faq/041013-0001]]
-** Traitement des espaces blancs : décrire la problèmatique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.
+** [[http://xmlfr.org/documentations/faq/041013-0001|Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné)]]
+** Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.
 ==XSD / DTD==
 * Tutoriaux XSD
-** Tutorial Xsd 1 : [[http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes]]
-** Tutorial Xsd 2 : [[http://www.w3schools.com/schema/default.asp]]
-** DTD et XSD : [[http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas]]
+** [[http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes|Tutorial Xsd 1]]
+** [[http://www.w3schools.com/schema/default.asp|Tutorial Xsd 2]]
+** [[http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas|DTD et XSD]]
 * Validateur XSD online
-** Xsd online validator : [[http://www.corefiling.com/opensource/schemaValidate.html]]
+** [[http://www.corefiling.com/opensource/schemaValidate.html|Xsd online validator]]
 ----
 =JAVA=
 ==Lire les lignes d'un fichier==
@@ -775,7 +785,6 @@ Remarques :
   }
 [[code]]
 ==Modifier plusieurs fichiers==
-|| **Package** || **Classes** ||
 [[code format="java"]]
   public void process() throws Exception {
     for (String filePath : getAllFilePath()) {
@@ -869,9 +878,7 @@ Remarques :
   modifiedString = X XXmn
 [[code]]
 ==Décompiler des classes java==
-* Solution : utiliser l'outil {{JD-GUI}} ([[http://java.decompiler.free.fr/?q=jdgui]])
-|| **Package** || **Classes** ||
-
+utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
 ----
 =UNIX=
 * shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling
@@ -883,4 +890,10 @@ Remarques :
 || {{#!/usr/bin/php}} || PHP ||
 || {{#!/usr/bin/python}} || Python ||
 || {{#!/usr/bin/ruby}} || Ruby ||
+----
+=SECURITEE=
+* [[http://www.baekdal.com/insights/password-security-usability|Convivialité des mots de passe]]
+* [[http://www.baekdal.com/insights/the-usability-of-passwords-faq|Convivialité des mots de passe (FAQ)]]
+* [[http://www.git-attitude.fr/2010/09/13/comprendre-et-maitriser-les-cles-ssh/|Comprendre et maîtriser les clés SSH]]
+* [[http://blogresearch.smalsrech.be/?p=4299|L’importance de la taille des clés en cryptographie]]
 ----

@@ -51,10 +51,8 @@
         <xsl:text>{{</xsl:text><xsl:apply-templates/><xsl:text>}}</xsl:text>
     </xsl:template>
 
-    <xsl:template match="link">
-        <xsl:text>[[</xsl:text>
-        <xsl:apply-templates/>
-        <xsl:text>]]</xsl:text>
+    <xsl:template match="reference">
+        <xsl:if test="link"><xsl:text>[[</xsl:text><xsl:value-of select="link"/><xsl:text>|</xsl:text></xsl:if><xsl:value-of select="name"/><xsl:if test="link"><xsl:text>]]</xsl:text></xsl:if>
     </xsl:template>
 
     <xsl:template match="underline">

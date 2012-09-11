@@ -39,8 +39,8 @@
                         </xsl:for-each>
                     </xsl:if>
                 </xsl:for-each>
-                <xsl:if test="selected">
-                    <list level="2">Solution retenue : <xsl:copy-of select="selected"/></list>
+                <xsl:if test="solution">
+                    <list level="2">Solution retenue : <xsl:copy-of select="solution"/></list>
                 </xsl:if>
             </xsl:for-each>
         </xsl:for-each>
@@ -134,9 +134,9 @@
             </xsl:for-each>
         </xsl:for-each>
         <header level="2">Exemples</header>
-        <xsl:for-each select="example/item">
+        <xsl:for-each select="example/method">
             <list level="1"><xsl:copy-of select="goal"/></list>
-            <xsl:for-each select="answer">
+            <xsl:for-each select="solution">
                 <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
         </xsl:for-each>
@@ -163,9 +163,9 @@
                 <headerRow><cell>Source</cell><cell>Cible</cell></headerRow>
                 <row><cell><xsl:copy-of select="example/source"/></cell><cell><xsl:copy-of select="example/target"/></cell></row>
             </xsl:if>
-            <xsl:for-each select="answer">
+            <xsl:for-each select="solution">
                 <list level="2"><xsl:copy-of select="tool"/></list>
-                <xsl:for-each select="method">
+                <xsl:for-each select="step">
                     <list level="3"><xsl:copy-of select="."/></list>
                 </xsl:for-each>
             </xsl:for-each>
@@ -184,7 +184,7 @@
     <xsl:template match="data/subversion">
         <header level="1">SUBVERSION</header>
         <xsl:for-each select="method">
-            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="command"/></list>
+            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solution"/></list>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -199,7 +199,7 @@
         <header level="2">Méthodes</header>
         <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/></list>
-            <xsl:for-each select="command">
+            <xsl:for-each select="solution">
                 <xsl:copy-of select="."/><newLine/>
             </xsl:for-each>
             <xsl:for-each select="comment">
@@ -208,7 +208,7 @@
         </xsl:for-each>
         <header level="2">Références</header>
         <xsl:for-each select="reference">
-            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="link"/></list>
+            <list level="1"><xsl:copy-of select="."/></list>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -219,7 +219,7 @@
         <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/></list>
             <list level="2">Exemple :<newLine/><xsl:copy-of select="example"/></list>
-            <list level="2">Requête :<newLine/><xsl:copy-of select="command"/></list>
+            <list level="2">Requête :<newLine/><xsl:copy-of select="solution"/></list>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -228,7 +228,7 @@
     <xsl:template match="data/sybase">
         <header level="1">SYBASE</header>
         <xsl:for-each select="method">
-            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="command"/></list>
+            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solution"/></list>
             <xsl:if test="example"><list level="2">example : <technic><xsl:copy-of select="example"/></technic></list></xsl:if>
         </xsl:for-each>
         <xsl:for-each select="item">
@@ -253,11 +253,11 @@
                 <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
             <xsl:for-each select="reference">
-                <list level="2"><xsl:copy-of select="name"/> : <xsl:copy-of select="link"/></list>
+                <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
         </xsl:for-each>
         <xsl:for-each select="method">
-            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="command"/></list>
+            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solution"/></list>
             <xsl:for-each select="options/option">
                 <list level="1">
                     <technic><xsl:copy-of select="shortcut"/></technic>
@@ -277,7 +277,7 @@
     <xsl:template match="data/keyboard">
         <header level="1">KEYBOARD</header>
         <xsl:for-each select="method">
-            <list level="1"><xsl:copy-of select="goal"/> : <xsl:copy-of select="shortcut"/></list>
+            <list level="1"><xsl:copy-of select="goal"/> : <xsl:copy-of select="solution"/></list>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -305,7 +305,7 @@
         <header level="1"><xsl:copy-of select="name"/></header>
         <header level="2">Références</header>
         <xsl:for-each select="reference">
-            <list level="1"><xsl:copy-of select="name"/> : <xsl:copy-of select="link"/></list>
+            <list level="1"><xsl:copy-of select="."/></list>
         </xsl:for-each>
         <header level="2">Liste</header>
         <headerRow>
@@ -330,7 +330,7 @@
     <xsl:template match="data/webAndWiki">
         <header level="1">WEB AND WIKI</header>
         <xsl:for-each select="reference">
-            <list level="1"><xsl:copy-of select="name"/> : <xsl:copy-of select="link"/></list>
+            <list level="1"><xsl:copy-of select="."/></list>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -344,7 +344,7 @@
             <xsl:for-each select="group">
                 <list level="1"><xsl:copy-of select="name"/></list>
                 <xsl:for-each select="reference">
-                    <list level="2"><xsl:copy-of select="name"/><xsl:if test="link"> : <xsl:copy-of select="link"/></xsl:if></list>
+                    <list level="2"><xsl:copy-of select="."/></list>
                 </xsl:for-each>
             </xsl:for-each>
         </xsl:for-each>
@@ -357,28 +357,32 @@
         <header level="1">JAVA</header>
         <xsl:for-each select="method">
             <header level="2"><xsl:copy-of select="goal"/></header>
-            <xsl:if test="answer">
-                <list level="1">Solution : <xsl:copy-of select="answer"/></list>
+            <xsl:if test="solution/package">
+                <table>
+                    <headerRow>
+                        <cell>Package</cell><cell>Classes</cell>
+                    </headerRow>
+                    <xsl:for-each select="solution/package">
+                        <row>
+                            <cell>
+                                <xsl:copy-of select="name"/>
+                            </cell>
+                            <cell>
+                                <xsl:for-each select="class">
+                                    <xsl:copy-of select="."/>
+                                    <xsl:if test="not(position()=last())"><xsl:text>, </xsl:text></xsl:if>
+                                </xsl:for-each>
+                            </cell>
+                        </row>
+                    </xsl:for-each>
+                </table>
             </xsl:if>
-            <table>
-                <headerRow>
-                    <cell>Package</cell><cell>Classes</cell>
-                </headerRow>
-                <xsl:for-each select="package">
-                    <row>
-                        <cell>
-                            <xsl:copy-of select="name"/>
-                        </cell>
-                        <cell>
-                            <xsl:for-each select="class">
-                                <xsl:copy-of select="."/>
-                                <xsl:if test="not(position()=last())"><xsl:text>, </xsl:text></xsl:if>
-                            </xsl:for-each>
-                        </cell>
-                    </row>
-                </xsl:for-each>
-            </table>
-            <xsl:copy-of select="command"/><newLine/>
+            <xsl:if test="solution/code">
+                <xsl:copy-of select="solution/code"/><newLine/>
+            </xsl:if>
+            <xsl:for-each select="solution/step">
+                <xsl:copy-of select="."/><newLine/>
+            </xsl:for-each>
             <xsl:if test="comment">
                 <xsl:text>Remarques :</xsl:text><newLine/>
                 <xsl:for-each select="comment">
@@ -406,7 +410,7 @@
     <xsl:template match="data/security">
         <header level="1">SECURITEE</header>
         <xsl:for-each select="reference">
-            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="link"/></list>
+            <list level="1"><xsl:copy-of select="."/></list>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
