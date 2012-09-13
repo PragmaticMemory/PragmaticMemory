@@ -18,38 +18,59 @@
     </xsl:template>
 
     <!-- Dashboard -->
-    <xsl:template match="data/dashboard">
+    <xsl:template match="dashboard">
         <header level="1">DASHBOARD</header>
-        <xsl:for-each select="group">
-            <header level="2"><xsl:copy-of select="name"/></header>
-            <xsl:for-each select="method">
-                <list level="1"><xsl:copy-of select="goal"/></list>
-                <xsl:for-each select="candidate">
-                    <list level="2"><xsl:copy-of select="name"/></list>
-                    <xsl:if test="advantage">
-                        <list level="3">Avantages :</list>
-                        <xsl:for-each select="advantage">
-                            <list level="4"><xsl:copy-of select="."/></list>
-                        </xsl:for-each>
-                    </xsl:if>
-                    <xsl:if test="disadvantage">
-                        <list level="3">Inconvénients :</list>
-                        <xsl:for-each select="disadvantage">
-                            <list level="4"><xsl:copy-of select="."/></list>
-                        </xsl:for-each>
-                    </xsl:if>
-                </xsl:for-each>
-                <xsl:if test="solution">
-                    <list level="2">Solution retenue : <xsl:copy-of select="solution"/></list>
+        <xsl:call-template name="task">
+            <xsl:with-param name="status">Todo</xsl:with-param>
+        </xsl:call-template>
+        <xsl:call-template name="task">
+            <xsl:with-param name="status">Done</xsl:with-param>
+        </xsl:call-template>
+        <endOfSection/>
+    </xsl:template>
+
+    <xsl:template name="task">
+        <xsl:param name="status"/>
+        <xsl:if test="$status='Done'"><xsl:text>FAIT</xsl:text></xsl:if>
+        <xsl:if test="$status='Todo'"><xsl:text>A FAIRE</xsl:text></xsl:if><newLine/>
+        <xsl:for-each select="method[status=$status]">
+            <list level="1"><xsl:copy-of select="goal"/></list>
+            <xsl:for-each select="candidate">
+                <list level="2"><xsl:copy-of select="name"/></list>
+                <xsl:if test="advantage">
+                    <list level="3">Avantages :</list>
+                    <xsl:for-each select="advantage">
+                        <list level="4"><xsl:copy-of select="."/></list>
+                    </xsl:for-each>
+                </xsl:if>
+                <xsl:if test="disadvantage">
+                    <list level="3">Inconvénients :</list>
+                    <xsl:for-each select="disadvantage">
+                        <list level="4"><xsl:copy-of select="."/></list>
+                    </xsl:for-each>
                 </xsl:if>
             </xsl:for-each>
+            <xsl:if test="solution">
+                <list level="2">Solution retenue : <xsl:copy-of select="solution"/></list>
+            </xsl:if>
         </xsl:for-each>
-        <xsl:for-each select="example">
-            <xsl:copy-of select="."/>
-            <newLine/>
+    </xsl:template>
+
+    <!--
+    <xsl:key name="method-by-status" match="dashboard/group/method" use="status"/>
+    <xsl:template match="dashboard">
+        <xsl:for-each select="group/method[generate-id() = generate-id(key('method-by-status', status)[1])]">
+            <xsl:sort select="status"/>
+            <xsl:if test="status='Done'">FAIT</xsl:if>
+            <xsl:if test="status='Todo'">A FAIRE</xsl:if><newLine/>
+            <xsl:for-each select="key('method-by-status', status)">
+                <xsl:sort select="goal"/>
+                <list level="1"><xsl:copy-of select="goal"/></list>
+            </xsl:for-each>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
+    -->
 
     <!-- Principles -->
     <xsl:template match="data/principles">

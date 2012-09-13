@@ -1,86 +1,94 @@
 ﻿<data>
     <dashboard>
-        <group>
-            <name>En cours</name>
-        </group>
-        <group>
-            <name>A faire</name>
-            <method>
-                <goal>Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)</goal>
-            </method>
-            <method>
-                <goal>Gérer les tag reference au lieu des tag link uniquement ?</goal>
-            </method>
-            <method>
-                <goal>Compléter le fichier de données avec la liste de mots en français</goal>
-            </method>
-            <method>
-                <goal>Compléter le fichier de données avec la liste de mots en anglais</goal>
-            </method>
-            <method>
-                <goal>Rédiger la xsd validant <technic>Data.xml</technic></goal>
-            </method>
-        </group>
-        <group>
-            <name>Fait</name>
-            <method>
-                <goal>Afficher les packages / classes sous forme de tableaux dans la section java</goal>
-            </method>
-            <method>
-                <goal>Trouver le moyen le plus simple d'appliquer une xslt à un xml</goal>
-                <solution>Ecriture d'une classe java</solution>
-            </method>
-            <method>
-                <goal>Ecrire une xslt de vue et une xslt de media appelables successivement</goal>
-            </method>
-            <method>
-                <goal>Trouver un moyen de stoker le code</goal>
-                <solution>GitHub</solution>
-            </method>
-            <method>
-                <goal>Gérer l'imbrication de code dans un tableau dans Wikispaces</goal>
-            </method>
-            <method>
-                <goal>Rédiger :<newLine/>
-                    <list level="2">les fichiers xml correspondant aux pages existantes sur PragmaticMemory.wikispaces</list>
-                    <list level="2">les fichiers xslt de mise en page au format wikispaces</list>
-                </goal>
-            </method>
-            <method>
-                <goal>Choix du lieu de stockage des fichiers de données (xml), styles (xslt) et schemas (xsd)</goal>
-                <candidate>
-                    <name>Wikispaces</name>
-                    <advantage>Wiki gratuit pour un usage privé</advantage>
-                    <disadvantage>les versions des fichiers téléchargés dans Wikispaces ne peuvent pas être supprimées. Conséquence : la limite de taille risque d'être atteinte rapidement si les mises à jour sont fréquentes.</disadvantage>
-                </candidate>
-                <candidate>
-                    <name>Google Docs</name>
-                    <advantage>Gratuit</advantage>
-                    <disadvantage>Site non accessible à partir du bureau</disadvantage>
-                </candidate>
-                <candidate>
-                    <name>Digiposte</name>
-                    <advantage>Gratuit</advantage>
-                    <advantage>Structure ayant plus de chance de durer que d'autre sites</advantage>
-                    <disadvantage>Pas de gestion de version : deux fichiers avec un nom identique sont stockés comme deux fichiers différents</disadvantage>
-                </candidate>
-                <solution>Digiposte</solution>
-            </method>
-            <method>
-                <goal>Séparer les données du formattage</goal>
-                <solution>Utilisation des xslt</solution>
-            </method>
-            <method>
-                <goal>Séparer le formattage lié à la vue du formattage lié au media de diffusion</goal>
-                <solution>Création de xslt de vue et de xslt de media</solution>
-            </method>
-            <method>
-                <goal>Gérer les indentations de ligne de code</goal>
-            </method>
-            <method>
-                <goal>Gérer le language (java, sql,...) dans la balise de code</goal>
-            </method>
-        </group>
+        <method>
+            <goal>Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)</goal>
+            <status>Todo</status>
+        </method>
+        <method>
+            <goal>Gérer les tag reference au lieu des tag link uniquement ?</goal>
+            <status>Todo</status>
+        </method>
+        <method>
+            <goal>Compléter le fichier de données avec la liste de mots en français</goal>
+            <status>Todo</status>
+        </method>
+        <method>
+            <goal>Compléter le fichier de données avec la liste de mots en anglais</goal>
+            <status>Todo</status>
+        </method>
+        <method>
+            <goal>Rédiger la xsd validant <technic>Data.xml</technic></goal>
+            <status>Todo</status>
+        </method>
+        <method>
+            <goal>Afficher les packages / classes sous forme de tableaux dans la section java</goal>
+            <status>Done</status>
+        </method>
+        <method>
+            <goal>Trouver le moyen le plus simple d'appliquer une xslt à un xml</goal>
+            <solution>Ecriture d'une classe java</solution>
+            <status>Done</status>
+        </method>
+        <method>
+            <goal>Ecrire une xslt de vue et une xslt de media appelables successivement</goal>
+            <status>Done</status>
+        </method>
+        <method>
+            <goal>Trouver un moyen de stoker le code</goal>
+            <status>Done</status>
+            <solution>GitHub</solution>
+        </method>
+        <method>
+            <goal>Gérer l'imbrication de code dans un tableau dans Wikispaces</goal>
+            <status>Done</status>
+        </method>
+        <method>
+            <goal>Rédiger les fichiers xml correspondant aux pages existantes sur PragmaticMemory.wikispaces</goal>
+            <status>Done</status>
+        </method>
+        <method>
+            <goal>Rédiger les fichiers xslt de mise en page au format wikispaces</goal>
+            <status>Done</status>
+        </method>
+        <method>
+            <goal>Choix du lieu de stockage des fichiers de données (xml), styles (xslt) et schemas (xsd)</goal>
+            <candidate>
+                <name>Wikispaces</name>
+                <advantage>Wiki gratuit pour un usage privé</advantage>
+                <disadvantage>les versions des fichiers téléchargés dans Wikispaces ne peuvent pas être supprimées. Conséquence : la limite de taille risque d'être atteinte rapidement si les mises à jour sont fréquentes.</disadvantage>
+            </candidate>
+            <candidate>
+                <name>Google Docs</name>
+                <advantage>Gratuit</advantage>
+                <disadvantage>Site non accessible à partir du bureau</disadvantage>
+            </candidate>
+            <candidate>
+                <name>Digiposte</name>
+                <advantage>Gratuit</advantage>
+                <advantage>Structure ayant plus de chance de durer que d'autre sites</advantage>
+                <disadvantage>Pas de gestion de version : deux fichiers avec un nom identique sont stockés comme deux fichiers différents</disadvantage>
+            </candidate>
+            <solution>Digiposte</solution>
+            <status>Done</status>
+        </method>
+        <method>
+            <goal>Séparer les données du formattage</goal>
+            <solution>Utilisation des xslt</solution>
+            <status>Done</status>
+        </method>
+        <method>
+            <goal>Séparer le formattage lié à la vue du formattage lié au media de diffusion</goal>
+            <solution>Création de xslt de vue et de xslt de media</solution>
+            <status>Done</status>
+        </method>
+        <method>
+            <goal>Gérer les indentations de ligne de code</goal>
+            <status>Done</status>
+        </method>
+        <method>
+            <goal>Gérer le language (java, sql,...) dans la balise de code</goal>
+            <status>Done</status>
+        </method>
     </dashboard>
     <principles>
         <goal>L'objectif de cette section est de lister les principes permettant d'améliorer la forme du wiki, afin d'éliminer tout ce qui n'est pas indispensable ou qui peut minimiser la compréhension.</goal>
@@ -649,6 +657,10 @@
             <description>Pointeur vers le parent du commit parent du commit pointé par HEAD (et de même HEAD~3, HEAD~4, etc...)</description>
         </item>
         <item>
+            <name>HEAD détaché</name>
+            <description>Le HEAD est dit détaché lorsqu'il ne pointe pas sur le même commit que la branche courante</description>
+        </item>
+        <item>
             <name>Index / Staging area</name>
             <description>Versions d'un ensemble de fichiers qui feront parti du prochain commit</description>
         </item>
@@ -659,6 +671,18 @@
         <item>
             <name>Action "Unstage"</name>
             <description>Retirer des des fichiers de l'index</description>
+        </item>
+        <item>
+            <name>Commande checkout</name>
+            <description>Déplace le HEAD (evéntuellement en le détachant)</description>
+        </item>
+        <item>
+            <name>Commande reset</name>
+            <description>Déplace la branche courante (et le HEAD), en mettant optionnellement à jour l'index et le working directory</description>
+        </item>
+        <item>
+            <name>Commande rebase</name>
+            <description>Déplace une succession de commit vers une autre branche</description>
         </item>
         <item>
             <name>Répertoire de travail (working directory)</name>
@@ -704,10 +728,6 @@
             <solution><code><codeLine>git add .</codeLine></code></solution>
         </method>
         <method>
-            <goal>Annuler l'opération d'ajout d'un fichier à l'index</goal>
-            <solution><code><codeLine>git reset HEAD nom_de_fichier</codeLine></code></solution>
-        </method>
-        <method>
             <goal>Faire un commit (ajouter les fichiers de l'index au repository)</goal>
             <solution><code><codeLine>git commit -m "message de commit</codeLine></code></solution>
         </method>
@@ -720,6 +740,7 @@
             <solution><code><codeLine>git log</codeLine></code></solution>
             <solution><code><codeLine>git log --pretty=oneline</codeLine></code></solution>
             <solution><code><codeLine>git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short</codeLine></code></solution>
+            <solution><code><codeLine>log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all</codeLine></code></solution>
             <solution><code><codeLine>git reflog</codeLine></code></solution>
             <comment>Principaux formats :<newLine/>
                 <table>
@@ -745,6 +766,7 @@
         <method>
             <goal>Afficher l'historique des commit (version graphique)</goal>
             <solution><code><codeLine>gitk</codeLine></code></solution>
+            <solution><code><codeLine>gitk --all</codeLine></code></solution>
         </method>
         <method>
             <goal>Afficher les différences entre le répertoire de travail et l'index</goal>
@@ -779,12 +801,37 @@
         </method>
         <method>
             <goal>Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail</goal>
-            <solution><code><codeLine>git reset --medium version</codeLine></code></solution>
             <solution><code><codeLine>git reset version</codeLine></code></solution>
+            <solution><code><codeLine>git reset --medium version</codeLine></code></solution>
         </method>
         <method>
             <goal>Déplacer le HEAD en modifiant l'index et le répertoire de travail</goal>
             <solution><code><codeLine>git reset --hard version</codeLine></code></solution>
+        </method>
+        <method>
+            <goal>Déplacer la branche courante (et le HEAD associé)</goal>
+            <solution><code><codeLine>git reset v1</codeLine></code></solution>
+            <solution><code><codeLine>git reset sha1</codeLine></code></solution>
+        </method>
+        <method>
+            <goal>Annuler l'opération d'ajout d'un fichier à l'index</goal>
+            <solution><code><codeLine>git reset HEAD nom_de_fichier</codeLine></code></solution>
+        </method>
+        <method>
+            <goal>Créér une branche</goal>
+            <solution><code><codeLine>git branch myBranch</codeLine></code></solution>
+        </method>
+        <method>
+            <goal>Effacer une branche</goal>
+            <solution><code><codeLine>git branch -d myBranch</codeLine></code></solution>
+        </method>
+        <method>
+            <goal>Créér un tag</goal>
+            <solution><code><codeLine>git tag v1</codeLine></code></solution>
+        </method>
+        <method>
+            <goal>Effacer un tag</goal>
+            <solution><code><codeLine>git tag -d v1</codeLine></code></solution>
         </method>
         <method>
             <goal>Stocker les login / mot de passe pour GitHub</goal>
@@ -1152,8 +1199,13 @@
                     <link>http://xmlfr.org/documentations/faq/041013-0001</link>
                 </reference>
                 <reference>
+                    <name>Regroupement xslt : la méthode Muenchian</name>
+                    <link>http://www.jenitennison.com/xslt/grouping/muenchian.html</link>
+                </reference>
+                <reference>
                     <name>Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.</name>
                 </reference>
+                
             </group>
         </group>
         <group>
@@ -1409,6 +1461,18 @@
             <goal>Décompiler des classes java</goal>
             <solution><step>utiliser l'outil <reference><name><technic>JD-GUI</technic></name><link>http://java.decompiler.free.fr/?q=jdgui</link></reference></step></solution>
         </method>
+        <reference>
+            <name>Liste des librairies tiers java</name>
+            <link>http://www.jdocs.com/page/AllLibraries</link>
+        </reference>
+        <reference>
+            <name>Apache Common Bean Utils. Une lib équivalente à BeanUtils : Beanlib</name>
+            <link>http://commons.apache.org/beanutils/commons-beanutils-1.7.0/docs/api/org/apache/commons/beanutils/package-summary.html</link>
+        </reference>
+        <reference>
+            <name>Apache Common</name>
+            <link>http://commons.apache.org/</link>
+        </reference>
         <reference>
             <name>Tutorial IO</name>
             <link>http://tutorials.jenkov.com/java-io/index.html</link>

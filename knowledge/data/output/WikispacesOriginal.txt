@@ -1,14 +1,13 @@
 [[toc|flat]]
 ----
 =DASHBOARD=
-==En cours==
-==A faire==
+A FAIRE
 * Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)
 * Gérer les tag reference au lieu des tag link uniquement ?
 * Compléter le fichier de données avec la liste de mots en français
 * Compléter le fichier de données avec la liste de mots en anglais
 * Rédiger la xsd validant {{Data.xml}}
-==Fait==
+FAIT
 * Afficher les packages / classes sous forme de tableaux dans la section java
 * Trouver le moyen le plus simple d'appliquer une xslt à un xml
 ** Solution retenue : Ecriture d'une classe java
@@ -16,10 +15,8 @@
 * Trouver un moyen de stoker le code
 ** Solution retenue : GitHub
 * Gérer l'imbrication de code dans un tableau dans Wikispaces
-* Rédiger :
-** les fichiers xml correspondant aux pages existantes sur PragmaticMemory.wikispaces
-** les fichiers xslt de mise en page au format wikispaces
-
+* Rédiger les fichiers xml correspondant aux pages existantes sur PragmaticMemory.wikispaces
+* Rédiger les fichiers xslt de mise en page au format wikispaces
 * Choix du lieu de stockage des fichiers de données (xml), styles (xslt) et schemas (xsd)
 ** Wikispaces
 *** Avantages :
@@ -370,9 +367,13 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 * HEAD : Pointeur vers le dernier commit (sauf lorsqu'il est déplacé)
 * HEAD~ : Pointeur vers le parent du commit pointé par HEAD
 * HEAD~2 : Pointeur vers le parent du commit parent du commit pointé par HEAD (et de même HEAD~3, HEAD~4, etc...)
+* HEAD détaché : Le HEAD est dit détaché lorsqu'il ne pointe pas sur le même commit que la branche courante
 * Index / Staging area : Versions d'un ensemble de fichiers qui feront parti du prochain commit
 * Action "Stage" : Ajouter des fichiers à l'index
 * Action "Unstage" : Retirer des des fichiers de l'index
+* Commande checkout : Déplace le HEAD (evéntuellement en le détachant)
+* Commande reset : Déplace la branche courante (et le HEAD), en mettant optionnellement à jour l'index et le working directory
+* Commande rebase : Déplace une succession de commit vers une autre branche
 * Répertoire de travail (working directory) : Ensemble de fichiers modifiés localement et dont les modifications n'ont pas étées ajoutées à l'index
 ==Méthodes==
 * Afficher la configuration globale
@@ -415,10 +416,6 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
   git add .
 [[code]]
-* Annuler l'opération d'ajout d'un fichier à l'index
-[[code]]
-  git reset HEAD nom_de_fichier
-[[code]]
 * Faire un commit (ajouter les fichiers de l'index au repository)
 [[code]]
   git commit -m "message de commit
@@ -436,6 +433,9 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
 [[code]]
   git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
+[[code]]
+[[code]]
+  log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all
 [[code]]
 [[code]]
   git reflog
@@ -461,6 +461,9 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 * Afficher l'historique des commit (version graphique)
 [[code]]
   gitk
+[[code]]
+[[code]]
+  gitk --all
 [[code]]
 * Afficher les différences entre le répertoire de travail et l'index
 [[code]]
@@ -489,14 +492,41 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 * Ainsi, {{git reset --soft HEAD}}n'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail
 * Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail
 [[code]]
-  git reset --medium version
-[[code]]
-[[code]]
   git reset version
+[[code]]
+[[code]]
+  git reset --medium version
 [[code]]
 * Déplacer le HEAD en modifiant l'index et le répertoire de travail
 [[code]]
   git reset --hard version
+[[code]]
+* Déplacer la branche courante (et le HEAD associé)
+[[code]]
+  git reset v1
+[[code]]
+[[code]]
+  git reset sha1
+[[code]]
+* Annuler l'opération d'ajout d'un fichier à l'index
+[[code]]
+  git reset HEAD nom_de_fichier
+[[code]]
+* Créér une branche
+[[code]]
+  git branch myBranch
+[[code]]
+* Effacer une branche
+[[code]]
+  git branch -d myBranch
+[[code]]
+* Créér un tag
+[[code]]
+  git tag v1
+[[code]]
+* Effacer un tag
+[[code]]
+  git tag -d v1
 [[code]]
 * Stocker les login / mot de passe pour GitHub
 [[code]]
@@ -705,6 +735,7 @@ Remarques :
 ** [[http://www.xsltcake.com|xslt cake]]
 * Tutoriaux Xslt
 ** [[http://xmlfr.org/documentations/faq/041013-0001|Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné)]]
+** [[http://www.jenitennison.com/xslt/grouping/muenchian.html|Regroupement xslt : la méthode Muenchian]]
 ** Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.
 ==XSD / DTD==
 * Tutoriaux XSD
@@ -878,6 +909,9 @@ Remarques :
 ==Décompiler des classes java==
 utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
 Références :
+* [[http://www.jdocs.com/page/AllLibraries|Liste des librairies tiers java]]
+* [[http://commons.apache.org/beanutils/commons-beanutils-1.7.0/docs/api/org/apache/commons/beanutils/package-summary.html|Apache Common Bean Utils. Une lib équivalente à BeanUtils : Beanlib]]
+* [[http://commons.apache.org/|Apache Common]]
 * [[http://tutorials.jenkov.com/java-io/index.html|Tutorial IO]]
 * [[http://www.informit.com/guides/content.aspx?g=java&seqNum=528|Tutorial JXTreeTable]]
 ----
