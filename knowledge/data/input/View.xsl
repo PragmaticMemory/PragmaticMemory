@@ -31,10 +31,10 @@
 
     <xsl:template name="task">
         <xsl:param name="status"/>
-        <xsl:if test="$status='Done'"><xsl:text>FAIT</xsl:text></xsl:if>
-        <xsl:if test="$status='Todo'"><xsl:text>A FAIRE</xsl:text></xsl:if><newLine/>
-        <xsl:for-each select="method[status=$status]">
-            <list level="1"><xsl:copy-of select="goal"/></list>
+        <xsl:if test="$status='Done'"><xsl:text><header level="2">FAIT</header></xsl:text></xsl:if>
+        <xsl:if test="$status='Todo'"><xsl:text><header level="2">A FAIRE</header></xsl:text></xsl:if>
+        <xsl:for-each select="task[status=$status]">
+            <list level="1"><xsl:copy-of select="description"/></list>
             <xsl:for-each select="candidate">
                 <list level="2"><xsl:copy-of select="name"/></list>
                 <xsl:if test="advantage">
@@ -50,8 +50,8 @@
                     </xsl:for-each>
                 </xsl:if>
             </xsl:for-each>
-            <xsl:if test="solution">
-                <list level="2">Solution retenue : <xsl:copy-of select="solution"/></list>
+            <xsl:if test="selected">
+                <list level="2">Solution retenue : <xsl:copy-of select="selected"/></list>
             </xsl:if>
         </xsl:for-each>
     </xsl:template>
@@ -119,9 +119,9 @@
         </xsl:for-each>
         <xsl:for-each select="group">
             <header level="2"><xsl:copy-of select="name"/></header>
-            <xsl:for-each select="goal">
-                <list level="1"><underline><xsl:copy-of select="target"/></underline></list>
-                <xsl:for-each select="pipe">
+            <xsl:for-each select="method">
+                <list level="1"><underline><xsl:copy-of select="goal"/></underline></list>
+                <xsl:for-each select="solution/pipe">
                     <technic>
                         <xsl:copy-of select="source"/>
                         <xsl:text> > </xsl:text>
@@ -131,16 +131,16 @@
                     </technic>
                     <newLine/>
                 </xsl:for-each>
-                <xsl:if test="alias">
+                <xsl:if test="solution/alias">
                     <xsl:text>Alias :</xsl:text><newLine/>
                 </xsl:if>
-                <xsl:for-each select="alias">
+                <xsl:for-each select="solution/alias">
                     <list level="2"><technic><xsl:copy-of select="."/></technic></list>
                 </xsl:for-each>
-                <xsl:if test="option">
+                <xsl:if test="solution/option">
                     <xsl:text>Options :</xsl:text><newLine/>
                 </xsl:if>
-                <xsl:for-each select="option">
+                <xsl:for-each select="solution/option">
                     <list level="2">
                         <technic><xsl:copy-of select="name"/></technic>
                         <note><technic><xsl:copy-of select="shortcut"/></technic></note>
@@ -209,7 +209,7 @@
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
-    
+
     <!-- Git -->
     <xsl:template match="data/git">
         <header level="1">GIT</header>
@@ -228,9 +228,7 @@
             </xsl:for-each>
         </xsl:for-each>
         <header level="2">Références</header>
-        <xsl:for-each select="reference">
-            <list level="1"><xsl:copy-of select="."/></list>
-        </xsl:for-each>
+        <xsl:apply-templates select="reference"/>
         <endOfSection/>
     </xsl:template>
 
@@ -325,9 +323,7 @@
         <xsl:variable name="hasDescription" select="word/description!=''"/>
         <header level="1"><xsl:copy-of select="name"/></header>
         <header level="2">Références</header>
-        <xsl:for-each select="reference">
-            <list level="1"><xsl:copy-of select="."/></list>
-        </xsl:for-each>
+        <xsl:apply-templates select="reference"/>
         <header level="2">Liste</header>
         <headerRow>
             <cell>Mot</cell>
@@ -346,36 +342,42 @@
         <endOfSection/>
     </xsl:template>
 
-
     <!-- WebAndWiki -->
     <xsl:template match="data/webAndWiki">
         <header level="1">WEB AND WIKI</header>
-        <xsl:for-each select="reference">
-            <list level="1"><xsl:copy-of select="."/></list>
-        </xsl:for-each>
+            <xsl:apply-templates select="reference"/>
         <endOfSection/>
     </xsl:template>
 
-
-    <!-- XmlTechno -->
-    <xsl:template match="data/xmlTechno">
-        <header level="1">XML TECHNO</header>
+    <!-- xslt -->
+    <xsl:template match="data/xslt">
+        <header level="1">XSLT</header>
         <xsl:for-each select="group">
             <header level="2"><xsl:copy-of select="name"/></header>
-            <xsl:for-each select="group">
-                <list level="1"><xsl:copy-of select="name"/></list>
-                <xsl:for-each select="reference">
-                    <list level="2"><xsl:copy-of select="."/></list>
-                </xsl:for-each>
-            </xsl:for-each>
+            <xsl:apply-templates select="reference"/>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
 
+    <!-- xmlSchema -->
+    <xsl:template match="data/xsd">
+        <header level="1">XSD et DTD</header>
+        <xsl:for-each select="group">
+            <header level="2"><xsl:copy-of select="name"/></header>
+            <xsl:apply-templates select="reference"/>
+        </xsl:for-each>
+        <endOfSection/>
+    </xsl:template>
 
     <!-- Java -->
     <xsl:template match="data/java">
         <header level="1">JAVA</header>
+        <header level="2">Objets</header>
+        <xsl:for-each select="item">
+            <list level="1"><xsl:copy-of select="name"/></list>
+            <xsl:copy-of select="description"/>
+        </xsl:for-each>
+        <header level="2">Méthodes</header>
         <xsl:for-each select="method">
             <header level="2"><xsl:copy-of select="goal"/></header>
             <xsl:if test="solution/package">
@@ -412,12 +414,9 @@
             </xsl:if>
         </xsl:for-each>
         <xsl:if test="reference">
-            <xsl:text>Références :</xsl:text><newLine/>
-             <xsl:for-each select="reference">
-                <list level="1"><xsl:copy-of select="."/></list>
-             </xsl:for-each>
+             <header level="2">Références</header>
+            <xsl:apply-templates select="reference"/>
          </xsl:if>
-         
         <endOfSection/>
     </xsl:template>
 
@@ -433,23 +432,23 @@
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
-    
+
     <!-- Security -->
     <xsl:template match="data/security">
         <header level="1">SECURITEE</header>
-        <xsl:for-each select="reference">
-            <list level="1"><xsl:copy-of select="."/></list>
-        </xsl:for-each>
+        <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
-    
+
     <!-- Divers -->
     <xsl:template match="data/miscellaneous">
         <header level="1">DIVERS</header>
-        <xsl:for-each select="reference">
-            <list level="1"><xsl:copy-of select="."/></list>
-        </xsl:for-each>
+        <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
-    
+
+    <!-- COMMON -->
+    <xsl:template match="reference">
+        <list level="1"><xsl:copy-of select="."/></list>
+    </xsl:template>
 </xsl:stylesheet>

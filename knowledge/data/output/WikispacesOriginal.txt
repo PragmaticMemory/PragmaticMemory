@@ -1,13 +1,13 @@
 [[toc|flat]]
 ----
 =DASHBOARD=
-A FAIRE
+==A FAIRE==
 * Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)
 * Gérer les tag reference au lieu des tag link uniquement ?
 * Compléter le fichier de données avec la liste de mots en français
 * Compléter le fichier de données avec la liste de mots en anglais
 * Rédiger la xsd validant {{Data.xml}}
-FAIT
+==FAIT==
 * Afficher les packages / classes sous forme de tableaux dans la section java
 * Trouver le moyen le plus simple d'appliquer une xslt à un xml
 ** Solution retenue : Ecriture d'une classe java
@@ -95,7 +95,7 @@ Distinguer les informations utiles (données à transmettre) de la mise en page 
 ** toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé
 ===Concepts dans les métadonnées===
 [[code]]
-Liste des concepts : item, group, reference, method
+Liste des concepts : item, group, reference, method, task
 [[code]]
 ==Concision==
 ===Taille===
@@ -728,24 +728,83 @@ Remarques :
 * [[http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki|Créer son wiki]]
 * [[http://www.2createawebsite.com|Créer son site web]]
 ----
-=XML TECHNO=
-==XSLT==
-* Testeurs Xslt online
-** [[http://markbucayan.appspot.com/xslt/index.html|mark bucayan]]
-** [[http://www.xsltcake.com|xslt cake]]
-* Tutoriaux Xslt
-** [[http://xmlfr.org/documentations/faq/041013-0001|Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné)]]
-** [[http://www.jenitennison.com/xslt/grouping/muenchian.html|Regroupement xslt : la méthode Muenchian]]
-** Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.
-==XSD / DTD==
-* Tutoriaux XSD
-** [[http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes|Tutorial Xsd 1]]
-** [[http://www.w3schools.com/schema/default.asp|Tutorial Xsd 2]]
-** [[http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas|DTD et XSD]]
-* Validateur XSD online
-** [[http://www.corefiling.com/opensource/schemaValidate.html|Xsd online validator]]
+=XSLT=
+==Testeurs Xslt online==
+* [[http://markbucayan.appspot.com/xslt/index.html|mark bucayan]]
+* [[http://www.xsltcake.com|xslt cake]]
+==Tutoriaux Xslt==
+* [[http://xmlfr.org/documentations/faq/041013-0001|Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné)]]
+* [[http://www.jenitennison.com/xslt/grouping/muenchian.html|Regroupement xslt : la méthode Muenchian]]
+* Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.
+----
+=XSD et DTD=
+==Tutoriaux XSD==
+* [[http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes|Tutorial Xsd 1]]
+* [[http://www.w3schools.com/schema/default.asp|Tutorial Xsd 2]]
+* [[http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas|DTD et XSD]]
+==Validateur XSD online==
+* [[http://www.corefiling.com/opensource/schemaValidate.html|Xsd online validator]]
 ----
 =JAVA=
+==Objets==
+* Classes liées aux {{JTable}}
+|| **Objet** || **Type** || **Description** ||
+|| {{JTable}} || classe || vue du modèle de données ||
+|| {{JTable.getModel()}} || méthode || récupération du modèle de données ||
+|| {{JTable.getSelectionModel()}} || méthode || récupération du modèle de sélection ||
+|| {{JTable.getColumnModel()}} || méthode || récupération du modèle de colonnes ||
+|| {{JTable.getTableHeader()}} || méthode || récupération du JTableHeader ||
+|| {{JTable.setDefaultRenderer(...)}} || méthode || modification du renderer par défaut d'une classe ||
+|| {{TableColumnModel}} || interface || modèle des colonnes de la table ||
+|| {{TableColumn}} || classe || modèle d'une colonne de la table ||
+|| {{TableModel}} || interface || modèle des données de la table ||
+|| {{TableModelEvent}} || classe || évenement de modification du modèle de données ||
+|| {{TableModelListener}} || interface || callback de traitement des modifications d'un TableModel; gère des TableModelEvent via la méthode tableChanged() ||
+|| {{DefaultTableModel}} || classe || modèle de table par défaut; représente uniquement des chaînes de caractères et ne permets pas la représentation d'autre types (booléen, par exemple) ||
+|| {{AbstractTableModel}} || classe || classe de base de modèle qui implémente des méthodes de notification de modification (méthodes fireTableRowsUpdated(), fireTableRowsInserted(), ... appellant la méthode TableModelListener.tableChanged avec des TableModelEvent appropriés) ||
+|| {{ListSelectionModel}} || interface || modèle de sélection de la table (par ligne , par colonne, par cellule) ||
+|| {{JTableHeader}} || classe || headers de la table ||
+|| {{TableColumnModelListener}} || interface || callback de traitement des modifications du modèle do colonnes ||
+|| {{TableColumnModelEvent}} || classe || évenement de modification du modèle de colonnes ||
+* Algorithme de sélection d'un Renderer dans une JTable
+** utilise en priorité le renderer particulier de la colonne
+** sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass()
+* Gestion des évènements par la classe Component
+|| **Listener** || **Event traité** || **méthode d'ajout du Listener dans Component** || **méthodes du listener** ||
+|| ComponentListener || ComponentEvent || addComponentListener ||  ||
+||  ||  ||  || componentResized ||
+||  ||  ||  || componentMoved ||
+||  ||  ||  || componentShown ||
+||  ||  ||  || componentHidden ||
+|| FocusListener || FocusEvent || addFocusListener ||  ||
+||  ||  ||  || focusGained ||
+||  ||  ||  || focusLost ||
+|| HierarchyBoundsListener || HierarchyEvent || addHierarchyBoundsListener ||  ||
+||  ||  ||  || ancestorMoved ||
+||  ||  ||  || ancestorResized ||
+|| HierarchyListener || HierarchyEvent || addHierarchyListener ||  ||
+||  ||  ||  || hierarchyChanged ||
+|| InputMethodListener || InputMethodEvent || addInputMethodListener ||  ||
+||  ||  ||  || inputMethodTextChanged ||
+||  ||  ||  || caretPositionChanged ||
+|| KeyListener || KeyEvent || addKeyListener ||  ||
+||  ||  ||  || keyTyped ||
+||  ||  ||  || keyPressed ||
+||  ||  ||  || keyReleased ||
+|| MouseListener || MouseEvent || addMouseListener ||  ||
+||  ||  ||  || mouseClicked ||
+||  ||  ||  || mousePressed ||
+||  ||  ||  || mouseReleased ||
+||  ||  ||  || mouseEntered ||
+||  ||  ||  || mouseExited ||
+|| MouseMotionListener || MouseEvent || addMouseMotionListener ||  ||
+||  ||  ||  || mouseDragged ||
+||  ||  ||  || mouseMoved ||
+|| MouseWheelListener || MouseWheelEvent || addMouseWheelListener ||  ||
+||  ||  ||  || mouseWheelMoved ||
+|| PropertyChangeListener || PropertyChangeEvent || addPropertyChangeListener ||  ||
+||  ||  ||  || propertyChange ||
+==Méthodes==
 ==Lire les lignes d'un fichier==
 || **Package** || **Classes** ||
 || java.lang || String ||
@@ -908,12 +967,14 @@ Remarques :
 [[code]]
 ==Décompiler des classes java==
 utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
-Références :
+==Références==
 * [[http://www.jdocs.com/page/AllLibraries|Liste des librairies tiers java]]
 * [[http://commons.apache.org/beanutils/commons-beanutils-1.7.0/docs/api/org/apache/commons/beanutils/package-summary.html|Apache Common Bean Utils. Une lib équivalente à BeanUtils : Beanlib]]
 * [[http://commons.apache.org/|Apache Common]]
 * [[http://tutorials.jenkov.com/java-io/index.html|Tutorial IO]]
 * [[http://www.informit.com/guides/content.aspx?g=java&seqNum=528|Tutorial JXTreeTable]]
+* [[http://docs.oracle.com/javase/tutorial/uiswing/components/index.html|Composant swing]]
+* [[http://docs.oracle.com/javase/tutorial/java/generics/index.html|Génériques]]
 ----
 =UNIX=
 * shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling

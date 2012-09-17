@@ -1,57 +1,57 @@
 ﻿<data>
     <dashboard>
-        <method>
-            <goal>Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)</goal>
+        <task>
+            <description>Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)</description>
             <status>Todo</status>
-        </method>
-        <method>
-            <goal>Gérer les tag reference au lieu des tag link uniquement ?</goal>
+        </task>
+        <task>
+            <description>Gérer les tag reference au lieu des tag link uniquement ?</description>
             <status>Todo</status>
-        </method>
-        <method>
-            <goal>Compléter le fichier de données avec la liste de mots en français</goal>
+        </task>
+        <task>
+            <description>Compléter le fichier de données avec la liste de mots en français</description>
             <status>Todo</status>
-        </method>
-        <method>
-            <goal>Compléter le fichier de données avec la liste de mots en anglais</goal>
+        </task>
+        <task>
+            <description>Compléter le fichier de données avec la liste de mots en anglais</description>
             <status>Todo</status>
-        </method>
-        <method>
-            <goal>Rédiger la xsd validant <technic>Data.xml</technic></goal>
+        </task>
+        <task>
+            <description>Rédiger la xsd validant <technic>Data.xml</technic></description>
             <status>Todo</status>
-        </method>
-        <method>
-            <goal>Afficher les packages / classes sous forme de tableaux dans la section java</goal>
+        </task>
+        <task>
+            <description>Afficher les packages / classes sous forme de tableaux dans la section java</description>
             <status>Done</status>
-        </method>
-        <method>
-            <goal>Trouver le moyen le plus simple d'appliquer une xslt à un xml</goal>
-            <solution>Ecriture d'une classe java</solution>
+        </task>
+        <task>
+            <description>Trouver le moyen le plus simple d'appliquer une xslt à un xml</description>
+            <selected>Ecriture d'une classe java</selected>
             <status>Done</status>
-        </method>
-        <method>
-            <goal>Ecrire une xslt de vue et une xslt de media appelables successivement</goal>
+        </task>
+        <task>
+            <description>Ecrire une xslt de vue et une xslt de media appelables successivement</description>
             <status>Done</status>
-        </method>
-        <method>
-            <goal>Trouver un moyen de stoker le code</goal>
+        </task>
+        <task>
+            <description>Trouver un moyen de stoker le code</description>
             <status>Done</status>
-            <solution>GitHub</solution>
-        </method>
-        <method>
-            <goal>Gérer l'imbrication de code dans un tableau dans Wikispaces</goal>
+            <selected>GitHub</selected>
+        </task>
+        <task>
+            <description>Gérer l'imbrication de code dans un tableau dans Wikispaces</description>
             <status>Done</status>
-        </method>
-        <method>
-            <goal>Rédiger les fichiers xml correspondant aux pages existantes sur PragmaticMemory.wikispaces</goal>
+        </task>
+        <task>
+            <description>Rédiger les fichiers xml correspondant aux pages existantes sur PragmaticMemory.wikispaces</description>
             <status>Done</status>
-        </method>
-        <method>
-            <goal>Rédiger les fichiers xslt de mise en page au format wikispaces</goal>
+        </task>
+        <task>
+            <description>Rédiger les fichiers xslt de mise en page au format wikispaces</description>
             <status>Done</status>
-        </method>
-        <method>
-            <goal>Choix du lieu de stockage des fichiers de données (xml), styles (xslt) et schemas (xsd)</goal>
+        </task>
+        <task>
+            <description>Choix du lieu de stockage des fichiers de données (xml), styles (xslt) et schemas (xsd)</description>
             <candidate>
                 <name>Wikispaces</name>
                 <advantage>Wiki gratuit pour un usage privé</advantage>
@@ -68,27 +68,27 @@
                 <advantage>Structure ayant plus de chance de durer que d'autre sites</advantage>
                 <disadvantage>Pas de gestion de version : deux fichiers avec un nom identique sont stockés comme deux fichiers différents</disadvantage>
             </candidate>
-            <solution>Digiposte</solution>
+            <selected>Digiposte</selected>
             <status>Done</status>
-        </method>
-        <method>
-            <goal>Séparer les données du formattage</goal>
-            <solution>Utilisation des xslt</solution>
+        </task>
+        <task>
+            <description>Séparer les données du formattage</description>
+            <selected>Utilisation des xslt</selected>
             <status>Done</status>
-        </method>
-        <method>
-            <goal>Séparer le formattage lié à la vue du formattage lié au media de diffusion</goal>
-            <solution>Création de xslt de vue et de xslt de media</solution>
+        </task>
+        <task>
+            <description>Séparer le formattage lié à la vue du formattage lié au media de diffusion</description>
+            <selected>Création de xslt de vue et de xslt de media</selected>
             <status>Done</status>
-        </method>
-        <method>
-            <goal>Gérer les indentations de ligne de code</goal>
+        </task>
+        <task>
+            <description>Gérer les indentations de ligne de code</description>
             <status>Done</status>
-        </method>
-        <method>
-            <goal>Gérer le language (java, sql,...) dans la balise de code</goal>
+        </task>
+        <task>
+            <description>Gérer le language (java, sql,...) dans la balise de code</description>
             <status>Done</status>
-        </method>
+        </task>
     </dashboard>
     <principles>
         <goal>L'objectif de cette section est de lister les principes permettant d'améliorer la forme du wiki, afin d'éliminer tout ce qui n'est pas indispensable ou qui peut minimiser la compréhension.</goal>
@@ -154,7 +154,7 @@
             </item>
             <item>
                  <name>Concepts dans les métadonnées</name>
-                 <description>Liste des concepts : item, group, reference, method</description>
+                 <description>Liste des concepts : item, group, reference, method, task</description>
             </item>
         </group>
         <group>
@@ -276,172 +276,196 @@
         </typeInformation>
         <group>
             <name>Template des commandes</name>
-            <goal>
-                <target>objectif de la commande</target>
-                <pipe>
-                    <source>type d'entrée 1</source>
-                    <command>commande 1</command>
-                    <target>type de sortie 1</target>
-                </pipe>
-                <pipe>
-                    <source>type d'entrée 2</source>
-                    <command>commande 2</command>
-                    <target>type de sortie 2</target>
-                </pipe>
-                <alias>alias 1</alias>
-                <alias>alias 2</alias>
-                <alias>alias 3</alias>
-                <option>
-                    <name>option 1</name>
-                    <shortcut>shortcut 1</shortcut>
-                </option>
-                <option>
-                    <name>option 2</name>
-                    <shortcut>shortcut 2</shortcut>
-                </option>
+            <method>
+                <goal>objectif de la commande</goal>
+                <solution>
+                    <pipe>
+                        <source>type d'entrée 1</source>
+                        <command>commande 1</command>
+                        <target>type de sortie 1</target>
+                    </pipe>
+                    <pipe>
+                        <source>type d'entrée 2</source>
+                        <command>commande 2</command>
+                        <target>type de sortie 2</target>
+                    </pipe>
+                    <alias>alias 1</alias>
+                    <alias>alias 2</alias>
+                    <alias>alias 3</alias>
+                    <option>
+                        <name>option 1</name>
+                        <shortcut>shortcut 1</shortcut>
+                    </option>
+                    <option>
+                        <name>option 2</name>
+                        <shortcut>shortcut 2</shortcut>
+                    </option>
+                </solution>
                 <comment>remarque 1</comment>
                 <comment>remarque 2</comment>
-            </goal>
+            </method>
         </group>
         <group>
             <name>IO</name>
-            <goal>
-                <target>lister tous les éléments (fichiers et répertoires) d'un répertoire donné</target>
-                <pipe>
-                    <source>directory path</source>
-                    <command>Get-ChildItem -r "...</command>
-                    <target>file set</target>
-                </pipe>
-                <pipe>
-                    <source>directory path</source>
-                    <command>$dir="...";Get-ChildItem -r $dir</command>
-                    <target>file set</target>
-                </pipe>
-                <alias>dir</alias>
-                <alias>ls</alias>
-                <option>
-                    <name>-recurse</name>
-                    <shortcut>-r</shortcut>
-                </option>
-            </goal>
-            <goal>
-                <target>lire le contenu d'un fichier</target>
-                <pipe>
-                    <source>string (path) list</source>
-                    <command>Get-Content(...)</command>
-                    <target>string set</target>
-                </pipe>
-                <pipe>
-                    <source>string (path) list</source>
-                    <command>Get-Content(...)</command>
-                    <target>file list</target>
-                </pipe>
-            </goal>
-            <goal>
-                <target>récupérer un file set à partir d'une liste de path</target>
-                <pipe>
-                    <source>string (path) list</source>
-                    <command>Get-Content(...)</command>
-                    <target>file</target>
-                </pipe>
-            </goal>
-            <goal>
-                <target>écrire dans un fichier</target>
-                <pipe>
-                    <source>object, string (path)</source>
-                    <command>... | Out-File -filepath "..."</command>
-                    <target>file</target>
-                </pipe>
-                <option>
-                    <name>-append</name>
-                    <shortcut>permet de compléter un fichier déjà existant</shortcut>
-                </option>
-                <option>
-                    <name>-inputObject</name>
-                    <shortcut>permet de préciser un objet à écrire</shortcut>
-                </option>
-            </goal>
+            <method>
+                <goal>lister tous les éléments (fichiers et répertoires) d'un répertoire donné</goal>
+                <solution>
+                    <pipe>
+                        <source>directory path</source>
+                        <command>Get-ChildItem -r "...</command>
+                        <target>file set</target>
+                    </pipe>
+                    <pipe>
+                        <source>directory path</source>
+                        <command>$dir="...";Get-ChildItem -r $dir</command>
+                        <target>file set</target>
+                    </pipe>
+                    <alias>dir</alias>
+                    <alias>ls</alias>
+                    <option>
+                        <name>-recurse</name>
+                        <shortcut>-r</shortcut>
+                    </option>
+                </solution>
+            </method>
+            <method>
+                <goal>lire le contenu d'un fichier</goal>
+                <solution>
+                    <pipe>
+                        <source>string (path) list</source>
+                        <command>Get-Content(...)</command>
+                        <target>string set</target>
+                    </pipe>
+                    <pipe>
+                        <source>string (path) list</source>
+                        <command>Get-Content(...)</command>
+                        <target>file list</target>
+                    </pipe>
+                </solution>
+            </method>
+            <method>
+                <goal>récupérer un file set à partir d'une liste de path</goal>
+                <solution>
+                    <pipe>
+                        <source>string (path) list</source>
+                        <command>Get-Content(...)</command>
+                        <target>file</target>
+                    </pipe>
+                </solution>
+            </method>
+            <method>
+                <goal>écrire dans un fichier</goal>
+                <solution>
+                    <pipe>
+                        <source>object, string (path)</source>
+                        <command>... | Out-File -filepath "..."</command>
+                        <target>file</target>
+                    </pipe>
+                    <option>
+                        <name>-append</name>
+                        <shortcut>permet de compléter un fichier déjà existant</shortcut>
+                    </option>
+                    <option>
+                        <name>-inputObject</name>
+                        <shortcut>permet de préciser un objet à écrire</shortcut>
+                    </option>
+                </solution>
+            </method>
         </group>
         <group>
             <name>Filtrage</name>
-            <goal>
-                <target>ne conserver que les répertoires d'un file set (et pas les fichiers)</target>
-                <pipe>
-                    <source>file set</source>
-                    <command>... | where {$_.PsIsContainer}</command>
-                    <target>file set</target>
-                </pipe>
-            </goal>
-            <goal>
-                <target>ne conserver que les fichiers d'un file set (et pas les répertoires)</target>
-                <pipe>
-                    <source>file set</source>
-                    <command>... | where {!$_.PsIsContainer}</command>
-                    <target>file set</target>
-                </pipe>
-            </goal>
-            <goal>
-                <target>ne conserver que les entrées qui correspondent à une expression régulière</target>
-                <pipe>
-                    <source>string set, regular expression</source>
-                    <command>... | where {$_ -match "..."}</command>
-                    <target>string set</target>
-                </pipe>
-            </goal>
+            <method>
+                <goal>ne conserver que les répertoires d'un file set (et pas les fichiers)</goal>
+                <solution>
+                    <pipe>
+                        <source>file set</source>
+                        <command>... | where {$_.PsIsContainer}</command>
+                        <target>file set</target>
+                    </pipe>
+                </solution>
+            </method>
+            <method>
+                <goal>ne conserver que les fichiers d'un file set (et pas les répertoires)</goal>
+                <solution>
+                    <pipe>
+                        <source>file set</source>
+                        <command>... | where {!$_.PsIsContainer}</command>
+                        <target>file set</target>
+                    </pipe>
+                </solution>
+            </method>
+            <method>
+                <goal>ne conserver que les entrées qui correspondent à une expression régulière</goal>
+                <solution>
+                    <pipe>
+                        <source>string set, regular expression</source>
+                        <command>... | where {$_ -match "..."}</command>
+                        <target>string set</target>
+                    </pipe>
+                </solution>
+            </method>
         </group>
         <group>
             <name>Boucle</name>
-            <goal>
-                <target>effectuer un même traitement sur un ensemble de données</target>
-                <pipe>
-                    <source>string set + commande powershell</source>
-                    <command>... | Foreach{...}</command>
-                    <target>string set (si écriture par la commande)</target>
-                </pipe>
-                <pipe>
-                    <source>file set + commande powershell</source>
-                    <command>... | Foreach{...}</command>
-                    <target>string set (si écriture par la commande)</target>
-                </pipe>
+            <method>
+                <goal>effectuer un même traitement sur un ensemble de données</goal>
+                <solution>
+                    <pipe>
+                        <source>string set + commande powershell</source>
+                        <command>... | Foreach{...}</command>
+                        <target>string set (si écriture par la commande)</target>
+                    </pipe>
+                    <pipe>
+                        <source>file set + commande powershell</source>
+                        <command>... | Foreach{...}</command>
+                        <target>string set (si écriture par la commande)</target>
+                    </pipe>
+                </solution>
                 <comment>Au début du Foreach, créer les variables qui seront utilisées dans la commande</comment>
                 <comment>l'expression <technic>$_</technic> désigne l'entrée courante du <technic>string set</technic></comment>
                 <comment>plusieurs sous-commandes peuvent être séparées par un <technic>;</technic></comment>
-            </goal>
+            </method>
         </group>
         <group>
             <name>Pipeline</name>
-            <goal>
-                <target>écrire un objet sur le pipeline</target>
-                <pipe>
-                    <source>objet</source>
-                    <command>Write-Output(...)</command>
-                    <target>objet</target>
-                </pipe>
-            </goal>
+            <method>
+                <goal>écrire un objet sur le pipeline</goal>
+                <solution>
+                    <pipe>
+                        <source>objet</source>
+                        <command>Write-Output(...)</command>
+                        <target>objet</target>
+                    </pipe>
+                </solution>
+            </method>
         </group>
         <group>
             <name>Information sur les objets</name>
-            <goal>
-                <target>connaître le type et les membres d'un objet</target>
-                <pipe>
-                    <source>objet</source>
-                    <command>... | Get-Member</command>
-                    <target>MemberDefinition</target>
-                </pipe>
-            </goal>
-            <goal>
-                <target>lister les noms d'un ensemble de fichiers</target>
-                <pipe>
-                    <source>file set</source>
-                    <command>... | Foreach{$_.FullName}</command>
-                    <target>string set</target>
-                </pipe>
-                <pipe>
-                    <source>file set</source>
-                    <command>... | Foreach{$_.Name}</command>
-                    <target>string set</target>
-                </pipe>
-            </goal>
+            <method>
+                <goal>connaître le type et les membres d'un objet</goal>
+                <solution>
+                    <pipe>
+                        <source>objet</source>
+                        <command>... | Get-Member</command>
+                        <target>MemberDefinition</target>
+                    </pipe>
+                </solution>
+            </method>
+            <method>
+                <goal>lister les noms d'un ensemble de fichiers</goal>
+                <solution>
+                    <pipe>
+                        <source>file set</source>
+                        <command>... | Foreach{$_.FullName}</command>
+                        <target>string set</target>
+                    </pipe>
+                    <pipe>
+                        <source>file set</source>
+                        <command>... | Foreach{$_.Name}</command>
+                        <target>string set</target>
+                    </pipe>
+                </solution>
+            </method>
         </group>
         <example>
             <method>
@@ -1178,63 +1202,129 @@
             <link>http://www.2createawebsite.com</link>
         </reference>
     </webAndWiki>
-    <xmlTechno>
+    <xslt>
         <group>
-            <name>XSLT</name>
-            <group>
-                <name>Testeurs Xslt online</name>
-                <reference>
-                    <name>mark bucayan</name>
-                    <link>http://markbucayan.appspot.com/xslt/index.html</link>
-                </reference>
-                <reference>
-                    <name>xslt cake</name>
-                    <link>http://www.xsltcake.com</link>
-                </reference>
-            </group>
-            <group>
-                <name>Tutoriaux Xslt</name>
-                <reference>
-                    <name>Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné)</name>
-                    <link>http://xmlfr.org/documentations/faq/041013-0001</link>
-                </reference>
-                <reference>
-                    <name>Regroupement xslt : la méthode Muenchian</name>
-                    <link>http://www.jenitennison.com/xslt/grouping/muenchian.html</link>
-                </reference>
-                <reference>
-                    <name>Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.</name>
-                </reference>
-                
-            </group>
+            <name>Testeurs Xslt online</name>
+            <reference>
+                <name>mark bucayan</name>
+                <link>http://markbucayan.appspot.com/xslt/index.html</link>
+            </reference>
+            <reference>
+                <name>xslt cake</name>
+                <link>http://www.xsltcake.com</link>
+            </reference>
         </group>
         <group>
-            <name>XSD / DTD</name>
-            <group>
-               <name>Tutoriaux XSD</name>
-               <reference>
-                    <name>Tutorial Xsd 1</name>
-                    <link>http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes</link>
-                </reference>
-                <reference>
-                    <name>Tutorial Xsd 2</name>
-                    <link>http://www.w3schools.com/schema/default.asp</link>
-                </reference>
-                <reference>
-                    <name>DTD et XSD</name>
-                    <link>http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas</link>
-                </reference>
-            </group>
-            <group>
-                <name>Validateur XSD online</name>
-                <reference>
-                    <name>Xsd online validator</name>
-                    <link>http://www.corefiling.com/opensource/schemaValidate.html</link>
-                </reference>
-            </group>
+            <name>Tutoriaux Xslt</name>
+            <reference>
+                <name>Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné)</name>
+                <link>http://xmlfr.org/documentations/faq/041013-0001</link>
+            </reference>
+            <reference>
+                <name>Regroupement xslt : la méthode Muenchian</name>
+                <link>http://www.jenitennison.com/xslt/grouping/muenchian.html</link>
+            </reference>
+            <reference>
+                <name>Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.</name>
+            </reference>
         </group>
-    </xmlTechno>
+    </xslt>
+    <xsd>
+        <group>
+           <name>Tutoriaux XSD</name>
+           <reference>
+                <name>Tutorial Xsd 1</name>
+                <link>http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes</link>
+            </reference>
+            <reference>
+                <name>Tutorial Xsd 2</name>
+                <link>http://www.w3schools.com/schema/default.asp</link>
+            </reference>
+            <reference>
+                <name>DTD et XSD</name>
+                <link>http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas</link>
+            </reference>
+        </group>
+        <group>
+            <name>Validateur XSD online</name>
+            <reference>
+                <name>Xsd online validator</name>
+                <link>http://www.corefiling.com/opensource/schemaValidate.html</link>
+            </reference>
+        </group>
+    </xsd>
     <java>
+        <item>
+            <name>Classes liées aux <technic>JTable</technic></name>
+            <description>
+            <table>
+                <headerRow><cell>Objet</cell><cell>Type</cell><cell>Description</cell></headerRow>
+                <row><cell><technic>JTable</technic></cell><cell>classe</cell><cell>vue du modèle de données</cell></row>
+                <row><cell><technic>JTable.getModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de données</cell></row>
+                <row><cell><technic>JTable.getSelectionModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de sélection</cell></row>
+                <row><cell><technic>JTable.getColumnModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de colonnes</cell></row>
+                <row><cell><technic>JTable.getTableHeader()</technic></cell><cell>méthode</cell><cell>récupération du JTableHeader</cell></row>
+                <row><cell><technic>JTable.setDefaultRenderer(...)</technic></cell><cell>méthode</cell><cell>modification du renderer par défaut d'une classe</cell></row>
+                <row><cell><technic>TableColumnModel</technic></cell><cell>interface</cell><cell>modèle des colonnes de la table</cell></row>
+                <row><cell><technic>TableColumn</technic></cell><cell>classe</cell><cell>modèle d'une colonne de la table</cell></row>
+                <row><cell><technic>TableModel</technic></cell><cell>interface</cell><cell>modèle des données de la table</cell></row>
+                <row><cell><technic>TableModelEvent</technic></cell><cell>classe</cell><cell>évenement de modification du modèle de données</cell></row>
+                <row><cell><technic>TableModelListener</technic></cell><cell>interface</cell><cell>callback de traitement des modifications d'un TableModel; gère des TableModelEvent via la méthode tableChanged()</cell></row>
+                <row><cell><technic>DefaultTableModel</technic></cell><cell>classe</cell><cell>modèle de table par défaut; représente uniquement des chaînes de caractères et ne permets pas la représentation d'autre types (booléen, par exemple)</cell></row>
+                <row><cell><technic>AbstractTableModel</technic></cell><cell>classe</cell><cell>classe de base de modèle qui implémente des méthodes de notification de modification (méthodes fireTableRowsUpdated(), fireTableRowsInserted(), ... appellant la méthode TableModelListener.tableChanged avec des TableModelEvent appropriés)</cell></row>
+                <row><cell><technic>ListSelectionModel</technic></cell><cell>interface</cell><cell>modèle de sélection de la table (par ligne , par colonne, par cellule)</cell></row>
+                <row><cell><technic>JTableHeader</technic></cell><cell>classe</cell><cell>headers de la table</cell></row>
+                <row><cell><technic>TableColumnModelListener</technic></cell><cell>interface</cell><cell>callback de traitement des modifications du modèle do colonnes</cell></row>
+                <row><cell><technic>TableColumnModelEvent</technic></cell><cell>classe</cell><cell>évenement de modification du modèle de colonnes</cell></row>
+            </table>
+            </description>
+            </item>
+            <item>
+                <name>Algorithme de sélection d'un Renderer dans une JTable</name>
+                <description>
+                    <list level="2">utilise en priorité le renderer particulier de la colonne</list>
+                    <list level="2">sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass()</list>
+                </description>
+            </item>
+            <item>
+                <name>Gestion des évènements par la classe Component</name>
+                <description>
+                    <headerRow><cell>Listener</cell><cell>Event traité</cell><cell>méthode d'ajout du Listener dans Component</cell><cell>méthodes du listener</cell></headerRow>
+                    <row><cell>ComponentListener</cell><cell>ComponentEvent</cell><cell>addComponentListener</cell><cell></cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>componentResized</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>componentMoved</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>componentShown</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>componentHidden</cell></row>
+                    <row><cell>FocusListener</cell><cell>FocusEvent</cell><cell>addFocusListener</cell><cell></cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>focusGained</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>focusLost</cell></row>
+                    <row><cell>HierarchyBoundsListener</cell><cell>HierarchyEvent</cell><cell>addHierarchyBoundsListener</cell><cell></cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>ancestorMoved</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>ancestorResized</cell></row>
+                    <row><cell>HierarchyListener</cell><cell>HierarchyEvent</cell><cell>addHierarchyListener</cell><cell></cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>hierarchyChanged</cell></row>
+                    <row><cell>InputMethodListener</cell><cell>InputMethodEvent</cell><cell>addInputMethodListener</cell><cell></cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>inputMethodTextChanged</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>caretPositionChanged</cell></row>
+                    <row><cell>KeyListener</cell><cell>KeyEvent</cell><cell>addKeyListener</cell><cell></cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>keyTyped</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>keyPressed</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>keyReleased</cell></row>
+                    <row><cell>MouseListener</cell><cell>MouseEvent</cell><cell>addMouseListener</cell><cell></cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>mouseClicked</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>mousePressed</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>mouseReleased</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>mouseEntered</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>mouseExited</cell></row>
+                    <row><cell>MouseMotionListener</cell><cell>MouseEvent</cell><cell>addMouseMotionListener</cell><cell></cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>mouseDragged</cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>mouseMoved</cell></row>
+                    <row><cell>MouseWheelListener</cell><cell>MouseWheelEvent</cell><cell>addMouseWheelListener</cell><cell></cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>mouseWheelMoved</cell></row>
+                    <row><cell>PropertyChangeListener</cell><cell>PropertyChangeEvent</cell><cell>addPropertyChangeListener</cell><cell></cell></row>
+                    <row><cell></cell><cell></cell><cell></cell><cell>propertyChange</cell></row>
+                </description>
+            </item>
         <method>
             <goal>Lire les lignes d'un fichier</goal>
             <solution>
@@ -1480,6 +1570,14 @@
         <reference>
             <name>Tutorial JXTreeTable</name>
             <link>http://www.informit.com/guides/content.aspx?g=java&#38;seqNum=528</link>
+        </reference>
+        <reference>
+            <name>Composant swing</name>
+            <link>http://docs.oracle.com/javase/tutorial/uiswing/components/index.html</link>
+        </reference>
+        <reference>
+            <name>Génériques</name>
+            <link>http://docs.oracle.com/javase/tutorial/java/generics/index.html</link>
         </reference>
     </java>
     <unix>
