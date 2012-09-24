@@ -376,6 +376,10 @@
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/></list>
             <xsl:copy-of select="description"/>
+            <xsl:text>Remarques :</xsl:text><newLine/>
+            <xsl:for-each select="comment">
+                <list level="2"><xsl:copy-of select="."/></list>
+            </xsl:for-each>
         </xsl:for-each>
         <header level="2">Méthodes</header>
         <xsl:for-each select="method">

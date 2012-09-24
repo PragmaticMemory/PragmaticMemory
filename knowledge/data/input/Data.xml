@@ -1257,74 +1257,105 @@
         <item>
             <name>Classes liées aux <technic>JTable</technic></name>
             <description>
-            <table>
-                <headerRow><cell>Objet</cell><cell>Type</cell><cell>Description</cell></headerRow>
-                <row><cell><technic>JTable</technic></cell><cell>classe</cell><cell>vue du modèle de données</cell></row>
-                <row><cell><technic>JTable.getModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de données</cell></row>
-                <row><cell><technic>JTable.getSelectionModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de sélection</cell></row>
-                <row><cell><technic>JTable.getColumnModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de colonnes</cell></row>
-                <row><cell><technic>JTable.getTableHeader()</technic></cell><cell>méthode</cell><cell>récupération du JTableHeader</cell></row>
-                <row><cell><technic>JTable.setDefaultRenderer(...)</technic></cell><cell>méthode</cell><cell>modification du renderer par défaut d'une classe</cell></row>
-                <row><cell><technic>TableColumnModel</technic></cell><cell>interface</cell><cell>modèle des colonnes de la table</cell></row>
-                <row><cell><technic>TableColumn</technic></cell><cell>classe</cell><cell>modèle d'une colonne de la table</cell></row>
-                <row><cell><technic>TableModel</technic></cell><cell>interface</cell><cell>modèle des données de la table</cell></row>
-                <row><cell><technic>TableModelEvent</technic></cell><cell>classe</cell><cell>évenement de modification du modèle de données</cell></row>
-                <row><cell><technic>TableModelListener</technic></cell><cell>interface</cell><cell>callback de traitement des modifications d'un TableModel; gère des TableModelEvent via la méthode tableChanged()</cell></row>
-                <row><cell><technic>DefaultTableModel</technic></cell><cell>classe</cell><cell>modèle de table par défaut; représente uniquement des chaînes de caractères et ne permets pas la représentation d'autre types (booléen, par exemple)</cell></row>
-                <row><cell><technic>AbstractTableModel</technic></cell><cell>classe</cell><cell>classe de base de modèle qui implémente des méthodes de notification de modification (méthodes fireTableRowsUpdated(), fireTableRowsInserted(), ... appellant la méthode TableModelListener.tableChanged avec des TableModelEvent appropriés)</cell></row>
-                <row><cell><technic>ListSelectionModel</technic></cell><cell>interface</cell><cell>modèle de sélection de la table (par ligne , par colonne, par cellule)</cell></row>
-                <row><cell><technic>JTableHeader</technic></cell><cell>classe</cell><cell>headers de la table</cell></row>
-                <row><cell><technic>TableColumnModelListener</technic></cell><cell>interface</cell><cell>callback de traitement des modifications du modèle do colonnes</cell></row>
-                <row><cell><technic>TableColumnModelEvent</technic></cell><cell>classe</cell><cell>évenement de modification du modèle de colonnes</cell></row>
-            </table>
+                <table>
+                    <headerRow><cell>Objet</cell><cell>Type</cell><cell>Description</cell></headerRow>
+                    <row><cell><technic>JTable</technic></cell><cell>classe</cell><cell>vue du modèle de données</cell></row>
+                    <row><cell><technic>JTable.getModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de données</cell></row>
+                    <row><cell><technic>JTable.getSelectionModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de sélection</cell></row>
+                    <row><cell><technic>JTable.getColumnModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de colonnes</cell></row>
+                    <row><cell><technic>JTable.getTableHeader()</technic></cell><cell>méthode</cell><cell>récupération du JTableHeader</cell></row>
+                    <row><cell><technic>JTable.setDefaultRenderer(...)</technic></cell><cell>méthode</cell><cell>modification du renderer par défaut d'une classe donnée</cell></row>
+                    <row><cell><technic>JTable.getCellRenderer(int row, int column)</technic></cell><cell>method</cell><cell>Sélection du renderer de la table : renvoie en priorité le renderer particulier de la colonne; sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass()</cell></row>
+                    <row><cell><technic>TableColumnModel</technic></cell><cell>interface</cell><cell>modèle des colonnes de la table. L'ordre des colonnes dans ce modèle (column index) peut être modifié par la JTable afin de refléter l'ordre d'affichage des colonnes.</cell></row>
+                    <row><cell><technic>TableColumn</technic></cell><cell>classe</cell><cell>modèle d'une colonne de la table</cell></row>
+                    <row><cell><technic>TableColumn.setCellRenderer()</technic></cell><cell>method</cell><cell>modification du renderer d'une colonne</cell></row>
+                    <row><cell><technic>TableModel</technic></cell><cell>interface</cell><cell>modèle de données de la table</cell></row>
+                    <row><cell><technic>TableModelEvent</technic></cell><cell>classe</cell><cell>évenement de modification du modèle de données</cell></row>
+                    <row><cell><technic>TableModelListener</technic></cell><cell>interface</cell><cell>callback de traitement des modifications d'un TableModel; gère des TableModelEvent via la méthode tableChanged()</cell></row>
+                    <row><cell><technic>DefaultTableModel</technic></cell><cell>classe</cell><cell>modèle de table par défaut; représente uniquement des chaînes de caractères et ne permets pas la représentation d'autre types (booléen, par exemple)</cell></row>
+                    <row><cell><technic>AbstractTableModel</technic></cell><cell>classe</cell><cell>classe de base de modèle qui implémente des méthodes de notification de modification (méthodes fireTableRowsUpdated(), fireTableRowsInserted(), ... appellant la méthode TableModelListener.tableChanged avec des TableModelEvent appropriés)</cell></row>
+                    <row><cell><technic>ListSelectionModel</technic></cell><cell>interface</cell><cell>modèle de sélection de la table (par ligne , par colonne, par cellule)</cell></row>
+                    <row><cell><technic>JTableHeader</technic></cell><cell>classe</cell><cell>headers de la table</cell></row>
+                    <row><cell><technic>TableColumnModelListener</technic></cell><cell>interface</cell><cell>callback de traitement des modifications du modèle do colonnes</cell></row>
+                    <row><cell><technic>TableColumnModelEvent</technic></cell><cell>classe</cell><cell>évenement de modification du modèle de colonnes</cell></row>                
+                    <row><cell><technic>TableCellRenderer</technic></cell><cell>class</cell><cell>Renderer de la table,dont le rôle est de retourner un composant de rendu</cell></row>
+                    <row><cell><technic>TableCellRenderer.getTableCellRendererComponent()</technic></cell><cell>method</cell><cell>Sélection du composant effectuant le rendu</cell></row>
+                    <row><cell><technic>DefaultTableCellRenderer</technic></cell><cell>class</cell><cell>Renderer par défaut, le composant assurant le rendu des cellules étant un JLabel</cell></row>
+                    <row><cell><technic>DefaultRowSorter</technic></cell><cell>abstract class</cell><cell>classe de base de TableRowSorter</cell></row>
+                    <row><cell><technic>TableRowSorter</technic></cell><cell>class</cell><cell>une implémentation de <technic>RowSorter</technic> qui fournit un tri et un filtre en utilisant un <technic>TableModel</technic></cell></row>
+                    <row><cell><technic>RowSorter</technic></cell><cell>abstract class</cell><cell>base de tri et filtrage</cell></row>
+                    <row><cell><technic>RowSorter.SortKey</technic></cell><cell>inner class</cell><cell>Décrit l'ordre de tri pour une colonne</cell></row>
+                    <row><cell><technic>RowSorter.setSortKeys(...)</technic></cell><cell>method</cell><cell>Précise les SortKeys du <technic>RowSorter</technic></cell></row>
+                    <row><cell><technic>RowFilter</technic></cell><cell>abstract class</cell><cell>Filtrage des données du modèle pour affichage dans la vue</cell></row>                    
+                    <row><cell><technic>RowFilter.regexFilter(...)</technic></cell><cell>method</cell><cell>créée une instance de RegexFilter</cell></row>
+                    <row><cell><technic>RowFilter.dateFilter(...)</technic></cell><cell>method</cell><cell>créée une instance de DateFilter</cell></row>
+                    <row><cell><technic>RowFilter.numberFilter(...)</technic></cell><cell>method</cell><cell>créée une instance de NumberFilter</cell></row>
+                    <row><cell><technic>RowFilter.orFilter(...)</technic></cell><cell>method</cell><cell>créée une instance de OrFilter</cell></row>
+                    <row><cell><technic>RowFilter.andFilter(...)</technic></cell><cell>method</cell><cell>créée une instance de AndFilter</cell></row>
+                    <row><cell><technic>RowFilter.notFilter()</technic></cell><cell>method</cell><cell>créée une instance de NotFilter</cell></row>
+                    <row><cell><technic>DefaultCellEditor</technic></cell><cell>class</cell><cell>éditeur par défaut des tables et des arbres</cell></row>
+                    <row><cell><technic>CellEditor.getCellEditorValue()</technic></cell><cell>method</cell><cell>doit renvoyer la valeur de l'éditeur</cell></row>
+                    <row><cell><technic>TableCellEditor.getTableCellEditorComponent()</technic></cell><cell>method</cell><cell>doit renvoyer le composant d'édition</cell></row>
+                </table>
             </description>
-            </item>
-            <item>
-                <name>Algorithme de sélection d'un Renderer dans une JTable</name>
-                <description>
-                    <list level="2">utilise en priorité le renderer particulier de la colonne</list>
-                    <list level="2">sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass()</list>
-                </description>
-            </item>
-            <item>
-                <name>Gestion des évènements par la classe Component</name>
-                <description>
-                    <headerRow><cell>Listener</cell><cell>Event traité</cell><cell>méthode d'ajout du Listener dans Component</cell><cell>méthodes du listener</cell></headerRow>
-                    <row><cell>ComponentListener</cell><cell>ComponentEvent</cell><cell>addComponentListener</cell><cell></cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>componentResized</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>componentMoved</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>componentShown</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>componentHidden</cell></row>
-                    <row><cell>FocusListener</cell><cell>FocusEvent</cell><cell>addFocusListener</cell><cell></cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>focusGained</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>focusLost</cell></row>
-                    <row><cell>HierarchyBoundsListener</cell><cell>HierarchyEvent</cell><cell>addHierarchyBoundsListener</cell><cell></cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>ancestorMoved</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>ancestorResized</cell></row>
-                    <row><cell>HierarchyListener</cell><cell>HierarchyEvent</cell><cell>addHierarchyListener</cell><cell></cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>hierarchyChanged</cell></row>
-                    <row><cell>InputMethodListener</cell><cell>InputMethodEvent</cell><cell>addInputMethodListener</cell><cell></cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>inputMethodTextChanged</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>caretPositionChanged</cell></row>
-                    <row><cell>KeyListener</cell><cell>KeyEvent</cell><cell>addKeyListener</cell><cell></cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>keyTyped</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>keyPressed</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>keyReleased</cell></row>
-                    <row><cell>MouseListener</cell><cell>MouseEvent</cell><cell>addMouseListener</cell><cell></cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>mouseClicked</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>mousePressed</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>mouseReleased</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>mouseEntered</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>mouseExited</cell></row>
-                    <row><cell>MouseMotionListener</cell><cell>MouseEvent</cell><cell>addMouseMotionListener</cell><cell></cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>mouseDragged</cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>mouseMoved</cell></row>
-                    <row><cell>MouseWheelListener</cell><cell>MouseWheelEvent</cell><cell>addMouseWheelListener</cell><cell></cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>mouseWheelMoved</cell></row>
-                    <row><cell>PropertyChangeListener</cell><cell>PropertyChangeEvent</cell><cell>addPropertyChangeListener</cell><cell></cell></row>
-                    <row><cell></cell><cell></cell><cell></cell><cell>propertyChange</cell></row>
-                </description>
-            </item>
+            <comment>Définitions de (et différence entre) column index et model index :
+                Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i. De plus, ces TableColumn sont stockés dans le TableColumnModel.
+                On appelle column index l'index de stockage d'un TableColumn au sein du TableColumnModel.
+                Le model index d'une TableColumn ne varient jamais. Par contre, le column index peut varier lors d'un déplacement de colonne.
+                L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.
+            </comment>
+            <comment>le tri de chaînes de caractères dépend de la locale</comment>
+        </item>
+        <item>
+             <name>Classes liées aux <technic>JTreeTable</technic></name>
+             <description>
+                    <row><cell><technic>JTreeTable</technic></cell><cell>class</cell><cell>une JTable dont le renderer est un JTree</cell></row>
+                    <row><cell><technic>TreeTableCellRenderer</technic></cell><cell>class</cell><cell>Renderer du <technic>JTreeTable</technic></cell></row>
+                    <row><cell><technic>TreeTableModel</technic></cell><cell>interface</cell><cell>Modèle du <technic>JTreeTable</technic></cell></row>
+                    <row><cell><technic>TreeTableModelAdapter</technic></cell><cell>class</cell><cell>un AbstractTableModel faisant le lien avec le TreeTableModel</cell></row>
+                    <row><cell><technic>JTreeTable.TreeCellRendererAdapter</technic></cell><cell>inner class</cell><cell></cell></row>
+                    <row><cell><technic> AbstractCellEditor.fireEditingStopped() </technic></cell><cell>method</cell><cell>à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché</cell></row>
+             </description>
+        </item>
+        <item>
+            <name>Gestion des évènements par la classe Component</name>
+            <description>
+                <headerRow><cell>Listener</cell><cell>Event traité</cell><cell>méthode d'ajout du Listener dans Component</cell><cell>méthodes du listener</cell></headerRow>
+                <row><cell>ComponentListener</cell><cell>ComponentEvent</cell><cell>addComponentListener</cell><cell></cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>componentResized</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>componentMoved</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>componentShown</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>componentHidden</cell></row>
+                <row><cell>FocusListener</cell><cell>FocusEvent</cell><cell>addFocusListener</cell><cell></cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>focusGained</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>focusLost</cell></row>
+                <row><cell>HierarchyBoundsListener</cell><cell>HierarchyEvent</cell><cell>addHierarchyBoundsListener</cell><cell></cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>ancestorMoved</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>ancestorResized</cell></row>
+                <row><cell>HierarchyListener</cell><cell>HierarchyEvent</cell><cell>addHierarchyListener</cell><cell></cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>hierarchyChanged</cell></row>
+                <row><cell>InputMethodListener</cell><cell>InputMethodEvent</cell><cell>addInputMethodListener</cell><cell></cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>inputMethodTextChanged</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>caretPositionChanged</cell></row>
+                <row><cell>KeyListener</cell><cell>KeyEvent</cell><cell>addKeyListener</cell><cell></cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>keyTyped</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>keyPressed</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>keyReleased</cell></row>
+                <row><cell>MouseListener</cell><cell>MouseEvent</cell><cell>addMouseListener</cell><cell></cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>mouseClicked</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>mousePressed</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>mouseReleased</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>mouseEntered</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>mouseExited</cell></row>
+                <row><cell>MouseMotionListener</cell><cell>MouseEvent</cell><cell>addMouseMotionListener</cell><cell></cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>mouseDragged</cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>mouseMoved</cell></row>
+                <row><cell>MouseWheelListener</cell><cell>MouseWheelEvent</cell><cell>addMouseWheelListener</cell><cell></cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>mouseWheelMoved</cell></row>
+                <row><cell>PropertyChangeListener</cell><cell>PropertyChangeEvent</cell><cell>addPropertyChangeListener</cell><cell></cell></row>
+                <row><cell></cell><cell></cell><cell></cell><cell>propertyChange</cell></row>
+            </description>
+        </item>
         <method>
             <goal>Lire les lignes d'un fichier</goal>
             <solution>
@@ -1556,12 +1587,12 @@
             <link>http://www.jdocs.com/page/AllLibraries</link>
         </reference>
         <reference>
-            <name>Apache Common Bean Utils. Une lib équivalente à BeanUtils : Beanlib</name>
-            <link>http://commons.apache.org/beanutils/commons-beanutils-1.7.0/docs/api/org/apache/commons/beanutils/package-summary.html</link>
+            <name>Librairies Apache Common</name>
+            <link>http://commons.apache.org/</link>
         </reference>
         <reference>
-            <name>Apache Common</name>
-            <link>http://commons.apache.org/</link>
+            <name>Librairie Apache Common Bean Utils. Une lib équivalente à BeanUtils : Beanlib</name>
+            <link>http://commons.apache.org/beanutils/commons-beanutils-1.7.0/docs/api/org/apache/commons/beanutils/package-summary.html</link>
         </reference>
         <reference>
             <name>Tutorial IO</name>
@@ -1572,12 +1603,32 @@
             <link>http://www.informit.com/guides/content.aspx?g=java&#38;seqNum=528</link>
         </reference>
         <reference>
-            <name>Composant swing</name>
+            <name>Composants swing</name>
             <link>http://docs.oracle.com/javase/tutorial/uiswing/components/index.html</link>
         </reference>
         <reference>
             <name>Génériques</name>
             <link>http://docs.oracle.com/javase/tutorial/java/generics/index.html</link>
+        </reference>
+        <reference>
+            <name>Librairie SWT</name>
+            <link>http://www.eclipse.org/swt/</link>
+        </reference>
+        <reference>
+            <name>Librairie JUnit-Ext</name>
+            <link>http://code.google.com/p/junit-ext/</link>
+        </reference>
+        <reference>
+            <name>Code du JTreeTable</name>
+            <link>http://www.java2s.com/Code/Java/Swing-Components/JTreeTablecomponent.htm</link>
+        </reference>
+        <reference>
+            <name>Description de la JTreeTable</name>
+            <link>http://bitguru.wordpress.com/2008/06/18/jtreetable/</link>
+        </reference>
+        <reference>
+            <name>Schema UML des classes liées au JTreeTable</name>
+            <link>http://www.hameister.org/JavaSwingTreeTable.html</link>
         </reference>
     </java>
     <unix>

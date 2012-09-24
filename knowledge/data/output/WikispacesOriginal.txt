@@ -754,10 +754,12 @@ Remarques :
 || {{JTable.getSelectionModel()}} || méthode || récupération du modèle de sélection ||
 || {{JTable.getColumnModel()}} || méthode || récupération du modèle de colonnes ||
 || {{JTable.getTableHeader()}} || méthode || récupération du JTableHeader ||
-|| {{JTable.setDefaultRenderer(...)}} || méthode || modification du renderer par défaut d'une classe ||
-|| {{TableColumnModel}} || interface || modèle des colonnes de la table ||
+|| {{JTable.setDefaultRenderer(...)}} || méthode || modification du renderer par défaut d'une classe donnée ||
+|| {{JTable.getCellRenderer(int row, int column)}} || method || Sélection du renderer de la table : renvoie en priorité le renderer particulier de la colonne; sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass() ||
+|| {{TableColumnModel}} || interface || modèle des colonnes de la table. L'ordre des colonnes dans ce modèle (column index) peut être modifié par la JTable afin de refléter l'ordre d'affichage des colonnes. ||
 || {{TableColumn}} || classe || modèle d'une colonne de la table ||
-|| {{TableModel}} || interface || modèle des données de la table ||
+|| {{TableColumn.setCellRenderer()}} || method || modification du renderer d'une colonne ||
+|| {{TableModel}} || interface || modèle de données de la table ||
 || {{TableModelEvent}} || classe || évenement de modification du modèle de données ||
 || {{TableModelListener}} || interface || callback de traitement des modifications d'un TableModel; gère des TableModelEvent via la méthode tableChanged() ||
 || {{DefaultTableModel}} || classe || modèle de table par défaut; représente uniquement des chaînes de caractères et ne permets pas la représentation d'autre types (booléen, par exemple) ||
@@ -766,9 +768,40 @@ Remarques :
 || {{JTableHeader}} || classe || headers de la table ||
 || {{TableColumnModelListener}} || interface || callback de traitement des modifications du modèle do colonnes ||
 || {{TableColumnModelEvent}} || classe || évenement de modification du modèle de colonnes ||
-* Algorithme de sélection d'un Renderer dans une JTable
-** utilise en priorité le renderer particulier de la colonne
-** sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass()
+|| {{TableCellRenderer}} || class || Renderer de la table,dont le rôle est de retourner un composant de rendu ||
+|| {{TableCellRenderer.getTableCellRendererComponent()}} || method || Sélection du composant effectuant le rendu ||
+|| {{DefaultTableCellRenderer}} || class || Renderer par défaut, le composant assurant le rendu des cellules étant un JLabel ||
+|| {{DefaultRowSorter}} || abstract class || classe de base de TableRowSorter ||
+|| {{TableRowSorter}} || class || une implémentation de {{RowSorter}} qui fournit un tri et un filtre en utilisant un {{TableModel}} ||
+|| {{RowSorter}} || abstract class || base de tri et filtrage ||
+|| {{RowSorter.SortKey}} || inner class || Décrit l'ordre de tri pour une colonne ||
+|| {{RowSorter.setSortKeys(...)}} || method || Précise les SortKeys du {{RowSorter}} ||
+|| {{RowFilter}} || abstract class || Filtrage des données du modèle pour affichage dans la vue ||
+|| {{RowFilter.regexFilter(...)}} || method || créée une instance de RegexFilter ||
+|| {{RowFilter.dateFilter(...)}} || method || créée une instance de DateFilter ||
+|| {{RowFilter.numberFilter(...)}} || method || créée une instance de NumberFilter ||
+|| {{RowFilter.orFilter(...)}} || method || créée une instance de OrFilter ||
+|| {{RowFilter.andFilter(...)}} || method || créée une instance de AndFilter ||
+|| {{RowFilter.notFilter()}} || method || créée une instance de NotFilter ||
+|| {{DefaultCellEditor}} || class || éditeur par défaut des tables et des arbres ||
+|| {{CellEditor.getCellEditorValue()}} || method || doit renvoyer la valeur de l'éditeur ||
+|| {{TableCellEditor.getTableCellEditorComponent()}} || method || doit renvoyer le composant d'édition ||
+Remarques :
+** Définitions de (et différence entre) column index et model index :
+                Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i. De plus, ces TableColumn sont stockés dans le TableColumnModel.
+                On appelle column index l'index de stockage d'un TableColumn au sein du TableColumnModel.
+                Le model index d'une TableColumn ne varient jamais. Par contre, le column index peut varier lors d'un déplacement de colonne.
+                L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.
+            
+** le tri de chaînes de caractères dépend de la locale
+* Classes liées aux {{JTreeTable}}
+|| {{JTreeTable}} || class || une JTable dont le renderer est un JTree ||
+|| {{TreeTableCellRenderer}} || class || Renderer du {{JTreeTable}} ||
+|| {{TreeTableModel}} || interface || Modèle du {{JTreeTable}} ||
+|| {{TreeTableModelAdapter}} || class || un AbstractTableModel faisant le lien avec le TreeTableModel ||
+|| {{JTreeTable.TreeCellRendererAdapter}} || inner class ||  ||
+|| {{ AbstractCellEditor.fireEditingStopped() }} || method || à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché ||
+Remarques :
 * Gestion des évènements par la classe Component
 || **Listener** || **Event traité** || **méthode d'ajout du Listener dans Component** || **méthodes du listener** ||
 || ComponentListener || ComponentEvent || addComponentListener ||  ||
@@ -804,6 +837,7 @@ Remarques :
 ||  ||  ||  || mouseWheelMoved ||
 || PropertyChangeListener || PropertyChangeEvent || addPropertyChangeListener ||  ||
 ||  ||  ||  || propertyChange ||
+Remarques :
 ==Méthodes==
 ==Lire les lignes d'un fichier==
 || **Package** || **Classes** ||
@@ -969,12 +1003,17 @@ Remarques :
 utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
 ==Références==
 * [[http://www.jdocs.com/page/AllLibraries|Liste des librairies tiers java]]
-* [[http://commons.apache.org/beanutils/commons-beanutils-1.7.0/docs/api/org/apache/commons/beanutils/package-summary.html|Apache Common Bean Utils. Une lib équivalente à BeanUtils : Beanlib]]
-* [[http://commons.apache.org/|Apache Common]]
+* [[http://commons.apache.org/|Librairies Apache Common]]
+* [[http://commons.apache.org/beanutils/commons-beanutils-1.7.0/docs/api/org/apache/commons/beanutils/package-summary.html|Librairie Apache Common Bean Utils. Une lib équivalente à BeanUtils : Beanlib]]
 * [[http://tutorials.jenkov.com/java-io/index.html|Tutorial IO]]
 * [[http://www.informit.com/guides/content.aspx?g=java&seqNum=528|Tutorial JXTreeTable]]
-* [[http://docs.oracle.com/javase/tutorial/uiswing/components/index.html|Composant swing]]
+* [[http://docs.oracle.com/javase/tutorial/uiswing/components/index.html|Composants swing]]
 * [[http://docs.oracle.com/javase/tutorial/java/generics/index.html|Génériques]]
+* [[http://www.eclipse.org/swt/|Librairie SWT]]
+* [[http://code.google.com/p/junit-ext/|Librairie JUnit-Ext]]
+* [[http://www.java2s.com/Code/Java/Swing-Components/JTreeTablecomponent.htm|Code du JTreeTable]]
+* [[http://bitguru.wordpress.com/2008/06/18/jtreetable/|Description de la JTreeTable]]
+* [[http://www.hameister.org/JavaSwingTreeTable.html|Schema UML des classes liées au JTreeTable]]
 ----
 =UNIX=
 * shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling
