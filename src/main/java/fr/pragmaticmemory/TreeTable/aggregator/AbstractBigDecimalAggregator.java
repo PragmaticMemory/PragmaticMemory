@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.TreeTable;
+package fr.pragmaticmemory.TreeTable.aggregator;
 import java.math.BigDecimal;
 public abstract class AbstractBigDecimalAggregator extends AbstractAggregator<BigDecimal> {
 

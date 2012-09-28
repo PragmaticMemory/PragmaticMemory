@@ -1,4 +1,5 @@
-package fr.pragmaticmemory.TreeTable;
+package fr.pragmaticmemory.TreeTable.usused;
+import fr.pragmaticmemory.TreeTable.Aggregator;
 import java.util.Comparator;
 public interface IColumnsDescriptor {
     public int getColumnCount();

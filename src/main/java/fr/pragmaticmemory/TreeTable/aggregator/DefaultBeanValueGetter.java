@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.TreeTable;
+package fr.pragmaticmemory.TreeTable.aggregator;
 import org.apache.commons.beanutils.PropertyUtils;
 
 public class DefaultBeanValueGetter<E> implements BeanValueGetter<E> {

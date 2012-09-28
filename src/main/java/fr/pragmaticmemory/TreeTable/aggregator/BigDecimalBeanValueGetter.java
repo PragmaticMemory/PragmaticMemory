@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.TreeTable;
+package fr.pragmaticmemory.TreeTable.aggregator;
 import java.math.BigDecimal;
 import static java.math.BigDecimal.ZERO;
 

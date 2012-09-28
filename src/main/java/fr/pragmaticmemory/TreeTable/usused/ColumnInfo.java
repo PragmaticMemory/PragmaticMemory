@@ -1,4 +1,5 @@
-package fr.pragmaticmemory.TreeTable;
+package fr.pragmaticmemory.TreeTable.usused;
+import fr.pragmaticmemory.TreeTable.Aggregator;
 import java.util.Comparator;
 /**
  * <p> Description complémentaire sur un attribut de bean utilisé dans les BeanTreeTable<br> Permet de définir, notamment,
@@ -44,10 +45,13 @@ public class ColumnInfo {
         aggregator = aggreg;
         aggregator.setAggregateAttribute(attr);
         // TODO
+        // Commenté pour réduire les dépendances
+        /*
         if (aggregator instanceof AbstractBigDecimalAggregator) {
             AbstractBigDecimalAggregator bigDecimalggregator = (AbstractBigDecimalAggregator)aggregator;
             comparator = new AggregateComparator(bigDecimalggregator);
         }
+        */
     }
 
 
