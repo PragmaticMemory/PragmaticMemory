@@ -1,11 +1,12 @@
-package fr.pragmaticmemory.TreeTable.usused;
+package fr.pragmaticmemory.TreeTable.usused.beanTreeTable;
 import fr.pragmaticmemory.TreeTable.Aggregator;
 import java.util.Comparator;
 /**
- * <p> Description complémentaire sur un attribut de bean utilisé dans les BeanTreeTable<br> Permet de définir, notamment,
+ * <p> Description complémentaire sur un attribut de bean utilisé dans les BeanTreeTable<br> Permet de définir,
+ * notamment,
  *
- * <ul> <li> si cet attribut est éditable, </li> <li> si on effectue des sommes automatiques au niveau des noeuds de branche sur cet attribut, </li>
- * <li> s'il est possible de définir une rupture sur cet attribut, </li> </ul> </p>
+ * <ul> <li> si cet attribut est éditable, </li> <li> si on effectue des sommes automatiques au niveau des noeuds de
+ * branche sur cet attribut, </li> <li> s'il est possible de définir une rupture sur cet attribut, </li> </ul> </p>
  */
 public class ColumnInfo {
     protected String attribute;

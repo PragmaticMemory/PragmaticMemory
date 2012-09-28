@@ -1,5 +1,6 @@
-package fr.pragmaticmemory.TreeTable.aggregator;
+package fr.pragmaticmemory.TreeTable.usused.aggregator;
 import java.math.BigDecimal;
+
 import static java.math.BigDecimal.ZERO;
 
 public class BigDecimalBeanValueGetter implements BeanValueGetter<BigDecimal> {

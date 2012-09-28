@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.TreeTable.usused;
+package fr.pragmaticmemory.TreeTable.usused.beanTreeTable;
 import fr.pragmaticmemory.TreeTable.Aggregator;
 import java.beans.PropertyDescriptor;
 import java.util.ArrayList;
@@ -8,12 +8,13 @@ import java.util.List;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.collections.ComparatorUtils;
 /**
- * Descripteur d'attributs de bean. Utilisé avec un {@link com.agf.outilfo.swing.treetable.BeanTreeTableModel}. Permet de définir les colonnes qui
- * peuvent être éditer, grouper, sommer ainsi que le label de la colonne...
+ * Descripteur d'attributs de bean. Utilisé avec un {@link com.agf.outilfo.swing.treetable.BeanTreeTableModel}. Permet
+ * de définir les colonnes qui peuvent être éditer, grouper, sommer ainsi que le label de la colonne...
  */
 public class ColumnsDescriptor implements IColumnsDescriptor {
     /**
-     * Utilisé pour trier les ColumnInfo et faire des recherche avec la méthode {@link java.util.Arrays#binarySearch(Object[],Object,java.util.Comparator)}
+     * Utilisé pour trier les ColumnInfo et faire des recherche avec la méthode {@link
+     * java.util.Arrays#binarySearch(Object[], Object, java.util.Comparator)}
      */
     private static final Comparator columnComparator =
           new Comparator() {
@@ -34,7 +35,8 @@ public class ColumnsDescriptor implements IColumnsDescriptor {
               }
           };
     /**
-     * Utilisé pour trier les PropertyDescriptor et faire des recherche avec la méthode {@link java.util.Arrays#binarySearch(Object[],Object,java.util.Comparator)}
+     * Utilisé pour trier les PropertyDescriptor et faire des recherche avec la méthode {@link
+     * java.util.Arrays#binarySearch(Object[], Object, java.util.Comparator)}
      */
     private static final Comparator propertyComparator =
           new Comparator() {
@@ -120,13 +122,14 @@ public class ColumnsDescriptor implements IColumnsDescriptor {
 
 
     /**
-     * Valide une séquence de ruptures ( vérifie que tous les attributs sur lesquels sont définis les ruptures existent et sont "groupable")
+     * Valide une séquence de ruptures ( vérifie que tous les attributs sur lesquels sont définis les ruptures existent
+     * et sont "groupable")
      */
     public boolean checkRupture(String[] ruptures) {
         if (ruptures == null) {
             return false;
         }
-        for (int i = ruptures.length; --i >= 0;) {
+        for (int i = ruptures.length; --i >= 0; ) {
             if (!isGroupable(ruptures[i])) {
                 return false;
             }
@@ -148,7 +151,7 @@ public class ColumnsDescriptor implements IColumnsDescriptor {
         Arrays.sort(properties, propertyComparator);
         int idx;
         int nbOk = 0;
-        for (int i = columns.length; --i >= 0;) {
+        for (int i = columns.length; --i >= 0; ) {
             idx = Arrays.binarySearch(properties, columns[i].getAttribute(),
                                       propertyComparator);
             if (idx >= 0) {

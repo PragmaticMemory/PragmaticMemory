@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.TreeTable.usused;
+package fr.pragmaticmemory.TreeTable.usused.beanTreeTable;
 import fr.pragmaticmemory.TreeTable.Aggregator;
 import java.util.Comparator;
 public interface IColumnsDescriptor {
