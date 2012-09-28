@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.TreeTable;
+package fr.pragmaticmemory.TreeTable.usused.aggregator;
 import javax.swing.tree.DefaultMutableTreeNode;
 public interface Aggregator<E extends Comparable> {
 

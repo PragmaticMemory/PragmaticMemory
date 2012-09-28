@@ -1,5 +1,4 @@
 package fr.pragmaticmemory.TreeTable.usused.aggregator;
-import fr.pragmaticmemory.TreeTable.Aggregator;
 public abstract class AbstractAggregator<E extends Comparable> implements Aggregator<E> {
     protected String aggregateAttribute;
 
