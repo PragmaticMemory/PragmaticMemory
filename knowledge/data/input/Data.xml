@@ -1307,14 +1307,29 @@
             <comment>le tri de chaînes de caractères dépend de la locale</comment>
         </item>
         <item>
+            <name>Classes liées aux <technic>JTree</technic></name>
+            <description>
+                <row><cell><technic>JTree.convertValueToText(...)</technic></cell><cell>method</cell><cell>Convertie le user object en texte à afficher (par défaut, le texte affiché est celui retourné par la méthode <technic>toString()</technic>)</cell></row>
+                <row><cell><technic>JTree.addTreeSelectionListener(...)</technic></cell><cell>method</cell><cell>ajout d'un listener sur les événements de sélection dans l'arbre</cell></row>
+                <row><cell><technic>DefaultMutableTreeNode.add(...)</technic></cell><cell>method</cell><cell>ajoute un MutableTreeNode comme enfantdu noeud</cell></row>
+                <row><cell><technic>DefaultMutableTreeNode.getUserObject(...)</technic></cell><cell>method</cell><cell>renvoi l'Object passé au noeud lors de la construction ou via la méthode setUserObject()</cell></row>
+                <row><cell><technic>TreeSelectionListener</technic></cell><cell></cell><cell>getLastSelectedPathComponent (revoie un Object)</cell></row>
+                <row><cell><technic>DefaultTreeCellRenderer.setLeafIcon(...)</technic> </cell><cell>method</cell><cell>définition de l'icône pour les noeuds feuilles</cell></row>
+                <row><cell><technic>DefaultTreeCellRenderer.setOpenIcon(...)</technic></cell><cell>method</cell><cell>définition de l'icône pour les noeuds non feuilles ouverts</cell></row>
+                <row><cell><technic>DefaultTreeCellRenderer.setClosedIcon(...)</technic></cell><cell>method</cell><cell>définition de l'icône pour les noeuds non feuilles fermés</cell></row>
+                <row><cell><technic>TreeCellRenderer.getTreeCellRendererComponent(...)</technic></cell><cell>method</cell><cell>sélection du composant effectuant le rendu</cell></row>
+                <row><cell><technic>DefaultTreeModel.insertNodeInto(...)</technic></cell><cell>method</cell><cell>ajout d'un noeud dans le modèle</cell></row>
+            </description>            
+        </item>
+        <item>
              <name>Classes liées aux <technic>JTreeTable</technic></name>
              <description>
-                    <row><cell><technic>JTreeTable</technic></cell><cell>class</cell><cell>une JTable dont le renderer est un JTree</cell></row>
-                    <row><cell><technic>TreeTableCellRenderer</technic></cell><cell>class</cell><cell>Renderer du <technic>JTreeTable</technic></cell></row>
-                    <row><cell><technic>TreeTableModel</technic></cell><cell>interface</cell><cell>Modèle du <technic>JTreeTable</technic></cell></row>
-                    <row><cell><technic>TreeTableModelAdapter</technic></cell><cell>class</cell><cell>un AbstractTableModel faisant le lien avec le TreeTableModel</cell></row>
-                    <row><cell><technic>JTreeTable.TreeCellRendererAdapter</technic></cell><cell>inner class</cell><cell></cell></row>
-                    <row><cell><technic> AbstractCellEditor.fireEditingStopped() </technic></cell><cell>method</cell><cell>à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché</cell></row>
+                <row><cell><technic>JTreeTable</technic></cell><cell>class</cell><cell>une JTable dont le renderer est un JTree</cell></row>
+                <row><cell><technic>TreeTableCellRenderer</technic></cell><cell>class</cell><cell>Renderer du <technic>JTreeTable</technic></cell></row>
+                <row><cell><technic>TreeTableModel</technic></cell><cell>interface</cell><cell>Modèle du <technic>JTreeTable</technic></cell></row>
+                <row><cell><technic>TreeTableModelAdapter</technic></cell><cell>class</cell><cell>un AbstractTableModel faisant le lien avec le TreeTableModel</cell></row>
+                <row><cell><technic>JTreeTable.TreeCellRendererAdapter</technic></cell><cell>inner class</cell><cell></cell></row>
+                <row><cell><technic> AbstractCellEditor.fireEditingStopped() </technic></cell><cell>method</cell><cell>à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché</cell></row>
              </description>
         </item>
         <item>
@@ -1601,6 +1616,10 @@
         <reference>
             <name>Tutorial JXTreeTable</name>
             <link>http://www.informit.com/guides/content.aspx?g=java&#38;seqNum=528</link>
+        </reference>
+        <reference>
+            <name>Example TreeTable SwingX</name>
+            <link>http://www.ibm.com/developerworks/java/library/j-5things14/index.html</link>
         </reference>
         <reference>
             <name>Composants swing</name>
