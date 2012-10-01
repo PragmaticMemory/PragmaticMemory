@@ -1,4 +1,5 @@
-package fr.pragmaticmemory.Table.Isr;
+package fr.pragmaticmemory.Table.Isr.comparator;
+import fr.pragmaticmemory.Table.Isr.inputData.Issuer;
 import java.util.Comparator;
 
 public class IssuerComparator implements Comparator<Issuer> {

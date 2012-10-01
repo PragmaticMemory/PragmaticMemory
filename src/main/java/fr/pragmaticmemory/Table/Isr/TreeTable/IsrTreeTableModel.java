@@ -1,7 +1,13 @@
-package fr.pragmaticmemory.Table.Isr;
+package fr.pragmaticmemory.Table.Isr.TreeTable;
 
+import fr.pragmaticmemory.Table.Isr.comparator.BrokerComparator;
+import fr.pragmaticmemory.Table.Isr.comparator.CriteriaComparator;
+import fr.pragmaticmemory.Table.Isr.comparator.IssuerComparator;
+import fr.pragmaticmemory.Table.Isr.inputData.Broker;
+import fr.pragmaticmemory.Table.Isr.inputData.Criteria;
+import fr.pragmaticmemory.Table.Isr.inputData.Issuer;
+import fr.pragmaticmemory.Table.Isr.inputData.RatedCbcIssuer;
 import fr.pragmaticmemory.TreeTable.AbstractTreeTableModel;
-import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -65,9 +71,13 @@ public class IsrTreeTableModel extends AbstractTreeTableModel {
     public Object getValueAt(Object node, int col) throws Exception {
         DefaultMutableTreeNode concreteNode = (DefaultMutableTreeNode)node;
         final Object userObject = concreteNode.getUserObject();
-        Map<Integer, DefaultMutableTreeNode> map = (Map<Integer, DefaultMutableTreeNode>)userObject;
-        if (map.containsKey(col)) {
-            return map.get(col);
+        RatingBean ratingBean = (RatingBean)userObject;
+        if (col == 0) {
+            return ratingBean.getIssuerName();
+        }
+        col--;
+        if (ratingBean.hasRatingForIndex(col)) {
+            return ratingBean.getRating(col);
         }
         else {
             return "EMPTY";
@@ -84,7 +94,7 @@ public class IsrTreeTableModel extends AbstractTreeTableModel {
         for (Issuer issuer : issuerList) {
             if (!issuerId2NodeMap.containsKey(issuer.getId())) {
                 final DefaultMutableTreeNode node = new DefaultMutableTreeNode();
-                node.setUserObject(new HashMap<Integer, DefaultMutableTreeNode>());
+                node.setUserObject(new RatingBean(issuer.getName()));
 
                 if (issuer.getParentId() != -1) {
                     issuerId2NodeMap.get(issuer.getParentId()).add(node);
@@ -107,11 +117,11 @@ public class IsrTreeTableModel extends AbstractTreeTableModel {
         for (RatedCbcIssuer ratedCbcIssuer : ratedCbcIssuerList) {
             final int issuerId = ratedCbcIssuer.getIssuerId();
             DefaultMutableTreeNode issuerNode = issuerId2NodeMap.get(issuerId);
-            final Map<Integer, BigDecimal> userObject = (Map<Integer, BigDecimal>)issuerNode.getUserObject();
+            final RatingBean ratingBean = (RatingBean)issuerNode.getUserObject();
             Integer columnIndex = computeColumnIndex(brokerIndexConverter.getIndexOfId(ratedCbcIssuer.getBrokerId()),
                                                      criteriaIndexConverter.getIndexOfId(ratedCbcIssuer.getCriteriaId()),
                                                      criteriaIndexConverter.getSize());
-            userObject.put(columnIndex, ratedCbcIssuer.getNote());
+            ratingBean.addRating(columnIndex, ratedCbcIssuer.getNote());
         }
     }
 

@@ -1,4 +1,5 @@
-package fr.pragmaticmemory.Table.Isr;
+package fr.pragmaticmemory.Table.Isr.comparator;
+import fr.pragmaticmemory.Table.Isr.inputData.Criteria;
 import java.util.Comparator;
 
 public class CriteriaComparator implements Comparator<Criteria> {

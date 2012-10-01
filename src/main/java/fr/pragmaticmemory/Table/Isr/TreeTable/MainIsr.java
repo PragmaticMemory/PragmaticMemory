@@ -1,5 +1,6 @@
-package fr.pragmaticmemory.Table.Isr;
+package fr.pragmaticmemory.Table.Isr.TreeTable;
 
+import fr.pragmaticmemory.Table.Isr.DataSource;
 import fr.pragmaticmemory.TreeTable.JTreeTable;
 import java.awt.FlowLayout;
 import javax.swing.JFrame;

@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.Table.Isr;
+package fr.pragmaticmemory.Table.Isr.inputData;
 
 import java.math.BigDecimal;
 public class RatedCbcIssuer {
