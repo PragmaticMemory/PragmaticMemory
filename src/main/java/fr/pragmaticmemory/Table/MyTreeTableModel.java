@@ -40,6 +40,17 @@ public class MyTreeTableModel extends AbstractTreeTableModel {
                 return "Child2";
             }
         }
+        if ("Child1".equals(parent)) {
+            if (index == 0) {
+                return "Child1A";
+            }
+            if (index == 1) {
+                return "Child1B";
+            }
+            if (index == 2) {
+                return "Child1C";
+            }
+        }
         return null;
     }
 
@@ -47,6 +58,9 @@ public class MyTreeTableModel extends AbstractTreeTableModel {
     public int getChildCount(Object parent) {
         if ("Root".equals(parent)) {
             return 2;
+        }
+        if ("Child1".equals(parent)) {
+            return 3;
         }
         return 0;
     }

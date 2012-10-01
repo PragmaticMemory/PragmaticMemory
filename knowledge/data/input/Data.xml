@@ -17,7 +17,9 @@
             <status>Todo</status>
         </task>
         <task>
-            <description>Rédiger la xsd validant <technic>Data.xml</technic></description>
+            <description>Rédiger la xsd validant
+                <technic>Data.xml</technic>
+            </description>
             <status>Todo</status>
         </task>
         <task>
@@ -97,7 +99,9 @@
             <item>
                 <name>Formulation</name>
                 <description>Entre deux formulations d'une même information, utiliser la plus claire.</description>
-                <comment><list level="1">(à développer) Utiliser la mise en forme pour permettre une distinction des types d'information</list></comment>
+                <comment>
+                    <list level="1">(à développer) Utiliser la mise en forme pour permettre une distinction des types d'information</list>
+                </comment>
             </item>
         </group>
         <group>
@@ -107,9 +111,9 @@
                 <description>Utiliser la même forme pour transmettre un même type d'information.</description>
                 <comment>
                     <list level="1">Règles à déterminer :</list>
-                        <list level="2">utilisation des temps (futur, présent, ...)</list>
-                        <list level="2">utilisation de la casse (majuscule ou minuscule)</list>
-                        <list level="2">ponctuation</list>
+                    <list level="2">utilisation des temps (futur, présent, ...)</list>
+                    <list level="2">utilisation de la casse (majuscule ou minuscule)</list>
+                    <list level="2">ponctuation</list>
                 </comment>
             </item>
             <item>
@@ -125,36 +129,38 @@
                 <comment>
                     <list level="1">Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée.</list>
                     <list level="1">Les différentes vues peuvent être destinées :</list>
-                        <list level="2">à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)</list>
-                        <list level="2">à insiter sur différents aspects d'un ensemble de données au sein d'un même outil</list>
+                    <list level="2">à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)</list>
+                    <list level="2">à insiter sur différents aspects d'un ensemble de données au sein d'un même outil</list>
                     <list level="1">La mise en oeuvre de ce principe est faite par l'utilisation de fichiers xml et xslt.</list>
                     <list level="1">3 types de fichiers sont utilisés :</list>
-                        <list level="2">un fichier de "données", d'extension xml, stockant les données utiles</list>
-                        <list level="2">des fichiers "style", d'extension xslt, définissant chacun un style de présentation</list>
-                        <list level="2">des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style</list>
-                            <list level="3">
-                                <code lang="xml">
-                                    <codeLine><![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]></codeLine>
-                                    <codeLine><![CDATA[<?xml-stylesheet href="StyleUrl" type="text/xsl" ?>]]></codeLine>
-                                    <codeLine><![CDATA[<!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>]]></codeLine>
-                                    <codeLine><![CDATA[<linkedData>]]></codeLine>
-                                    <codeLine><![CDATA[&data;]]></codeLine>
-                                    <codeLine><![CDATA[</linkedData>]]></codeLine>
-                                </code>
-                            </list>
-                            <list level="3">à remplacer dans le template (+ exemple dans le cas de Subversion):</list>
-                                <list level="4">StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)</list>
-                                <list level="4">DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)</list>
-                                <list level="4">Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt</list>
-                    <list level="1">les fichiers xml doivent être encodés en <technic>UTF-8</technic></list>
+                    <list level="2">un fichier de "données", d'extension xml, stockant les données utiles</list>
+                    <list level="2">des fichiers "style", d'extension xslt, définissant chacun un style de présentation</list>
+                    <list level="2">des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style</list>
+                    <list level="3">
+                        <code lang="xml">
+                            <codeLine><![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]></codeLine>
+                            <codeLine><![CDATA[<?xml-stylesheet href="StyleUrl" type="text/xsl" ?>]]></codeLine>
+                            <codeLine><![CDATA[<!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>]]></codeLine>
+                            <codeLine><![CDATA[<linkedData>]]></codeLine>
+                            <codeLine><![CDATA[&data;]]></codeLine>
+                            <codeLine><![CDATA[</linkedData>]]></codeLine>
+                        </code>
+                    </list>
+                    <list level="3">à remplacer dans le template (+ exemple dans le cas de Subversion):</list>
+                    <list level="4">StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)</list>
+                    <list level="4">DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)</list>
+                    <list level="4">Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt</list>
+                    <list level="1">les fichiers xml doivent être encodés en
+                        <technic>UTF-8</technic>
+                    </list>
                     <list level="1">concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :</list>
-                        <list level="2">toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link</list>
-                        <list level="2">toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé</list>
+                    <list level="2">toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link</list>
+                    <list level="2">toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé</list>
                 </comment>
             </item>
             <item>
-                 <name>Concepts dans les métadonnées</name>
-                 <description>Liste des concepts : item, group, reference, method, task</description>
+                <name>Concepts dans les métadonnées</name>
+                <description>Liste des concepts : item, group, reference, method, task</description>
             </item>
         </group>
         <group>
@@ -164,10 +170,10 @@
                 <description>Entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité</description>
                 <comment>
                     <list level="1">Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.</list>
-                        <list level="2">par exemple : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)</list>
-                        <list level="2">un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)</list>
+                    <list level="2">par exemple : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)</list>
+                    <list level="2">un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)</list>
                     <list level="1">Utiliser les participes-présent plutôt que les subordonnées</list>
-                        <list level="2">"permettant" au lieu de "qui permettent" (gain de 4 caractères)</list>
+                    <list level="2">"permettant" au lieu de "qui permettent" (gain de 4 caractères)</list>
                 </comment>
             </item>
             <item>
@@ -176,99 +182,153 @@
                 <comment>
                     <list level="1">Eliminer les redondances d'informations d'un texte avec son titre (à développer)</list>
                     <list level="1">Principe des "code smell"</list>
-                        <list level="2">"code smell" de répétition de mot</list>
-                            <list level="3">La liste :</list>
-                                <list level="4">Principes d'homogénéité</list>
-                                <list level="4">Principe de séparation</list>
-                                <list level="4">Principe de concision</list>
-                            <list level="3">peut être remplacée par :</list>
-                                <list level="4">Principes</list>
-                                    <list level="5">Homogéneité</list>
-                                    <list level="5">Séparation</list>
-                                    <list level="5">Concision</list>
+                    <list level="2">"code smell" de répétition de mot</list>
+                    <list level="3">La liste :</list>
+                    <list level="4">Principes d'homogénéité</list>
+                    <list level="4">Principe de séparation</list>
+                    <list level="4">Principe de concision</list>
+                    <list level="3">peut être remplacée par :</list>
+                    <list level="4">Principes</list>
+                    <list level="5">Homogéneité</list>
+                    <list level="5">Séparation</list>
+                    <list level="5">Concision</list>
                 </comment>
             </item>
         </group>
     </principles>
     <sandbox>
-        <example>phrase dont une partie est <technic>mise en évidence</technic> car elle représente un élément technique</example>
-        <example>phrase contenant une <reference><name>référence</name><link>lien</link></reference></example>
-        <example>exemple de liste :<newLine/>
-                <list level="1">item 1 du niveau 1</list>
-                    <list level="2">item 1 du niveau 2</list>
-                        <list level="3">item 1 du niveau 3</list>
-                        <list level="3">item 2 du niveau 3</list>
-                    <list level="2">item 2 du niveau 2</list>
-                <list level="1">item 2 du niveau 1</list>
+        <example>phrase dont une partie est
+            <technic>mise en évidence</technic>
+            car elle représente un élément technique
+        </example>
+        <example>phrase contenant une
+            <reference>
+                <name>référence</name>
+                <link>lien</link>
+            </reference>
+        </example>
+        <example>exemple de liste :
+            <newLine/>
+            <list level="1">item 1 du niveau 1</list>
+            <list level="2">item 1 du niveau 2</list>
+            <list level="3">item 1 du niveau 3</list>
+            <list level="3">item 2 du niveau 3</list>
+            <list level="2">item 2 du niveau 2</list>
+            <list level="1">item 2 du niveau 1</list>
         </example>
     </sandbox>
     <powershell>
         <typeInformation>
             <notation>
                 <item>
-                    <name><technic>file</technic></name>
-                    <description>correspond à un fichier (<technic>FileInfo</technic>) ou un répertoire (<technic>DirectoryInfo</technic>)</description>
+                    <name>
+                        <technic>file</technic>
+                    </name>
+                    <description>correspond à un fichier (<technic>FileInfo</technic>) ou un répertoire (
+                        <technic>DirectoryInfo</technic>)
+                    </description>
                 </item>
                 <item>
-                    <name><technic>string</technic></name>
+                    <name>
+                        <technic>string</technic>
+                    </name>
                     <description>une chaîne de caractères. La nature de l'objet représenté est indiqué entre parenthèses (path par exemple)</description>
                 </item>
                 <item>
-                    <name><technic>file set</technic></name>
-                    <description>un ensemble de <technic>file</technic> passé sur le pipe</description>
+                    <name>
+                        <technic>file set</technic>
+                    </name>
+                    <description>un ensemble de
+                        <technic>file</technic>
+                        passé sur le pipe
+                    </description>
                 </item>
                 <item>
-                    <name><technic>string set</technic></name>
+                    <name>
+                        <technic>string set</technic>
+                    </name>
                     <description>un ensemble de chaînes de caractères passé sur le pipe</description>
                 </item>
                 <item>
-                    <name><technic>string list</technic></name>
+                    <name>
+                        <technic>string list</technic>
+                    </name>
                     <description>une liste de chaînes caractères séparées par des ,</description>
                 </item>
                 <item>
-                    <name><technic>object</technic></name>
+                    <name>
+                        <technic>object</technic>
+                    </name>
                     <description>un objet au sens large</description>
                 </item>
             </notation>
             <compatibility>
                 <item>
-                    <expectedType><technic>file set</technic></expectedType>
-                    <compatibleType><technic>file</technic></compatibleType>
+                    <expectedType>
+                        <technic>file set</technic>
+                    </expectedType>
+                    <compatibleType>
+                        <technic>file</technic>
+                    </compatibleType>
                 </item>
                 <item>
-                    <expectedType><technic>string set</technic></expectedType>
-                    <compatibleType><technic>string</technic></compatibleType>
+                    <expectedType>
+                        <technic>string set</technic>
+                    </expectedType>
+                    <compatibleType>
+                        <technic>string</technic>
+                    </compatibleType>
                 </item>
                 <item>
-                    <expectedType><technic>string list</technic></expectedType>
-                    <compatibleType><technic>string</technic></compatibleType>
+                    <expectedType>
+                        <technic>string list</technic>
+                    </expectedType>
+                    <compatibleType>
+                        <technic>string</technic>
+                    </compatibleType>
                 </item>
                 <item>
-                    <expectedType><technic>object</technic></expectedType>
-                    <compatibleType><technic>tout type d'objet</technic></compatibleType>
+                    <expectedType>
+                        <technic>object</technic>
+                    </expectedType>
+                    <compatibleType>
+                        <technic>tout type d'objet</technic>
+                    </compatibleType>
                 </item>
             </compatibility>
             <properties>
                 <group>
-                    <name><technic>file</technic></name>
+                    <name>
+                        <technic>file</technic>
+                    </name>
                     <item>
-                        <name><technic>BaseName</technic></name>
+                        <name>
+                            <technic>BaseName</technic>
+                        </name>
                         <description>nom du fichier sans son extension</description>
                     </item>
                     <item>
-                        <name><technic>Extension</technic></name>
+                        <name>
+                            <technic>Extension</technic>
+                        </name>
                         <description>extension du fichier</description>
                     </item>
                     <item>
-                        <name><technic>FullName</technic></name>
+                        <name>
+                            <technic>FullName</technic>
+                        </name>
                         <description>nom complet du fichier (avec son path)</description>
                     </item>
                     <item>
-                        <name><technic>Name</technic></name>
+                        <name>
+                            <technic>Name</technic>
+                        </name>
                         <description>nom du fichier avec son extension</description>
                     </item>
                     <item>
-                        <name><technic>PSParentPath</technic></name>
+                        <name>
+                            <technic>PSParentPath</technic>
+                        </name>
                         <description>nom du répertoire parent</description>
                     </item>
                 </group>
@@ -422,8 +482,14 @@
                     </pipe>
                 </solution>
                 <comment>Au début du Foreach, créer les variables qui seront utilisées dans la commande</comment>
-                <comment>l'expression <technic>$_</technic> désigne l'entrée courante du <technic>string set</technic></comment>
-                <comment>plusieurs sous-commandes peuvent être séparées par un <technic>;</technic></comment>
+                <comment>l'expression
+                    <technic>$_</technic>
+                    désigne l'entrée courante du
+                    <technic>string set</technic>
+                </comment>
+                <comment>plusieurs sous-commandes peuvent être séparées par un
+                    <technic>;</technic>
+                </comment>
             </method>
         </group>
         <group>
@@ -470,28 +536,50 @@
         <example>
             <method>
                 <goal>copie de tous les fichiers contenus dans le répertoire "C:\Temp\PS", avec ajout de BEGIN sur la première ligne et de END sur la dernière lignes</goal>
-                <solution>sans utilisation de pipe au sein du Foreach :<newLine/>
-                    <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}</codeLine></code>
+                <solution>sans utilisation de pipe au sein du Foreach :
+                    <newLine/>
+                    <code lang="powershell">
+                        <codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}</codeLine>
+                    </code>
                 </solution>
-                <solution>avec utilisation de pipe au sein du Foreach :<newLine/>
-                    <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}</codeLine></code>
+                <solution>avec utilisation de pipe au sein du Foreach :
+                    <newLine/>
+                    <code lang="powershell">
+                        <codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}</codeLine>
+                    </code>
                 </solution>
-                <solution>variante avec utilisation du caractère d'échappemnt `r signifiant un retour à la ligne :<newLine/>
-                    <code lang="powershell"><codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}</codeLine></code>
+                <solution>variante avec utilisation du caractère d'échappemnt `r signifiant un retour à la ligne :
+                    <newLine/>
+                    <code lang="powershell">
+                        <codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}</codeLine>
+                    </code>
                 </solution>
             </method>
         </example>
     </powershell>
     <fileModification>
-        <metadata xpath="//data/fileModification/endOfLine/character">Caractères pouvant intervenir dans la séquence indiquant une fin de ligne</metadata>
-        <metadata xpath="//data/fileModification/endOfLine/sequence">Séquences de caractères indiquant une fin de ligne</metadata>
+        <metadata
+              xpath="//data/fileModification/endOfLine/character">Caractères pouvant intervenir dans la séquence indiquant une fin de ligne
+        </metadata>
+        <metadata xpath="//data/fileModification/endOfLine/sequence">Séquences de caractères indiquant une fin de ligne
+        </metadata>
         <goal>L'objectif de cette section est de donner des méthodes de modification de fichiers. Elle détaille les outils utilisés, ainsi que les commandes au sein de ces outils.</goal>
         <endOfLine>
-            <character>Carriage return (CR): <technic>\r</technic></character>
-            <character>Line feed (LF) : <technic>\n</technic></character>
-            <sequence>sous UNIX : <technic>\n</technic></sequence>
-            <sequence>sous Windows : <technic>\r\n</technic></sequence>
-            <sequence>sous Mac : <technic>\r</technic></sequence>
+            <character>Carriage return (CR):
+                <technic>\r</technic>
+            </character>
+            <character>Line feed (LF) :
+                <technic>\n</technic>
+            </character>
+            <sequence>sous UNIX :
+                <technic>\n</technic>
+            </sequence>
+            <sequence>sous Windows :
+                <technic>\r\n</technic>
+            </sequence>
+            <sequence>sous Mac :
+                <technic>\r</technic>
+            </sequence>
         </endOfLine>
         <method>
             <goal>Convertir les fins de ligne d'un fichier (Windows/Unix/Mac)</goal>
@@ -533,29 +621,63 @@
         <method>
             <goal>Distribuer sur différentes lignes des items faisant partie d'une liste</goal>
             <example>
-                <source><code><codeLine>A, B, C</codeLine></code></source>
-                <target><code><codeLine>A</codeLine><codeLine>B</codeLine><codeLine>C</codeLine></code></target>
+                <source>
+                    <code>
+                        <codeLine>A, B, C</codeLine>
+                    </code>
+                </source>
+                <target>
+                    <code>
+                        <codeLine>A</codeLine>
+                        <codeLine>B</codeLine>
+                        <codeLine>C</codeLine>
+                    </code>
+                </target>
             </example>
             <solution>
                 <tool>Notepad++</tool>
-                <step>remplacer (<technic>CTRL + H</technic>)</step>
-                <step>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</step>
-                <step>recherche : <technic>,</technic></step>
-                <step>remplacer par : <technic>\r\n</technic></step>
+                <step>remplacer (<technic>CTRL + H</technic>)
+                </step>
+                <step>mode étendu (<technic>\n</technic>,<technic>\r</technic>,<technic>\t</technic>,
+                    <technic>\0</technic>,<technic>\x</technic>...)
+                </step>
+                <step>recherche :
+                    <technic>,</technic>
+                </step>
+                <step>remplacer par :
+                    <technic>\r\n</technic>
+                </step>
             </solution>
         </method>
         <method>
             <goal>Assembler différentes lignes en une liste</goal>
             <example>
-                <source><code><codeLine>A</codeLine><codeLine>B</codeLine><codeLine>C</codeLine></code></source>
-                <target><code><codeLine>A, B, C</codeLine></code></target>
+                <source>
+                    <code>
+                        <codeLine>A</codeLine>
+                        <codeLine>B</codeLine>
+                        <codeLine>C</codeLine>
+                    </code>
+                </source>
+                <target>
+                    <code>
+                        <codeLine>A, B, C</codeLine>
+                    </code>
+                </target>
             </example>
             <solution>
                 <tool>Notepad++</tool>
-                <step>remplacer (<technic>CTRL + H</technic>)</step>
-                <step>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</step>
-                <step>recherche : <technic>\r\n</technic></step>
-                <step>remplacer par : <technic>,</technic></step>
+                <step>remplacer (<technic>CTRL + H</technic>)
+                </step>
+                <step>mode étendu (<technic>\n</technic>,<technic>\r</technic>,<technic>\t</technic>,
+                    <technic>\0</technic>,<technic>\x</technic>...)
+                </step>
+                <step>recherche :
+                    <technic>\r\n</technic>
+                </step>
+                <step>remplacer par :
+                    <technic>,</technic>
+                </step>
             </solution>
         </method>
         <method>
@@ -592,80 +714,160 @@
             <goal>Comparer 2 listes</goal>
             <solution>
                 <tool>Excel</tool>
-                <step>en A1, saisir le formattage conditionnel<newLine/><code><codeLine>=ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)</codeLine></code></step>
-                <step>en B1, saisir le formattage conditionnel<newLine/><code><codeLine>=ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)</codeLine></code></step>
+                <step>en A1, saisir le formattage conditionnel
+                    <newLine/>
+                    <code>
+                        <codeLine>=ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)</codeLine>
+                    </code>
+                </step>
+                <step>en B1, saisir le formattage conditionnel
+                    <newLine/>
+                    <code>
+                        <codeLine>=ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)</codeLine>
+                    </code>
+                </step>
                 <step>copier le format de A1 sur la colonne A</step>
                 <step>copier le format de B1 sur la colonne B</step>
                 <step>Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND</step>
-                <step><reference><name>Inspiré de l'article</name><link>http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310</link></reference></step>
+                <step>
+                    <reference>
+                        <name>Inspiré de l'article</name>
+                        <link>http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310</link>
+                    </reference>
+                </step>
             </solution>
         </method>
         <item>
-            <name>Table <technic>ASCII</technic></name>
+            <name>Table
+                <technic>ASCII</technic>
+            </name>
             <description>Table contenant 128 caractères</description>
             <comment>Chaque caractère est codé sur 7 bit, ce qui permet bien la représentation de (2 puissance 7 =) 128 caractères</comment>
             <comment>Chaque caractère peut être représenté par un chiffre hexadécimal (entre 0 et F) suivi par un chiffre entre 0 et 7, ce qui permet bien la représentation des (16 x 8 =) 128 caractères.</comment>
         </item>
         <item>
-            <name>Table <technic>ASCII</technic> étendue</name>
+            <name>Table
+                <technic>ASCII</technic>
+                étendue
+            </name>
             <description>Table contenant 256 caractères</description>
             <comment>Chaque caractère est codé sur 8 bit, ce qui permet bien la représentation de (2 puissance 8 =) 256 caractères</comment>
             <comment>Chaque caractère peut être représenté par deux chiffres hexadécimal (entre 0 et F), ce qui permet bien la représentation des (16 x 16 =) 256 caractères.</comment>
-            <comment>Ceci n'est pas une mise à jour de la table <technic>ASCII</technic></comment>
-            <comment>Il existe plusieurs extensions propriétaires de la table <technic>ASCII</technic>, incompatibles entre elles.</comment>
-            <comment>Il existe plusieurs tables <technic>ASCII</technic> étendues définie par l'ISO : ce sont les table ISO 8859.</comment>
+            <comment>Ceci n'est pas une mise à jour de la table
+                <technic>ASCII</technic>
+            </comment>
+            <comment>Il existe plusieurs extensions propriétaires de la table
+                <technic>ASCII</technic>, incompatibles entre elles.
+            </comment>
+            <comment>Il existe plusieurs tables
+                <technic>ASCII</technic>
+                étendues définie par l'ISO : ce sont les table ISO 8859.
+            </comment>
             <comment>La plus populaire des tables ISO 8859 est la table SO 8859-1, appelée également ISO Latin1</comment>
         </item>
         <item>
-            <name><technic>UTF-8</technic></name>
-            <description>Système d'encodage des caractères internationaux d'Unicode rétro-compatible avec <technic>ASCII</technic></description>
+            <name>
+                <technic>UTF-8</technic>
+            </name>
+            <description>Système d'encodage des caractères internationaux d'Unicode rétro-compatible avec
+                <technic>ASCII</technic>
+            </description>
             <comment>Chaque caractère est codé sur un ensemble de 1 à 4 octets.</comment>
-            <comment>La rétro-compatibilité avec <technic>ASCII</technic> signifie que tout caractère <technic>ASCII</technic> se code en <technic>UTF-8</technic> sous forme d'un unique octet, identique au code <technic>ASCII</technic>.</comment>
+            <comment>La rétro-compatibilité avec
+                <technic>ASCII</technic>
+                signifie que tout caractère
+                <technic>ASCII</technic>
+                se code en
+                <technic>UTF-8</technic>
+                sous forme d'un unique octet, identique au code<technic>ASCII</technic>.
+            </comment>
         </item>
         <item>
             <name>Page de code</name>
             <description>Jeu de caractère associant un nombre à chaque caractère d'une langue.</description>
-            <comment>De nombreuse pages de code ont été définies autour de la norme <technic>ASCII</technic>, sous-ensemble commun à plusieurs pages de code.</comment>
+            <comment>De nombreuse pages de code ont été définies autour de la norme
+                <technic>ASCII</technic>, sous-ensemble commun à plusieurs pages de code.
+            </comment>
         </item>
         <item>
             <name>Unicode</name>
             <description>Standard informatique qui vise à permettre le codage de texte écrit en donnant à tout caractère de n’importe quel système d’écriture un nom et un identifiant numérique, et ce de manière unifiée, quelle que soit la plate-forme informatique ou le logiciel. Son but est de remplacer l’utilisation de pages de code nationales.</description>
             <comment>Chaque caractère est associé à un nombre entier appelé point de code.</comment>
             <comment>L'espace de codage de ces nombres est divisé en 17 zones de 65 536 points de codes. Ces zones sont appelées plans.</comment>
-            <comment>Un point de code est noté <technic>U+xxxx</technic> où <technic>xxxx</technic> est un nombre hexadécimal comportant de 4 à 6 chiffres.</comment>
-            <comment>Les points de code du premier plan (appelé plan multilingue de base) comportent 4 chiffres (entre <technic>U+0000</technic> et <technic>U+FFFF</technic>)</comment>
-            <comment>Les points de code des 15 plans suivants comportent 5 chiffres (entre <technic>U+10000</technic> et <technic>U+FFFFF</technic>)</comment>
-            <comment>Les points de code du dernier plans comportent 6 chiffres (entre <technic>U+100000</technic> et <technic>U+10FFFF</technic>).</comment>
+            <comment>Un point de code est noté
+                <technic>U+xxxx</technic>
+                où
+                <technic>xxxx</technic>
+                est un nombre hexadécimal comportant de 4 à 6 chiffres.
+            </comment>
+            <comment>Les points de code du premier plan (appelé plan multilingue de base) comportent 4 chiffres (entre
+                <technic>U+0000</technic>
+                et<technic>U+FFFF</technic>)
+            </comment>
+            <comment>Les points de code des 15 plans suivants comportent 5 chiffres (entre
+                <technic>U+10000</technic>
+                et<technic>U+FFFFF</technic>)
+            </comment>
+            <comment>Les points de code du dernier plans comportent 6 chiffres (entre
+                <technic>U+100000</technic>
+                et<technic>U+10FFFF</technic>).
+            </comment>
         </item>
     </fileModification>
     <subversion>
         <method>
             <goal>Différences entre le working directory et la base</goal>
-            <solution><code><codeLine>svn diff</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>svn diff</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Différences entre le working directory et le serveur</goal>
-            <solution><code><codeLine>svn diff -r HEAD</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>svn diff -r HEAD</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Résumé des modifications locales</goal>
-            <solution><code><codeLine>svn status</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>svn status</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>"Nettoyage" du working directory</goal>
-            <solution><code><codeLine>svn cleanup</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>svn cleanup</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Informations sur le repository (branche, numéro de révision)</goal>
-            <solution><code><codeLine>svn info</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>svn info</codeLine>
+                </code>
+            </solution>
         </method>
     </subversion>
     <git>
         <item>
             <name>Fichier de configuration globale Git</name>
-            <description>fichier <technic>.gitConfig</technic> dans le répertoire %USERPROFILE%</description>
-            <comment>Récupérable en java par :<newLine/>
-                <code lang="java"><codeLine>System.getProperty("user.home");</codeLine></code>
+            <description>fichier
+                <technic>.gitConfig</technic>
+                dans le répertoire %USERPROFILE%
+            </description>
+            <comment>Récupérable en java par :
+                <newLine/>
+                <code lang="java">
+                    <codeLine>System.getProperty("user.home");</codeLine>
+                </code>
             </comment>
         </item>
         <item>
@@ -714,25 +916,52 @@
         </item>
         <method>
             <goal>Afficher la configuration globale</goal>
-            <solution><code><codeLine>git config --global -l</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git config --global -l</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Afficher la configuration locale à un répertoire git</goal>
-            <solution><code><codeLine>git config --local -l</codeLine></code></solution>
-            <solution><code><codeLine>git config --local --list</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git config --local -l</codeLine>
+                </code>
+            </solution>
+            <solution>
+                <code>
+                    <codeLine>git config --local --list</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Supprimer une variable locale</goal>
-            <solution><code><codeLine>git config --local --unset nom_de_variable</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git config --local --unset nom_de_variable</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Configurer Notepad++ comme editeur (en local)</goal>
-            <solution><code><codeLine>git config --local core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git config --local core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Configurer Notepad++ comme editeur (en local) en utilisant un fichier de script</goal>
-            <solution><code><codeLine>git config --local core.editor C:/GitEditor.bat</codeLine></code></solution>
-            <comment>Contenu de <technic>GitEditor.bat</technic> :<newLine/>
+            <solution>
+                <code>
+                    <codeLine>git config --local core.editor C:/GitEditor.bat</codeLine>
+                </code>
+            </solution>
+            <comment>Contenu de
+                <technic>GitEditor.bat</technic>
+                :
+                <newLine/>
                 <code>
                     <codeLine>#!/bin/sh</codeLine>
                     <codeLine>"c:/Program Files/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin "$*"</codeLine>
@@ -741,76 +970,193 @@
         </method>
         <method>
             <goal>Initialiser un répertoire git</goal>
-            <solution><code><codeLine>git init</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git init</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Ajouter un fichier à l'index (faire un stage)</goal>
-            <solution><code><codeLine>git add nom_de_fichier</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git add nom_de_fichier</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Ajouter récursivement tous les fichiers à l'index</goal>
-            <solution><code><codeLine>git add .</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git add .</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Faire un commit (ajouter les fichiers de l'index au repository)</goal>
-            <solution><code><codeLine>git commit -m "message de commit</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git commit -m "message de commit</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Afficher le status des fichiers</goal>
-            <solution><code><codeLine>git status</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git status</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Afficher l'historique des commit</goal>
-            <solution><code><codeLine>git log</codeLine></code></solution>
-            <solution><code><codeLine>git log --pretty=oneline</codeLine></code></solution>
-            <solution><code><codeLine>git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short</codeLine></code></solution>
-            <solution><code><codeLine>log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all</codeLine></code></solution>
-            <solution><code><codeLine>git reflog</codeLine></code></solution>
-            <comment>Principaux formats :<newLine/>
+            <solution>
+                <code>
+                    <codeLine>git log</codeLine>
+                </code>
+            </solution>
+            <solution>
+                <code>
+                    <codeLine>git log --pretty=oneline</codeLine>
+                </code>
+            </solution>
+            <solution>
+                <code>
+                    <codeLine>git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short</codeLine>
+                </code>
+            </solution>
+            <solution>
+                <code>
+                    <codeLine>log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all</codeLine>
+                </code>
+            </solution>
+            <solution>
+                <code>
+                    <codeLine>git reflog</codeLine>
+                </code>
+            </solution>
+            <comment>Principaux formats :
+                <newLine/>
                 <table>
-                    <headerRow><cell>Format</cell><cell>Description</cell></headerRow>
-                    <row><cell>%H</cell><cell>Commit hash</cell></row>
-                    <row><cell>%h</cell><cell>Abbreviated commit hash</cell></row>
-                    <row><cell>%T</cell><cell>Tree hash</cell></row>
-                    <row><cell>%t</cell><cell>Abbreviated tree hash</cell></row>
-                    <row><cell>%P</cell><cell>Parent hashes</cell></row>
-                    <row><cell>%p</cell><cell>Abbreviated parent hashes</cell></row>
-                    <row><cell>%an</cell><cell>Author name</cell></row>
-                    <row><cell>%ae</cell><cell>Author e-mail</cell></row>
-                    <row><cell>%ad</cell><cell>Author date (format respects the –date= option)</cell></row>
-                    <row><cell>%ar</cell><cell>Author date, relative</cell></row>
-                    <row><cell>%cn</cell><cell>Committer name</cell></row>
-                    <row><cell>%ce</cell><cell>Committer email</cell></row>
-                    <row><cell>%cd</cell><cell>Committer date</cell></row>
-                    <row><cell>%cr</cell><cell>Committer date, relative</cell></row>
-                    <row><cell>%s</cell><cell>Subject</cell></row>
+                    <headerRow>
+                        <cell>Format</cell>
+                        <cell>Description</cell>
+                    </headerRow>
+                    <row>
+                        <cell>%H</cell>
+                        <cell>Commit hash</cell>
+                    </row>
+                    <row>
+                        <cell>%h</cell>
+                        <cell>Abbreviated commit hash</cell>
+                    </row>
+                    <row>
+                        <cell>%T</cell>
+                        <cell>Tree hash</cell>
+                    </row>
+                    <row>
+                        <cell>%t</cell>
+                        <cell>Abbreviated tree hash</cell>
+                    </row>
+                    <row>
+                        <cell>%P</cell>
+                        <cell>Parent hashes</cell>
+                    </row>
+                    <row>
+                        <cell>%p</cell>
+                        <cell>Abbreviated parent hashes</cell>
+                    </row>
+                    <row>
+                        <cell>%an</cell>
+                        <cell>Author name</cell>
+                    </row>
+                    <row>
+                        <cell>%ae</cell>
+                        <cell>Author e-mail</cell>
+                    </row>
+                    <row>
+                        <cell>%ad</cell>
+                        <cell>Author date (format respects the –date= option)</cell>
+                    </row>
+                    <row>
+                        <cell>%ar</cell>
+                        <cell>Author date, relative</cell>
+                    </row>
+                    <row>
+                        <cell>%cn</cell>
+                        <cell>Committer name</cell>
+                    </row>
+                    <row>
+                        <cell>%ce</cell>
+                        <cell>Committer email</cell>
+                    </row>
+                    <row>
+                        <cell>%cd</cell>
+                        <cell>Committer date</cell>
+                    </row>
+                    <row>
+                        <cell>%cr</cell>
+                        <cell>Committer date, relative</cell>
+                    </row>
+                    <row>
+                        <cell>%s</cell>
+                        <cell>Subject</cell>
+                    </row>
                 </table>
             </comment>
         </method>
         <method>
             <goal>Afficher l'historique des commit (version graphique)</goal>
-            <solution><code><codeLine>gitk</codeLine></code></solution>
-            <solution><code><codeLine>gitk --all</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>gitk</codeLine>
+                </code>
+            </solution>
+            <solution>
+                <code>
+                    <codeLine>gitk --all</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Afficher les différences entre le répertoire de travail et l'index</goal>
-            <solution><code><codeLine>git diff</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git diff</codeLine>
+                </code>
+            </solution>
         </method>
-          <method>
+        <method>
             <goal>Afficher les différences en utilisant un outil de diff spécifique</goal>
-            <solution><code><codeLine>git difftool</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git difftool</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Afficher les différences entre l'index et le repository</goal>
-            <solution><code><codeLine>git diff --cached</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git diff --cached</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Afficher les différences entre le répertoire de travail et le repository</goal>
-            <solution><code><codeLine>git diff HEAD</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git diff HEAD</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Afficher les différences entre le HEAD et son parent</goal>
-            <solution><code><codeLine>git diff HEAD HEAD~</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git diff HEAD HEAD~</codeLine>
+                </code>
+            </solution>
         </method>
         <!--
         Question : Sometimes git suggests git rm - -cached to unstage a file, sometimes git reset HEAD file. When should I use which?
@@ -820,42 +1166,88 @@
         -->
         <method>
             <goal>Déplacer le HEAD sans modifier l'index ni le répertoire de travail</goal>
-            <solution><code><codeLine>git reset --soft version</codeLine></code></solution>
-            <comment>Ainsi, <technic>git reset --soft HEAD</technic>n'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail</comment>
+            <solution>
+                <code>
+                    <codeLine>git reset --soft version</codeLine>
+                </code>
+            </solution>
+            <comment>Ainsi,
+                <technic>git reset --soft HEAD</technic>n'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail
+            </comment>
         </method>
         <method>
             <goal>Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail</goal>
-            <solution><code><codeLine>git reset version</codeLine></code></solution>
-            <solution><code><codeLine>git reset --medium version</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git reset version</codeLine>
+                </code>
+            </solution>
+            <solution>
+                <code>
+                    <codeLine>git reset --medium version</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Déplacer le HEAD en modifiant l'index et le répertoire de travail</goal>
-            <solution><code><codeLine>git reset --hard version</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git reset --hard version</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Déplacer la branche courante (et le HEAD associé)</goal>
-            <solution><code><codeLine>git reset v1</codeLine></code></solution>
-            <solution><code><codeLine>git reset sha1</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git reset v1</codeLine>
+                </code>
+            </solution>
+            <solution>
+                <code>
+                    <codeLine>git reset sha1</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Annuler l'opération d'ajout d'un fichier à l'index</goal>
-            <solution><code><codeLine>git reset HEAD nom_de_fichier</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git reset HEAD nom_de_fichier</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Créér une branche</goal>
-            <solution><code><codeLine>git branch myBranch</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git branch myBranch</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Effacer une branche</goal>
-            <solution><code><codeLine>git branch -d myBranch</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git branch -d myBranch</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Créér un tag</goal>
-            <solution><code><codeLine>git tag v1</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git tag v1</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Effacer un tag</goal>
-            <solution><code><codeLine>git tag -d v1</codeLine></code></solution>
+            <solution>
+                <code>
+                    <codeLine>git tag -d v1</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Stocker les login / mot de passe pour GitHub</goal>
@@ -866,10 +1258,15 @@
                     <codeLine level="1">password MOT_DE_PASSE</codeLine>
                 </code>
             </solution>
-            <comment>Ces lignes de code doivent être stockées dans le fichier <technic>_netrc</technic> qui doit se trouver dans le profil utilisateur</comment>
+            <comment>Ces lignes de code doivent être stockées dans le fichier
+                <technic>_netrc</technic>
+                qui doit se trouver dans le profil utilisateur
+            </comment>
         </method>
         <reference>
-            <name>Commande <technic>reset</technic></name>
+            <name>Commande
+                <technic>reset</technic>
+            </name>
             <link>http://git-scm.com/2011/07/11/reset.html</link>
         </reference>
         <reference>
@@ -885,7 +1282,7 @@
             <link>http://gitimmersion.com</link>
         </reference>
         <reference>
-            <name>Tutorial "Git c'est  facile 2"</name>
+            <name>Tutorial "Git c'est facile 2"</name>
             <link>http://www.yterium.net/GIT-c-est-facile-2</link>
         </reference>
         <reference>
@@ -929,7 +1326,11 @@
                     <codeLine level="1">insert into max_test(code, value) values ('C', 5)</codeLine>
                 </code>
             </example>
-            <solution><code lang="sql"><codeLine>select code, max(value) from max_test group by code</codeLine></code></solution>
+            <solution>
+                <code lang="sql">
+                    <codeLine>select code, max(value) from max_test group by code</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>écrire un case dans un select</goal>
@@ -949,70 +1350,147 @@
     <sybase>
         <method>
             <goal>Vérifier l'existence d'une table</goal>
-            <solution><code lang="sql"><codeLine>select 1 from sysobjects where type = 'U' and name = 'nom_de_table'</codeLine></code></solution>
+            <solution>
+                <code lang="sql">
+                    <codeLine>select 1 from sysobjects where type = 'U' and name = 'nom_de_table'</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Vérifier l'existence d'une procédure stockée</goal>
-            <solution><code lang="sql"><codeLine>select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'</codeLine></code></solution>
+            <solution>
+                <code lang="sql">
+                    <codeLine>select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Vérifier l'existence d'une table temporaire</goal>
-            <solution><code lang="sql"><codeLine>select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'</codeLine></code></solution>
+            <solution>
+                <code lang="sql">
+                    <codeLine>select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Déclarer une variable</goal>
-            <solution><code lang="sql"><codeLine>declare @nom_de_la_variable type_de_la_variable</codeLine></code></solution>
+            <solution>
+                <code lang="sql">
+                    <codeLine>declare @nom_de_la_variable type_de_la_variable</codeLine>
+                </code>
+            </solution>
             <example>declare @ptf_cod varchar(12)</example>
         </method>
         <method>
             <goal>Affecter une valeur à une variable</goal>
-            <solution><code lang="sql"><codeLine>select @nom_de_la_variable = @valeur_de_la_variable</codeLine></code></solution>
+            <solution>
+                <code lang="sql">
+                    <codeLine>select @nom_de_la_variable = @valeur_de_la_variable</codeLine>
+                </code>
+            </solution>
             <example>select @ptf_cod = 'ZX23'</example>
         </method>
         <method>
             <goal>Voir le code d'une procédure stockée</goal>
-            <solution><code lang="sql"><codeLine>sp_helptext 'nom_de_procedure'</codeLine></code></solution>
+            <solution>
+                <code lang="sql">
+                    <codeLine>sp_helptext 'nom_de_procedure'</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Obtenir la liste des utilisateurs</goal>
-            <solution><code lang="sql"><codeLine>sp_helpuser</codeLine></code></solution>
+            <solution>
+                <code lang="sql">
+                    <codeLine>sp_helpuser</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Obtenir la liste des groupes</goal>
-            <solution><code lang="sql"><codeLine>sp_helpgroup</codeLine></code></solution>
+            <solution>
+                <code lang="sql">
+                    <codeLine>sp_helpgroup</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Ajouter à une base un groupe défini sur le data serveur</goal>
-            <solution><code lang="sql"><codeLine>sp_addgroup 'nom_de_groupe'</codeLine></code></solution>
+            <solution>
+                <code lang="sql">
+                    <codeLine>sp_addgroup 'nom_de_groupe'</codeLine>
+                </code>
+            </solution>
         </method>
         <item>
-            <name>Le fichier <technic>sql.ini</technic></name>
-            <definition>Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier <technic>sql.ini</technic> ( présent par exemple dans <technic>C:\Program Files\sybase\12.5.1\ini</technic>). Ils sont définis suivant le template :</definition>
+            <name>Le fichier
+                <technic>sql.ini</technic>
+            </name>
+            <definition>Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier
+                <technic>sql.ini</technic>
+                ( présent par exemple dans
+                <technic>C:\Program Files\sybase\12.5.1\ini</technic>). Ils sont définis suivant le template :
+            </definition>
             <example>
                 <code>
                     <codeLine level="1">[DATA_SERVEUR_NAME]</codeLine>
                     <codeLine level="1">query=TCP,server-name,port</codeLine>
                 </code>
             </example>
-            <comment>dans l'exemple,<technic>server-name</technic> est le nom ou l'alias d'une machine</comment>
+            <comment>dans l'exemple,
+                <technic>server-name</technic>
+                est le nom ou l'alias d'une machine
+            </comment>
             <comment>un data serveur peut héberger plusieurs bases</comment>
-            <comment>si <technic>A</technic> et <technic>B</technic> sont 2 bases sur un même data server, et si <technic>a</technic> est un objet de <technic>A</technic> et <technic>b</technic> un objet de <technic>B</technic>, <technic>a</technic> peut référencer <technic>b</technic> en utilisant la syntaxe <technic>B..b</technic></comment>
+            <comment>si
+                <technic>A</technic>
+                et
+                <technic>B</technic>
+                sont 2 bases sur un même data server, et si
+                <technic>a</technic>
+                est un objet de
+                <technic>A</technic>
+                et
+                <technic>b</technic>
+                un objet de<technic>B</technic>,
+                <technic>a</technic>
+                peut référencer
+                <technic>b</technic>
+                en utilisant la syntaxe
+                <technic>B..b</technic>
+            </comment>
         </item>
         <item>
-            <name>L'outil <technic>isql</technic></name>
+            <name>L'outil
+                <technic>isql</technic>
+            </name>
             <definition>Outil Sybase permettant l'exécution d'un script sql via la syntaxe :</definition>
             <example>
-                <code><codeLine>isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql</codeLine></code>
+                <code>
+                    <codeLine>isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql</codeLine>
+                </code>
             </example>
-            <comment>Le fichier d'entrée (ex: <technic>script.sql</technic>) passé à <technic>isql</technic> peut inclure un fichier (ex : <technic>include.sql</technic>) à l'aide de la syntaxe :<newLine/>
-                <code><codeLine>:r C:\Temp\include.sql</codeLine></code></comment>
-            <comment>il ne doit pas y avoir d'espace entre le début de la ligne et le <technic>:r</technic></comment>
+            <comment>Le fichier d'entrée (ex:<technic>script.sql</technic>) passé à
+                <technic>isql</technic>
+                peut inclure un fichier (ex :<technic>include.sql</technic>) à l'aide de la syntaxe :
+                <newLine/>
+                <code>
+                    <codeLine>:r C:\Temp\include.sql</codeLine>
+                </code>
+            </comment>
+            <comment>il ne doit pas y avoir d'espace entre le début de la ligne et le
+                <technic>:r</technic>
+            </comment>
         </item>
     </sybase>
     <dos>
         <method>
             <goal>Lister récursivement les fichiers d'un répertoire</goal>
-            <solution><code lang="dos"><codeLine>dir /S /A:-D /B</codeLine></code></solution>
+            <solution>
+                <code lang="dos">
+                    <codeLine>dir /S /A:-D /B</codeLine>
+                </code>
+            </solution>
             <options>
                 <option>
                     <shortcut>/S</shortcut>
@@ -1022,7 +1500,10 @@
                 <option>
                     <shortcut>/A</shortcut>
                     <meaning>attribute</meaning>
-                    <description><technic>-D</technic> : ne possédant pas l'attribut "Directory"</description>
+                    <description>
+                        <technic>-D</technic>
+                        : ne possédant pas l'attribut "Directory"
+                    </description>
                 </option>
                 <option>
                     <shortcut>/B</shortcut>
@@ -1033,68 +1514,127 @@
         </method>
         <method>
             <goal>Lister les répertoires</goal>
-            <solution><code lang="dos"><codeLine>dir</codeLine></code></solution>
+            <solution>
+                <code lang="dos">
+                    <codeLine>dir</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Créer un répertoire</goal>
-            <solution><code lang="dos"><codeLine>mkdir nom_de_repertoire</codeLine></code></solution>
+            <solution>
+                <code lang="dos">
+                    <codeLine>mkdir nom_de_repertoire</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Changer de répertoire</goal>
-            <solution><code lang="dos"><codeLine>cd nom_de_repertoire</codeLine></code></solution>
+            <solution>
+                <code lang="dos">
+                    <codeLine>cd nom_de_repertoire</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Afficher le contenu d'un fichier</goal>
-            <solution><code lang="dos"><codeLine>more nom_de_fichier</codeLine></code></solution>
+            <solution>
+                <code lang="dos">
+                    <codeLine>more nom_de_fichier</codeLine>
+                </code>
+            </solution>
         </method>
         <method>
             <goal>Créer un fichier</goal>
-            <solution><code lang="dos"><codeLine>echo "contenu du fichier" > nom_de_fichier</codeLine></code></solution>
+            <solution>
+                <code lang="dos">
+                    <codeLine>echo "contenu du fichier" > nom_de_fichier</codeLine>
+                </code>
+            </solution>
         </method>
         <item>
             <name>Commande externe</name>
-            <description>Une commande non incluse dans <technic>command.com</technic></description>
+            <description>Une commande non incluse dans
+                <technic>command.com</technic>
+            </description>
             <reference>
                 <name>Commande externe MD-DOS</name>
                 <link>http://www.computerhope.com/jargon/e/extecomm.htm</link>
             </reference>
         </item>
         <item>
-            <name><technic>Less</technic></name>
-            <description><technic>Less</technic> est le programme de mise en page (pager) par défaut utilisé par les fenêtres DOS.</description>
-            <comment><technic>Less</technic> peut utiliser les variables d'environnement LESSCHARSET et LESSCHARDEF.</comment>
+            <name>
+                <technic>Less</technic>
+            </name>
+            <description>
+                <technic>Less</technic>
+                est le programme de mise en page (pager) par défaut utilisé par les fenêtres DOS.
+            </description>
+            <comment>
+                <technic>Less</technic>
+                peut utiliser les variables d'environnement LESSCHARSET et LESSCHARDEF.
+            </comment>
             <reference>
-                <name>FAQ sur <technic>Less</technic></name>
+                <name>FAQ sur
+                    <technic>Less</technic>
+                </name>
                 <link>http://www.greenwoodsoftware.com/less/faq.html</link>
             </reference>
-         </item>
-         <item>
-            <name><technic>LESSCHARSET</technic></name>
-            <description>Variable d'environnement lue par <technic>Less</technic>, qui permet de préciser le jeux de caractère prédéfini à utiliser.</description>
+        </item>
+        <item>
+            <name>
+                <technic>LESSCHARSET</technic>
+            </name>
+            <description>Variable d'environnement lue par
+                <technic>Less</technic>, qui permet de préciser le jeux de caractère prédéfini à utiliser.
+            </description>
             <comment>Valeurs possibles : ascii, iso8859, latin1, dos, ebcdic, koi8-r, utf-8</comment>
-            <comment><code><codeLine lang="dos">set LESSCHARSET = latin1</codeLine></code></comment>
+            <comment>
+                <code>
+                    <codeLine lang="dos">set LESSCHARSET = latin1</codeLine>
+                </code>
+            </comment>
 
-         </item>
-         <item>
-            <name><technic>LESSCHARDEF</technic></name>
-            <description>Variable d'environnement lue par <technic>Less</technic>, permettant de définir un jeux de caractères</description>
+        </item>
+        <item>
+            <name>
+                <technic>LESSCHARDEF</technic>
+            </name>
+            <description>Variable d'environnement lue par
+                <technic>Less</technic>, permettant de définir un jeux de caractères
+            </description>
             <comment>La chaîne de caractère affectée à cette variable défini le type des caractères de 0 à 255.</comment>
-            <comment>Les caractères possibles sont les suivants :<newLine/>
+            <comment>Les caractères possibles sont les suivants :
+                <newLine/>
                 <table>
-                    <headerRow><cell>Caractère</cell><cell>Signification</cell></headerRow>
-                    <row><cell>.</cell><cell>caractère normal</cell></row>
-                    <row><cell>c</cell><cell>caractère de contrôle</cell></row>
-                    <row><cell>b</cell><cell>binaire</cell></row>
+                    <headerRow>
+                        <cell>Caractère</cell>
+                        <cell>Signification</cell>
+                    </headerRow>
+                    <row>
+                        <cell>.</cell>
+                        <cell>caractère normal</cell>
+                    </row>
+                    <row>
+                        <cell>c</cell>
+                        <cell>caractère de contrôle</cell>
+                    </row>
+                    <row>
+                        <cell>b</cell>
+                        <cell>binaire</cell>
+                    </row>
                 </table>
             </comment>
             <comment>Chacun des caractères ci-dessus peut être précédé par un nombre indiquent sur combien de caractères () porte le caractère suivant dans la chaîne</comment>
             <comment>Exemple : le jeu prédéfini ascii correspond à 8bcccbcc18b95.b (caractères : 8 binaires + 3 contrôles + 1 binaire + 2 contrôles + 18 binaires + 95 normaux + 1 binaire soit 128 caractères définis)</comment>
-         </item>
+        </item>
     </dos>
     <keyboard>
         <method>
             <goal>Basculer entre anglais et français</goal>
-            <solution><technic>ALT + SHIFT</technic></solution>
+            <solution>
+                <technic>ALT + SHIFT</technic>
+            </solution>
         </method>
     </keyboard>
     <regexp>
@@ -1111,7 +1651,12 @@
             </matching>
             <matching>
                 <expression>\n</expression>
-                <behaviour>matche avec la séquence de fin de ligne (<technic>\r\n</technic> sous Windows et <technic>\n</technic> sous Unix)</behaviour>
+                <behaviour>matche avec la séquence de fin de ligne (
+                    <technic>\r\n</technic>
+                    sous Windows et
+                    <technic>\n</technic>
+                    sous Unix)
+                </behaviour>
             </matching>
             <replacement>$1</replacement>
         </tool>
@@ -1231,8 +1776,8 @@
     </xslt>
     <xsd>
         <group>
-           <name>Tutoriaux XSD</name>
-           <reference>
+            <name>Tutoriaux XSD</name>
+            <reference>
                 <name>Tutorial Xsd 1</name>
                 <link>http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes</link>
             </reference>
@@ -1255,47 +1800,281 @@
     </xsd>
     <java>
         <item>
-            <name>Classes liées aux <technic>JTable</technic></name>
+            <name>Classes liées aux
+                <technic>JTable</technic>
+            </name>
             <description>
                 <table>
-                    <headerRow><cell>Objet</cell><cell>Type</cell><cell>Description</cell></headerRow>
-                    <row><cell><technic>JTable</technic></cell><cell>classe</cell><cell>vue du modèle de données</cell></row>
-                    <row><cell><technic>JTable.getModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de données</cell></row>
-                    <row><cell><technic>JTable.getSelectionModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de sélection</cell></row>
-                    <row><cell><technic>JTable.getColumnModel()</technic></cell><cell>méthode</cell><cell>récupération du modèle de colonnes</cell></row>
-                    <row><cell><technic>JTable.getTableHeader()</technic></cell><cell>méthode</cell><cell>récupération du JTableHeader</cell></row>
-                    <row><cell><technic>JTable.setDefaultRenderer(...)</technic></cell><cell>méthode</cell><cell>modification du renderer par défaut d'une classe donnée</cell></row>
-                    <row><cell><technic>JTable.getCellRenderer(int row, int column)</technic></cell><cell>method</cell><cell>Sélection du renderer de la table : renvoie en priorité le renderer particulier de la colonne; sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass()</cell></row>
-                    <row><cell><technic>TableColumnModel</technic></cell><cell>interface</cell><cell>modèle des colonnes de la table. L'ordre des colonnes dans ce modèle (column index) peut être modifié par la JTable afin de refléter l'ordre d'affichage des colonnes.</cell></row>
-                    <row><cell><technic>TableColumn</technic></cell><cell>classe</cell><cell>modèle d'une colonne de la table</cell></row>
-                    <row><cell><technic>TableColumn.setCellRenderer()</technic></cell><cell>method</cell><cell>modification du renderer d'une colonne</cell></row>
-                    <row><cell><technic>TableModel</technic></cell><cell>interface</cell><cell>modèle de données de la table</cell></row>
-                    <row><cell><technic>TableModelEvent</technic></cell><cell>classe</cell><cell>évenement de modification du modèle de données</cell></row>
-                    <row><cell><technic>TableModelListener</technic></cell><cell>interface</cell><cell>callback de traitement des modifications d'un TableModel; gère des TableModelEvent via la méthode tableChanged()</cell></row>
-                    <row><cell><technic>DefaultTableModel</technic></cell><cell>classe</cell><cell>modèle de table par défaut; représente uniquement des chaînes de caractères et ne permets pas la représentation d'autre types (booléen, par exemple)</cell></row>
-                    <row><cell><technic>AbstractTableModel</technic></cell><cell>classe</cell><cell>classe de base de modèle qui implémente des méthodes de notification de modification (méthodes fireTableRowsUpdated(), fireTableRowsInserted(), ... appellant la méthode TableModelListener.tableChanged avec des TableModelEvent appropriés)</cell></row>
-                    <row><cell><technic>ListSelectionModel</technic></cell><cell>interface</cell><cell>modèle de sélection de la table (par ligne , par colonne, par cellule)</cell></row>
-                    <row><cell><technic>JTableHeader</technic></cell><cell>classe</cell><cell>headers de la table</cell></row>
-                    <row><cell><technic>TableColumnModelListener</technic></cell><cell>interface</cell><cell>callback de traitement des modifications du modèle do colonnes</cell></row>
-                    <row><cell><technic>TableColumnModelEvent</technic></cell><cell>classe</cell><cell>évenement de modification du modèle de colonnes</cell></row>                
-                    <row><cell><technic>TableCellRenderer</technic></cell><cell>class</cell><cell>Renderer de la table,dont le rôle est de retourner un composant de rendu</cell></row>
-                    <row><cell><technic>TableCellRenderer.getTableCellRendererComponent()</technic></cell><cell>method</cell><cell>Sélection du composant effectuant le rendu</cell></row>
-                    <row><cell><technic>DefaultTableCellRenderer</technic></cell><cell>class</cell><cell>Renderer par défaut, le composant assurant le rendu des cellules étant un JLabel</cell></row>
-                    <row><cell><technic>DefaultRowSorter</technic></cell><cell>abstract class</cell><cell>classe de base de TableRowSorter</cell></row>
-                    <row><cell><technic>TableRowSorter</technic></cell><cell>class</cell><cell>une implémentation de <technic>RowSorter</technic> qui fournit un tri et un filtre en utilisant un <technic>TableModel</technic></cell></row>
-                    <row><cell><technic>RowSorter</technic></cell><cell>abstract class</cell><cell>base de tri et filtrage</cell></row>
-                    <row><cell><technic>RowSorter.SortKey</technic></cell><cell>inner class</cell><cell>Décrit l'ordre de tri pour une colonne</cell></row>
-                    <row><cell><technic>RowSorter.setSortKeys(...)</technic></cell><cell>method</cell><cell>Précise les SortKeys du <technic>RowSorter</technic></cell></row>
-                    <row><cell><technic>RowFilter</technic></cell><cell>abstract class</cell><cell>Filtrage des données du modèle pour affichage dans la vue</cell></row>                    
-                    <row><cell><technic>RowFilter.regexFilter(...)</technic></cell><cell>method</cell><cell>créée une instance de RegexFilter</cell></row>
-                    <row><cell><technic>RowFilter.dateFilter(...)</technic></cell><cell>method</cell><cell>créée une instance de DateFilter</cell></row>
-                    <row><cell><technic>RowFilter.numberFilter(...)</technic></cell><cell>method</cell><cell>créée une instance de NumberFilter</cell></row>
-                    <row><cell><technic>RowFilter.orFilter(...)</technic></cell><cell>method</cell><cell>créée une instance de OrFilter</cell></row>
-                    <row><cell><technic>RowFilter.andFilter(...)</technic></cell><cell>method</cell><cell>créée une instance de AndFilter</cell></row>
-                    <row><cell><technic>RowFilter.notFilter()</technic></cell><cell>method</cell><cell>créée une instance de NotFilter</cell></row>
-                    <row><cell><technic>DefaultCellEditor</technic></cell><cell>class</cell><cell>éditeur par défaut des tables et des arbres</cell></row>
-                    <row><cell><technic>CellEditor.getCellEditorValue()</technic></cell><cell>method</cell><cell>doit renvoyer la valeur de l'éditeur</cell></row>
-                    <row><cell><technic>TableCellEditor.getTableCellEditorComponent()</technic></cell><cell>method</cell><cell>doit renvoyer le composant d'édition</cell></row>
+                    <headerRow>
+                        <cell>Objet</cell>
+                        <cell>Type</cell>
+                        <cell>Description</cell>
+                    </headerRow>
+                    <row>
+                        <cell>
+                            <technic>JTable</technic>
+                        </cell>
+                        <cell>classe</cell>
+                        <cell>vue du modèle de données</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>JTable.getModel()</technic>
+                        </cell>
+                        <cell>méthode</cell>
+                        <cell>récupération du modèle de données</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>JTable.getSelectionModel()</technic>
+                        </cell>
+                        <cell>méthode</cell>
+                        <cell>récupération du modèle de sélection</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>JTable.getColumnModel()</technic>
+                        </cell>
+                        <cell>méthode</cell>
+                        <cell>récupération du modèle de colonnes</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>JTable.getTableHeader()</technic>
+                        </cell>
+                        <cell>méthode</cell>
+                        <cell>récupération du JTableHeader</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>JTable.setDefaultRenderer(...)</technic>
+                        </cell>
+                        <cell>méthode</cell>
+                        <cell>modification du renderer par défaut d'une classe donnée</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>JTable.getCellRenderer(int row, int column)</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>Sélection du renderer de la table : renvoie en priorité le renderer particulier de la colonne; sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass()</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableColumnModel</technic>
+                        </cell>
+                        <cell>interface</cell>
+                        <cell>modèle des colonnes de la table. L'ordre des colonnes dans ce modèle (column index) peut être modifié par la JTable afin de refléter l'ordre d'affichage des colonnes.</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableColumn</technic>
+                        </cell>
+                        <cell>classe</cell>
+                        <cell>modèle d'une colonne de la table</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableColumn.setCellRenderer()</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>modification du renderer d'une colonne</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableModel</technic>
+                        </cell>
+                        <cell>interface</cell>
+                        <cell>modèle de données de la table</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableModelEvent</technic>
+                        </cell>
+                        <cell>classe</cell>
+                        <cell>évenement de modification du modèle de données</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableModelListener</technic>
+                        </cell>
+                        <cell>interface</cell>
+                        <cell>callback de traitement des modifications d'un TableModel; gère des TableModelEvent via la méthode tableChanged()</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>DefaultTableModel</technic>
+                        </cell>
+                        <cell>classe</cell>
+                        <cell>modèle de table par défaut; représente uniquement des chaînes de caractères et ne permets pas la représentation d'autre types (booléen, par exemple)</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>AbstractTableModel</technic>
+                        </cell>
+                        <cell>classe</cell>
+                        <cell>classe de base de modèle qui implémente des méthodes de notification de modification (méthodes fireTableRowsUpdated(), fireTableRowsInserted(), ... appellant la méthode TableModelListener.tableChanged avec des TableModelEvent appropriés)</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>ListSelectionModel</technic>
+                        </cell>
+                        <cell>interface</cell>
+                        <cell>modèle de sélection de la table (par ligne , par colonne, par cellule)</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>JTableHeader</technic>
+                        </cell>
+                        <cell>classe</cell>
+                        <cell>headers de la table</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableColumnModelListener</technic>
+                        </cell>
+                        <cell>interface</cell>
+                        <cell>callback de traitement des modifications du modèle do colonnes</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableColumnModelEvent</technic>
+                        </cell>
+                        <cell>classe</cell>
+                        <cell>évenement de modification du modèle de colonnes</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableCellRenderer</technic>
+                        </cell>
+                        <cell>class</cell>
+                        <cell>Renderer de la table,dont le rôle est de retourner un composant de rendu</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableCellRenderer.getTableCellRendererComponent()</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>Sélection du composant effectuant le rendu</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>DefaultTableCellRenderer</technic>
+                        </cell>
+                        <cell>class</cell>
+                        <cell>Renderer par défaut, le composant assurant le rendu des cellules étant un JLabel</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>DefaultRowSorter</technic>
+                        </cell>
+                        <cell>abstract class</cell>
+                        <cell>classe de base de TableRowSorter</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableRowSorter</technic>
+                        </cell>
+                        <cell>class</cell>
+                        <cell>une implémentation de
+                            <technic>RowSorter</technic>
+                            qui fournit un tri et un filtre en utilisant un
+                            <technic>TableModel</technic>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>RowSorter</technic>
+                        </cell>
+                        <cell>abstract class</cell>
+                        <cell>base de tri et filtrage</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>RowSorter.SortKey</technic>
+                        </cell>
+                        <cell>inner class</cell>
+                        <cell>Décrit l'ordre de tri pour une colonne</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>RowSorter.setSortKeys(...)</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>Précise les SortKeys du
+                            <technic>RowSorter</technic>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>RowFilter</technic>
+                        </cell>
+                        <cell>abstract class</cell>
+                        <cell>Filtrage des données du modèle pour affichage dans la vue</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>RowFilter.regexFilter(...)</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>créée une instance de RegexFilter</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>RowFilter.dateFilter(...)</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>créée une instance de DateFilter</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>RowFilter.numberFilter(...)</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>créée une instance de NumberFilter</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>RowFilter.orFilter(...)</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>créée une instance de OrFilter</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>RowFilter.andFilter(...)</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>créée une instance de AndFilter</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>RowFilter.notFilter()</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>créée une instance de NotFilter</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>DefaultCellEditor</technic>
+                        </cell>
+                        <cell>class</cell>
+                        <cell>éditeur par défaut des tables et des arbres</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>CellEditor.getCellEditorValue()</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>doit renvoyer la valeur de l'éditeur</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>TableCellEditor.getTableCellEditorComponent()</technic>
+                        </cell>
+                        <cell>method</cell>
+                        <cell>doit renvoyer le composant d'édition</cell>
+                    </row>
                 </table>
             </description>
             <comment>Définitions de (et différence entre) column index et model index :
@@ -1307,68 +2086,344 @@
             <comment>le tri de chaînes de caractères dépend de la locale</comment>
         </item>
         <item>
-            <name>Classes liées aux <technic>JTree</technic></name>
+            <name>Classes liées aux
+                <technic>JTree</technic>
+            </name>
             <description>
-                <row><cell><technic>JTree.convertValueToText(...)</technic></cell><cell>method</cell><cell>Convertie le user object en texte à afficher (par défaut, le texte affiché est celui retourné par la méthode <technic>toString()</technic>)</cell></row>
-                <row><cell><technic>JTree.addTreeSelectionListener(...)</technic></cell><cell>method</cell><cell>ajout d'un listener sur les événements de sélection dans l'arbre</cell></row>
-                <row><cell><technic>DefaultMutableTreeNode.add(...)</technic></cell><cell>method</cell><cell>ajoute un MutableTreeNode comme enfantdu noeud</cell></row>
-                <row><cell><technic>DefaultMutableTreeNode.getUserObject(...)</technic></cell><cell>method</cell><cell>renvoi l'Object passé au noeud lors de la construction ou via la méthode setUserObject()</cell></row>
-                <row><cell><technic>TreeSelectionListener</technic></cell><cell></cell><cell>getLastSelectedPathComponent (revoie un Object)</cell></row>
-                <row><cell><technic>DefaultTreeCellRenderer.setLeafIcon(...)</technic> </cell><cell>method</cell><cell>définition de l'icône pour les noeuds feuilles</cell></row>
-                <row><cell><technic>DefaultTreeCellRenderer.setOpenIcon(...)</technic></cell><cell>method</cell><cell>définition de l'icône pour les noeuds non feuilles ouverts</cell></row>
-                <row><cell><technic>DefaultTreeCellRenderer.setClosedIcon(...)</technic></cell><cell>method</cell><cell>définition de l'icône pour les noeuds non feuilles fermés</cell></row>
-                <row><cell><technic>TreeCellRenderer.getTreeCellRendererComponent(...)</technic></cell><cell>method</cell><cell>sélection du composant effectuant le rendu</cell></row>
-                <row><cell><technic>DefaultTreeModel.insertNodeInto(...)</technic></cell><cell>method</cell><cell>ajout d'un noeud dans le modèle</cell></row>
-            </description>            
+                <row>
+                    <cell>
+                        <technic>JTree.convertValueToText(...)</technic>
+                    </cell>
+                    <cell>method</cell>
+                    <cell>Convertie le user object en texte à afficher (par défaut, le texte affiché est celui retourné par la méthode
+                        <technic>toString()</technic>)
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>JTree.addTreeSelectionListener(...)</technic>
+                    </cell>
+                    <cell>method</cell>
+                    <cell>ajout d'un listener sur les événements de sélection dans l'arbre</cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>DefaultMutableTreeNode.add(...)</technic>
+                    </cell>
+                    <cell>method</cell>
+                    <cell>ajoute un MutableTreeNode comme enfantdu noeud</cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>DefaultMutableTreeNode.getUserObject(...)</technic>
+                    </cell>
+                    <cell>method</cell>
+                    <cell>renvoi l'Object passé au noeud lors de la construction ou via la méthode setUserObject()</cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>TreeSelectionListener</technic>
+                    </cell>
+                    <cell></cell>
+                    <cell>getLastSelectedPathComponent (revoie un Object)</cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>DefaultTreeCellRenderer.setLeafIcon(...)</technic>
+                    </cell>
+                    <cell>method</cell>
+                    <cell>définition de l'icône pour les noeuds feuilles</cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>DefaultTreeCellRenderer.setOpenIcon(...)</technic>
+                    </cell>
+                    <cell>method</cell>
+                    <cell>définition de l'icône pour les noeuds non feuilles ouverts</cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>DefaultTreeCellRenderer.setClosedIcon(...)</technic>
+                    </cell>
+                    <cell>method</cell>
+                    <cell>définition de l'icône pour les noeuds non feuilles fermés</cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>TreeCellRenderer.getTreeCellRendererComponent(...)</technic>
+                    </cell>
+                    <cell>method</cell>
+                    <cell>sélection du composant effectuant le rendu</cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>DefaultTreeModel.insertNodeInto(...)</technic>
+                    </cell>
+                    <cell>method</cell>
+                    <cell>ajout d'un noeud dans le modèle</cell>
+                </row>
+            </description>
         </item>
         <item>
-             <name>Classes liées aux <technic>JTreeTable</technic></name>
-             <description>
-                <row><cell><technic>JTreeTable</technic></cell><cell>class</cell><cell>une JTable dont le renderer est un JTree</cell></row>
-                <row><cell><technic>TreeTableCellRenderer</technic></cell><cell>class</cell><cell>Renderer du <technic>JTreeTable</technic></cell></row>
-                <row><cell><technic>TreeTableModel</technic></cell><cell>interface</cell><cell>Modèle du <technic>JTreeTable</technic></cell></row>
-                <row><cell><technic>TreeTableModelAdapter</technic></cell><cell>class</cell><cell>un AbstractTableModel faisant le lien avec le TreeTableModel</cell></row>
-                <row><cell><technic>JTreeTable.TreeCellRendererAdapter</technic></cell><cell>inner class</cell><cell></cell></row>
-                <row><cell><technic> AbstractCellEditor.fireEditingStopped() </technic></cell><cell>method</cell><cell>à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché</cell></row>
-             </description>
+            <name>Classes liées aux
+                <technic>JTreeTable</technic>
+            </name>
+            <description>
+                <row>
+                    <cell>
+                        <technic>JTreeTable</technic>
+                    </cell>
+                    <cell>class</cell>
+                    <cell>une JTable dont le renderer est un JTree</cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>TreeTableCellRenderer</technic>
+                    </cell>
+                    <cell>class</cell>
+                    <cell>Renderer du
+                        <technic>JTreeTable</technic>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>TreeTableModel</technic>
+                    </cell>
+                    <cell>interface</cell>
+                    <cell>Modèle du
+                        <technic>JTreeTable</technic>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>TreeTableModelAdapter</technic>
+                    </cell>
+                    <cell>class</cell>
+                    <cell>un AbstractTableModel faisant le lien avec le TreeTableModel</cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>JTreeTable.TreeCellRendererAdapter</technic>
+                    </cell>
+                    <cell>inner class</cell>
+                    <cell></cell>
+                </row>
+                <row>
+                    <cell>
+                        <technic>AbstractCellEditor.fireEditingStopped()</technic>
+                    </cell>
+                    <cell>method</cell>
+                    <cell>à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché</cell>
+                </row>
+            </description>
         </item>
         <item>
             <name>Gestion des évènements par la classe Component</name>
             <description>
-                <headerRow><cell>Listener</cell><cell>Event traité</cell><cell>méthode d'ajout du Listener dans Component</cell><cell>méthodes du listener</cell></headerRow>
-                <row><cell>ComponentListener</cell><cell>ComponentEvent</cell><cell>addComponentListener</cell><cell></cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>componentResized</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>componentMoved</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>componentShown</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>componentHidden</cell></row>
-                <row><cell>FocusListener</cell><cell>FocusEvent</cell><cell>addFocusListener</cell><cell></cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>focusGained</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>focusLost</cell></row>
-                <row><cell>HierarchyBoundsListener</cell><cell>HierarchyEvent</cell><cell>addHierarchyBoundsListener</cell><cell></cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>ancestorMoved</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>ancestorResized</cell></row>
-                <row><cell>HierarchyListener</cell><cell>HierarchyEvent</cell><cell>addHierarchyListener</cell><cell></cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>hierarchyChanged</cell></row>
-                <row><cell>InputMethodListener</cell><cell>InputMethodEvent</cell><cell>addInputMethodListener</cell><cell></cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>inputMethodTextChanged</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>caretPositionChanged</cell></row>
-                <row><cell>KeyListener</cell><cell>KeyEvent</cell><cell>addKeyListener</cell><cell></cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>keyTyped</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>keyPressed</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>keyReleased</cell></row>
-                <row><cell>MouseListener</cell><cell>MouseEvent</cell><cell>addMouseListener</cell><cell></cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>mouseClicked</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>mousePressed</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>mouseReleased</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>mouseEntered</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>mouseExited</cell></row>
-                <row><cell>MouseMotionListener</cell><cell>MouseEvent</cell><cell>addMouseMotionListener</cell><cell></cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>mouseDragged</cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>mouseMoved</cell></row>
-                <row><cell>MouseWheelListener</cell><cell>MouseWheelEvent</cell><cell>addMouseWheelListener</cell><cell></cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>mouseWheelMoved</cell></row>
-                <row><cell>PropertyChangeListener</cell><cell>PropertyChangeEvent</cell><cell>addPropertyChangeListener</cell><cell></cell></row>
-                <row><cell></cell><cell></cell><cell></cell><cell>propertyChange</cell></row>
+                <headerRow>
+                    <cell>Listener</cell>
+                    <cell>Event traité</cell>
+                    <cell>méthode d'ajout du Listener dans Component</cell>
+                    <cell>méthodes du listener</cell>
+                </headerRow>
+                <row>
+                    <cell>ComponentListener</cell>
+                    <cell>ComponentEvent</cell>
+                    <cell>addComponentListener</cell>
+                    <cell></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>componentResized</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>componentMoved</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>componentShown</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>componentHidden</cell>
+                </row>
+                <row>
+                    <cell>FocusListener</cell>
+                    <cell>FocusEvent</cell>
+                    <cell>addFocusListener</cell>
+                    <cell></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>focusGained</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>focusLost</cell>
+                </row>
+                <row>
+                    <cell>HierarchyBoundsListener</cell>
+                    <cell>HierarchyEvent</cell>
+                    <cell>addHierarchyBoundsListener</cell>
+                    <cell></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>ancestorMoved</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>ancestorResized</cell>
+                </row>
+                <row>
+                    <cell>HierarchyListener</cell>
+                    <cell>HierarchyEvent</cell>
+                    <cell>addHierarchyListener</cell>
+                    <cell></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>hierarchyChanged</cell>
+                </row>
+                <row>
+                    <cell>InputMethodListener</cell>
+                    <cell>InputMethodEvent</cell>
+                    <cell>addInputMethodListener</cell>
+                    <cell></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>inputMethodTextChanged</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>caretPositionChanged</cell>
+                </row>
+                <row>
+                    <cell>KeyListener</cell>
+                    <cell>KeyEvent</cell>
+                    <cell>addKeyListener</cell>
+                    <cell></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>keyTyped</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>keyPressed</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>keyReleased</cell>
+                </row>
+                <row>
+                    <cell>MouseListener</cell>
+                    <cell>MouseEvent</cell>
+                    <cell>addMouseListener</cell>
+                    <cell></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>mouseClicked</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>mousePressed</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>mouseReleased</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>mouseEntered</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>mouseExited</cell>
+                </row>
+                <row>
+                    <cell>MouseMotionListener</cell>
+                    <cell>MouseEvent</cell>
+                    <cell>addMouseMotionListener</cell>
+                    <cell></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>mouseDragged</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>mouseMoved</cell>
+                </row>
+                <row>
+                    <cell>MouseWheelListener</cell>
+                    <cell>MouseWheelEvent</cell>
+                    <cell>addMouseWheelListener</cell>
+                    <cell></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>mouseWheelMoved</cell>
+                </row>
+                <row>
+                    <cell>PropertyChangeListener</cell>
+                    <cell>PropertyChangeEvent</cell>
+                    <cell>addPropertyChangeListener</cell>
+                    <cell></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>propertyChange</cell>
+                </row>
             </description>
         </item>
         <method>
@@ -1385,7 +2440,8 @@
                     <class>ArrayList</class>
                 </package>
                 <code lang="java">
-                    <codeLine level="1">public static List&#60;String&#62; readLines(File file) throws IOException {</codeLine>
+                    <codeLine level="1">public static List&#60;String&#62; readLines(File file) throws IOException {
+                    </codeLine>
                     <codeLine level="2">BufferedReader reader = new BufferedReader(new FileReader(file));</codeLine>
                     <codeLine level="2">List&#60;String&#62; lines = new ArrayList&#60;String&#62;();</codeLine>
                     <codeLine level="2">String line = reader.readLine();</codeLine>
@@ -1398,7 +2454,14 @@
                     <codeLine level="1">}</codeLine>
                 </code>
             </solution>
-            <comment>Pour deux fichiers contenant respectivement <technic>A\r\nB</technic> et <technic>A\r\nB\r\n</technic>, la méthode <technic>readLines</technic> renvoie une liste identique (contenant les 2 éléments <technic>A</technic> et <technic>B</technic>).</comment>
+            <comment>Pour deux fichiers contenant respectivement
+                <technic>A\r\nB</technic>
+                et<technic>A\r\nB\r\n</technic>, la méthode
+                <technic>readLines</technic>
+                renvoie une liste identique (contenant les 2 éléments
+                <technic>A</technic>
+                et<technic>B</technic>).
+            </comment>
         </method>
         <method>
             <goal>Insérer des lignes dans un fichier</goal>
@@ -1418,7 +2481,9 @@
                     <class>BufferedWriter</class>
                 </package>
                 <code lang="java">
-                    <codeLine level="1">public static void writeLines(List&#60;String&#62; lines, File file) throws IOException {</codeLine>
+                    <codeLine
+                          level="1">public static void writeLines(List&#60;String&#62; lines, File file) throws IOException {
+                    </codeLine>
                     <codeLine level="2">BufferedWriter writer = new BufferedWriter(new FileWriter(file));</codeLine>
                     <codeLine level="2">for (int i = 0; i &#60; lines.size() - 1; i++) {</codeLine>
                     <codeLine level="3">writer.write(lines.get(i));</codeLine>
@@ -1430,7 +2495,10 @@
                     <codeLine level="1">}</codeLine>
                 </code>
             </solution>
-            <comment>la méthode <technic>writeLines</technic> n'ajoute pas de séquence de fin de ligne après la dernière ligne</comment>
+            <comment>la méthode
+                <technic>writeLines</technic>
+                n'ajoute pas de séquence de fin de ligne après la dernière ligne
+            </comment>
         </method>
         <method>
             <goal>Manipuler les listes</goal>
@@ -1503,9 +2571,17 @@
                     <codeLine level="1">}</codeLine>
                 </code>
             </solution>
-            <comment><technic>getAllFilePath</technic>, <technic>readLines</technic>, <technic>writeLines</technic> sont 3 méthodes définies dans cette section</comment>
-            <comment>La méthode <technic>process</technic>est la seule qui reste à définir</comment>
-            <comment>D'après les remarques sur les méthodes <technic>readLines</technic> et <technic>writeLines</technic>, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence</comment>
+            <comment><technic>getAllFilePath</technic>,<technic>readLines</technic>,
+                <technic>writeLines</technic>
+                sont 3 méthodes définies dans cette section
+            </comment>
+            <comment>La méthode<technic>process</technic>est la seule qui reste à définir
+            </comment>
+            <comment>D'après les remarques sur les méthodes
+                <technic>readLines</technic>
+                et
+                <technic>writeLines</technic>, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence
+            </comment>
         </method>
         <method>
             <goal>Utiliser les expressions régulières</goal>
@@ -1523,20 +2599,28 @@
                     <codeLine level="2">while (matcher.find()) {</codeLine>
                     <codeLine level="3">System.out.println("MATCH !");</codeLine>
                     <codeLine level="3">System.out.println("group()= " + matcher.group());</codeLine>
-                    <codeLine level="3">System.out.println("offset before first matched character = " + matcher.start());</codeLine>
-                    <codeLine level="3">System.out.println("offset after last matched character= " + matcher.end());</codeLine>
+                    <codeLine
+                          level="3">System.out.println("offset before first matched character = " + matcher.start());
+                    </codeLine>
+                    <codeLine level="3">System.out.println("offset after last matched character= " + matcher.end());
+                    </codeLine>
                     <codeLine level="3">System.out.println("groupCount = " + matcher.groupCount());</codeLine>
                     <codeLine level="3">for (int i = 0; i &#60; matcher.groupCount() + 1; i++) {</codeLine>
                     <codeLine level="4">System.out.println("\tgroup(" + i + ") = " + matcher.group(i));</codeLine>
-                    <codeLine level="4">System.out.println("\t\toffset before group(" + i + ") first character= " + matcher.start(i));</codeLine>
-                    <codeLine level="4">System.out.println("\t\toffset after group(" + i + ") last character = " + matcher.end(i));</codeLine>
+                    <codeLine
+                          level="4">System.out.println("\t\toffset before group(" + i + ") first character= " + matcher.start(i));
+                    </codeLine>
+                    <codeLine
+                          level="4">System.out.println("\t\toffset after group(" + i + ") last character = " + matcher.end(i));
+                    </codeLine>
                     <codeLine level="3">}</codeLine>
                     <codeLine level="2">}</codeLine>
                     <codeLine level="2">System.out.println("modifiedString = " + matcher.replaceAll("X"));</codeLine>
                     <codeLine level="1">}</codeLine>
                 </code>
             </solution>
-            <comment>L'éxécution du code précédent affiche la sortie suivante :<newLine/>
+            <comment>L'éxécution du code précédent affiche la sortie suivante :
+                <newLine/>
                 <code>
                     <codeLine level="1">MATCH !</codeLine>
                     <codeLine level="1">group()= abcd</codeLine>
@@ -1595,7 +2679,16 @@
         </method>
         <method>
             <goal>Décompiler des classes java</goal>
-            <solution><step>utiliser l'outil <reference><name><technic>JD-GUI</technic></name><link>http://java.decompiler.free.fr/?q=jdgui</link></reference></step></solution>
+            <solution>
+                <step>utiliser l'outil
+                    <reference>
+                        <name>
+                            <technic>JD-GUI</technic>
+                        </name>
+                        <link>http://java.decompiler.free.fr/?q=jdgui</link>
+                    </reference>
+                </step>
+            </solution>
         </method>
         <reference>
             <name>Liste des librairies tiers java</name>
@@ -1616,6 +2709,10 @@
         <reference>
             <name>Tutorial JXTreeTable</name>
             <link>http://www.informit.com/guides/content.aspx?g=java&#38;seqNum=528</link>
+        </reference>
+        <reference>
+            <name>Exemples d'utilisation de JTable</name>
+            <link>http://www.java2s.com/Code/Java/Swing-Components/Grid-Table.htm</link>
         </reference>
         <reference>
             <name>Example TreeTable SwingX</name>
@@ -1653,16 +2750,51 @@
     <unix>
         <item>
             <name>shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling</name>
-            <description>Ligne en début de fichier débutant par <technic>#!</technic>, indiquant au système que le fichier est un script et par quel est son interpréteur associé</description>
+            <description>Ligne en début de fichier débutant par
+                <technic>#!</technic>, indiquant au système que le fichier est un script et par quel est son interpréteur associé
+            </description>
             <comment>
                 <table>
-                    <headerRow><cell>shebang</cell><cell>language de script</cell></headerRow>
-                    <row><cell><technic>#!/bin/sh</technic></cell><cell>Bourne shell (ou autre shell compatible)</cell></row>
-                    <row><cell><technic>#!/bin/csh</technic></cell><cell>C shell (ou autre shell compatible)</cell></row>
-                    <row><cell><technic>#!/usr/bin/perl</technic></cell><cell>Perl</cell></row>
-                    <row><cell><technic>#!/usr/bin/php</technic></cell><cell>PHP</cell></row>
-                    <row><cell><technic>#!/usr/bin/python</technic></cell><cell>Python</cell></row>
-                    <row><cell><technic>#!/usr/bin/ruby</technic></cell><cell>Ruby</cell></row>
+                    <headerRow>
+                        <cell>shebang</cell>
+                        <cell>language de script</cell>
+                    </headerRow>
+                    <row>
+                        <cell>
+                            <technic>#!/bin/sh</technic>
+                        </cell>
+                        <cell>Bourne shell (ou autre shell compatible)</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>#!/bin/csh</technic>
+                        </cell>
+                        <cell>C shell (ou autre shell compatible)</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>#!/usr/bin/perl</technic>
+                        </cell>
+                        <cell>Perl</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>#!/usr/bin/php</technic>
+                        </cell>
+                        <cell>PHP</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>#!/usr/bin/python</technic>
+                        </cell>
+                        <cell>Python</cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <technic>#!/usr/bin/ruby</technic>
+                        </cell>
+                        <cell>Ruby</cell>
+                    </row>
                 </table>
             </comment>
         </item>

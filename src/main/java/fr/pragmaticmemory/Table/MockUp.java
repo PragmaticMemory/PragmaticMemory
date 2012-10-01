@@ -10,14 +10,24 @@ public class MockUp {
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame();
-        final JTable table = new JTable(new MyTableModel());
-        JScrollPane tableScrollPane = new JScrollPane(table);
-        JTreeTable treeTable= new JTreeTable(new MyTreeTableModel());
-        JScrollPane treeTableScrollPane = new JScrollPane(treeTable);
+        JTable table = buildTable();
+        JTreeTable treeTable = buildTreeTable();
         jFrame.setLayout(new FlowLayout());
-        jFrame.add(tableScrollPane);
-        jFrame.add(treeTableScrollPane);
+        jFrame.add(new JScrollPane(table));
+        jFrame.add(new JScrollPane(treeTable));
         jFrame.pack();
         jFrame.setVisible(true);
+    }
+
+
+    private static JTreeTable buildTreeTable() {
+        final JTreeTable treeTable = new JTreeTable(new MyTreeTableModel());
+        treeTable.getTreeTableCellRenderer().setShowsRootHandles(true);
+        return treeTable;
+    }
+
+
+    private static JTable buildTable() {
+        return new JTable(new MyTableModel());
     }
 }
