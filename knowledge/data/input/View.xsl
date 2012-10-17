@@ -376,7 +376,7 @@
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/></list>
             <xsl:copy-of select="description"/>
-            <xsl:text>Remarques :</xsl:text><newLine/>
+            <xsl:if test="comment"><xsl:text>Remarques :</xsl:text><newLine/></xsl:if>
             <xsl:for-each select="comment">
                 <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
@@ -418,9 +418,9 @@
             </xsl:if>
         </xsl:for-each>
         <xsl:if test="reference">
-             <header level="2">Références</header>
+            <header level="2">Références</header>
             <xsl:apply-templates select="reference"/>
-         </xsl:if>
+        </xsl:if>
         <endOfSection/>
     </xsl:template>
 
@@ -437,10 +437,31 @@
         <endOfSection/>
     </xsl:template>
 
+    <!-- Hudson -->
+    <xsl:template match="data/hudson">
+        <header level="1">HUDSON</header>
+        <header level="2">Définitions</header>
+        <xsl:for-each select="item">
+            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
+        </xsl:for-each>
+        <header level="2">Méthodes</header>
+        <xsl:for-each select="method">
+            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solution"/></list>
+        </xsl:for-each>
+        <endOfSection/>
+    </xsl:template>
+    
     <!-- Security -->
     <xsl:template match="data/security">
         <header level="1">SECURITEE</header>
-        <xsl:apply-templates/>
+        <header level="2">Définitions</header>
+        <xsl:for-each select="item">
+            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
+        </xsl:for-each>
+        <xsl:if test="reference">
+            <header level="2">Références</header>
+            <xsl:apply-templates select="reference"/>
+        </xsl:if>
         <endOfSection/>
     </xsl:template>
 

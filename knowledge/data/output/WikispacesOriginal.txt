@@ -360,6 +360,10 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
   svn info
 [[code]]
+* Passer un conflit en "résolu"
+[[code]]
+  svn resolved filename
+[[code]]
 ----
 =GIT=
 ==Objets==
@@ -540,7 +544,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 * [[http://git-scm.com/book|Pro Git]]
 * [[http://alx.github.com/gitbook/index.html|Git Community Book en français]]
 * [[http://gitimmersion.com|Tutorial "Immersion"]]
-* [[http://www.yterium.net/GIT-c-est-facile-2|Tutorial "Git c'est  facile 2"]]
+* [[http://www.yterium.net/GIT-c-est-facile-2|Tutorial "Git c'est facile 2"]]
 * [[http://gitready.com|Tutorial "Git ready"]]
 * [[http://learn.github.com/p/intro.html|Tutorial "Learn GitHub"]]
 * [[http://learn.github.com/p/diff.html|Tutorial "Learn GitHub" (suite)]]
@@ -618,13 +622,13 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
   sp_addgroup 'nom_de_groupe'
 [[code]]
 ==Le fichier {{sql.ini}}==
-Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier {{sql.ini}} ( présent par exemple dans {{C:\Program Files\sybase\12.5.1\ini}}). Ils sont définis suivant le template :
+Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier {{sql.ini}} (présent par exemple dans {{C:\Program Files\sybase\12.5.1\ini}}). Ils sont définis suivant le template :
 [[code]]
   [DATA_SERVEUR_NAME]
   query=TCP,server-name,port
 [[code]]
 Remarques :
-** dans l'exemple,{{server-name}} est le nom ou l'alias d'une machine
+** dans l'exemple, {{server-name}} est le nom ou l'alias d'une machine
 ** un data serveur peut héberger plusieurs bases
 ** si {{A}} et {{B}} sont 2 bases sur un même data server, et si {{a}} est un objet de {{A}} et {{b}} un objet de {{B}}, {{a}} peut référencer {{b}} en utilisant la syntaxe {{B..b}}
 ==L'outil {{isql}}==
@@ -794,14 +798,24 @@ Remarques :
                 L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.
             
 ** le tri de chaînes de caractères dépend de la locale
+* Classes liées aux {{JTree}}
+|| {{JTree.convertValueToText(...)}} || method || Convertie le user object en texte à afficher (par défaut, le texte affiché est celui retourné par la méthode {{toString()}}) ||
+|| {{JTree.addTreeSelectionListener(...)}} || method || ajout d'un listener sur les événements de sélection dans l'arbre ||
+|| {{DefaultMutableTreeNode.add(...)}} || method || ajoute un MutableTreeNode comme enfant du noeud ||
+|| {{DefaultMutableTreeNode.getUserObject(...)}} || method || renvoi l'Object passé au noeud lors de la construction ou via la méthode setUserObject() ||
+|| {{TreeSelectionListener}} ||  || getLastSelectedPathComponent (revoie un Object) ||
+|| {{DefaultTreeCellRenderer.setLeafIcon(...)}} || method || définition de l'icône pour les noeuds feuilles ||
+|| {{DefaultTreeCellRenderer.setOpenIcon(...)}} || method || définition de l'icône pour les noeuds non feuilles ouverts ||
+|| {{DefaultTreeCellRenderer.setClosedIcon(...)}} || method || définition de l'icône pour les noeuds non feuilles fermés ||
+|| {{TreeCellRenderer.getTreeCellRendererComponent(...)}} || method || sélection du composant effectuant le rendu ||
+|| {{DefaultTreeModel.insertNodeInto(...)}} || method || ajout d'un noeud dans le modèle ||
 * Classes liées aux {{JTreeTable}}
 || {{JTreeTable}} || class || une JTable dont le renderer est un JTree ||
 || {{TreeTableCellRenderer}} || class || Renderer du {{JTreeTable}} ||
 || {{TreeTableModel}} || interface || Modèle du {{JTreeTable}} ||
 || {{TreeTableModelAdapter}} || class || un AbstractTableModel faisant le lien avec le TreeTableModel ||
 || {{JTreeTable.TreeCellRendererAdapter}} || inner class ||  ||
-|| {{ AbstractCellEditor.fireEditingStopped() }} || method || à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché ||
-Remarques :
+|| {{AbstractCellEditor.fireEditingStopped()}} || method || à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché ||
 * Gestion des évènements par la classe Component
 || **Listener** || **Event traité** || **méthode d'ajout du Listener dans Component** || **méthodes du listener** ||
 || ComponentListener || ComponentEvent || addComponentListener ||  ||
@@ -837,7 +851,6 @@ Remarques :
 ||  ||  ||  || mouseWheelMoved ||
 || PropertyChangeListener || PropertyChangeEvent || addPropertyChangeListener ||  ||
 ||  ||  ||  || propertyChange ||
-Remarques :
 ==Méthodes==
 ==Lire les lignes d'un fichier==
 || **Package** || **Classes** ||
@@ -919,7 +932,7 @@ Remarques :
 [[code]]
 Remarques :
 * {{getAllFilePath}}, {{readLines}}, {{writeLines}} sont 3 méthodes définies dans cette section
-* La méthode {{process}}est la seule qui reste à définir
+* La méthode {{process}} est la seule qui reste à définir
 * D'après les remarques sur les méthodes {{readLines}} et {{writeLines}}, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence
 ==Utiliser les expressions régulières==
 || **Package** || **Classes** ||
@@ -1003,10 +1016,15 @@ Remarques :
 utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
 ==Références==
 * [[http://www.jdocs.com/page/AllLibraries|Liste des librairies tiers java]]
-* [[http://commons.apache.org/|Librairies Apache Common]]
+* [[http://commons.apache.org/|Librairies Apache Common (Liste et documentation)]]
+* [[http://projects.apache.org/indexes/alpha.html|Librairies Apache Common (Liste plus complète mais sans documentation)]]
 * [[http://commons.apache.org/beanutils/commons-beanutils-1.7.0/docs/api/org/apache/commons/beanutils/package-summary.html|Librairie Apache Common Bean Utils. Une lib équivalente à BeanUtils : Beanlib]]
+* [[http://xircles.codehaus.org/projects|Liste des projets CodeHaus]]
+* [[http://sourceforge.net/directory/development/development/|Liste des projets dans la catégorie développement de SourceForge (voir les sous-catégories dans la partie gauche de la page + possibilité de filtrer les entrées)]]
 * [[http://tutorials.jenkov.com/java-io/index.html|Tutorial IO]]
 * [[http://www.informit.com/guides/content.aspx?g=java&seqNum=528|Tutorial JXTreeTable]]
+* [[http://www.java2s.com/Code/Java/Swing-Components/Grid-Table.htm|Exemples d'utilisation de JTable]]
+* [[http://www.ibm.com/developerworks/java/library/j-5things14/index.html|Example TreeTable SwingX]]
 * [[http://docs.oracle.com/javase/tutorial/uiswing/components/index.html|Composants swing]]
 * [[http://docs.oracle.com/javase/tutorial/java/generics/index.html|Génériques]]
 * [[http://www.eclipse.org/swt/|Librairie SWT]]
@@ -1014,6 +1032,9 @@ utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
 * [[http://www.java2s.com/Code/Java/Swing-Components/JTreeTablecomponent.htm|Code du JTreeTable]]
 * [[http://bitguru.wordpress.com/2008/06/18/jtreetable/|Description de la JTreeTable]]
 * [[http://www.hameister.org/JavaSwingTreeTable.html|Schema UML des classes liées au JTreeTable]]
+* [[http://openjavafaq.blogspot.fr/2009/07/synchronous-vs-asynchronous.html#!/2009/07/synchronous-vs-asynchronous.html|Synchronous versus asynchronous]]
+* [[http://www.ibm.com/developerworks/java/tutorials/j-classloader/index.html|Class Loader]]
+* [[http://docstore.mik.ua/orelly/index.html|O'Reilly's CD bookshelfs]]
 ----
 =UNIX=
 * shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling
@@ -1026,12 +1047,31 @@ utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
 || {{#!/usr/bin/python}} || Python ||
 || {{#!/usr/bin/ruby}} || Ruby ||
 ----
+=HUDSON=
+==Définitions==
+* master (maître) : Serveur Hudson, hébergeant entre autres l'interface Web d'Hudson
+* slave (esclave) : Machine sur laquelle se font les build. Les sources sont extraites sur les machines esclaves; les goals maven sont exécutés sur les machines esclaves
+* node (noeud) : Machine maître ou esclave
+* Workspace (espace de travail) : Répertoire (sur les esclaves) où les sources sont extraites. Pour un projet donné, la rubrique "Espace de travail" de l'interface Web ne montre que le répertoire de l'esclave sur lequel a été effectué le dernier build.
+* Jenkins : Logiciel dont les sources sont un fork des sources d'Hudson, présentant des améliorations par rapport à ce dernier
+==Méthodes==
+* Associer un label à un noeud
+Hudson > nodes >  "noeud spécifique" > Configurer > Etiquette
+----
 =SECURITEE=
+==Définitions==
+* Clés asymétriques : La propriété des clés asymétriques est qu'un message chiffré par une clé publique n'est lisible que par le propriétaire de la clé privée correspondante. À l'inverse, un message chiffré par la clé privée sera lisible par tous ceux qui possèdent la clé publique. Ainsi, le détenteur de la clé privée peut signer les messages qu'il envoi et lire les messages qui lui sont adressés.
+==Références==
 * [[http://www.baekdal.com/insights/password-security-usability|Convivialité des mots de passe]]
 * [[http://www.baekdal.com/insights/the-usability-of-passwords-faq|Convivialité des mots de passe (FAQ)]]
 * [[http://www.git-attitude.fr/2010/09/13/comprendre-et-maitriser-les-cles-ssh/|Comprendre et maîtriser les clés SSH]]
 * [[http://blogresearch.smalsrech.be/?p=4299|L’importance de la taille des clés en cryptographie]]
+* [[http://fr.wikipedia.org/wiki/Signature_num%C3%A9rique|Signature numérique]]
+* [[http://fr.wikipedia.org/wiki/Certificat_%C3%A9lectronique|Certificat électronique]]
 ----
 =DIVERS=
 * [[http://www.yterium.net/Comprendre-nos-impots|Comprendre nos impôts]]
+* [[http://maketecheasier.com/5-best-free-alternatives-to-microsoft-visio/2012/01/20|5 alternatives gratuites à Visio]]
+* [[http://www.insee.fr/fr/themes/tableau.asp?reg_id=0&ref_id=NATnon04247|Distribution des niveaux de vie en 2009]]
+* [[http://www.inegalites.fr/spip.php?page=salaire|Test salaire]]
 ----
