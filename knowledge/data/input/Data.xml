@@ -293,213 +293,243 @@
             <name>Template des commandes</name>
             <method>
                 <goal>objectif de la commande</goal>
-                <solution>
-                    <pipe>
-                        <source>type d'entrée 1</source>
-                        <command>commande 1</command>
-                        <target>type de sortie 1</target>
-                    </pipe>
-                    <pipe>
-                        <source>type d'entrée 2</source>
-                        <command>commande 2</command>
-                        <target>type de sortie 2</target>
-                    </pipe>
-                    <alias>alias 1</alias>
-                    <alias>alias 2</alias>
-                    <alias>alias 3</alias>
-                    <option>
-                        <name>option 1</name>
-                        <shortcut>shortcut 1</shortcut>
-                    </option>
-                    <option>
-                        <name>option 2</name>
-                        <shortcut>shortcut 2</shortcut>
-                    </option>
-                </solution>
-                <comment>remarque 1</comment>
-                <comment>remarque 2</comment>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>type d'entrée 1</source>
+                            <command>commande 1</command>
+                            <target>type de sortie 1</target>
+                        </pipe>
+                        <pipe>
+                            <source>type d'entrée 2</source>
+                            <command>commande 2</command>
+                            <target>type de sortie 2</target>
+                        </pipe>
+                        <alias>alias 1</alias>
+                        <alias>alias 2</alias>
+                        <alias>alias 3</alias>
+                        <option>
+                            <name>option 1</name>
+                            <shortcut>shortcut 1</shortcut>
+                        </option>
+                        <option>
+                            <name>option 2</name>
+                            <shortcut>shortcut 2</shortcut>
+                        </option>
+                    </solution>
+                </solutions>
+                <comments>
+                    <comment>remarque 1</comment>
+                    <comment>remarque 2</comment>
+                </comments>
             </method>
         </group>
         <group>
             <name>IO</name>
             <method>
                 <goal>lister tous les éléments (fichiers et répertoires) d'un répertoire donné</goal>
-                <solution>
-                    <pipe>
-                        <source>directory path</source>
-                        <command>Get-ChildItem -r "...</command>
-                        <target>file set</target>
-                    </pipe>
-                    <pipe>
-                        <source>directory path</source>
-                        <command>$dir="...";Get-ChildItem -r $dir</command>
-                        <target>file set</target>
-                    </pipe>
-                    <alias>dir</alias>
-                    <alias>ls</alias>
-                    <option>
-                        <name>-recurse</name>
-                        <shortcut>-r</shortcut>
-                    </option>
-                </solution>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>directory path</source>
+                            <command>Get-ChildItem -r "...</command>
+                            <target>file set</target>
+                        </pipe>
+                        <pipe>
+                            <source>directory path</source>
+                            <command>$dir="...";Get-ChildItem -r $dir</command>
+                            <target>file set</target>
+                        </pipe>
+                        <alias>dir</alias>
+                        <alias>ls</alias>
+                        <option>
+                            <name>-recurse</name>
+                            <shortcut>-r</shortcut>
+                        </option>
+                    </solution>
+                </solutions>
             </method>
             <method>
                 <goal>lire le contenu d'un fichier</goal>
-                <solution>
-                    <pipe>
-                        <source>string (path) list</source>
-                        <command>Get-Content(...)</command>
-                        <target>string set</target>
-                    </pipe>
-                    <pipe>
-                        <source>string (path) list</source>
-                        <command>Get-Content(...)</command>
-                        <target>file list</target>
-                    </pipe>
-                </solution>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>string (path) list</source>
+                            <command>Get-Content(...)</command>
+                            <target>string set</target>
+                        </pipe>
+                        <pipe>
+                            <source>string (path) list</source>
+                            <command>Get-Content(...)</command>
+                            <target>file list</target>
+                        </pipe>
+                    </solution>
+                </solutions>
             </method>
             <method>
                 <goal>récupérer un file set à partir d'une liste de path</goal>
-                <solution>
-                    <pipe>
-                        <source>string (path) list</source>
-                        <command>Get-Content(...)</command>
-                        <target>file</target>
-                    </pipe>
-                </solution>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>string (path) list</source>
+                            <command>Get-Content(...)</command>
+                            <target>file</target>
+                        </pipe>
+                    </solution>
+                </solutions>
             </method>
             <method>
                 <goal>écrire dans un fichier</goal>
-                <solution>
-                    <pipe>
-                        <source>object, string (path)</source>
-                        <command>... | Out-File -filepath "..."</command>
-                        <target>file</target>
-                    </pipe>
-                    <option>
-                        <name>-append</name>
-                        <shortcut>permet de compléter un fichier déjà existant</shortcut>
-                    </option>
-                    <option>
-                        <name>-inputObject</name>
-                        <shortcut>permet de préciser un objet à écrire</shortcut>
-                    </option>
-                </solution>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>object, string (path)</source>
+                            <command>... | Out-File -filepath "..."</command>
+                            <target>file</target>
+                        </pipe>
+                        <option>
+                            <name>-append</name>
+                            <shortcut>permet de compléter un fichier déjà existant</shortcut>
+                        </option>
+                        <option>
+                            <name>-inputObject</name>
+                            <shortcut>permet de préciser un objet à écrire</shortcut>
+                        </option>
+                    </solution>
+                </solutions>
             </method>
         </group>
         <group>
             <name>Filtrage</name>
             <method>
                 <goal>ne conserver que les répertoires d'un file set (et pas les fichiers)</goal>
-                <solution>
-                    <pipe>
-                        <source>file set</source>
-                        <command>... | where {$_.PsIsContainer}</command>
-                        <target>file set</target>
-                    </pipe>
-                </solution>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>file set</source>
+                            <command>... | where {$_.PsIsContainer}</command>
+                            <target>file set</target>
+                        </pipe>
+                    </solution>
+                </solutions>
             </method>
             <method>
                 <goal>ne conserver que les fichiers d'un file set (et pas les répertoires)</goal>
-                <solution>
-                    <pipe>
-                        <source>file set</source>
-                        <command>... | where {!$_.PsIsContainer}</command>
-                        <target>file set</target>
-                    </pipe>
-                </solution>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>file set</source>
+                            <command>... | where {!$_.PsIsContainer}</command>
+                            <target>file set</target>
+                        </pipe>
+                    </solution>
+                </solutions>
             </method>
             <method>
                 <goal>ne conserver que les entrées qui correspondent à une expression régulière</goal>
-                <solution>
-                    <pipe>
-                        <source>string set, regular expression</source>
-                        <command>... | where {$_ -match "..."}</command>
-                        <target>string set</target>
-                    </pipe>
-                </solution>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>string set, regular expression</source>
+                            <command>... | where {$_ -match "..."}</command>
+                            <target>string set</target>
+                        </pipe>
+                    </solution>
+                </solutions>
             </method>
         </group>
         <group>
             <name>Boucle</name>
             <method>
                 <goal>effectuer un même traitement sur un ensemble de données</goal>
-                <solution>
-                    <pipe>
-                        <source>string set + commande powershell</source>
-                        <command>... | Foreach{...}</command>
-                        <target>string set (si écriture par la commande)</target>
-                    </pipe>
-                    <pipe>
-                        <source>file set + commande powershell</source>
-                        <command>... | Foreach{...}</command>
-                        <target>string set (si écriture par la commande)</target>
-                    </pipe>
-                </solution>
-                <comment>Au début du Foreach, créer les variables qui seront utilisées dans la commande</comment>
-                <comment>l'expression <technic>$_</technic> désigne l'entrée courante du <technic>string set</technic></comment>
-                <comment>plusieurs sous-commandes peuvent être séparées par un <technic>;</technic></comment>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>string set + commande powershell</source>
+                            <command>... | Foreach{...}</command>
+                            <target>string set (si écriture par la commande)</target>
+                        </pipe>
+                        <pipe>
+                            <source>file set + commande powershell</source>
+                            <command>... | Foreach{...}</command>
+                            <target>string set (si écriture par la commande)</target>
+                        </pipe>
+                    </solution>
+                </solutions>
+                <comments>
+                    <comment>Au début du Foreach, créer les variables qui seront utilisées dans la commande</comment>
+                    <comment>l'expression <technic>$_</technic> désigne l'entrée courante du <technic>string set</technic></comment>
+                    <comment>plusieurs sous-commandes peuvent être séparées par un <technic>;</technic></comment>
+                </comments>
             </method>
         </group>
         <group>
             <name>Pipeline</name>
             <method>
                 <goal>écrire un objet sur le pipeline</goal>
-                <solution>
-                    <pipe>
-                        <source>objet</source>
-                        <command>Write-Output(...)</command>
-                        <target>objet</target>
-                    </pipe>
-                </solution>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>objet</source>
+                            <command>Write-Output(...)</command>
+                            <target>objet</target>
+                        </pipe>
+                    </solution>
+                </solutions>
             </method>
         </group>
         <group>
             <name>Information sur les objets</name>
             <method>
                 <goal>connaître le type et les membres d'un objet</goal>
-                <solution>
-                    <pipe>
-                        <source>objet</source>
-                        <command>... | Get-Member</command>
-                        <target>MemberDefinition</target>
-                    </pipe>
-                </solution>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>objet</source>
+                            <command>... | Get-Member</command>
+                            <target>MemberDefinition</target>
+                        </pipe>
+                    </solution>
+                </solutions>
             </method>
             <method>
                 <goal>lister les noms d'un ensemble de fichiers</goal>
-                <solution>
-                    <pipe>
-                        <source>file set</source>
-                        <command>... | Foreach{$_.FullName}</command>
-                        <target>string set</target>
-                    </pipe>
-                    <pipe>
-                        <source>file set</source>
-                        <command>... | Foreach{$_.Name}</command>
-                        <target>string set</target>
-                    </pipe>
-                </solution>
+                <solutions>
+                    <solution>
+                        <pipe>
+                            <source>file set</source>
+                            <command>... | Foreach{$_.FullName}</command>
+                            <target>string set</target>
+                        </pipe>
+                        <pipe>
+                            <source>file set</source>
+                            <command>... | Foreach{$_.Name}</command>
+                            <target>string set</target>
+                        </pipe>
+                    </solution>
+                </solutions>
             </method>
         </group>
         <example>
             <method>
                 <goal>copie de tous les fichiers contenus dans le répertoire "C:\Temp\PS", avec ajout de BEGIN sur la première ligne et de END sur la dernière lignes</goal>
-                <solution>sans utilisation de pipe au sein du Foreach :<newLine/>
-                    <code lang="powershell">
-                        <codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}</codeLine>
-                    </code>
-                </solution>
-                <solution>avec utilisation de pipe au sein du Foreach :<newLine/>
-                    <code lang="powershell">
-                        <codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}</codeLine>
-                    </code>
-                </solution>
-                <solution>variante avec utilisation du caractère d'échappemnt `r signifiant un retour à la ligne :<newLine/>
-                    <code lang="powershell">
-                        <codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}</codeLine>
-                    </code>
-                </solution>
+                <solutions>
+                    <solution>sans utilisation de pipe au sein du Foreach :<newLine/>
+                        <code lang="powershell">
+                            <codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}</codeLine>
+                        </code>
+                    </solution>
+                    <solution>avec utilisation de pipe au sein du Foreach :<newLine/>
+                        <code lang="powershell">
+                            <codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}</codeLine>
+                        </code>
+                    </solution>
+                    <solution>variante avec utilisation du caractère d'échappement `r signifiant un retour à la ligne :<newLine/>
+                        <code lang="powershell">
+                            <codeLine>Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}</codeLine>
+                        </code>
+                    </solution>
+                </solutions>
             </method>
         </example>
     </powershell>
@@ -516,40 +546,50 @@
         </endOfLine>
         <method>
             <goal>Convertir les fins de ligne d'un fichier (Windows/Unix/Mac)</goal>
-            <solution>
-                <tool>Notepad++</tool>
-                <step>vers UNIX : Edition > Convertir les sauts de ligne > Convertir en Format UNIX (LF)</step>
-                <step>vers Windows : Edition > Convertir les sauts de ligne > Convertir en Format Windows (CR+LF)</step>
-                <step>vers Mac : Edition > Convertir les sauts de ligne > Convertir en Format Mac (CR)</step>
-            </solution>
+            <solutions>
+                <solution>
+                    <tool>Notepad++</tool>
+                    <step>vers UNIX : Edition > Convertir les sauts de ligne > Convertir en Format UNIX (LF)</step>
+                    <step>vers Windows : Edition > Convertir les sauts de ligne > Convertir en Format Windows (CR+LF)</step>
+                    <step>vers Mac : Edition > Convertir les sauts de ligne > Convertir en Format Mac (CR)</step>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Voir les séquences de fin de ligne</goal>
-            <solution>
-                <tool>Notepad++</tool>
-                <step>Affichage > Symboles spéciaux > Afficher les symboles de fin de ligne</step>
-            </solution>
+            <solutions>
+                <solution>
+                    <tool>Notepad++</tool>
+                    <step>Affichage > Symboles spéciaux > Afficher les symboles de fin de ligne</step>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Voir les blancs et les tabulations</goal>
-            <solution>
-                <tool>Notepad++</tool>
-                <step>Affichage > Symboles spéciaux > Afficher les blancs et les tabulations</step>
-            </solution>
+            <solutions>
+                <solution>
+                    <tool>Notepad++</tool>
+                    <step>Affichage > Symboles spéciaux > Afficher les blancs et les tabulations</step>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Supprimer des lignes vides (i.e ne contenant aucun caractère, pas même des espaces)</goal>
-            <solution>
-                <tool>Notepad++ (plugin TextFX)</tool>
-                <step>TextFX > TextFX Edit > Delete Blank Lines</step>
-            </solution>
+            <solutions>
+                <solution>
+                    <tool>Notepad++ (plugin TextFX)</tool>
+                    <step>TextFX > TextFX Edit > Delete Blank Lines</step>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Compacter des lignes vides consécutives en une seule ligne vide</goal>
-            <solution>
-                <tool>Notepad++ (plugin TextFX)</tool>
-                <step>TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)</step>
-            </solution>
+            <solutions>
+                <solution>
+                    <tool>Notepad++ (plugin TextFX)</tool>
+                    <step>TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)</step>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Distribuer sur différentes lignes des items faisant partie d'une liste</goal>
@@ -567,13 +607,15 @@
                     </code>
                 </target>
             </example>
-            <solution>
-                <tool>Notepad++</tool>
-                <step>remplacer (<technic>CTRL + H</technic>)</step>
-                <step>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</step>
-                <step>recherche : <technic>,</technic></step>
-                <step>remplacer par : <technic>\r\n</technic></step>
-            </solution>
+            <solutions>
+                <solution>
+                    <tool>Notepad++</tool>
+                    <step>remplacer (<technic>CTRL + H</technic>)</step>
+                    <step>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</step>
+                    <step>recherche : <technic>,</technic></step>
+                    <step>remplacer par : <technic>\r\n</technic></step>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Assembler différentes lignes en une liste</goal>
@@ -591,31 +633,37 @@
                     </code>
                 </target>
             </example>
-            <solution>
-                <tool>Notepad++</tool>
-                <step>remplacer (<technic>CTRL + H</technic>)</step>
-                <step>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</step>
-                <step>recherche : <technic>\r\n</technic></step>
-                <step>remplacer par : <technic>,</technic></step>
-            </solution>
+            <solutions>
+                <solution>
+                    <tool>Notepad++</tool>
+                    <step>remplacer (<technic>CTRL + H</technic>)</step>
+                    <step>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</step>
+                    <step>recherche : <technic>\r\n</technic></step>
+                    <step>remplacer par : <technic>,</technic></step>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Trier des lignes en supprimant les doublons</goal>
-            <solution>
-                <tool>Notepad++ (plugin TextFX)</tool>
-                <step>Notepad++TextFX > TextFX Tools > cocher "+Sort outputs only UNIQUE (at column) lines"</step>
-                <step>Notepad++TextFX > TextFX Tools > cocher "+Sort ascending" pour un tri par ordre alphabétique / décocher pour un ordre inverse</step>
-                <step>Notepad++TextFX > TextFX Tools > cliquer sur "Sort lines case sensitive (at column)" ou sur "Sort lines case insensitive (at column)"</step>
-            </solution>
+            <solutions>
+                <solution>
+                    <tool>Notepad++ (plugin TextFX)</tool>
+                    <step>Notepad++TextFX > TextFX Tools > cocher "+Sort outputs only UNIQUE (at column) lines"</step>
+                    <step>Notepad++TextFX > TextFX Tools > cocher "+Sort ascending" pour un tri par ordre alphabétique / décocher pour un ordre inverse</step>
+                    <step>Notepad++TextFX > TextFX Tools > cliquer sur "Sort lines case sensitive (at column)" ou sur "Sort lines case insensitive (at column)"</step>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Indenter les xml</goal>
-            <solution>
-                <tool>IntelliJ</tool>
-                <step>Code > Reformat Code...</step>
-                <step>Raccourci par défaut : CTRL + ALT + L</step>
-                <step>Fonctionne sur tous les fichiers du projet ou sur un ensemble de fichiers sélectionnés.</step>
-            </solution>
+            <solutions>
+                <solution>
+                    <tool>IntelliJ</tool>
+                    <step>Code > Reformat Code...</step>
+                    <step>Raccourci par défaut : CTRL + ALT + L</step>
+                    <step>Fonctionne sur tous les fichiers du projet ou sur un ensemble de fichiers sélectionnés.</step>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Convertir "underscore" vers "camelcase"</goal>
@@ -623,36 +671,40 @@
                 <source>iinvCEqSector</source>
                 <target>IINV_C_EQ_SECTOR</target>
             </example>
-            <solution>
-                <tool>Notepad++</tool>
-                <step>étape 1 : remplacer l'expression régulière ([A-Z]) par _\1 (cocher Respecter la casse)</step>
-                <step>étape 2 : passer en majuscule (CTRL + SHIFT + U)</step>
-            </solution>
+            <solutions>
+                <solution>
+                    <tool>Notepad++</tool>
+                    <step>étape 1 : remplacer l'expression régulière ([A-Z]) par _\1 (cocher Respecter la casse)</step>
+                    <step>étape 2 : passer en majuscule (CTRL + SHIFT + U)</step>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Comparer 2 listes</goal>
-            <solution>
-                <tool>Excel</tool>
-                <step>en A1, saisir le formattage conditionnel<newLine/>
-                    <code>
-                        <codeLine>=ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)</codeLine>
-                    </code>
-                </step>
-                <step>en B1, saisir le formattage conditionnel<newLine/>
-                    <code>
-                        <codeLine>=ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)</codeLine>
-                    </code>
-                </step>
-                <step>copier le format de A1 sur la colonne A</step>
-                <step>copier le format de B1 sur la colonne B</step>
-                <step>Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND</step>
-                <step>
-                    <reference>
-                        <name>Inspiré de l'article</name>
-                        <link>http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310</link>
-                    </reference>
-                </step>
-            </solution>
+            <solutions>
+                <solution>
+                    <tool>Excel</tool>
+                    <step>en A1, saisir le formattage conditionnel<newLine/>
+                        <code>
+                            <codeLine>=ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)</codeLine>
+                        </code>
+                    </step>
+                    <step>en B1, saisir le formattage conditionnel<newLine/>
+                        <code>
+                            <codeLine>=ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)</codeLine>
+                        </code>
+                    </step>
+                    <step>copier le format de A1 sur la colonne A</step>
+                    <step>copier le format de B1 sur la colonne B</step>
+                    <step>Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND</step>
+                    <step>
+                        <reference>
+                            <name>Inspiré de l'article</name>
+                            <link>http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310</link>
+                        </reference>
+                    </step>
+                </solution>
+            </solutions>
         </method>
         <item>
             <name>Table <technic>ASCII</technic></name>
@@ -695,51 +747,63 @@
     <subversion>
         <method>
             <goal>Différences entre le working directory et la base</goal>
-            <solution>
-                <code>
-                    <codeLine>svn diff</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>svn diff</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Différences entre le working directory et le serveur</goal>
-            <solution>
-                <code>
-                    <codeLine>svn diff -r HEAD</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>svn diff -r HEAD</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Résumé des modifications locales</goal>
-            <solution>
-                <code>
-                    <codeLine>svn status</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>svn status</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>"Nettoyage" du working directory</goal>
-            <solution>
-                <code>
-                    <codeLine>svn cleanup</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>svn cleanup</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Informations sur le repository (branche, numéro de révision)</goal>
-            <solution>
-                <code>
-                    <codeLine>svn info</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>svn info</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Passer un conflit en "résolu"</goal>
-            <solution>
-                <code>
-                    <codeLine>svn resolved filename</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>svn resolved filename</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
     </subversion>
     <git>
@@ -799,243 +863,281 @@
         </item>
         <method>
             <goal>Afficher la configuration globale</goal>
-            <solution>
-                <code>
-                    <codeLine>git config --global -l</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git config --global -l</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Afficher la configuration locale à un répertoire git</goal>
-            <solution>
-                <code>
-                    <codeLine>git config --local -l</codeLine>
-                </code>
-            </solution>
-            <solution>
-                <code>
-                    <codeLine>git config --local --list</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git config --local -l</codeLine>
+                    </code>
+                </solution>
+                <solution>
+                    <code>
+                        <codeLine>git config --local --list</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Supprimer une variable locale</goal>
-            <solution>
-                <code>
-                    <codeLine>git config --local --unset nom_de_variable</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git config --local --unset nom_de_variable</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Configurer Notepad++ comme editeur (en local)</goal>
-            <solution>
-                <code>
-                    <codeLine>git config --local core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git config --local core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Configurer Notepad++ comme editeur (en local) en utilisant un fichier de script</goal>
-            <solution>
-                <code>
-                    <codeLine>git config --local core.editor C:/GitEditor.bat</codeLine>
-                </code>
-            </solution>
-            <comment>Contenu de <technic>GitEditor.bat</technic> :<newLine/>
-                <code>
-                    <codeLine>#!/bin/sh</codeLine>
-                    <codeLine>"c:/Program Files/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin "$*"</codeLine>
-                </code>
-            </comment>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git config --local core.editor C:/GitEditor.bat</codeLine>
+                    </code>
+                </solution>
+            </solutions>
+            <comments>
+                <comment>Contenu de <technic>GitEditor.bat</technic> :<newLine/>
+                    <code>
+                        <codeLine>#!/bin/sh</codeLine>
+                        <codeLine>"c:/Program Files/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin "$*"</codeLine>
+                    </code>
+                </comment>
+            </comments>
         </method>
         <method>
             <goal>Initialiser un répertoire git</goal>
-            <solution>
-                <code>
-                    <codeLine>git init</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git init</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Ajouter un fichier à l'index (faire un stage)</goal>
-            <solution>
-                <code>
-                    <codeLine>git add nom_de_fichier</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git add nom_de_fichier</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Ajouter récursivement tous les fichiers à l'index</goal>
-            <solution>
-                <code>
-                    <codeLine>git add .</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git add .</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Faire un commit (ajouter les fichiers de l'index au repository)</goal>
-            <solution>
-                <code>
-                    <codeLine>git commit -m "message de commit</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git commit -m "message de commit</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Afficher le status des fichiers</goal>
-            <solution>
-                <code>
-                    <codeLine>git status</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git status</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Afficher l'historique des commit</goal>
-            <solution>
-                <code>
-                    <codeLine>git log</codeLine>
-                </code>
-            </solution>
-            <solution>
-                <code>
-                    <codeLine>git log --pretty=oneline</codeLine>
-                </code>
-            </solution>
-            <solution>
-                <code>
-                    <codeLine>git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short</codeLine>
-                </code>
-            </solution>
-            <solution>
-                <code>
-                    <codeLine>log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all</codeLine>
-                </code>
-            </solution>
-            <solution>
-                <code>
-                    <codeLine>git reflog</codeLine>
-                </code>
-            </solution>
-            <comment>Principaux formats :<newLine/>
-                <table>
-                    <headerRow>
-                        <cell>Format</cell>
-                        <cell>Description</cell>
-                    </headerRow>
-                    <row>
-                        <cell>%H</cell>
-                        <cell>Commit hash</cell>
-                    </row>
-                    <row>
-                        <cell>%h</cell>
-                        <cell>Abbreviated commit hash</cell>
-                    </row>
-                    <row>
-                        <cell>%T</cell>
-                        <cell>Tree hash</cell>
-                    </row>
-                    <row>
-                        <cell>%t</cell>
-                        <cell>Abbreviated tree hash</cell>
-                    </row>
-                    <row>
-                        <cell>%P</cell>
-                        <cell>Parent hashes</cell>
-                    </row>
-                    <row>
-                        <cell>%p</cell>
-                        <cell>Abbreviated parent hashes</cell>
-                    </row>
-                    <row>
-                        <cell>%an</cell>
-                        <cell>Author name</cell>
-                    </row>
-                    <row>
-                        <cell>%ae</cell>
-                        <cell>Author e-mail</cell>
-                    </row>
-                    <row>
-                        <cell>%ad</cell>
-                        <cell>Author date (format respects the –date= option)</cell>
-                    </row>
-                    <row>
-                        <cell>%ar</cell>
-                        <cell>Author date, relative</cell>
-                    </row>
-                    <row>
-                        <cell>%cn</cell>
-                        <cell>Committer name</cell>
-                    </row>
-                    <row>
-                        <cell>%ce</cell>
-                        <cell>Committer email</cell>
-                    </row>
-                    <row>
-                        <cell>%cd</cell>
-                        <cell>Committer date</cell>
-                    </row>
-                    <row>
-                        <cell>%cr</cell>
-                        <cell>Committer date, relative</cell>
-                    </row>
-                    <row>
-                        <cell>%s</cell>
-                        <cell>Subject</cell>
-                    </row>
-                </table>
-            </comment>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git log</codeLine>
+                    </code>
+                </solution>
+                <solution>
+                    <code>
+                        <codeLine>git log --pretty=oneline</codeLine>
+                    </code>
+                </solution>
+                <solution>
+                    <code>
+                        <codeLine>git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short</codeLine>
+                    </code>
+                </solution>
+                <solution>
+                    <code>
+                        <codeLine>log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all</codeLine>
+                    </code>
+                </solution>
+                <solution>
+                    <code>
+                        <codeLine>git reflog</codeLine>
+                    </code>
+                </solution>
+            </solutions>
+            <comments>
+                <comment>Principaux formats :<newLine/>
+                    <table>
+                        <headerRow>
+                            <cell>Format</cell>
+                            <cell>Description</cell>
+                        </headerRow>
+                        <row>
+                            <cell>%H</cell>
+                            <cell>Commit hash</cell>
+                        </row>
+                        <row>
+                            <cell>%h</cell>
+                            <cell>Abbreviated commit hash</cell>
+                        </row>
+                        <row>
+                            <cell>%T</cell>
+                            <cell>Tree hash</cell>
+                        </row>
+                        <row>
+                            <cell>%t</cell>
+                            <cell>Abbreviated tree hash</cell>
+                        </row>
+                        <row>
+                            <cell>%P</cell>
+                            <cell>Parent hashes</cell>
+                        </row>
+                        <row>
+                            <cell>%p</cell>
+                            <cell>Abbreviated parent hashes</cell>
+                        </row>
+                        <row>
+                            <cell>%an</cell>
+                            <cell>Author name</cell>
+                        </row>
+                        <row>
+                            <cell>%ae</cell>
+                            <cell>Author e-mail</cell>
+                        </row>
+                        <row>
+                            <cell>%ad</cell>
+                            <cell>Author date (format respects the –date= option)</cell>
+                        </row>
+                        <row>
+                            <cell>%ar</cell>
+                            <cell>Author date, relative</cell>
+                        </row>
+                        <row>
+                            <cell>%cn</cell>
+                            <cell>Committer name</cell>
+                        </row>
+                        <row>
+                            <cell>%ce</cell>
+                            <cell>Committer email</cell>
+                        </row>
+                        <row>
+                            <cell>%cd</cell>
+                            <cell>Committer date</cell>
+                        </row>
+                        <row>
+                            <cell>%cr</cell>
+                            <cell>Committer date, relative</cell>
+                        </row>
+                        <row>
+                            <cell>%s</cell>
+                            <cell>Subject</cell>
+                        </row>
+                    </table>
+                </comment>
+            </comments>
         </method>
         <method>
             <goal>Afficher l'historique des commit (version graphique)</goal>
-            <solution>
-                <code>
-                    <codeLine>gitk</codeLine>
-                </code>
-            </solution>
-            <solution>
-                <code>
-                    <codeLine>gitk --all</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>gitk</codeLine>
+                    </code>
+                </solution>
+                <solution>
+                    <code>
+                        <codeLine>gitk --all</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Afficher les différences entre le répertoire de travail et l'index</goal>
-            <solution>
-                <code>
-                    <codeLine>git diff</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git diff</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Afficher les différences en utilisant un outil de diff spécifique</goal>
-            <solution>
-                <code>
-                    <codeLine>git difftool</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git difftool</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Afficher les différences entre l'index et le repository</goal>
-            <solution>
-                <code>
-                    <codeLine>git diff --cached</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git diff --cached</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Afficher les différences entre le répertoire de travail et le repository</goal>
-            <solution>
-                <code>
-                    <codeLine>git diff HEAD</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git diff HEAD</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Afficher les différences entre le HEAD et son parent</goal>
-            <solution>
-                <code>
-                    <codeLine>git diff HEAD HEAD~</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git diff HEAD HEAD~</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <!--
         Question : Sometimes git suggests git rm - -cached to unstage a file, sometimes git reset HEAD file. When should I use which?
@@ -1045,97 +1147,121 @@
         -->
         <method>
             <goal>Déplacer le HEAD sans modifier l'index ni le répertoire de travail</goal>
-            <solution>
-                <code>
-                    <codeLine>git reset --soft version</codeLine>
-                </code>
-            </solution>
-            <comment>Ainsi, <technic>git reset --soft HEAD</technic>n'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail</comment>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git reset --soft version</codeLine>
+                    </code>
+                </solution>
+            </solutions>
+            <comments>
+                <comment>Ainsi, <technic>git reset --soft HEAD</technic>n'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail</comment>
+            </comments>
         </method>
         <method>
             <goal>Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail</goal>
-            <solution>
-                <code>
-                    <codeLine>git reset version</codeLine>
-                </code>
-            </solution>
-            <solution>
-                <code>
-                    <codeLine>git reset --medium version</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git reset version</codeLine>
+                    </code>
+                </solution>
+                <solution>
+                    <code>
+                        <codeLine>git reset --medium version</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Déplacer le HEAD en modifiant l'index et le répertoire de travail</goal>
-            <solution>
-                <code>
-                    <codeLine>git reset --hard version</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git reset --hard version</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Déplacer la branche courante (et le HEAD associé)</goal>
-            <solution>
-                <code>
-                    <codeLine>git reset v1</codeLine>
-                </code>
-            </solution>
-            <solution>
-                <code>
-                    <codeLine>git reset sha1</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git reset v1</codeLine>
+                    </code>
+                </solution>
+                <solution>
+                    <code>
+                        <codeLine>git reset sha1</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Annuler l'opération d'ajout d'un fichier à l'index</goal>
-            <solution>
-                <code>
-                    <codeLine>git reset HEAD nom_de_fichier</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git reset HEAD nom_de_fichier</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Créér une branche</goal>
-            <solution>
-                <code>
-                    <codeLine>git branch myBranch</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git branch myBranch</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Effacer une branche</goal>
-            <solution>
-                <code>
-                    <codeLine>git branch -d myBranch</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git branch -d myBranch</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Créér un tag</goal>
-            <solution>
-                <code>
-                    <codeLine>git tag v1</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git tag v1</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Effacer un tag</goal>
-            <solution>
-                <code>
-                    <codeLine>git tag -d v1</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git tag -d v1</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Stocker les login / mot de passe pour GitHub</goal>
-            <solution>
+            <solutions>
+                <solution>
                 <code>
                     <codeLine level="1">machine github.com</codeLine>
                     <codeLine level="1">login COMPTE_GITHUB</codeLine>
                     <codeLine level="1">password MOT_DE_PASSE</codeLine>
                 </code>
-            </solution>
-            <comment>Ces lignes de code doivent être stockées dans le fichier <technic>_netrc</technic> qui doit se trouver dans le profil utilisateur</comment>
+                </solution>
+            </solutions>
+            <comments>
+                <comment>Ces lignes de code doivent être stockées dans le fichier <technic>_netrc</technic> qui doit se trouver dans le profil utilisateur</comment>
+            </comments>
         </method>
         <references>
             <reference>
@@ -1200,101 +1326,123 @@
                     <codeLine level="1">insert into max_test(code, value) values ('C', 5)</codeLine>
                 </code>
             </example>
-            <solution>
-                <code lang="sql">
-                    <codeLine>select code, max(value) from max_test group by code</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine>select code, max(value) from max_test group by code</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>écrire un case dans un select</goal>
-            <solution>
-                <code lang="sql">
-                    <codeLine level="1">case</codeLine>
-                    <codeLine level="2">when condition_1 then value_1</codeLine>
-                    <codeLine level="2">when condition_2 then value_2</codeLine>
-                    <codeLine level="2">...</codeLine>
-                    <codeLine level="2">when condition_n then value_n</codeLine>
-                    <codeLine level="2">else value_else</codeLine>
-                    <codeLine level="1">end</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine level="1">case</codeLine>
+                        <codeLine level="2">when condition_1 then value_1</codeLine>
+                        <codeLine level="2">when condition_2 then value_2</codeLine>
+                        <codeLine level="2">...</codeLine>
+                        <codeLine level="2">when condition_n then value_n</codeLine>
+                        <codeLine level="2">else value_else</codeLine>
+                        <codeLine level="1">end</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
     </sql>
     <sybase>
         <method>
             <goal>Vérifier l'existence d'une table</goal>
-            <solution>
-                <code lang="sql">
-                    <codeLine>select 1 from sysobjects where type = 'U' and name = 'nom_de_table'</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine>select 1 from sysobjects where type = 'U' and name = 'nom_de_table'</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Vérifier l'existence d'une procédure stockée</goal>
-            <solution>
-                <code lang="sql">
-                    <codeLine>select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine>select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Vérifier l'existence d'une table temporaire</goal>
-            <solution>
-                <code lang="sql">
-                    <codeLine>select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine>select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Déclarer une variable</goal>
-            <solution>
-                <code lang="sql">
-                    <codeLine>declare @nom_de_la_variable type_de_la_variable</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine>declare @nom_de_la_variable type_de_la_variable</codeLine>
+                    </code>
+                </solution>
+            </solutions>
             <example>declare @ptf_cod varchar(12)</example>
         </method>
         <method>
             <goal>Affecter une valeur à une variable</goal>
-            <solution>
-                <code lang="sql">
-                    <codeLine>select @nom_de_la_variable = @valeur_de_la_variable</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine>select @nom_de_la_variable = @valeur_de_la_variable</codeLine>
+                    </code>
+                </solution>
+            </solutions>
             <example>select @ptf_cod = 'ZX23'</example>
         </method>
         <method>
             <goal>Voir le code d'une procédure stockée</goal>
-            <solution>
-                <code lang="sql">
-                    <codeLine>sp_helptext 'nom_de_procedure'</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine>sp_helptext 'nom_de_procedure'</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Obtenir la liste des utilisateurs</goal>
-            <solution>
-                <code lang="sql">
-                    <codeLine>sp_helpuser</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine>sp_helpuser</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Obtenir la liste des groupes</goal>
-            <solution>
-                <code lang="sql">
-                    <codeLine>sp_helpgroup</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine>sp_helpgroup</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Ajouter à une base un groupe défini sur le data serveur</goal>
-            <solution>
-                <code lang="sql">
-                    <codeLine>sp_addgroup 'nom_de_groupe'</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine>sp_addgroup 'nom_de_groupe'</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <item>
             <name>Le fichier <technic>sql.ini</technic></name>
@@ -1328,11 +1476,13 @@
     <dos>
         <method>
             <goal>Lister récursivement les fichiers d'un répertoire</goal>
-            <solution>
-                <code lang="dos">
-                    <codeLine>dir /S /A:-D /B</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="dos">
+                        <codeLine>dir /S /A:-D /B</codeLine>
+                    </code>
+                </solution>
+            </solutions>
             <options>
                 <option>
                     <shortcut>/S</shortcut>
@@ -1353,43 +1503,53 @@
         </method>
         <method>
             <goal>Lister les répertoires</goal>
-            <solution>
-                <code lang="dos">
-                    <codeLine>dir</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="dos">
+                        <codeLine>dir</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Créer un répertoire</goal>
-            <solution>
-                <code lang="dos">
-                    <codeLine>mkdir nom_de_repertoire</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="dos">
+                        <codeLine>mkdir nom_de_repertoire</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Changer de répertoire</goal>
-            <solution>
-                <code lang="dos">
-                    <codeLine>cd nom_de_repertoire</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="dos">
+                        <codeLine>cd nom_de_repertoire</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Afficher le contenu d'un fichier</goal>
-            <solution>
-                <code lang="dos">
-                    <codeLine>more nom_de_fichier</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="dos">
+                        <codeLine>more nom_de_fichier</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Créer un fichier</goal>
-            <solution>
-                <code lang="dos">
-                    <codeLine>echo "contenu du fichier" > nom_de_fichier</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="dos">
+                        <codeLine>echo "contenu du fichier" > nom_de_fichier</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <item>
             <name>Commande externe</name>
@@ -1450,7 +1610,9 @@
     <keyboard>
         <method>
             <goal>Basculer entre anglais et français</goal>
-            <solution><technic>ALT + SHIFT</technic></solution>
+            <solutions>
+                <solution><technic>ALT + SHIFT</technic></solution>
+            </solutions>
         </method>
     </keyboard>
     <regexp>
@@ -1489,7 +1651,9 @@
         </tool>
         <method>
             <goal>Trouver les caractères de mots qui ne sont pas des chiffres</goal>
-            <solution><code>[^\W\d]</code></solution>
+            <solutions>
+                <solution><code>[^\W\d]</code></solution>
+            </solutions>
         </method>
     </regexp>
     <language>
@@ -2158,7 +2322,9 @@
                     <codeLine level="1">}</codeLine>
                 </code>
             </solution>
-            <comment>Pour deux fichiers contenant respectivement <technic>A\r\nB</technic> et <technic>A\r\nB\r\n</technic>, la méthode <technic>readLines</technic> renvoie une liste identique (contenant les 2 éléments <technic>A</technic> et <technic>B</technic>).</comment>
+            <comments>
+                <comment>Pour deux fichiers contenant respectivement <technic>A\r\nB</technic> et <technic>A\r\nB\r\n</technic>, la méthode <technic>readLines</technic> renvoie une liste identique (contenant les 2 éléments <technic>A</technic> et <technic>B</technic>).</comment>
+            </comments>
         </method>
         <method>
             <goal>Insérer des lignes dans un fichier</goal>
@@ -2190,7 +2356,9 @@
                     <codeLine level="1">}</codeLine>
                 </code>
             </solution>
-            <comment>la méthode <technic>writeLines</technic> n'ajoute pas de séquence de fin de ligne après la dernière ligne</comment>
+            <comments>
+                <comment>la méthode <technic>writeLines</technic> n'ajoute pas de séquence de fin de ligne après la dernière ligne</comment>
+            </comments>
         </method>
         <method>
             <goal>Manipuler les listes</goal>
@@ -2263,9 +2431,11 @@
                     <codeLine level="1">}</codeLine>
                 </code>
             </solution>
-            <comment><technic>getAllFilePath</technic>, <technic>readLines</technic>, <technic>writeLines</technic> sont 3 méthodes définies dans cette section</comment>
-            <comment>La méthode <technic>process</technic> est la seule qui reste à définir</comment>
-            <comment>D'après les remarques sur les méthodes <technic>readLines</technic> et <technic>writeLines</technic>, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence</comment>
+            <comments>
+                <comment><technic>getAllFilePath</technic>, <technic>readLines</technic>, <technic>writeLines</technic> sont 3 méthodes définies dans cette section</comment>
+                <comment>La méthode <technic>process</technic> est la seule qui reste à définir</comment>
+                <comment>D'après les remarques sur les méthodes <technic>readLines</technic> et <technic>writeLines</technic>, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence</comment>
+            </comments>
         </method>
         <method>
             <goal>Utiliser les expressions régulières</goal>
@@ -2296,62 +2466,64 @@
                     <codeLine level="1">}</codeLine>
                 </code>
             </solution>
-            <comment>L'éxécution du code précédent affiche la sortie suivante :<newLine/>
-                <code>
-                    <codeLine level="1">MATCH !</codeLine>
-                    <codeLine level="1">group()= abcd</codeLine>
-                    <codeLine level="1">offset before first matched character = 0</codeLine>
-                    <codeLine level="1">offset after last matched character= 4</codeLine>
-                    <codeLine level="1">groupCount = 3</codeLine>
-                    <codeLine level="1">group(0) = abcd</codeLine>
-                    <codeLine level="1">offset before group(0) first character= 0</codeLine>
-                    <codeLine level="1">offset after group(0) last character = 4</codeLine>
-                    <codeLine level="1">group(1) = a</codeLine>
-                    <codeLine level="1">offset before group(1) first character= 0</codeLine>
-                    <codeLine level="1">offset after group(1) last character = 1</codeLine>
-                    <codeLine level="1">group(2) = bc</codeLine>
-                    <codeLine level="1">offset before group(2) first character= 1</codeLine>
-                    <codeLine level="1">offset after group(2) last character = 3</codeLine>
-                    <codeLine level="1">group(3) = d</codeLine>
-                    <codeLine level="1">offset before group(3) first character= 3</codeLine>
-                    <codeLine level="1">offset after group(3) last character = 4</codeLine>
-                    <codeLine level="1">MATCH !</codeLine>
-                    <codeLine level="1">group()= efgh</codeLine>
-                    <codeLine level="1">offset before first matched character = 5</codeLine>
-                    <codeLine level="1">offset after last matched character= 9</codeLine>
-                    <codeLine level="1">groupCount = 3</codeLine>
-                    <codeLine level="1">group(0) = efgh</codeLine>
-                    <codeLine level="1">offset before group(0) first character= 5</codeLine>
-                    <codeLine level="1">offset after group(0) last character = 9</codeLine>
-                    <codeLine level="1">group(1) = e</codeLine>
-                    <codeLine level="1">offset before group(1) first character= 5</codeLine>
-                    <codeLine level="1">offset after group(1) last character = 6</codeLine>
-                    <codeLine level="1">group(2) = fg</codeLine>
-                    <codeLine level="1">offset before group(2) first character= 6</codeLine>
-                    <codeLine level="1">offset after group(2) last character = 8</codeLine>
-                    <codeLine level="1">group(3) = h</codeLine>
-                    <codeLine level="1">offset before group(3) first character= 8</codeLine>
-                    <codeLine level="1">offset after group(3) last character = 9</codeLine>
-                    <codeLine level="1">MATCH !</codeLine>
-                    <codeLine level="1">group()= ijkl</codeLine>
-                    <codeLine level="1">offset before first matched character = 9</codeLine>
-                    <codeLine level="1">offset after last matched character= 13</codeLine>
-                    <codeLine level="1">groupCount = 3</codeLine>
-                    <codeLine level="1">group(0) = ijkl</codeLine>
-                    <codeLine level="1">offset before group(0) first character= 9</codeLine>
-                    <codeLine level="1">offset after group(0) last character = 13</codeLine>
-                    <codeLine level="1">group(1) = i</codeLine>
-                    <codeLine level="1">offset before group(1) first character= 9</codeLine>
-                    <codeLine level="1">offset after group(1) last character = 10</codeLine>
-                    <codeLine level="1">group(2) = jk</codeLine>
-                    <codeLine level="1">offset before group(2) first character= 10</codeLine>
-                    <codeLine level="1">offset after group(2) last character = 12</codeLine>
-                    <codeLine level="1">group(3) = l</codeLine>
-                    <codeLine level="1">offset before group(3) first character= 12</codeLine>
-                    <codeLine level="1">offset after group(3) last character = 13</codeLine>
-                    <codeLine level="1">modifiedString = X XXmn</codeLine>
-                </code>
-            </comment>
+            <comments>
+                <comment>L'éxécution du code précédent affiche la sortie suivante :<newLine/>
+                    <code>
+                        <codeLine level="1">MATCH !</codeLine>
+                        <codeLine level="1">group()= abcd</codeLine>
+                        <codeLine level="1">offset before first matched character = 0</codeLine>
+                        <codeLine level="1">offset after last matched character= 4</codeLine>
+                        <codeLine level="1">groupCount = 3</codeLine>
+                        <codeLine level="1">group(0) = abcd</codeLine>
+                        <codeLine level="1">offset before group(0) first character= 0</codeLine>
+                        <codeLine level="1">offset after group(0) last character = 4</codeLine>
+                        <codeLine level="1">group(1) = a</codeLine>
+                        <codeLine level="1">offset before group(1) first character= 0</codeLine>
+                        <codeLine level="1">offset after group(1) last character = 1</codeLine>
+                        <codeLine level="1">group(2) = bc</codeLine>
+                        <codeLine level="1">offset before group(2) first character= 1</codeLine>
+                        <codeLine level="1">offset after group(2) last character = 3</codeLine>
+                        <codeLine level="1">group(3) = d</codeLine>
+                        <codeLine level="1">offset before group(3) first character= 3</codeLine>
+                        <codeLine level="1">offset after group(3) last character = 4</codeLine>
+                        <codeLine level="1">MATCH !</codeLine>
+                        <codeLine level="1">group()= efgh</codeLine>
+                        <codeLine level="1">offset before first matched character = 5</codeLine>
+                        <codeLine level="1">offset after last matched character= 9</codeLine>
+                        <codeLine level="1">groupCount = 3</codeLine>
+                        <codeLine level="1">group(0) = efgh</codeLine>
+                        <codeLine level="1">offset before group(0) first character= 5</codeLine>
+                        <codeLine level="1">offset after group(0) last character = 9</codeLine>
+                        <codeLine level="1">group(1) = e</codeLine>
+                        <codeLine level="1">offset before group(1) first character= 5</codeLine>
+                        <codeLine level="1">offset after group(1) last character = 6</codeLine>
+                        <codeLine level="1">group(2) = fg</codeLine>
+                        <codeLine level="1">offset before group(2) first character= 6</codeLine>
+                        <codeLine level="1">offset after group(2) last character = 8</codeLine>
+                        <codeLine level="1">group(3) = h</codeLine>
+                        <codeLine level="1">offset before group(3) first character= 8</codeLine>
+                        <codeLine level="1">offset after group(3) last character = 9</codeLine>
+                        <codeLine level="1">MATCH !</codeLine>
+                        <codeLine level="1">group()= ijkl</codeLine>
+                        <codeLine level="1">offset before first matched character = 9</codeLine>
+                        <codeLine level="1">offset after last matched character= 13</codeLine>
+                        <codeLine level="1">groupCount = 3</codeLine>
+                        <codeLine level="1">group(0) = ijkl</codeLine>
+                        <codeLine level="1">offset before group(0) first character= 9</codeLine>
+                        <codeLine level="1">offset after group(0) last character = 13</codeLine>
+                        <codeLine level="1">group(1) = i</codeLine>
+                        <codeLine level="1">offset before group(1) first character= 9</codeLine>
+                        <codeLine level="1">offset after group(1) last character = 10</codeLine>
+                        <codeLine level="1">group(2) = jk</codeLine>
+                        <codeLine level="1">offset before group(2) first character= 10</codeLine>
+                        <codeLine level="1">offset after group(2) last character = 12</codeLine>
+                        <codeLine level="1">group(3) = l</codeLine>
+                        <codeLine level="1">offset before group(3) first character= 12</codeLine>
+                        <codeLine level="1">offset after group(3) last character = 13</codeLine>
+                        <codeLine level="1">modifiedString = X XXmn</codeLine>
+                    </code>
+                </comment>
+            </comments>
         </method>
         <method>
             <goal>Décompiler des classes java</goal>

@@ -224,7 +224,7 @@ Remarques :
 [[code format="powershell"]]
   Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}
 [[code]]
-** variante avec utilisation du caractère d'échappemnt `r signifiant un retour à la ligne :
+** variante avec utilisation du caractère d'échappement `r signifiant un retour à la ligne :
 [[code format="powershell"]]
   Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}
 [[code]]
@@ -693,7 +693,8 @@ Remarques :
 [[code]]
 ----
 =KEYBOARD=
-* Basculer entre anglais et français : {{ALT + SHIFT}}
+* Basculer entre anglais et français
+{{ALT + SHIFT}}
 ----
 =REGULAR EXPRESSIONS=
 ==IntelliJ==
