@@ -227,8 +227,7 @@
                 <list level="1"><xsl:copy-of select="."/></list>
             </xsl:for-each>
         </xsl:for-each>
-        <header level="2">Références</header>
-        <xsl:apply-templates select="reference"/>
+        <xsl:apply-templates select="references"/>
         <endOfSection/>
     </xsl:template>
 
@@ -322,8 +321,7 @@
         <xsl:variable name="hasPhonetic" select="word/phonetic!=''"/>
         <xsl:variable name="hasDescription" select="word/description!=''"/>
         <header level="1"><xsl:copy-of select="name"/></header>
-        <header level="2">Références</header>
-        <xsl:apply-templates select="reference"/>
+        <xsl:apply-templates select="references"/>
         <header level="2">Liste</header>
         <headerRow>
             <cell>Mot</cell>
@@ -345,7 +343,7 @@
     <!-- WebAndWiki -->
     <xsl:template match="data/webAndWiki">
         <header level="1">WEB AND WIKI</header>
-            <xsl:apply-templates select="reference"/>
+        <xsl:apply-templates select="references"/>
         <endOfSection/>
     </xsl:template>
 
@@ -354,7 +352,7 @@
         <header level="1">XSLT</header>
         <xsl:for-each select="group">
             <header level="2"><xsl:copy-of select="name"/></header>
-            <xsl:apply-templates select="reference"/>
+            <xsl:apply-templates select="references/reference"/>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -364,7 +362,7 @@
         <header level="1">XSD et DTD</header>
         <xsl:for-each select="group">
             <header level="2"><xsl:copy-of select="name"/></header>
-            <xsl:apply-templates select="reference"/>
+            <xsl:apply-templates select="references/reference"/>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -417,10 +415,7 @@
                 </xsl:for-each>
             </xsl:if>
         </xsl:for-each>
-        <xsl:if test="reference">
-            <header level="2">Références</header>
-            <xsl:apply-templates select="reference"/>
-        </xsl:if>
+        <xsl:apply-templates select="references"/>
         <endOfSection/>
     </xsl:template>
 
@@ -458,10 +453,7 @@
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
         </xsl:for-each>
-        <xsl:if test="reference">
-            <header level="2">Références</header>
-            <xsl:apply-templates select="reference"/>
-        </xsl:if>
+        <xsl:apply-templates select="references"/>
         <endOfSection/>
     </xsl:template>
 
@@ -473,6 +465,11 @@
     </xsl:template>
 
     <!-- COMMON -->
+    <xsl:template match="references">
+        <header level="2">Références</header>
+        <xsl:apply-templates select="reference"/>
+    </xsl:template>
+    
     <xsl:template match="reference">
         <list level="1"><xsl:copy-of select="."/></list>
     </xsl:template>
