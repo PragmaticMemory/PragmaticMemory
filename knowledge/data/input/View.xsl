@@ -9,16 +9,16 @@
     <xsl:key name="metadata" match="metadata" use="@xpath"/>
 
     <!-- Root element -->
-    <xsl:template match="//data">
-    <root>
-        <tableOfContent/>
-        <endOfSection/>
-        <xsl:apply-templates/>
+    <xsl:template match="/data">
+        <root>
+            <tableOfContent/>
+            <endOfSection/>
+            <xsl:apply-templates/>
         </root>
     </xsl:template>
 
     <!-- Dashboard -->
-    <xsl:template match="dashboard">
+    <xsl:template match="/data/dashboard">
         <header level="1">DASHBOARD</header>
         <xsl:call-template name="task">
             <xsl:with-param name="status">Todo</xsl:with-param>
@@ -58,7 +58,7 @@
 
     <!--
     <xsl:key name="method-by-status" match="dashboard/group/method" use="status"/>
-    <xsl:template match="dashboard">
+    <xsl:template match="/data/dashboard">
         <xsl:for-each select="group/method[generate-id() = generate-id(key('method-by-status', status)[1])]">
             <xsl:sort select="status"/>
             <xsl:if test="status='Done'">FAIT</xsl:if>
@@ -73,7 +73,7 @@
     -->
 
     <!-- Principles -->
-    <xsl:template match="data/principles">
+    <xsl:template match="/data/principles">
        <header level="1">PRINCIPES DE REDACTION</header>
        <xsl:copy-of select="goal"/><newLine/>
        <xsl:for-each select="group">
@@ -88,7 +88,7 @@
     </xsl:template>
 
     <!-- Sandbox -->
-    <xsl:template match="data/sandbox">
+    <xsl:template match="/data/sandbox">
         <header level="1">SANDBOX</header>
         <xsl:for-each select="example">
             <xsl:copy-of select="."/>
@@ -99,7 +99,7 @@
 
 
     <!-- Powershell -->
-    <xsl:template match="data/powershell">
+    <xsl:template match="/data/powershell">
         <header level="1">POWERSHELL</header>
         <header level="2">Notation de types</header>
         <xsl:for-each select="typeInformation/notation/item">
@@ -165,15 +165,15 @@
     </xsl:template>
 
     <!-- File modifications -->
-    <xsl:template match="data/fileModification">
+    <xsl:template match="/data/fileModification">
         <header level="1">FILE MODIFICATIONS</header>
         <xsl:copy-of select="goal"/><newLine/>
         <header level="2">Fin de lignes dans les fichiers</header>
-        <list level="1"><xsl:copy-of select="key('metadata', '//data/fileModification/endOfLine/character')"/></list>
+        <list level="1"><xsl:copy-of select="key('metadata', '/data/fileModification/endOfLine/character')"/></list>
         <xsl:for-each select="endOfLine/character">
             <list level="2"><xsl:copy-of select="."/></list>
         </xsl:for-each>
-        <list level="1"><xsl:copy-of select="key('metadata', '//data/fileModification/endOfLine/sequence')"/></list>
+        <list level="1"><xsl:copy-of select="key('metadata', '/data/fileModification/endOfLine/sequence')"/></list>
         <xsl:for-each select="endOfLine/sequence">
             <list level="2"><xsl:copy-of select="."/></list>
         </xsl:for-each>
@@ -202,14 +202,14 @@
     </xsl:template>
 
     <!-- Subversion -->
-    <xsl:template match="data/subversion">
+    <xsl:template match="/data/subversion">
         <header level="1">SUBVERSION</header>
         <xsl:apply-templates select ="method"/>
         <endOfSection/>
     </xsl:template>
 
     <!-- Git -->
-    <xsl:template match="data/git">
+    <xsl:template match="/data/git">
         <header level="1">GIT</header>
         <header level="2">Objets</header>
         <xsl:for-each select="item">
@@ -230,7 +230,7 @@
     </xsl:template>
 
     <!-- Sql -->
-    <xsl:template match="data/sql">
+    <xsl:template match="/data/sql">
         <header level="1">SQL</header>
         <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/></list>
@@ -241,7 +241,7 @@
     </xsl:template>
 
     <!-- Sybase -->
-    <xsl:template match="data/sybase">
+    <xsl:template match="/data/sybase">
         <header level="1">SYBASE</header>
         <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solutions/solution"/></list>
@@ -261,7 +261,7 @@
 
 
     <!-- Dos -->
-    <xsl:template match="data/dos">
+    <xsl:template match="/data/dos">
         <header level="1">DOS</header>
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
@@ -290,14 +290,14 @@
     </xsl:template>
 
     <!-- Keyboard -->
-    <xsl:template match="data/keyboard">
+    <xsl:template match="/data/keyboard">
         <header level="1">KEYBOARD</header>
         <xsl:apply-templates select="method"/>
         <endOfSection/>
     </xsl:template>
 
     <!-- Regular expressions -->
-    <xsl:template match="data/regexp">
+    <xsl:template match="/data/regexp">
         <header level="1">REGULAR EXPRESSIONS</header>
         <xsl:for-each select="tool">
             <header level="2"><xsl:copy-of select="name"/></header>
@@ -305,7 +305,7 @@
                 <list level="1"><technic><xsl:copy-of select="expression"/></technic> : <xsl:copy-of select="behaviour"/></list>
             </xsl:for-each>
             <xsl:for-each select="replacement">
-                <list level="1"><xsl:copy-of select="key('metadata', '//data/regexp/tool/remplacement')"/> : <technic><xsl:copy-of select="."/></technic></list>
+                <list level="1"><xsl:copy-of select="key('metadata', '/data/regexp/tool/remplacement')"/> : <technic><xsl:copy-of select="."/></technic></list>
             </xsl:for-each>
         </xsl:for-each>
         <endOfSection/>
@@ -313,7 +313,7 @@
 
 
     <!-- Language -->
-    <xsl:template match="data/language">
+    <xsl:template match="/data/language">
         <xsl:variable name="hasPhonetic" select="word/phonetic!=''"/>
         <xsl:variable name="hasDescription" select="word/description!=''"/>
         <header level="1"><xsl:copy-of select="name"/></header>
@@ -337,34 +337,24 @@
     </xsl:template>
 
     <!-- WebAndWiki -->
-    <xsl:template match="data/webAndWiki">
-        <header level="1">WEB AND WIKI</header>
-        <xsl:apply-templates select="references"/>
-        <endOfSection/>
-    </xsl:template>
-
+   
     <!-- xslt -->
-    <xsl:template match="data/xslt">
-        <header level="1">XSLT</header>
-        <xsl:for-each select="group">
-            <header level="2"><xsl:copy-of select="name"/></header>
-            <xsl:apply-templates select="references/reference"/>
-        </xsl:for-each>
+   
+   
+    <xsl:template match="/data/webAndWiki" priority="2">
+        <header level="1">WEB AND WIKI</header>
+        <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
 
-    <!-- xmlSchema -->
-    <xsl:template match="data/xsd">
-        <header level="1">XSD et DTD</header>
-        <xsl:for-each select="group">
-            <header level="2"><xsl:copy-of select="name"/></header>
-            <xsl:apply-templates select="references/reference"/>
-        </xsl:for-each>
+    <xsl:template match="/data/xml" priority="2">
+        <header level="1">XML</header>
+        <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
 
     <!-- Java -->
-    <xsl:template match="data/java">
+    <xsl:template match="/data/java">
         <header level="1">JAVA</header>
         <header level="2">Objets</header>
         <xsl:for-each select="item">
@@ -416,7 +406,7 @@
     </xsl:template>
 
     <!-- Unix -->
-    <xsl:template match="data/unix">
+    <xsl:template match="/data/unix">
         <header level="1">UNIX</header>
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/></list>
@@ -429,7 +419,7 @@
     </xsl:template>
 
     <!-- Hudson -->
-    <xsl:template match="data/hudson">
+    <xsl:template match="/data/hudson">
         <header level="1">HUDSON</header>
         <header level="2">Définitions</header>
         <xsl:for-each select="item">
@@ -443,7 +433,7 @@
     </xsl:template>
     
     <!-- Security -->
-    <xsl:template match="data/security">
+    <xsl:template match="/data/security">
         <header level="1">SECURITEE</header>
         <header level="2">Définitions</header>
         <xsl:for-each select="item">
@@ -454,7 +444,7 @@
     </xsl:template>
 
     <!-- Divers -->
-    <xsl:template match="data/miscellaneous">
+    <xsl:template match="/data/miscellaneous">
         <header level="1">DIVERS</header>
         <xsl:apply-templates/>
         <endOfSection/>
@@ -462,7 +452,11 @@
 
     <!-- COMMON -->
     <xsl:template match="references">
-        <header level="2">Références</header>
+        <header level="2"><xsl:text>Références</xsl:text>
+            <xsl:if test="@name">
+                <xsl:text> (</xsl:text><xsl:value-of select="@name"/><xsl:text>)</xsl:text>
+            </xsl:if>
+        </header>
         <xsl:apply-templates select="reference"/>
     </xsl:template>
     

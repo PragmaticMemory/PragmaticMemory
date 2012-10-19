@@ -534,8 +534,8 @@
         </example>
     </powershell>
     <fileModification>
-        <metadata xpath="//data/fileModification/endOfLine/character">Caractères pouvant intervenir dans la séquence indiquant une fin de ligne</metadata>
-        <metadata xpath="//data/fileModification/endOfLine/sequence">Séquences de caractères indiquant une fin de ligne</metadata>
+        <metadata xpath="/data/fileModification/endOfLine/character">Caractères pouvant intervenir dans la séquence indiquant une fin de ligne</metadata>
+        <metadata xpath="/data/fileModification/endOfLine/sequence">Séquences de caractères indiquant une fin de ligne</metadata>
         <goal>L'objectif de cette section est de donner des méthodes de modification de fichiers. Elle détaille les outils utilisés, ainsi que les commandes au sein de ces outils.</goal>
         <endOfLine>
             <character>Carriage return (CR): <technic>\r</technic></character>
@@ -1616,7 +1616,7 @@
         </method>
     </keyboard>
     <regexp>
-        <metadata xpath="//data/regexp/tool/remplacement">Expression désignant le premier groupe capturé</metadata>
+        <metadata xpath="/data/regexp/tool/remplacement">Expression désignant le premier groupe capturé</metadata>
         <tool>
             <name>IntelliJ</name>
             <matching>
@@ -1732,65 +1732,58 @@
             </reference>
         </references>
     </webAndWiki>
-    <xslt>
-        <group>
-            <name>Testeurs Xslt online</name>
-            <references>
-                <reference>
-                    <name>mark bucayan</name>
-                    <link>http://markbucayan.appspot.com/xslt/index.html</link>
-                </reference>
-                <reference>
-                    <name>xslt cake</name>
-                    <link>http://www.xsltcake.com</link>
-                </reference>
-            </references>
-        </group>
-        <group>
-            <name>Tutoriaux Xslt</name>
-            <references>
-                <reference>
-                    <name>Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné)</name>
-                    <link>http://xmlfr.org/documentations/faq/041013-0001</link>
-                </reference>
-                <reference>
-                    <name>Regroupement xslt : la méthode Muenchian</name>
-                    <link>http://www.jenitennison.com/xslt/grouping/muenchian.html</link>
-                </reference>
-                <reference>
-                    <name>Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.</name>
-                </reference>
-            </references>
-        </group>
-    </xslt>
-    <xsd>
-        <group>
-            <name>Tutoriaux XSD</name>
-            <references>
-                <reference>
-                    <name>Tutorial Xsd 1</name>
-                    <link>http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes</link>
-                </reference>
-                <reference>
-                    <name>Tutorial Xsd 2</name>
-                    <link>http://www.w3schools.com/schema/default.asp</link>
-                </reference>
-                <reference>
-                    <name>DTD et XSD</name>
-                    <link>http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas</link>
-                </reference>
-            </references>
-        </group>
-        <group>
-            <name>Validateur XSD online</name>
-            <references>
-                <reference>
-                    <name>Xsd online validator</name>
-                    <link>http://www.corefiling.com/opensource/schemaValidate.html</link>
-                </reference>
-            </references>
-        </group>
-    </xsd>
+    <xml>
+    
+        <references name="Tutoriaux xml">
+            <reference>
+                <name>xml, xslt, dtd, ...</name>
+                <link>http://www.liafa.univ-paris-diderot.fr/~carton/Enseignement/XML/Cours/index.html</link>
+            </reference>
+        </references>
+        <references name="Testeurs Xslt online">
+            <reference>
+                <name>mark bucayan</name>
+                <link>http://markbucayan.appspot.com/xslt/index.html</link>
+            </reference>
+            <reference>
+                <name>xslt cake</name>
+                <link>http://www.xsltcake.com</link>
+            </reference>
+        </references>
+        <references name="Tutoriaux Xslt">
+            <reference>
+                <name>Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné)</name>
+                <link>http://xmlfr.org/documentations/faq/041013-0001</link>
+            </reference>
+            <reference>
+                <name>Regroupement xslt : la méthode Muenchian</name>
+                <link>http://www.jenitennison.com/xslt/grouping/muenchian.html</link>
+            </reference>
+            <reference>
+                <name>Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.</name>
+            </reference>
+        </references>
+        <references name="Tutoriaux XSD">
+            <reference>
+                <name>Tutorial Xsd 1</name>
+                <link>http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes</link>
+            </reference>
+            <reference>
+                <name>Tutorial Xsd 2</name>
+                <link>http://www.w3schools.com/schema/default.asp</link>
+            </reference>
+            <reference>
+                <name>DTD et XSD</name>
+                <link>http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas</link>
+            </reference>
+        </references>
+        <references name="Validateur XSD online">
+            <reference>
+                <name>Xsd online validator</name>
+                <link>http://www.corefiling.com/opensource/schemaValidate.html</link>
+            </reference>
+        </references>
+    </xml>
     <java>
         <item>
             <name>Classes liées aux <technic>JTable</technic></name>
