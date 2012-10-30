@@ -341,13 +341,13 @@
     <!-- xslt -->
    
    
-    <xsl:template match="/data/webAndWiki" priority="2">
+    <xsl:template match="/data/webAndWiki">
         <header level="1">WEB AND WIKI</header>
         <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
 
-    <xsl:template match="/data/xml" priority="2">
+    <xsl:template match="/data/xml">
         <header level="1">XML</header>
         <xsl:apply-templates/>
         <endOfSection/>

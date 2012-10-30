@@ -1472,6 +1472,20 @@
             </comment>
             <comment>il ne doit pas y avoir d'espace entre le début de la ligne et le <technic>:r</technic></comment>
         </item>
+        <item>
+            <name>L'outil <technic>bcp</technic></name>
+            <definition>Outil Sybase permettant de sauvegarder les données d'une table dans un fichier, ou d'alimenter une table à partir des données d'un fichier.</definition>
+            <comment>Sauvegarde des données d'une table<newLine/>
+                <code>
+                    <codeLine>bcp BASE..TABLE out C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c</codeLine>
+                </code>
+            </comment>
+            <comment>Alimentation d'une table à partir d'un fichier<newLine/>
+                <code>
+                    <codeLine>bcp BASE..TABLE in C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c</codeLine>
+                </code>
+            </comment>
+        </item>
     </sybase>
     <dos>
         <method>
@@ -1733,7 +1747,6 @@
         </references>
     </webAndWiki>
     <xml>
-    
         <references name="Tutoriaux xml">
             <reference>
                 <name>xml, xslt, dtd, ...</name>
@@ -2719,6 +2732,18 @@
         <reference>
             <name>Test salaire</name>
             <link>http://www.inegalites.fr/spip.php?page=salaire</link>
+        </reference>
+        <reference>
+            <name>Abréviations courantes</name>
+            <link>http://monsu.desiderio.free.fr/atelier/abrevia.html</link>
+        </reference>
+        <reference>
+            <name>Abréviations courantes MR</name>
+            <link>http://fr.wikipedia.org/wiki/MR</link>
+        </reference>
+        <reference>
+            <name>Raccourcis clavier d'Internet Explorer</name>
+            <link>http://windows.microsoft.com/fr-BE/windows-vista/Internet-Explorer-8-keyboard-shortcuts </link>
         </reference>
     </miscellaneous>
 </data>
