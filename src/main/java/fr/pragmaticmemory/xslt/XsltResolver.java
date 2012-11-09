@@ -1,4 +1,4 @@
-package fr.pragmaticmemory;
+package fr.pragmaticmemory.xslt;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;

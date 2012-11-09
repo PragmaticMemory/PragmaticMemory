@@ -1,4 +1,4 @@
-package fr.pragmaticmemory;
+package fr.pragmaticmemory.xslt;
 
 import java.io.File;
 import java.io.IOException;

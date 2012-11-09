@@ -1,4 +1,5 @@
 package fr.pragmaticmemory;
+import fr.pragmaticmemory.fileProcessing.utils.FileUtils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
