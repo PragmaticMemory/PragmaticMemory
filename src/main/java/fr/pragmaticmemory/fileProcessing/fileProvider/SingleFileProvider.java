@@ -9,7 +9,7 @@ public class SingleFileProvider extends FileProvider {
 
 
     public SingleFileProvider(String filePath) {
-        singleItemlist.add(new File(filePath));
+        this(new File(filePath));
     }
 
 
@@ -21,11 +21,5 @@ public class SingleFileProvider extends FileProvider {
     @Override
     public List<File> getAllFile() {
         return singleItemlist;
-    }
-
-
-    @Override
-    protected boolean keepFile(File childFile) {
-        return true;
     }
 }

@@ -11,7 +11,7 @@ public abstract class FileModifier {
     protected FileModifier(FileProvider fileProvider) {
         this.fileProvider = fileProvider;
     }
-
+                 
 
     public void process() throws Exception {
         List<File> fileList = fileProvider.getAllFile();
