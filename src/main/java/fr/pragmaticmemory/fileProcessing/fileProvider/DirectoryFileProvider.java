@@ -3,7 +3,7 @@ package fr.pragmaticmemory.fileProcessing.fileProvider;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-public class DirectoryFileProvider extends FileProvider {
+public class DirectoryFileProvider implements FileProvider {
 
     private File rootDirectory;
     private boolean isRecursive = true;
@@ -49,7 +49,6 @@ public class DirectoryFileProvider extends FileProvider {
     }
 
 
-    @Override
     public List<File> getAllFile() {
         List<File> fileList = new ArrayList<File>();
         getAllSubFilePath(rootDirectory, fileList, isRecursive);

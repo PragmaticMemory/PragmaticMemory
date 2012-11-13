@@ -3,7 +3,7 @@ package fr.pragmaticmemory.fileProcessing.fileProvider;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-public class SingleFileProvider extends FileProvider {
+public class SingleFileProvider implements FileProvider {
 
     private List<File> singleItemlist = new ArrayList<File>();
 
@@ -18,7 +18,6 @@ public class SingleFileProvider extends FileProvider {
     }
 
 
-    @Override
     public List<File> getAllFile() {
         return singleItemlist;
     }
