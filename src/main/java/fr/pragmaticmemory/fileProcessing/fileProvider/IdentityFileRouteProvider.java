@@ -2,27 +2,22 @@ package fr.pragmaticmemory.fileProcessing.fileProvider;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.util.List;
 public class IdentityFileRouteProvider implements RouteProvider {
-    private File file;
+    List<File> fileList;
 
 
-    public IdentityFileRouteProvider(File file) throws IOException {
-        this.file = file;
-    }
-
-
-    public IdentityFileRouteProvider(String filePath) throws IOException {
-        this(new File(filePath));
+    public IdentityFileRouteProvider(FileProvider fileProvider) {
+        fileList = fileProvider.getAllFile();
     }
 
 
     public int getRouteNumber() {
-        return 1;
+        return fileList.size();
     }
 
 
     public Route getRoute(int routeIndex) throws FileNotFoundException {
-        return new IdentityFileRoute(file);
+        return new IdentityFileRoute(fileList.get(routeIndex));
     }
 }

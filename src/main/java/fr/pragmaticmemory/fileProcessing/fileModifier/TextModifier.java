@@ -6,8 +6,8 @@ import fr.pragmaticmemory.fileProcessing.utils.FileUtils;
 import java.util.List;
 public abstract class TextModifier extends Modifier {
 
-    protected TextModifier(RouteProvider sourceTargetProvider) {
-        super(sourceTargetProvider);
+    protected TextModifier(RouteProvider routeProvider) {
+        super(routeProvider);
     }
 
 

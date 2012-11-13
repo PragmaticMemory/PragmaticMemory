@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 public abstract class IndependentLineModifier extends TextModifier {
 
-    protected IndependentLineModifier(RouteProvider sourceTargetProvider) {
-        super(sourceTargetProvider);
+    protected IndependentLineModifier(RouteProvider routeProvider) {
+        super(routeProvider);
     }
 
 

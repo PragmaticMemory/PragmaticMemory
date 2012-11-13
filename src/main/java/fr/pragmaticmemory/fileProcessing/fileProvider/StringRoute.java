@@ -6,17 +6,17 @@ import java.io.StringWriter;
 import java.io.Writer;
 public class StringRoute implements Route {
 
-    private String line;
+    private String inputString;
     private StringWriter stringWriter;
 
 
-    public StringRoute(String line) {
-        this.line = line;
+    public StringRoute(String inputString) {
+        this.inputString = inputString;
     }
 
 
     public Reader getReader() {
-        return new StringReader(line);
+        return new StringReader(inputString);
     }
 
 
@@ -26,7 +26,7 @@ public class StringRoute implements Route {
     }
 
 
-    public String getResultString() {
+    public String getOutputString() {
         return stringWriter.toString();
     }
 }

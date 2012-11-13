@@ -1,16 +1,16 @@
 package fr.pragmaticmemory.fileProcessing.fileModifier;
 
-import fr.pragmaticmemory.fileProcessing.fileProvider.FileProvider;
+import fr.pragmaticmemory.fileProcessing.fileProvider.RouteProvider;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-public class RegExpFileModifier extends IndependentLineFileModifier {
+public class RegExpModifier extends IndependentLineModifier {
 
     private String sourceRegExp;
     private String replacementRegExp;
 
 
-    public RegExpFileModifier(FileProvider fileProvider, String sourceRegExp, String replacementRegExp) {
-        super(fileProvider);
+    public RegExpModifier(RouteProvider routeProvider, String sourceRegExp, String replacementRegExp) {
+        super(routeProvider);
         this.sourceRegExp = sourceRegExp;
         this.replacementRegExp = replacementRegExp;
     }

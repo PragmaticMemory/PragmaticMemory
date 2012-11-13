@@ -1,48 +1,52 @@
 package fr.pragmaticmemory.fileProcessing.tool;
 
-import fr.pragmaticmemory.fileProcessing.fileModifier.FileModifier;
-import fr.pragmaticmemory.fileProcessing.fileModifier.IncrementFileModifier;
 import fr.pragmaticmemory.fileProcessing.fileModifier.IncrementModifier;
-import fr.pragmaticmemory.fileProcessing.fileModifier.RegExpFileModifier;
-import fr.pragmaticmemory.fileProcessing.fileModifier.TextReplacementFileModifier;
+import fr.pragmaticmemory.fileProcessing.fileModifier.Modifier;
+import fr.pragmaticmemory.fileProcessing.fileModifier.RegExpModifier;
+import fr.pragmaticmemory.fileProcessing.fileModifier.TextReplacementModifier;
+import fr.pragmaticmemory.fileProcessing.fileProvider.DirectoryFileProvider;
 import fr.pragmaticmemory.fileProcessing.fileProvider.FileProvider;
-import fr.pragmaticmemory.fileProcessing.fileProvider.SingleFileProvider;
 import fr.pragmaticmemory.fileProcessing.fileProvider.IdentityFileRouteProvider;
 import fr.pragmaticmemory.fileProcessing.fileProvider.RouteProvider;
+import fr.pragmaticmemory.fileProcessing.fileProvider.SingleFileProvider;
 public class ManualTester {
 
     public static void main(String[] args) throws Exception {
-
 //        test1();
-//        test2();
+        test2();
 //        test3();
-        test4();
+//        test5();
     }
 
 
     private static void test1() throws Exception {
-        FileProvider provider = new SingleFileProvider("C:\\Temp\\test.txt");
-        FileModifier modifier = new TextReplacementFileModifier(provider, "main", "3");
+        FileProvider fileProvider = new SingleFileProvider("C:\\Temp\\Test\\test.txt");
+        RouteProvider routeProvider = new IdentityFileRouteProvider(fileProvider);
+        Modifier modifier = new TextReplacementModifier(routeProvider, "main", "3");
         modifier.process();
     }
 
 
     private static void test2() throws Exception {
-        FileProvider provider = new SingleFileProvider("C:\\Temp\\test.txt");
-        FileModifier modifier = new RegExpFileModifier(provider, "\\d", "chiffre");
+        FileProvider fileProvider = new SingleFileProvider("C:\\Temp\\Test\\test.txt");
+        RouteProvider routeProvider = new IdentityFileRouteProvider(fileProvider);
+        RegExpModifier modifier = new RegExpModifier(routeProvider, "\\d", "chiffre");
         modifier.process();
     }
 
-
-    private static void test3() throws Exception {
-        FileProvider provider = new SingleFileProvider("C:\\Temp\\test.txt");
-        FileModifier modifier = new IncrementFileModifier(provider);
-        modifier.process();
-    }
 
     private static void test4() throws Exception {
-        RouteProvider provider = new IdentityFileRouteProvider("C:\\Temp\\test.txt");
-        IncrementModifier modifier = new IncrementModifier(provider);
+        FileProvider fileProvider = new SingleFileProvider("C:\\Temp\\Test\\test.txt");
+        RouteProvider routeProvider = new IdentityFileRouteProvider(fileProvider);
+        IncrementModifier modifier = new IncrementModifier(routeProvider);
+        modifier.process();
+    }
+
+
+    private static void test5() throws Exception {
+        DirectoryFileProvider fileProvider = new DirectoryFileProvider("C:\\Temp\\Test");
+        RouteProvider routeProvider = new IdentityFileRouteProvider(fileProvider);
+        IncrementModifier modifier = new IncrementModifier(routeProvider);
         modifier.process();
     }
 }

@@ -1,12 +1,12 @@
 package fr.pragmaticmemory.fileProcessing.fileProvider;
 
 import java.io.FileNotFoundException;
-public class SingleStringRouteProvider implements RouteProvider {
+public class StringRouteProvider implements RouteProvider {
     private StringRoute stringRoute;
 
 
-    public SingleStringRouteProvider(String line) {
-        stringRoute = new StringRoute(line);
+    public StringRouteProvider(String inputString) {
+        stringRoute = new StringRoute(inputString);
     }
 
 
@@ -20,7 +20,7 @@ public class SingleStringRouteProvider implements RouteProvider {
     }
 
 
-    public String getResultString() {
-        return stringRoute.getResultString();
+    public String getOutputString() {
+        return stringRoute.getOutputString();
     }
 }
