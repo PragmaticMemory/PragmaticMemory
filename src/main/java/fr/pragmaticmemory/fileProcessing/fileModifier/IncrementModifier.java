@@ -5,10 +5,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class IncrementModifier extends IndependentLineModifier {
     Pattern pattern = Pattern.compile("\\d+");
+    private Integer step;
+
+
+    public IncrementModifier(RouteProvider sourceTargetProvider, Integer step) {
+        super(sourceTargetProvider);
+        this.step = step;
+    }
 
 
     public IncrementModifier(RouteProvider sourceTargetProvider) {
-        super(sourceTargetProvider);
+        this(sourceTargetProvider, 1);
     }
 
 
@@ -22,7 +29,7 @@ public class IncrementModifier extends IndependentLineModifier {
             final int endIndex = matcher.end();
             newLineBuilder.append(line.substring(firstIndex, startIndex));
             final int oldInteger = Integer.parseInt(line.substring(startIndex, endIndex));
-            newLineBuilder.append(oldInteger + 1);
+            newLineBuilder.append(oldInteger + step);
             firstIndex = endIndex;
         }
         newLineBuilder.append(line.substring(firstIndex, line.length()));
