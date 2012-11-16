@@ -2684,6 +2684,14 @@
             <solution>Hudson > nodes >  "noeud spécifique" > Configurer > Etiquette</solution>
         </method>
     </hudson>
+    <maven>
+        <references>
+            <reference>
+                <name>Repository Central Maven</name>
+                <link>http://www.sonatype.org/central</link>
+            </reference>
+        </references>
+    </maven>
     <security>
         <item>
             <name>Clés asymétriques</name>
