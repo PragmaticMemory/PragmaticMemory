@@ -825,7 +825,7 @@
         </item>
         <item>
             <name>HEAD</name>
-            <description>Pointeur vers le dernier commit (sauf lorsqu'il est déplacé)</description>
+            <description>Pointeur vers le dernier commit de la branche courante (sauf lorsqu'il est déplacé)</description>
         </item>
         <item>
             <name>HEAD~</name>
@@ -837,7 +837,11 @@
         </item>
         <item>
             <name>HEAD détaché</name>
-            <description>Le HEAD est dit détaché lorsqu'il ne pointe pas sur le même commit que la branche courante</description>
+            <description>Le HEAD est dit détaché lorsqu'il ne pointe pas sur le même commit que la branche courante. Se produit lorsque l'on fait un checkout sur une référence qui n'est pas une branche (comme <technic>master~2</technic> par exemple), l'effet étant de créer une branche anonyme.</description>
+        </item>
+        <item>
+            <name><technic>.</technic></name>
+            <description>Désigne l'ensemble de tous les fichiers du répertoire courant</description>
         </item>
         <item>
             <name>Index / Staging area</name>
@@ -853,11 +857,11 @@
         </item>
         <item>
             <name>Commande checkout</name>
-            <description>Déplace le HEAD (evéntuellement en le détachant)</description>
+            <description>Déplace le HEAD (éventuellement en le détachant)</description>
         </item>
         <item>
             <name>Commande reset</name>
-            <description>Déplace la branche courante (et le HEAD), en mettant optionnellement à jour l'index et le working directory</description>
+            <description>Déplace le HEAD et la branche courante, en mettant optionnellement à jour l'index et le working directory</description>
         </item>
         <item>
             <name>Commande rebase</name>
@@ -951,11 +955,21 @@
             </solutions>
         </method>
         <method>
-            <goal>Ajouter récursivement tous les fichiers à l'index</goal>
+            <goal>Ajouter récursivement tous les fichiers du réperoire courant à l'index</goal>
             <solutions>
                 <solution>
                     <code>
                         <codeLine>git add .</codeLine>
+                    </code>
+                </solution>
+            </solutions>
+        </method>
+        <method>
+            <goal>Ajouter à l'index tous les fichiers modifiés déjà présent dans l'index (mise à jour de l'index)</goal>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git add -u</codeLine>
                     </code>
                 </solution>
             </solutions>
@@ -978,6 +992,9 @@
                         <codeLine>git status</codeLine>
                     </code>
                 </solution>
+                <comments>
+                    <comment>Cette commande ne montre pas tous les fichiers du working directory : les fichiers suivis mais non modifiés n'apparaissent pas</comment>
+                </comments>
             </solutions>
         </method>
         <method>
@@ -1215,6 +1232,16 @@
             </solutions>
         </method>
         <method>
+            <goal>Récuperer localement la version pointée par le HEAD</goal>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git checkout nom_de_fichier</codeLine>
+                    </code>
+                </solution>
+            </solutions>
+        </method>
+        <method>
             <goal>Créér une branche</goal>
             <solutions>
                 <solution>
@@ -1307,7 +1334,7 @@
                 <link>http://canop.org/blog/?p=101</link>
             </reference>
             <reference>
-                <name>A Visual Git Reference</name>
+                <name>A Visual Git Reference (+++)</name>
                 <link>http://marklodato.github.com/visual-git-guide/index-en.html</link>
             </reference>
             <reference>
@@ -1712,6 +1739,10 @@
                 <link>http://www.wordreference.com</link>
             </reference>
             <reference>
+                <name>Autre site pour la phonétique</name>
+                <link>http://dictionary.reference.com/</link>
+            </reference>
+            <reference>
                 <name>Liste des symboles phonétiques</name>
                 <link>http://www.wordreference.com/fr/French-Pronunciation.aspx</link>
             </reference>
@@ -1726,6 +1757,11 @@
             <description></description>
         </word>
         <word>
+            <name>automatically</name>
+            <phonetic>ˌɔːtəˈmætɪklɪ</phonetic>
+            <description></description>
+        </word>
+        <word>
             <name>comfort</name>
             <phonetic>ˈkʌmfət</phonetic>
             <description>confort</description>
@@ -1733,6 +1769,11 @@
         <word>
             <name>comfortable</name>
             <phonetic>ˈkʌmftəbl, US :ˈkʌmfərtbl</phonetic>
+            <description>confortable</description>
+        </word>
+        <word>
+            <name>command</name>
+            <phonetic>/kəˈmɑːnd/ , US /kəˈmænd/</phonetic>
             <description>confortable</description>
         </word>
         <word>
@@ -1749,6 +1790,16 @@
             <name>pawn</name>
             <phonetic>pɔːn</phonetic>
             <description>pions (aux échecs)</description>
+        </word>
+        <word>
+            <name>platform</name>
+            <phonetic>ˈplætfɔrm</phonetic>
+            <description>plateforme</description>
+        </word>
+        <word>
+            <name>variable</name>
+            <phonetic>ˈveərɪəbl</phonetic>
+            <description>une variable</description>
         </word>
     </language>
     <language>
