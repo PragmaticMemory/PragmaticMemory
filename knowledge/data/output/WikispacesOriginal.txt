@@ -368,15 +368,16 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 =GIT=
 ==Objets==
 * Fichier de configuration globale Git : fichier {{.gitConfig}} dans le répertoire %USERPROFILE%
-* HEAD : Pointeur vers le dernier commit (sauf lorsqu'il est déplacé)
+* HEAD : Pointeur vers le dernier commit de la branche courante (sauf lorsqu'il est déplacé)
 * HEAD~ : Pointeur vers le parent du commit pointé par HEAD
 * HEAD~2 : Pointeur vers le parent du commit parent du commit pointé par HEAD (et de même HEAD~3, HEAD~4, etc...)
-* HEAD détaché : Le HEAD est dit détaché lorsqu'il ne pointe pas sur le même commit que la branche courante
+* HEAD détaché : Le HEAD est dit détaché lorsqu'il ne pointe pas sur le même commit que la branche courante. Se produit lorsque l'on fait un checkout sur une référence qui n'est pas une branche (comme {{master~2}} par exemple), l'effet étant de créer une branche anonyme.
+* {{.}} : Désigne l'ensemble de tous les fichiers du répertoire courant
 * Index / Staging area : Versions d'un ensemble de fichiers qui feront parti du prochain commit
 * Action "Stage" : Ajouter des fichiers à l'index
 * Action "Unstage" : Retirer des des fichiers de l'index
-* Commande checkout : Déplace le HEAD (evéntuellement en le détachant)
-* Commande reset : Déplace la branche courante (et le HEAD), en mettant optionnellement à jour l'index et le working directory
+* Commande checkout : Déplace le HEAD (éventuellement en le détachant)
+* Commande reset : Déplace le HEAD et la branche courante, en mettant optionnellement à jour l'index et le working directory
 * Commande rebase : Déplace une succession de commit vers une autre branche
 * Répertoire de travail (working directory) : Ensemble de fichiers modifiés localement et dont les modifications n'ont pas étées ajoutées à l'index
 ==Méthodes==
@@ -416,9 +417,13 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
   git add nom_de_fichier
 [[code]]
-* Ajouter récursivement tous les fichiers à l'index
+* Ajouter récursivement tous les fichiers du répertoire courant à l'index
 [[code]]
   git add .
+[[code]]
+* Ajouter à l'index tous les fichiers modifiés déjà présent dans l'index (mise à jour de l'index)
+[[code]]
+  git add -u
 [[code]]
 * Faire un commit (ajouter les fichiers de l'index au repository)
 [[code]]
@@ -516,6 +521,10 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
   git reset HEAD nom_de_fichier
 [[code]]
+* Récuperer localement la version pointée par le HEAD
+[[code]]
+  git checkout nom_de_fichier
+[[code]]
 * Créér une branche
 [[code]]
   git branch myBranch
@@ -549,7 +558,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 * [[http://learn.github.com/p/intro.html|Tutorial "Learn GitHub"]]
 * [[http://learn.github.com/p/diff.html|Tutorial "Learn GitHub" (suite)]]
 * [[http://canop.org/blog/?p=101|Utiliser Git en entreprise]]
-* [[http://marklodato.github.com/visual-git-guide/index-en.html|A Visual Git Reference]]
+* [[http://marklodato.github.com/visual-git-guide/index-en.html|A Visual Git Reference (+++)]]
 * [[http://www.sbf5.com/~cduan/technical/git/|Understanding Git Conceptually]]
 ----
 =SQL=
@@ -621,6 +630,10 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code format="sql"]]
   sp_addgroup 'nom_de_groupe'
 [[code]]
+* Connaître le nom réel d'un base (renvoyé par les messages d'erreurs Sybase)
+[[code format="sql"]]
+  select @@servername
+[[code]]
 ==Le fichier {{sql.ini}}==
 Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier {{sql.ini}} (présent par exemple dans {{C:\Program Files\sybase\12.5.1\ini}}). Ils sont définis suivant le template :
 [[code]]
@@ -642,6 +655,31 @@ Remarques :
   :r C:\Temp\include.sql
 [[code]]
 ** il ne doit pas y avoir d'espace entre le début de la ligne et le {{:r}}
+==L'outil {{bcp}}==
+Outil Sybase permettant de sauvegarder les données d'une table dans un fichier, ou d'alimenter une table à partir des données d'un fichier.
+
+Remarques :
+** Sauvegarde des données d'une table
+[[code]]
+  bcp BASE..TABLE out C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c
+[[code]]
+** Alimentation d'une table à partir d'un fichier
+[[code]]
+  bcp BASE..TABLE in C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c
+[[code]]
+=={{Allpages}} locking==
+Système de verrouillage par défaut d'une table. Vérouille l'intégralité de la table lors d'une modification de celle-ci (tout {{select}} est mis en attente pendant la mise à jour)
+
+Remarques :
+** Une table est composée de pages. Une page est composées de lignes (row)
+=={{Datapages}} locking==
+Système de verrouillage d'une table dans lequel toutes les pages contenant les lignes en cours de modifications sont verrouillées.
+
+=={{Datarows}} locking==
+Système de verrouillage d'une table dans lequel toutes les lignes en cours de modifications sont verrouillées.
+
+Remarques :
+** Il existe un nombre maximal de verrous sur une base Sybase. Utiliser des verrous de type {{Datarows}} permet une granularité plus fine de verrouillage mais accroît les risques d'atteindre la limite maximale du nombre de verrous (du fait de l'attribution d'un verrou à chaque ligne modifiée)
 ----
 =DOS=
 * Commande externe : Une commande non incluse dans {{command.com}}
@@ -712,15 +750,22 @@ Remarques :
 ==Références==
 * [[http://www.wordreference.com|phonétique]]
 * [[http://www.wordreference.com|traduction]]
+* [[http://dictionary.reference.com/|Autre site pour la phonétique]]
 * [[http://www.wordreference.com/fr/French-Pronunciation.aspx|Liste des symboles phonétiques]]
 * [[http://www.antimoon.com/how/pronunc-soundsipa.htm|ipa]]
 ==Liste==
 || **Mot** || **Phonétique** || **Description** ||
+|| automatically || [ˌɔːtəˈmætɪklɪ] ||  ||
 || comfort || [ˈkʌmfət] || confort ||
 || comfortable || [ˈkʌmftəbl, US :ˈkʌmfərtbl] || confortable ||
+|| command || [/kəˈmɑːnd/ , US /kəˈmænd/] || confortable ||
 || database || [ˈdeɪtəˌbeɪs] || base de données ||
+|| eclipse || [ɪˈklɪps] ||  ||
 || flaccid || [ˈflæksɪd / ˈflæsɪd] || flasque, mou ||
+|| maven || [ˈmeɪvən] || flasque, mou ||
 || pawn || [pɔːn] || pions (aux échecs) ||
+|| platform || [ˈplætfɔrm] || plateforme ||
+|| variable || [ˈveərɪəbl] || une variable ||
 ----
 =Français=
 ==Références==
@@ -753,6 +798,10 @@ Remarques :
 ----
 =JAVA=
 ==Objets==
+* Jvm
+Java virtual machine (machine virtuelle java)
+* Classpath
+Ensemble de chemins utilisés par la jvm pour localiser les différentes ressources (dont les classes). Un classpath peut contenir : des noms de jar; des répertoires (dans ce cas, le répertoire en question doit contenir des .class au sein de sous-répertoires reproduisant l'arborescence des packages).
 * Classes liées aux {{JTable}}
 || **Objet** || **Type** || **Description** ||
 || {{JTable}} || classe || vue du modèle de données ||
@@ -792,6 +841,7 @@ Remarques :
 || {{DefaultCellEditor}} || class || éditeur par défaut des tables et des arbres ||
 || {{CellEditor.getCellEditorValue()}} || method || doit renvoyer la valeur de l'éditeur ||
 || {{TableCellEditor.getTableCellEditorComponent()}} || method || doit renvoyer le composant d'édition ||
+
 Remarques :
 ** Définitions de (et différence entre) column index et model index :
                 Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i. De plus, ces TableColumn sont stockés dans le TableColumnModel.
@@ -811,6 +861,7 @@ Remarques :
 || {{DefaultTreeCellRenderer.setClosedIcon(...)}} || method || définition de l'icône pour les noeuds non feuilles fermés ||
 || {{TreeCellRenderer.getTreeCellRendererComponent(...)}} || method || sélection du composant effectuant le rendu ||
 || {{DefaultTreeModel.insertNodeInto(...)}} || method || ajout d'un noeud dans le modèle ||
+
 * Classes liées aux {{JTreeTable}}
 || {{JTreeTable}} || class || une JTable dont le renderer est un JTree ||
 || {{TreeTableCellRenderer}} || class || Renderer du {{JTreeTable}} ||
@@ -818,6 +869,7 @@ Remarques :
 || {{TreeTableModelAdapter}} || class || un AbstractTableModel faisant le lien avec le TreeTableModel ||
 || {{JTreeTable.TreeCellRendererAdapter}} || inner class ||  ||
 || {{AbstractCellEditor.fireEditingStopped()}} || method || à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché ||
+
 * Gestion des évènements par la classe Component
 || **Listener** || **Event traité** || **méthode d'ajout du Listener dans Component** || **méthodes du listener** ||
 || ComponentListener || ComponentEvent || addComponentListener ||  ||
@@ -853,6 +905,7 @@ Remarques :
 ||  ||  ||  || mouseWheelMoved ||
 || PropertyChangeListener || PropertyChangeEvent || addPropertyChangeListener ||  ||
 ||  ||  ||  || propertyChange ||
+
 ==Méthodes==
 ==Lire les lignes d'un fichier==
 || **Package** || **Classes** ||
@@ -1019,7 +1072,7 @@ utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
 ==Références==
 * [[http://www.jdocs.com/page/AllLibraries|Liste des librairies tiers java]]
 * [[http://commons.apache.org/|Librairies Apache Common (Liste et documentation)]]
-* [[http://projects.apache.org/indexes/alpha.html|Librairies Apache Common (Liste plus complète mais sans documentation)]]
+* [[http://projects.apache.org/indexes/alpha.html|Librairies Apache Common (Liste plus complète avec des références vers les sites des projets - voir "Project Website")]]
 * [[http://commons.apache.org/beanutils/commons-beanutils-1.7.0/docs/api/org/apache/commons/beanutils/package-summary.html|Librairie Apache Common Bean Utils. Une lib équivalente à BeanUtils : Beanlib]]
 * [[http://xircles.codehaus.org/projects|Liste des projets CodeHaus]]
 * [[http://sourceforge.net/directory/development/development/|Liste des projets dans la catégorie développement de SourceForge (voir les sous-catégories dans la partie gauche de la page + possibilité de filtrer les entrées)]]
@@ -1060,6 +1113,14 @@ utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
 * Associer un label à un noeud
 Hudson > nodes >  "noeud spécifique" > Configurer > Etiquette
 ----
+=MAVEN=
+* Afficher les dépendances défini dans les poms (en lisant uniquement les poms mais sans analyser les dépendances réelles comme le fait {{analyze}})
+
+* Afficher les dépendances déclarées et non utilisées / non déclarées et utilisées
+
+==Références==
+* [[http://www.sonatype.org/central|Repository Central Maven]]
+----
 =SECURITEE=
 ==Définitions==
 * Clés asymétriques : La propriété des clés asymétriques est qu'un message chiffré par une clé publique n'est lisible que par le propriétaire de la clé privée correspondante. À l'inverse, un message chiffré par la clé privée sera lisible par tous ceux qui possèdent la clé publique. Ainsi, le détenteur de la clé privée peut signer les messages qu'il envoi et lire les messages qui lui sont adressés.
@@ -1076,4 +1137,7 @@ Hudson > nodes >  "noeud spécifique" > Configurer > Etiquette
 * [[http://maketecheasier.com/5-best-free-alternatives-to-microsoft-visio/2012/01/20|5 alternatives gratuites à Visio]]
 * [[http://www.insee.fr/fr/themes/tableau.asp?reg_id=0&ref_id=NATnon04247|Distribution des niveaux de vie en 2009]]
 * [[http://www.inegalites.fr/spip.php?page=salaire|Test salaire]]
+* [[http://monsu.desiderio.free.fr/atelier/abrevia.html|Abréviations courantes]]
+* [[http://fr.wikipedia.org/wiki/MR|Abréviations courantes MR]]
+* [[http://windows.microsoft.com/fr-BE/windows-vista/Internet-Explorer-8-keyboard-shortcuts |Raccourcis clavier d'Internet Explorer]]
 ----

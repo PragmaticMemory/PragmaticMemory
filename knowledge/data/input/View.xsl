@@ -359,7 +359,7 @@
         <header level="2">Objets</header>
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/></list>
-            <xsl:copy-of select="description"/>
+            <xsl:copy-of select="description"/><newLine/>
             <xsl:if test="comment"><xsl:text>Remarques :</xsl:text><newLine/></xsl:if>
             <xsl:for-each select="comment">
                 <list level="2"><xsl:copy-of select="."/></list>
@@ -450,6 +450,13 @@
         <endOfSection/>
     </xsl:template>
 
+    <!-- Maven -->
+    <xsl:template match="/data/maven">
+        <header level="1">MAVEN</header>
+        <xsl:apply-templates/>
+        <endOfSection/>
+    </xsl:template>
+    
     <!-- COMMON -->
     <xsl:template match="references">
         <header level="2"><xsl:text>Références</xsl:text>

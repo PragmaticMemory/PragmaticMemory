@@ -955,7 +955,7 @@
             </solutions>
         </method>
         <method>
-            <goal>Ajouter récursivement tous les fichiers du réperoire courant à l'index</goal>
+            <goal>Ajouter récursivement tous les fichiers du répertoire courant à l'index</goal>
             <solutions>
                 <solution>
                     <code>
@@ -1782,8 +1782,17 @@
             <description>base de données</description>
         </word>
         <word>
+            <name>eclipse</name>
+            <phonetic>ɪˈklɪps</phonetic>
+        </word>
+        <word>
             <name>flaccid</name>
             <phonetic>ˈflæksɪd / ˈflæsɪd</phonetic>
+            <description>flasque, mou</description>
+        </word>
+        <word>
+            <name>maven</name>
+            <phonetic>ˈmeɪvən</phonetic>
             <description>flasque, mou</description>
         </word>
         <word>
@@ -2775,7 +2784,7 @@
     </hudson>
     <maven>
         <method>
-            <goal>Afficher les dépendances défini dans les poms (en lisant uniquement les poms mais sans analyser les dépendances réelles comme le fait <code>analyze</code>)</goal>
+            <goal>Afficher les dépendances défini dans les poms (en lisant uniquement les poms mais sans analyser les dépendances réelles comme le fait <technic>analyze</technic>)</goal>
             <solution>Utiliser le goal <code>tree</code> du plugin <code>dependency</code></solution>
         </method>
         <method>
