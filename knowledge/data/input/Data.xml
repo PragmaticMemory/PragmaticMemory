@@ -743,6 +743,12 @@
             <comment>Les points de code des 15 plans suivants comportent 5 chiffres (entre <technic>U+10000</technic> et <technic>U+FFFFF</technic>)</comment>
             <comment>Les points de code du dernier plans comportent 6 chiffres (entre <technic>U+100000</technic> et <technic>U+10FFFF</technic>).</comment>
         </item>
+        <references>
+            <reference>
+                <name>ASCII table</name>
+                <link>http://www.asciitable.com/</link>
+            </reference>
+        </references>
     </fileModification>
     <subversion>
         <method>
@@ -1444,6 +1450,16 @@
                 </solution>
             </solutions>
         </method>
+          <method>
+            <goal>Connaître le nom réel d'un base (renvoyé par les messages d'erreurs Sybase)</goal>
+            <solutions>
+                <solution>
+                    <code lang="sql">
+                        <codeLine>select @@servername</codeLine>
+                    </code>
+                </solution>
+            </solutions>
+        </method>
         <item>
             <name>Le fichier <technic>sql.ini</technic></name>
             <definition>Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier <technic>sql.ini</technic> (présent par exemple dans <technic>C:\Program Files\sybase\12.5.1\ini</technic>). Ils sont définis suivant le template :</definition>
@@ -1485,6 +1501,20 @@
                     <codeLine>bcp BASE..TABLE in C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c</codeLine>
                 </code>
             </comment>
+        </item>
+        <item>
+            <name><technic>Allpages</technic> locking</name>
+            <definition>Système de verrouillage par défaut d'une table. Vérouille l'intégralité de la table lors d'une modification de celle-ci (tout <technic>select</technic> est mis en attente pendant la mise à jour)</definition>
+            <comment>Une table est composée de pages. Une page est composées de lignes (row)</comment>
+        </item>
+        <item>
+            <name><technic>Datapages</technic> locking</name>
+            <definition>Système de verrouillage d'une table dans lequel toutes les pages contenant les lignes en cours de modifications sont verrouillées.</definition>
+        </item>
+        <item>
+            <name><technic>Datarows</technic> locking</name>
+            <definition>Système de verrouillage d'une table dans lequel toutes les lignes en cours de modifications sont verrouillées.</definition>
+            <comment>Il existe un nombre maximal de verrous sur une base Sybase. Utiliser des verrous de type <technic>Datarows</technic> permet une granularité plus fine de verrouillage mais accroît les risques d'atteindre la limite maximale du nombre de verrous (du fait de l'attribution d'un verrou à chaque ligne modifiée)</comment>
         </item>
     </sybase>
     <dos>
@@ -1798,6 +1828,14 @@
         </references>
     </xml>
     <java>
+        <item>
+            <name>Jvm</name>
+            <description>Java virtual machine (machine virtuelle java)</description>
+        </item>
+        <item>
+            <name>Classpath</name>
+            <description>Ensemble de chemins utilisés par la jvm pour localiser les différentes ressources (dont les classes). Un classpath peut contenir : des noms de jar; des répertoires (dans ce cas, le répertoire en question doit contenir des .class au sein de sous-répertoires reproduisant l'arborescence des packages).</description>
+        </item>
         <item>
             <name>Classes liées aux <technic>JTable</technic></name>
             <description>
@@ -2547,7 +2585,7 @@
                 <link>http://commons.apache.org/</link>
             </reference>
             <reference>
-                <name>Librairies Apache Common (Liste plus complète mais sans documentation)</name>
+                <name>Librairies Apache Common (Liste plus complète avec des références vers les sites des projets - voir "Project Website")</name>
                 <link>http://projects.apache.org/indexes/alpha.html</link>
             </reference>
             <reference>
@@ -2685,6 +2723,14 @@
         </method>
     </hudson>
     <maven>
+        <method>
+            <goal>Afficher les dépendances défini dans les poms (en lisant uniquement les poms mais sans analyser les dépendances réelles comme le fait <code>analyze</code>)</goal>
+            <solution>Utiliser le goal <code>tree</code> du plugin <code>dependency</code></solution>
+        </method>
+        <method>
+            <goal>Afficher les dépendances déclarées et non utilisées / non déclarées et utilisées</goal>
+            <solution>Utiliser le goal <code>analyze</code> du plugin <code>dependency</code></solution>
+        </method>
         <references>
             <reference>
                 <name>Repository Central Maven</name>
