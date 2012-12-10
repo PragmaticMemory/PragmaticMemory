@@ -1,5 +1,8 @@
-package fr.pragmaticmemory.fileProcessing.fileProvider;
+package fr.pragmaticmemory.fileProcessing.routeProvider;
 
+import fr.pragmaticmemory.fileProcessing.core.Route;
+import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
+import fr.pragmaticmemory.fileProcessing.fileProvider.FileProvider;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;

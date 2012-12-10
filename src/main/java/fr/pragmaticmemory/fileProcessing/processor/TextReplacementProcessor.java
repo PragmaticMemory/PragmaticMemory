@@ -1,13 +1,13 @@
-package fr.pragmaticmemory.fileProcessing.fileModifier;
+package fr.pragmaticmemory.fileProcessing.processor;
 
-import fr.pragmaticmemory.fileProcessing.fileProvider.RouteProvider;
-public class TextReplacementModifier extends IndependentLineModifier {
+import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
+public class TextReplacementProcessor extends IndependentLineProcessor {
 
     private String sourceString;
     private String targetString;
 
 
-    public TextReplacementModifier(RouteProvider routeProvider, String sourceString, String targetString) {
+    public TextReplacementProcessor(RouteProvider routeProvider, String sourceString, String targetString) {
         super(routeProvider);
         this.sourceString = sourceString;
         this.targetString = targetString;

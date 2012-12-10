@@ -1,4 +1,4 @@
 @echo off
-java -classpath ".\target\classes" fr.pragmaticmemory.xslt.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\input\Data.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\input\View.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\output\View.xml"
-java -classpath ".\target\classes" fr.pragmaticmemory.xslt.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\output\View.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\input\Wikispaces.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\output\Wikispaces.txt"
-java -classpath ".\target\classes" fr.pragmaticmemory.xslt.XsltEngine "C:\dev\projects\PragmaticMemory\knowledge\data\output\View.xml" "C:\dev\projects\PragmaticMemory\knowledge\data\input\Text.xsl" "C:\dev\projects\PragmaticMemory\knowledge\data\output\Text.txt"
+java -classpath ".\target\classes" fr.pragmaticmemory.xslt.XsltEngine "knowledge\data\input\Data.xml" "knowledge\data\input\View.xsl" "knowledge\data\output\View.xml"
+java -classpath ".\target\classes" fr.pragmaticmemory.xslt.XsltEngine "knowledge\data\output\View.xml" "knowledge\data\input\Wikispaces.xsl" "knowledge\data\output\Wikispaces.txt"
+java -classpath ".\target\classes" fr.pragmaticmemory.xslt.XsltEngine "knowledge\data\output\View.xml" "knowledge\data\input\Text.xsl" "knowledge\data\output\Text.txt"

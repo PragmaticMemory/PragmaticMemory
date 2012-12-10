@@ -1731,16 +1731,16 @@
         <name>Anglais</name>
         <references>
             <reference>
-                <name>phonétique</name>
+                <name>Les transcriptions phonétiques sont tirées du site suivant :</name>
                 <link>http://www.wordreference.com</link>
+            </reference>
+            <reference>
+                <name>Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple iː au lieu de i) :</name>
+                <link>http://dictionary.reference.com/</link>
             </reference>
             <reference>
                 <name>traduction</name>
                 <link>http://www.wordreference.com</link>
-            </reference>
-            <reference>
-                <name>Autre site pour la phonétique</name>
-                <link>http://dictionary.reference.com/</link>
             </reference>
             <reference>
                 <name>Liste des symboles phonétiques</name>
@@ -1757,6 +1757,12 @@
             <description></description>
         </word>
         <word>
+            <name>agile</name>
+            <phonetic>ˈædʒaɪl</phonetic>
+            <phonetic>ˈædʒl</phonetic>
+            <description>agile</description>
+        </word>
+        <word>
             <name>automatically</name>
             <phonetic>ˌɔːtəˈmætɪklɪ</phonetic>
             <description></description>
@@ -1767,13 +1773,20 @@
             <description>confort</description>
         </word>
         <word>
+            <name>confluence</name>
+            <phonetic>ˈkɒnflʊəns</phonetic>
+            <description>confort</description>
+        </word>
+        <word>
             <name>comfortable</name>
-            <phonetic>ˈkʌmftəbl, US :ˈkʌmfərtbl</phonetic>
+            <phonetic>ˈkʌmftəbl</phonetic>
+            <phonetic>ˈkʌmfərtbl</phonetic>
             <description>confortable</description>
         </word>
         <word>
             <name>command</name>
-            <phonetic>/kəˈmɑːnd/ , US /kəˈmænd/</phonetic>
+            <phonetic>kəˈmɑːnd</phonetic>
+            <phonetic>kəˈmænd</phonetic>
             <description>confortable</description>
         </word>
         <word>
@@ -1782,13 +1795,46 @@
             <description>base de données</description>
         </word>
         <word>
+            <name>directory</name>
+            <phonetic>daɪˈrektərɪ / dɪˈrektərɪ / dɪˈrektrɪ</phonetic>
+            <description>base de données</description>
+        </word>
+        <word>
             <name>eclipse</name>
             <phonetic>ɪˈklɪps</phonetic>
         </word>
+         <word>
+            <name>extreme</name>
+            <phonetic>ɪkˈstriːm</phonetic>
+            <description>extreme</description>
+        </word>
         <word>
             <name>flaccid</name>
-            <phonetic>ˈflæksɪd / ˈflæsɪd</phonetic>
+            <phonetic>ˈflæsɪd / ˈflæksɪd</phonetic>
             <description>flasque, mou</description>
+        </word>
+        <word>
+            <name>GUI</name>
+            <phonetic>ˈguiː</phonetic>
+            <description>Gui User Interface</description>
+        </word>
+        <word>
+            <name>Hudson</name>
+            <phonetic>ˈhʌdsən</phonetic>
+        </word>
+        <word>
+            <name>java</name>
+            <phonetic>ˈdʒɑvə / ˈdʒævə</phonetic>
+        </word>
+        <word>
+            <name>ladder</name>
+            <phonetic>ˈlædə(r)</phonetic>
+            <description>échelle</description>
+        </word>
+        <word>
+            <name>library</name>
+            <phonetic>ˈlaɪbrərɪ</phonetic>
+            <phonetic>ˈlaɪbrerɪ</phonetic>
         </word>
         <word>
             <name>maven</name>
@@ -1801,15 +1847,43 @@
             <description>pions (aux échecs)</description>
         </word>
         <word>
+            <name>phase</name>
+            <phonetic>feɪz</phonetic>
+        </word>
+        <word>
             <name>platform</name>
             <phonetic>ˈplætfɔrm</phonetic>
             <description>plateforme</description>
         </word>
         <word>
+            <name>program</name>
+            <phonetic>ˈprəʊɡræm</phonetic>
+            <phonetic>ˈprəʊɡrəm</phonetic>
+        </word>
+        <word>
+            <name>source</name>
+            <phonetic>sɔːs</phonetic>
+        </word>
+        <word>
+            <name>subversion</name>
+            <phonetic>səˈbvɜːʃn</phonetic>
+            <phonetic>səˈbvɜːrʒn</phonetic>
+        </word>
+        <word>
+            <name>tortoise</name>
+            <phonetic>ˈtɔːtəs</phonetic>
+            <description>tortue (terrestre)</description>
+        </word>
+        <word>
+            <name>turtle</name>
+            <phonetic>ˈtɜːtl</phonetic>
+            <description>tortue (générique)</description>
+        </word>
+        <word>
             <name>variable</name>
             <phonetic>ˈveərɪəbl</phonetic>
             <description>une variable</description>
-        </word>
+        </word>        
     </language>
     <language>
         <name>Français</name>

@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.fileProcessing.fileProvider;
+package fr.pragmaticmemory.fileProcessing.core;
 
 import java.io.FileNotFoundException;
 public interface RouteProvider {

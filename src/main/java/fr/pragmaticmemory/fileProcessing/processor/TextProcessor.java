@@ -1,12 +1,13 @@
-package fr.pragmaticmemory.fileProcessing.fileModifier;
+package fr.pragmaticmemory.fileProcessing.processor;
 
-import fr.pragmaticmemory.fileProcessing.fileProvider.Route;
-import fr.pragmaticmemory.fileProcessing.fileProvider.RouteProvider;
+import fr.pragmaticmemory.fileProcessing.core.Processor;
+import fr.pragmaticmemory.fileProcessing.core.Route;
+import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
 import fr.pragmaticmemory.fileProcessing.utils.FileUtils;
 import java.util.List;
-public abstract class TextModifier extends Modifier {
+public abstract class TextProcessor extends Processor {
 
-    protected TextModifier(RouteProvider routeProvider) {
+    protected TextProcessor(RouteProvider routeProvider) {
         super(routeProvider);
     }
 

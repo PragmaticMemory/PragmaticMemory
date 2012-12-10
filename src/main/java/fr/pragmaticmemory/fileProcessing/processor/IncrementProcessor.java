@@ -1,29 +1,29 @@
-package fr.pragmaticmemory.fileProcessing.fileModifier;
+package fr.pragmaticmemory.fileProcessing.processor;
 
-import fr.pragmaticmemory.fileProcessing.fileProvider.RouteProvider;
+import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
 import java.math.BigInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-public class IncrementModifier extends IndependentLineModifier {
+public class IncrementProcessor extends IndependentLineProcessor {
     static final int DEFAULT_STEP = 1;
     private Pattern simplePattern = Pattern.compile("\\d+");
     private Pattern specificPattern;
     private Integer step;
 
 
-    public IncrementModifier(RouteProvider routeProvider, Integer step) {
+    public IncrementProcessor(RouteProvider routeProvider, Integer step) {
         super(routeProvider);
         this.step = step;
     }
 
 
-    public IncrementModifier(RouteProvider routeProvider, Integer step, String specificPattern) {
+    public IncrementProcessor(RouteProvider routeProvider, Integer step, String specificPattern) {
         this(routeProvider, step);
         this.specificPattern = Pattern.compile(specificPattern);
     }
 
 
-    public IncrementModifier(RouteProvider routeProvider) {
+    public IncrementProcessor(RouteProvider routeProvider) {
         this(routeProvider, DEFAULT_STEP);
     }
 

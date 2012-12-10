@@ -47,6 +47,9 @@ public class FileUtils {
 
 
     public static void writeLines(List<String> lines, Writer writer) throws IOException {
+        if (lines.isEmpty()) {
+            return;
+        }
         BufferedWriter bufferedWriter = new BufferedWriter(writer);
         for (int i = 0; i < lines.size() - 1; i++) {
             bufferedWriter.write(lines.get(i));
@@ -55,5 +58,31 @@ public class FileUtils {
         bufferedWriter.write(lines.get(lines.size() - 1));
         bufferedWriter.flush();
         bufferedWriter.close();
+    }
+
+
+    public static void createDirectory(File file) {
+        if (file.isFile()) {
+            throw new IllegalArgumentException("The File instance argument must represent a directory and not a file.");
+        }
+        final File parentFile = file.getParentFile();
+        if (parentFile.exists()) {
+            file.mkdir();
+        }
+        else {
+            createDirectory(parentFile);
+        }
+    }
+
+
+    public static void createFile(File file) throws IOException {
+        if (file.isDirectory()) {
+            throw new IllegalArgumentException("The File instance argument must represent a file and not a directory.");
+        }
+        final File parentDirectory = file.getParentFile();
+        if (!parentDirectory.exists()) {
+            createDirectory(parentDirectory);
+        }
+        file.createNewFile();
     }
 }

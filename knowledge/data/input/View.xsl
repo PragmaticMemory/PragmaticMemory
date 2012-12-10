@@ -314,7 +314,8 @@
 
     <!-- Language -->
     <xsl:template match="/data/language">
-        <xsl:variable name="hasPhonetic" select="word/phonetic!=''"/>
+        <xsl:variable name="hasPhonetic" select="count(word/phonetic)>0"/>
+        <xsl:variable name="hasPhonetic2" select="count(word/phonetic)>1"/>
         <xsl:variable name="hasDescription" select="word/description!=''"/>
         <header level="1"><xsl:copy-of select="name"/></header>
         <xsl:apply-templates select="references"/>
@@ -322,14 +323,16 @@
         <headerRow>
             <cell>Mot</cell>
             <xsl:if test="$hasPhonetic"><cell>Phonétique</cell></xsl:if>
+            <xsl:if test="$hasPhonetic2"><cell>Phonétique (US)</cell></xsl:if>
             <xsl:if test="$hasDescription"><cell>Description</cell></xsl:if>
         </headerRow>
         <xsl:for-each select="word">
             <xsl:if test="name!=''">
                 <row>
                     <cell><xsl:copy-of select="name"/></cell>
-                    <xsl:if test="$hasPhonetic"><cell><xsl:if test="phonetic"><xsl:text>[</xsl:text><xsl:copy-of select="phonetic"/><xsl:text>]</xsl:text></xsl:if></cell></xsl:if>
-                    <cell><xsl:copy-of select="description"/></cell>
+                    <xsl:if test="$hasPhonetic"><cell><xsl:if test="phonetic[1]"><xsl:text>[</xsl:text><xsl:copy-of select="phonetic[1]"/><xsl:text>]</xsl:text></xsl:if></cell></xsl:if>
+                    <xsl:if test="$hasPhonetic"><cell><xsl:if test="phonetic[2]"><xsl:text>[</xsl:text><xsl:copy-of select="phonetic[2]"/><xsl:text>]</xsl:text></xsl:if></cell></xsl:if>
+                    <xsl:if test="$hasDescription"><cell><xsl:if test="description"><xsl:copy-of select="description"/></xsl:if></cell></xsl:if>
                 </row>
             </xsl:if>
         </xsl:for-each>

@@ -25,13 +25,9 @@ public class XsltEngine {
         final String outputXmlPath;
         final String xsltPath;
         if (args.length == 0) {
-//            inputXmlPath = ROOT_PATH + "\\Data.xml";
-//            xsltPath = ROOT_PATH + "\\View.xsl";
-//            outputXmlPath = ROOT_PATH + "\\View.xml";
-
-            inputXmlPath = ROOT_PATH + "\\View.xml";
-            xsltPath = ROOT_PATH + "\\Wikispaces.xsl";
-            outputXmlPath = ROOT_PATH + "\\Output2.txt";
+            inputXmlPath = ROOT_PATH + "\\input\\View.xml";
+            xsltPath = ROOT_PATH + "\\input\\Wikispaces.xsl";
+            outputXmlPath = ROOT_PATH + "\\output\\Output2.txt";
         }
         else if (args.length != 3) {
             // se placer dans PragmaticMemory\target\classes et executer : java fr.pragmaticmemory.XsltEngine "input" "xslt" "output"
@@ -51,15 +47,15 @@ public class XsltEngine {
         System.out
               .println("java fr.pragmaticmemory.XsltEngine" + quote(inputXmlPath) + quote(xsltPath) + quote(
                     outputXmlPath));
-        transform(inputXmlPath, xsltPath, outputXmlPath);
+        transform(new File(inputXmlPath), new File(xsltPath), new File(outputXmlPath));
     }
 
 
-    private static void transform(String inputXmlPath, String xsltPath, String outputXmlPath) throws Exception {
-        Document document = getDOM(inputXmlPath);
-        File file = new File(outputXmlPath);
+    private static void transform(File inputXmlPath, File xsltPath, File outputXmlPath) throws Exception {
+        Document document = getDOM(inputXmlPath.getAbsolutePath());
+        File file = new File(outputXmlPath.getAbsolutePath());
 
-        StreamSource xslt = new StreamSource(new File(xsltPath));
+        StreamSource xslt = new StreamSource(new File(xsltPath.getAbsolutePath()));
         TransformerFactory factory = TransformerFactory.newInstance();
         factory.setAttribute("indent-number", 6); // non pris en compte pour l'indentation de la sortie
 

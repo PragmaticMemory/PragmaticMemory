@@ -1,11 +1,11 @@
-package fr.pragmaticmemory.fileProcessing.fileModifier;
+package fr.pragmaticmemory.fileProcessing.processor;
 
-import fr.pragmaticmemory.fileProcessing.fileProvider.RouteProvider;
+import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
 import java.util.ArrayList;
 import java.util.List;
-public abstract class IndependentLineModifier extends TextModifier {
+public abstract class IndependentLineProcessor extends TextProcessor {
 
-    protected IndependentLineModifier(RouteProvider routeProvider) {
+    protected IndependentLineProcessor(RouteProvider routeProvider) {
         super(routeProvider);
     }
 

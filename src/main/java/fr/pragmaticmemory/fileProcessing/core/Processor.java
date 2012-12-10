@@ -1,12 +1,11 @@
-package fr.pragmaticmemory.fileProcessing.fileModifier;
-import fr.pragmaticmemory.fileProcessing.fileProvider.RouteProvider;
+package fr.pragmaticmemory.fileProcessing.core;
 
-public abstract class Modifier {
+public abstract class Processor {
 
     protected RouteProvider routeProvider;
 
 
-    protected Modifier(RouteProvider routeProvider) {
+    protected Processor(RouteProvider routeProvider) {
         this.routeProvider = routeProvider;
     }
 

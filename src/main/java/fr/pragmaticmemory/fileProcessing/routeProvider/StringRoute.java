@@ -1,5 +1,6 @@
-package fr.pragmaticmemory.fileProcessing.fileProvider;
+package fr.pragmaticmemory.fileProcessing.routeProvider;
 
+import fr.pragmaticmemory.fileProcessing.core.Route;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
