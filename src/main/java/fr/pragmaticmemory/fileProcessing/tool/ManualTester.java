@@ -56,14 +56,22 @@ public class ManualTester {
 
     private static void test6() throws Exception {
         DirectoryFileProvider fileProvider = new DirectoryFileProvider("C:\\dev\\projects\\gimw\\oscar-release-test");
-        RouteProvider routeProvider = new IdentityFileRouteProvider(new InclusiveFilter(fileProvider, new ExtensionFileFiler(".tokio")));
+        InclusiveFilter tokioFileProvider = new InclusiveFilter(fileProvider, new ExtensionFileFiler(".tokio"));
+        RouteProvider routeProvider = new IdentityFileRouteProvider(tokioFileProvider);
         Processor modifier = new IncrementProcessor(routeProvider, 1, "\"\\d+\"");
         modifier.process();
     }
 
     private static void test7() throws Exception {
-        RouteProvider routeProvider = new DuplicateHierarchyRouteProvider(new File("C:\\dev\\projects\\gimw\\oscar-release-test"), new File("C:\\Temp\\Save"));
-        Processor modifier = new CopyProcessor(routeProvider);
-        modifier.process();
+        DirectoryFileProvider fileProvider = new DirectoryFileProvider("C:\\dev\\projects\\gimw\\oscar-release-test");
+        InclusiveFilter tokioFileProvider = new InclusiveFilter(fileProvider, new ExtensionFileFiler(".tokio"));
+        RouteProvider tokioRouteProvider = new DuplicateHierarchyRouteProvider(tokioFileProvider, new File("C:\\Temp\\Save\\tokio"));
+        Processor tokioProcessor = new CopyProcessor(tokioRouteProvider);
+        tokioProcessor.process();
+
+        InclusiveFilter xmlFileProvider = new InclusiveFilter(fileProvider, new ExtensionFileFiler(".xml"));
+        RouteProvider xmlRouteProvider = new DuplicateHierarchyRouteProvider(xmlFileProvider, new File("C:\\Temp\\Save\\xml"));
+        Processor xmlProcessor = new CopyProcessor(xmlRouteProvider);
+        xmlProcessor.process();
     }
 }

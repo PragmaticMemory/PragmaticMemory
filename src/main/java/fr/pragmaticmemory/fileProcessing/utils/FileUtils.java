@@ -66,12 +66,10 @@ public class FileUtils {
             throw new IllegalArgumentException("The File instance argument must represent a directory and not a file.");
         }
         final File parentFile = file.getParentFile();
-        if (parentFile.exists()) {
-            file.mkdir();
-        }
-        else {
+        if (!parentFile.exists()) {
             createDirectory(parentFile);
         }
+        file.mkdir();
     }
 
 

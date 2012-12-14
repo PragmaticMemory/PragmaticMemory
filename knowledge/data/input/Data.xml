@@ -1765,16 +1765,20 @@
         <word>
             <name>automatically</name>
             <phonetic>ˌɔːtəˈmætɪklɪ</phonetic>
-            <description></description>
         </word>
         <word>
-            <name>comfort</name>
-            <phonetic>ˈkʌmfət</phonetic>
-            <description>confort</description>
+            <name>browse</name>
+            <phonetic>braʊz</phonetic>
+            <description>naviguer</description>
         </word>
         <word>
             <name>confluence</name>
             <phonetic>ˈkɒnflʊəns</phonetic>
+            <description>confort</description>
+        </word>
+         <word>
+            <name>comfort</name>
+            <phonetic>ˈkʌmfət</phonetic>
             <description>confort</description>
         </word>
         <word>
@@ -1814,6 +1818,11 @@
             <description>flasque, mou</description>
         </word>
         <word>
+            <name>France</name>
+            <phonetic>frɑːns</phonetic>
+            <description>La France</description>
+        </word>
+        <word>
             <name>GUI</name>
             <phonetic>ˈguiː</phonetic>
             <description>Gui User Interface</description>
@@ -1824,7 +1833,7 @@
         </word>
         <word>
             <name>java</name>
-            <phonetic>ˈdʒɑvə / ˈdʒævə</phonetic>
+            <phonetic>ˈdʒɑːvə</phonetic>
         </word>
         <word>
             <name>ladder</name>
@@ -1852,13 +1861,38 @@
         </word>
         <word>
             <name>platform</name>
-            <phonetic>ˈplætfɔrm</phonetic>
+            <phonetic>ˈplætfɔːm</phonetic>
             <description>plateforme</description>
+        </word>
+        <word>
+            <name>procedure</name>
+            <phonetic> prəˈsiːdʒə(r)</phonetic>
+            <description>procédure</description>
         </word>
         <word>
             <name>program</name>
             <phonetic>ˈprəʊɡræm</phonetic>
             <phonetic>ˈprəʊɡrəm</phonetic>
+        </word>
+        <word>
+            <name>raw</name>
+            <phonetic>rɔː</phonetic>
+            <description>brut (raw data : données brutes)</description>
+        </word>
+        <word>
+            <name>reassure</name>
+            <phonetic>ˌriːəˈʃɔː(r)</phonetic>
+            <phonetic>ˌriːəˈʃʊər-</phonetic>
+            <description>rassurer (quelqu'un) (about : sur)</description>
+        </word>
+        <word>
+            <name>row</name>
+            <phonetic>rəʊ</phonetic>
+            <description>ligne</description>
+        </word>
+        <word>
+            <name>server</name>
+            <phonetic>ˈsɜːvə(r)</phonetic>
         </word>
         <word>
             <name>source</name>
@@ -1883,7 +1917,7 @@
             <name>variable</name>
             <phonetic>ˈveərɪəbl</phonetic>
             <description>une variable</description>
-        </word>        
+        </word>
     </language>
     <language>
         <name>Français</name>
@@ -2864,6 +2898,11 @@
         <method>
             <goal>Afficher les dépendances déclarées et non utilisées / non déclarées et utilisées</goal>
             <solution>Utiliser le goal <code>analyze</code> du plugin <code>dependency</code></solution>
+        </method>
+        <method>
+            <goal>Compiler des source en jdk6</goal>
+            <solution>Préciser la version du jdk</solution>
+            <comment>Java 6 doit être configuré sur le poste, c'est-à-dire que la variable d'environnement %JAVA_HOME% doit pointer sur le répertoire du bon jdk et le %PATH% doit contenir le chemin du répertoire bin de ce jdk.</comment>
         </method>
         <references>
             <reference>
