@@ -371,12 +371,12 @@
         <header level="2">Méthodes</header>
         <xsl:for-each select="method">
             <header level="2"><xsl:copy-of select="goal"/></header>
-            <xsl:if test="solution/package">
+            <xsl:if test="solutions/solution/package">
                 <table>
                     <headerRow>
                         <cell>Package</cell><cell>Classes</cell>
                     </headerRow>
-                    <xsl:for-each select="solution/package">
+                    <xsl:for-each select="solutions/solution/package">
                         <row>
                             <cell>
                                 <xsl:copy-of select="name"/>
@@ -391,10 +391,10 @@
                     </xsl:for-each>
                 </table>
             </xsl:if>
-            <xsl:if test="solution/code">
-                <xsl:copy-of select="solution/code"/><newLine/>
+            <xsl:if test="solutions/solution/code">
+                <xsl:copy-of select="solutions/solution/code"/><newLine/>
             </xsl:if>
-            <xsl:for-each select="solution/step">
+            <xsl:for-each select="solutions/solution/step">
                 <xsl:copy-of select="."/><newLine/>
             </xsl:for-each>
             <xsl:if test="comments/comment">
@@ -430,7 +430,7 @@
         </xsl:for-each>
         <header level="2">Méthodes</header>
         <xsl:for-each select="method">
-            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solution"/></list>
+            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solutions/solution"/></list>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>

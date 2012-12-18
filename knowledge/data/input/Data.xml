@@ -824,8 +824,12 @@
             </comment>
         </item>
         <item>
+            <name>Branche</name>
+            <description>Pour Git, une branche est un pointeur sur un commit spécifique. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.</description>
+        </item>
+        <item>
             <name>HEAD</name>
-            <description>Pointeur vers le dernier commit de la branche courante (sauf lorsqu'il est déplacé)</description>
+            <description>Pointeur vers le parent du prochain commit. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.</description>
         </item>
         <item>
             <name>HEAD~</name>
@@ -837,39 +841,43 @@
         </item>
         <item>
             <name>HEAD détaché</name>
-            <description>Le HEAD est dit détaché lorsqu'il ne pointe pas sur le même commit que la branche courante. Se produit lorsque l'on fait un checkout sur une référence qui n'est pas une branche (comme <technic>master~2</technic> par exemple), l'effet étant de créer une branche anonyme.</description>
+            <description>Le HEAD est dit détaché lorsqu'il ne pointe pas sur le dernier commit de la branche courante. Ceci se produit lorsque l'on fait un checkout sur une référence qui n'est pas une branche (comme <technic>master~2</technic> par exemple), l'effet étant de créer une branche anonyme.</description>
         </item>
         <item>
-            <name><technic>.</technic></name>
-            <description>Désigne l'ensemble de tous les fichiers du répertoire courant</description>
+            <name>Répertoire de travail (working directory)</name>
+            <description>Ensemble des fichiers présents sur le disque dur, qui contient aussi bien les fichiers suivis que non suivis. C'est ce répertoire de travail qui contient les versions courantes (c'est-à-dire éventuellement modifiées) des fichiers.</description>
         </item>
         <item>
-            <name>Index / Staging area</name>
+            <name>Index (Staging area)</name>
             <description>Versions d'un ensemble de fichiers qui feront parti du prochain commit</description>
         </item>
         <item>
             <name>Action "Stage"</name>
-            <description>Ajouter des fichiers à l'index</description>
+            <description>Ajout de fichiers à l'index</description>
         </item>
         <item>
             <name>Action "Unstage"</name>
-            <description>Retirer des des fichiers de l'index</description>
+            <description>Retrait de fichiers de l'index</description>
+        </item>
+        <item>
+            <name>Commande "Commit"</name>
+            <description>Création d'un commit fils du commit pointé par le HEAD. Après le commit créé, le HEAD est déplacé vers ce nouveau commit ainsi que la branche si le HEAD n'est pas détaché</description>
         </item>
         <item>
             <name>Commande checkout</name>
-            <description>Déplace le HEAD (éventuellement en le détachant)</description>
+            <description>Déplacement du HEAD (éventuellement en le détachant)</description>
         </item>
         <item>
             <name>Commande reset</name>
-            <description>Déplace le HEAD et la branche courante, en mettant optionnellement à jour l'index et le working directory</description>
+            <description>Déplacement du HEAD et de la branche courante, avec mise à jour optionnelle de l'index et du working directory</description>
         </item>
         <item>
             <name>Commande rebase</name>
-            <description>Déplace une succession de commit vers une autre branche</description>
+            <description>Déplacement d'une succession de commit (modification de leur parent)</description>
         </item>
         <item>
-            <name>Répertoire de travail (working directory)</name>
-            <description>Ensemble de fichiers modifiés localement et dont les modifications n'ont pas étées ajoutées à l'index</description>
+            <name><technic>.</technic></name>
+            <description>Désigne l'ensemble de tous les fichiers du répertoire courant</description>
         </item>
         <method>
             <goal>Afficher la configuration globale</goal>
@@ -965,7 +973,7 @@
             </solutions>
         </method>
         <method>
-            <goal>Ajouter à l'index tous les fichiers modifiés déjà présent dans l'index (mise à jour de l'index)</goal>
+            <goal>Ajouter à l'index tous les fichiers modifiés déjà suivis (update)</goal>
             <solutions>
                 <solution>
                     <code>
@@ -993,7 +1001,30 @@
                     </code>
                 </solution>
                 <comments>
-                    <comment>Cette commande ne montre pas tous les fichiers du working directory : les fichiers suivis mais non modifiés n'apparaissent pas</comment>
+                    <comment>Cette commande ne montre pas tous les fichiers du répertoire de travail : les fichiers suivis mais non modifiés n'apparaissent pas</comment>
+                </comments>
+            </solutions>
+        </method>
+        <method>
+            <goal>Afficher la liste des fichiers suivis (tracked), c'est-à-dire l'union des fichiers dans le repository et de ceux de l'index </goal>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git ls-files</codeLine>
+                    </code>
+                </solution>
+            </solutions>
+        </method>
+        <method>
+            <goal>Afficher la liste des fichiers dans le working dirctory mais non suivis (untracked)</goal>
+            <solutions>
+                <solution>
+                    <code>
+                        <codeLine>git ls-files --others</codeLine>
+                    </code>
+                </solution>
+                <comments>
+                    <comment>A la différence de la commande <technic>status</technic>, cette commande liste l'ensembles des enfants des répertoire non suivis/</comment>
                 </comments>
             </solutions>
         </method>
@@ -1232,7 +1263,7 @@
             </solutions>
         </method>
         <method>
-            <goal>Récuperer localement la version pointée par le HEAD</goal>
+            <goal>Récupérer localement la version pointée par le HEAD</goal>
             <solutions>
                 <solution>
                     <code>
@@ -1747,7 +1778,7 @@
                 <link>http://www.wordreference.com/fr/French-Pronunciation.aspx</link>
             </reference>
             <reference>
-                <name>ipa</name>
+                <name>prononciation des sons ipa</name>
                 <link>http://www.antimoon.com/how/pronunc-soundsipa.htm</link>
             </reference>
         </references>
@@ -1763,8 +1794,44 @@
             <description>agile</description>
         </word>
         <word>
+            <name>area</name>
+            <phonetic>ˈeərɪə</phonetic>
+            <description>région, superficie</description>
+        </word>
+        <word>
+            <name>ash</name>
+            <phonetic>æʃ</phonetic>
+            <description>cendre</description>
+        </word>
+        <word>
             <name>automatically</name>
             <phonetic>ˌɔːtəˈmætɪklɪ</phonetic>
+        </word>
+        <word>
+            <name>bat</name>
+            <phonetic>bæt</phonetic>
+            <description></description>
+        </word>
+        <word>
+            <name>bet</name>
+            <phonetic>bet</phonetic>
+            <description></description>
+        </word>
+          <word>
+            <name>bot</name>
+            <phonetic>bɒt</phonetic>
+            <description></description>
+        </word>
+        <word>
+            <name>but</name>
+            <phonetic>bʌt</phonetic>
+            <description></description>
+        </word>
+        <word>
+            <name>barrage</name>
+            <phonetic>ˈbærɑːʒ</phonetic>
+            <phonetic>bəˈrɑːʒ</phonetic>
+            <description>barrage</description>
         </word>
         <word>
             <name>browse</name>
@@ -1807,7 +1874,17 @@
             <name>eclipse</name>
             <phonetic>ɪˈklɪps</phonetic>
         </word>
-         <word>
+        <word>
+            <name>era</name>
+            <phonetic>ˈɪərə</phonetic>
+            <description>époque</description>
+        </word>
+        <word>
+            <name>error</name>
+            <phonetic>ˈerə(r)</phonetic>
+            <description>erreur</description>
+        </word>
+        <word>
             <name>extreme</name>
             <phonetic>ɪkˈstriːm</phonetic>
             <description>extreme</description>
@@ -1849,6 +1926,16 @@
             <name>maven</name>
             <phonetic>ˈmeɪvən</phonetic>
             <description>flasque, mou</description>
+        </word>
+        <word>
+            <name>oath</name>
+            <phonetic>əʊθ</phonetic>
+            <description>serment</description>
+        </word>
+        <word>
+            <name>obstacle</name>
+            <phonetic>ˈɒbstəkl</phonetic>
+            <description>obstacle</description>
         </word>
         <word>
             <name>pawn</name>
@@ -1904,6 +1991,11 @@
             <phonetic>səˈbvɜːrʒn</phonetic>
         </word>
         <word>
+            <name>toe</name>
+            <phonetic>təʊ</phonetic>
+            <description>orteil</description>
+        </word>
+        <word>
             <name>tortoise</name>
             <phonetic>ˈtɔːtəs</phonetic>
             <description>tortue (terrestre)</description>
@@ -1916,7 +2008,12 @@
         <word>
             <name>variable</name>
             <phonetic>ˈveərɪəbl</phonetic>
-            <description>une variable</description>
+            <description>variable</description>
+        </word>
+        <word>
+            <name>wound</name>
+            <phonetic>wuːnd</phonetic>
+            <description>blessure</description>
         </word>
     </language>
     <language>
@@ -2509,140 +2606,152 @@
         </item>
         <method>
             <goal>Lire les lignes d'un fichier</goal>
-            <solution>
-                <tested>jdk6</tested>
-                <package>
-                    <name>java.lang</name>
-                    <class>String</class>
-                </package>
-                <package>
-                    <name>java.util</name>
-                    <class>List</class>
-                    <class>ArrayList</class>
-                </package>
-                <code lang="java">
-                    <codeLine level="1">public static List&#60;String&#62; readLines(File file) throws IOException {</codeLine>
-                    <codeLine level="2">BufferedReader reader = new BufferedReader(new FileReader(file));</codeLine>
-                    <codeLine level="2">List&#60;String&#62; lines = new ArrayList&#60;String&#62;();</codeLine>
-                    <codeLine level="2">String line = reader.readLine();</codeLine>
-                    <codeLine level="2">while (line != null) {</codeLine>
-                    <codeLine level="3">lines.add(line);</codeLine>
-                    <codeLine level="3">line = reader.readLine();</codeLine>
-                    <codeLine level="2">}</codeLine>
-                    <codeLine level="2">reader.close();</codeLine>
-                    <codeLine level="2">return lines;</codeLine>
-                    <codeLine level="1">}</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <tested>jdk6</tested>
+                    <package>
+                        <name>java.lang</name>
+                        <class>String</class>
+                    </package>
+                    <package>
+                        <name>java.util</name>
+                        <class>List</class>
+                        <class>ArrayList</class>
+                    </package>
+                    <code lang="java">
+                        <codeLine level="1">public static List&#60;String&#62; readLines(File file) throws IOException {</codeLine>
+                        <codeLine level="2">BufferedReader reader = new BufferedReader(new FileReader(file));</codeLine>
+                        <codeLine level="2">List&#60;String&#62; lines = new ArrayList&#60;String&#62;();</codeLine>
+                        <codeLine level="2">String line = reader.readLine();</codeLine>
+                        <codeLine level="2">while (line != null) {</codeLine>
+                        <codeLine level="3">lines.add(line);</codeLine>
+                        <codeLine level="3">line = reader.readLine();</codeLine>
+                        <codeLine level="2">}</codeLine>
+                        <codeLine level="2">reader.close();</codeLine>
+                        <codeLine level="2">return lines;</codeLine>
+                        <codeLine level="1">}</codeLine>
+                    </code>
+                </solution>
+            </solutions>
             <comments>
                 <comment>Pour deux fichiers contenant respectivement <technic>A\r\nB</technic> et <technic>A\r\nB\r\n</technic>, la méthode <technic>readLines</technic> renvoie une liste identique (contenant les 2 éléments <technic>A</technic> et <technic>B</technic>).</comment>
             </comments>
         </method>
         <method>
             <goal>Insérer des lignes dans un fichier</goal>
-            <solution>
-                <tested>jdk6</tested>
-                <package>
-                    <name>java.lang</name>
-                    <class>String</class>
-                </package>
-                <package>
-                    <name>java.util</name>
-                    <class>List</class>
-                </package>
-                <package>
-                    <name>java.io</name>
-                    <class>FileWriter</class>
-                    <class>BufferedWriter</class>
-                </package>
-                <code lang="java">
-                    <codeLine level="1">public static void writeLines(List&#60;String&#62; lines, File file) throws IOException {</codeLine>
-                    <codeLine level="2">BufferedWriter writer = new BufferedWriter(new FileWriter(file));</codeLine>
-                    <codeLine level="2">for (int i = 0; i &#60; lines.size() - 1; i++) {</codeLine>
-                    <codeLine level="3">writer.write(lines.get(i));</codeLine>
-                    <codeLine level="3">writer.newLine();</codeLine>
-                    <codeLine level="2">}</codeLine>
-                    <codeLine level="2">writer.write(lines.get(lines.size() - 1));</codeLine>
-                    <codeLine level="2">writer.flush();</codeLine>
-                    <codeLine level="2">writer.close();</codeLine>
-                    <codeLine level="1">}</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <tested>jdk6</tested>
+                    <package>
+                        <name>java.lang</name>
+                        <class>String</class>
+                    </package>
+                    <package>
+                        <name>java.util</name>
+                        <class>List</class>
+                    </package>
+                    <package>
+                        <name>java.io</name>
+                        <class>FileWriter</class>
+                        <class>BufferedWriter</class>
+                    </package>
+                    <code lang="java">
+                        <codeLine level="1">public static void writeLines(List&#60;String&#62; lines, File file) throws IOException {</codeLine>
+                        <codeLine level="2">BufferedWriter writer = new BufferedWriter(new FileWriter(file));</codeLine>
+                        <codeLine level="2">for (int i = 0; i &#60; lines.size() - 1; i++) {</codeLine>
+                        <codeLine level="3">writer.write(lines.get(i));</codeLine>
+                        <codeLine level="3">writer.newLine();</codeLine>
+                        <codeLine level="2">}</codeLine>
+                        <codeLine level="2">writer.write(lines.get(lines.size() - 1));</codeLine>
+                        <codeLine level="2">writer.flush();</codeLine>
+                        <codeLine level="2">writer.close();</codeLine>
+                        <codeLine level="1">}</codeLine>
+                    </code>
+                </solution>
+            </solutions>
             <comments>
                 <comment>la méthode <technic>writeLines</technic> n'ajoute pas de séquence de fin de ligne après la dernière ligne</comment>
             </comments>
         </method>
         <method>
             <goal>Manipuler les listes</goal>
-            <solution>
-                <tested>jdk6</tested>
-                <package>
-                    <name>java.lang</name>
-                    <class>String</class>
-                </package>
-                <package>
-                    <name>java.util</name>
-                    <class>List</class>
-                    <class>ArrayList</class>
-                    <class>Arrays</class>
-                </package>
-                <code lang="java">
-                    <codeLine level="1">SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");</codeLine>
-                    <codeLine level="1">Date date = sdf.parse("10/11/2011");</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <tested>jdk6</tested>
+                    <package>
+                        <name>java.lang</name>
+                        <class>String</class>
+                    </package>
+                    <package>
+                        <name>java.util</name>
+                        <class>List</class>
+                        <class>ArrayList</class>
+                        <class>Arrays</class>
+                    </package>
+                    <code lang="java">
+                        <codeLine level="1">SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");</codeLine>
+                        <codeLine level="1">Date date = sdf.parse("10/11/2011");</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Récupérer les propriétés systèmes</goal>
-            <solution>
-                <package>
-                    <name>java.lang</name>
-                    <class>System</class>
-                </package>
-                <code lang="java">
-                    <codeLine level="1">System.getProperties()</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <package>
+                        <name>java.lang</name>
+                        <class>System</class>
+                    </package>
+                    <code lang="java">
+                        <codeLine level="1">System.getProperties()</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Récupérer une liste fixe de chaînes de caractères</goal>
-            <solution>
-                <package>
-                    <name>java.lang</name>
-                    <class>String</class>
-                </package>
-                <package>
-                    <name>java.util</name>
-                    <class>List</class>
-                    <class>ArrayList</class>
-                </package>
-                <code lang="java">
-                    <codeLine level="1">public List&#60;String&#62; getAllFilePath() {</codeLine>
-                    <codeLine level="2">String[] pathArray = {</codeLine>
-                    <codeLine level="3">"C:\\dev\\file1.xml",</codeLine>
-                    <codeLine level="3">"C:\\dev\\file2.txt"</codeLine>
-                    <codeLine level="2">};</codeLine>
-                    <codeLine level="2">List&#60;String&#62; stringList = new ArrayList&#60;String&#62;();</codeLine>
-                    <codeLine level="2">stringList.addAll(Arrays.asList(pathArray));</codeLine>
-                    <codeLine level="2">return stringList;</codeLine>
-                    <codeLine level="1">}</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <package>
+                        <name>java.lang</name>
+                        <class>String</class>
+                    </package>
+                    <package>
+                        <name>java.util</name>
+                        <class>List</class>
+                        <class>ArrayList</class>
+                    </package>
+                    <code lang="java">
+                        <codeLine level="1">public List&#60;String&#62; getAllFilePath() {</codeLine>
+                        <codeLine level="2">String[] pathArray = {</codeLine>
+                        <codeLine level="3">"C:\\dev\\file1.xml",</codeLine>
+                        <codeLine level="3">"C:\\dev\\file2.txt"</codeLine>
+                        <codeLine level="2">};</codeLine>
+                        <codeLine level="2">List&#60;String&#62; stringList = new ArrayList&#60;String&#62;();</codeLine>
+                        <codeLine level="2">stringList.addAll(Arrays.asList(pathArray));</codeLine>
+                        <codeLine level="2">return stringList;</codeLine>
+                        <codeLine level="1">}</codeLine>
+                    </code>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Modifier plusieurs fichiers</goal>
-            <solution>
-                <code lang="java">
-                    <codeLine level="1">public void process() throws Exception {</codeLine>
-                    <codeLine level="2">for (String filePath : getAllFilePath()) {</codeLine>
-                    <codeLine level="3">File file = new File(filePath);</codeLine>
-                    <codeLine level="3">List&#60;String&#62; lines = readLines(file);</codeLine>
-                    <codeLine level="3">List&#60;String&#62; processedLines = process(lines);</codeLine>
-                    <codeLine level="3">writeLines(processedLines, file);</codeLine>
-                    <codeLine level="2">}</codeLine>
-                    <codeLine level="1">}</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <code lang="java">
+                        <codeLine level="1">public void process() throws Exception {</codeLine>
+                        <codeLine level="2">for (String filePath : getAllFilePath()) {</codeLine>
+                        <codeLine level="3">File file = new File(filePath);</codeLine>
+                        <codeLine level="3">List&#60;String&#62; lines = readLines(file);</codeLine>
+                        <codeLine level="3">List&#60;String&#62; processedLines = process(lines);</codeLine>
+                        <codeLine level="3">writeLines(processedLines, file);</codeLine>
+                        <codeLine level="2">}</codeLine>
+                        <codeLine level="1">}</codeLine>
+                    </code>
+                </solution>
+             </solutions>
             <comments>
                 <comment><technic>getAllFilePath</technic>, <technic>readLines</technic>, <technic>writeLines</technic> sont 3 méthodes définies dans cette section</comment>
                 <comment>La méthode <technic>process</technic> est la seule qui reste à définir</comment>
@@ -2651,33 +2760,35 @@
         </method>
         <method>
             <goal>Utiliser les expressions régulières</goal>
-            <solution>
-                <tested>jdk6</tested>
-                <package>
-                    <name>java.util.regex</name>
-                    <class>Pattern</class>
-                    <class>Matcher</class>
-                </package>
-                <code lang="java">
-                    <codeLine level="1">public static void main(String[] args) {</codeLine>
-                    <codeLine level="2">Pattern pattern = Pattern.compile("(\\w)(..)(.)");</codeLine>
-                    <codeLine level="2">Matcher matcher = pattern.matcher("abcd efghijklmn");</codeLine>
-                    <codeLine level="2">while (matcher.find()) {</codeLine>
-                    <codeLine level="3">System.out.println("MATCH !");</codeLine>
-                    <codeLine level="3">System.out.println("group()= " + matcher.group());</codeLine>
-                    <codeLine level="3">System.out.println("offset before first matched character = " + matcher.start());</codeLine>
-                    <codeLine level="3">System.out.println("offset after last matched character= " + matcher.end());</codeLine>
-                    <codeLine level="3">System.out.println("groupCount = " + matcher.groupCount());</codeLine>
-                    <codeLine level="3">for (int i = 0; i &#60; matcher.groupCount() + 1; i++) {</codeLine>
-                    <codeLine level="4">System.out.println("\tgroup(" + i + ") = " + matcher.group(i));</codeLine>
-                    <codeLine level="4">System.out.println("\t\toffset before group(" + i + ") first character= " + matcher.start(i));</codeLine>
-                    <codeLine level="4">System.out.println("\t\toffset after group(" + i + ") last character = " + matcher.end(i));</codeLine>
-                    <codeLine level="3">}</codeLine>
-                    <codeLine level="2">}</codeLine>
-                    <codeLine level="2">System.out.println("modifiedString = " + matcher.replaceAll("X"));</codeLine>
-                    <codeLine level="1">}</codeLine>
-                </code>
-            </solution>
+            <solutions>
+                <solution>
+                    <tested>jdk6</tested>
+                    <package>
+                        <name>java.util.regex</name>
+                        <class>Pattern</class>
+                        <class>Matcher</class>
+                    </package>
+                    <code lang="java">
+                        <codeLine level="1">public static void main(String[] args) {</codeLine>
+                        <codeLine level="2">Pattern pattern = Pattern.compile("(\\w)(..)(.)");</codeLine>
+                        <codeLine level="2">Matcher matcher = pattern.matcher("abcd efghijklmn");</codeLine>
+                        <codeLine level="2">while (matcher.find()) {</codeLine>
+                        <codeLine level="3">System.out.println("MATCH !");</codeLine>
+                        <codeLine level="3">System.out.println("group()= " + matcher.group());</codeLine>
+                        <codeLine level="3">System.out.println("offset before first matched character = " + matcher.start());</codeLine>
+                        <codeLine level="3">System.out.println("offset after last matched character= " + matcher.end());</codeLine>
+                        <codeLine level="3">System.out.println("groupCount = " + matcher.groupCount());</codeLine>
+                        <codeLine level="3">for (int i = 0; i &#60; matcher.groupCount() + 1; i++) {</codeLine>
+                        <codeLine level="4">System.out.println("\tgroup(" + i + ") = " + matcher.group(i));</codeLine>
+                        <codeLine level="4">System.out.println("\t\toffset before group(" + i + ") first character= " + matcher.start(i));</codeLine>
+                        <codeLine level="4">System.out.println("\t\toffset after group(" + i + ") last character = " + matcher.end(i));</codeLine>
+                        <codeLine level="3">}</codeLine>
+                        <codeLine level="2">}</codeLine>
+                        <codeLine level="2">System.out.println("modifiedString = " + matcher.replaceAll("X"));</codeLine>
+                        <codeLine level="1">}</codeLine>
+                    </code>
+                </solution>
+            </solutions>
             <comments>
                 <comment>L'éxécution du code précédent affiche la sortie suivante :<newLine/>
                     <code>
@@ -2739,9 +2850,11 @@
         </method>
         <method>
             <goal>Décompiler des classes java</goal>
-            <solution>
-                <step>utiliser l'outil <reference><name><technic>JD-GUI</technic></name><link>http://java.decompiler.free.fr/?q=jdgui</link></reference></step>
-            </solution>
+            <solutions>
+                <solution>
+                    <step>utiliser l'outil <reference><name><technic>JD-GUI</technic></name><link>http://java.decompiler.free.fr/?q=jdgui</link></reference></step>
+                </solution>
+            </solutions>
         </method>
         <references>
             <reference>
@@ -2887,21 +3000,23 @@
         </item>
         <method>
             <goal>Associer un label à un noeud</goal>
-            <solution>Hudson > nodes >  "noeud spécifique" > Configurer > Etiquette</solution>
+            <solutions>
+                <solution>Hudson > nodes >  "noeud spécifique" > Configurer > Etiquette</solution>
+            </solutions>
         </method>
     </hudson>
     <maven>
         <method>
             <goal>Afficher les dépendances défini dans les poms (en lisant uniquement les poms mais sans analyser les dépendances réelles comme le fait <technic>analyze</technic>)</goal>
-            <solution>Utiliser le goal <code>tree</code> du plugin <code>dependency</code></solution>
+            <solutions><solution>Utiliser le goal <technic>tree</technic> du plugin <technic>dependency</technic></solution></solutions>
         </method>
         <method>
             <goal>Afficher les dépendances déclarées et non utilisées / non déclarées et utilisées</goal>
-            <solution>Utiliser le goal <code>analyze</code> du plugin <code>dependency</code></solution>
+            <solutions><solution>Utiliser le goal <technic>analyze</technic> du plugin <technic>dependency</technic></solution></solutions>
         </method>
         <method>
             <goal>Compiler des source en jdk6</goal>
-            <solution>Préciser la version du jdk</solution>
+            <solutions><solution>Préciser la version du jdk</solution></solutions>
             <comment>Java 6 doit être configuré sur le poste, c'est-à-dire que la variable d'environnement %JAVA_HOME% doit pointer sur le répertoire du bon jdk et le %PATH% doit contenir le chemin du répertoire bin de ce jdk.</comment>
         </method>
         <references>

@@ -368,18 +368,20 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 =GIT=
 ==Objets==
 * Fichier de configuration globale Git : fichier {{.gitConfig}} dans le répertoire %USERPROFILE%
-* HEAD : Pointeur vers le dernier commit de la branche courante (sauf lorsqu'il est déplacé)
+* Branche : Pour Git, une branche est un pointeur sur un commit spécifique. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.
+* HEAD : Pointeur vers le parent du prochain commit. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.
 * HEAD~ : Pointeur vers le parent du commit pointé par HEAD
 * HEAD~2 : Pointeur vers le parent du commit parent du commit pointé par HEAD (et de même HEAD~3, HEAD~4, etc...)
-* HEAD détaché : Le HEAD est dit détaché lorsqu'il ne pointe pas sur le même commit que la branche courante. Se produit lorsque l'on fait un checkout sur une référence qui n'est pas une branche (comme {{master~2}} par exemple), l'effet étant de créer une branche anonyme.
+* HEAD détaché : Le HEAD est dit détaché lorsqu'il ne pointe pas sur le dernier commit de la branche courante. Ceci se produit lorsque l'on fait un checkout sur une référence qui n'est pas une branche (comme {{master~2}} par exemple), l'effet étant de créer une branche anonyme.
+* Répertoire de travail (working directory) : Ensemble des fichiers présents sur le disque dur, qui contient aussi bien les fichiers suivis que non suivis. C'est ce répertoire de travail qui contient les versions courantes (c'est-à-dire éventuellement modifiées) des fichiers.
+* Index (Staging area) : Versions d'un ensemble de fichiers qui feront parti du prochain commit
+* Action "Stage" : Ajout de fichiers à l'index
+* Action "Unstage" : Retrait de fichiers de l'index
+* Commande "Commit" : Création d'un commit fils du commit pointé par le HEAD. Après le commit créé, le HEAD est déplacé vers ce nouveau commit ainsi que la branche si le HEAD n'est pas détaché
+* Commande checkout : Déplacement du HEAD (éventuellement en le détachant)
+* Commande reset : Déplacement du HEAD et de la branche courante, avec mise à jour optionnelle de l'index et du working directory
+* Commande rebase : Déplacement d'une succession de commit (modification de leur parent)
 * {{.}} : Désigne l'ensemble de tous les fichiers du répertoire courant
-* Index / Staging area : Versions d'un ensemble de fichiers qui feront parti du prochain commit
-* Action "Stage" : Ajouter des fichiers à l'index
-* Action "Unstage" : Retirer des des fichiers de l'index
-* Commande checkout : Déplace le HEAD (éventuellement en le détachant)
-* Commande reset : Déplace le HEAD et la branche courante, en mettant optionnellement à jour l'index et le working directory
-* Commande rebase : Déplace une succession de commit vers une autre branche
-* Répertoire de travail (working directory) : Ensemble de fichiers modifiés localement et dont les modifications n'ont pas étées ajoutées à l'index
 ==Méthodes==
 * Afficher la configuration globale
 [[code]]
@@ -421,7 +423,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
   git add .
 [[code]]
-* Ajouter à l'index tous les fichiers modifiés déjà présent dans l'index (mise à jour de l'index)
+* Ajouter à l'index tous les fichiers modifiés déjà suivis (update)
 [[code]]
   git add -u
 [[code]]
@@ -432,6 +434,14 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 * Afficher le status des fichiers
 [[code]]
   git status
+[[code]]
+* Afficher la liste des fichiers suivis (tracked), c'est-à-dire l'union des fichiers dans le repository et de ceux de l'index 
+[[code]]
+  git ls-files
+[[code]]
+* Afficher la liste des fichiers dans le working dirctory mais non suivis (untracked)
+[[code]]
+  git ls-files --others
 [[code]]
 * Afficher l'historique des commit
 [[code]]
@@ -521,7 +531,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
   git reset HEAD nom_de_fichier
 [[code]]
-* Récuperer localement la version pointée par le HEAD
+* Récupérer localement la version pointée par le HEAD
 [[code]]
   git checkout nom_de_fichier
 [[code]]
@@ -748,24 +758,59 @@ Remarques :
 ----
 =Anglais=
 ==Références==
-* [[http://www.wordreference.com|phonétique]]
+* [[http://www.wordreference.com|Les transcriptions phonétiques sont tirées du site suivant :]]
+* [[http://dictionary.reference.com/|Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple iː au lieu de i) :]]
 * [[http://www.wordreference.com|traduction]]
-* [[http://dictionary.reference.com/|Autre site pour la phonétique]]
 * [[http://www.wordreference.com/fr/French-Pronunciation.aspx|Liste des symboles phonétiques]]
-* [[http://www.antimoon.com/how/pronunc-soundsipa.htm|ipa]]
+* [[http://www.antimoon.com/how/pronunc-soundsipa.htm|prononciation des sons ipa]]
 ==Liste==
-|| **Mot** || **Phonétique** || **Description** ||
-|| automatically || [ˌɔːtəˈmætɪklɪ] ||  ||
-|| comfort || [ˈkʌmfət] || confort ||
-|| comfortable || [ˈkʌmftəbl, US :ˈkʌmfərtbl] || confortable ||
-|| command || [/kəˈmɑːnd/ , US /kəˈmænd/] || confortable ||
-|| database || [ˈdeɪtəˌbeɪs] || base de données ||
-|| eclipse || [ɪˈklɪps] ||  ||
-|| flaccid || [ˈflæksɪd / ˈflæsɪd] || flasque, mou ||
-|| maven || [ˈmeɪvən] || flasque, mou ||
-|| pawn || [pɔːn] || pions (aux échecs) ||
-|| platform || [ˈplætfɔrm] || plateforme ||
-|| variable || [ˈveərɪəbl] || une variable ||
+|| **Mot** || **Phonétique** || **Phonétique (US)** || **Description** ||
+|| agile || [ˈædʒaɪl] || [ˈædʒl] || agile ||
+|| area || [ˈeərɪə] ||  || région, superficie ||
+|| ash || [æʃ] ||  || cendre ||
+|| automatically || [ˌɔːtəˈmætɪklɪ] ||  ||  ||
+|| bat || [bæt] ||  ||  ||
+|| bet || [bet] ||  ||  ||
+|| bot || [bɒt] ||  ||  ||
+|| but || [bʌt] ||  ||  ||
+|| barrage || [ˈbærɑːʒ] || [bəˈrɑːʒ] || barrage ||
+|| browse || [braʊz] ||  || naviguer ||
+|| confluence || [ˈkɒnflʊəns] ||  || confort ||
+|| comfort || [ˈkʌmfət] ||  || confort ||
+|| comfortable || [ˈkʌmftəbl] || [ˈkʌmfərtbl] || confortable ||
+|| command || [kəˈmɑːnd] || [kəˈmænd] || confortable ||
+|| database || [ˈdeɪtəˌbeɪs] ||  || base de données ||
+|| directory || [daɪˈrektərɪ / dɪˈrektərɪ / dɪˈrektrɪ] ||  || base de données ||
+|| eclipse || [ɪˈklɪps] ||  ||  ||
+|| era || [ˈɪərə] ||  || époque ||
+|| error || [ˈerə(r)] ||  || erreur ||
+|| extreme || [ɪkˈstriːm] ||  || extreme ||
+|| flaccid || [ˈflæsɪd / ˈflæksɪd] ||  || flasque, mou ||
+|| France || [frɑːns] ||  || La France ||
+|| GUI || [ˈguiː] ||  || Gui User Interface ||
+|| Hudson || [ˈhʌdsən] ||  ||  ||
+|| java || [ˈdʒɑːvə] ||  ||  ||
+|| ladder || [ˈlædə(r)] ||  || échelle ||
+|| library || [ˈlaɪbrərɪ] || [ˈlaɪbrerɪ] ||  ||
+|| maven || [ˈmeɪvən] ||  || flasque, mou ||
+|| oath || [əʊθ] ||  || serment ||
+|| obstacle || [ˈɒbstəkl] ||  || obstacle ||
+|| pawn || [pɔːn] ||  || pions (aux échecs) ||
+|| phase || [feɪz] ||  ||  ||
+|| platform || [ˈplætfɔːm] ||  || plateforme ||
+|| procedure || [ prəˈsiːdʒə(r)] ||  || procédure ||
+|| program || [ˈprəʊɡræm] || [ˈprəʊɡrəm] ||  ||
+|| raw || [rɔː] ||  || brut (raw data : données brutes) ||
+|| reassure || [ˌriːəˈʃɔː(r)] || [ˌriːəˈʃʊər-] || rassurer (quelqu'un) (about : sur) ||
+|| row || [rəʊ] ||  || ligne ||
+|| server || [ˈsɜːvə(r)] ||  ||  ||
+|| source || [sɔːs] ||  ||  ||
+|| subversion || [səˈbvɜːʃn] || [səˈbvɜːrʒn] ||  ||
+|| toe || [təʊ] ||  || orteil ||
+|| tortoise || [ˈtɔːtəs] ||  || tortue (terrestre) ||
+|| turtle || [ˈtɜːtl] ||  || tortue (générique) ||
+|| variable || [ˈveərɪəbl] ||  || variable ||
+|| wound || [wuːnd] ||  || blessure ||
 ----
 =Français=
 ==Références==
@@ -1115,9 +1160,11 @@ Hudson > nodes >  "noeud spécifique" > Configurer > Etiquette
 ----
 =MAVEN=
 * Afficher les dépendances défini dans les poms (en lisant uniquement les poms mais sans analyser les dépendances réelles comme le fait {{analyze}})
-
+Utiliser le goal {{tree}} du plugin {{dependency}}
 * Afficher les dépendances déclarées et non utilisées / non déclarées et utilisées
-
+Utiliser le goal {{analyze}} du plugin {{dependency}}
+* Compiler des source en jdk6
+Préciser la version du jdk
 ==Références==
 * [[http://www.sonatype.org/central|Repository Central Maven]]
 ----
