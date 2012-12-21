@@ -97,9 +97,11 @@
             <item>
                 <name>Formulation</name>
                 <description>Entre deux formulations d'une même information, utiliser la plus claire.</description>
-                <comment>
-                    <list level="1">(à développer) Utiliser la mise en forme pour permettre une distinction des types d'information</list>
-                </comment>
+                <comments>
+                    <comment>
+                        <list level="1">(à développer) Utiliser la mise en forme pour permettre une distinction des types d'information</list>
+                    </comment>
+                </comments>
             </item>
         </group>
         <group>
@@ -107,12 +109,14 @@
             <item>
                 <name>Forme</name>
                 <description>Utiliser la même forme pour transmettre un même type d'information.</description>
-                <comment>
-                    <list level="1">Règles à déterminer :</list>
-                    <list level="2">utilisation des temps (futur, présent, ...)</list>
-                    <list level="2">utilisation de la casse (majuscule ou minuscule)</list>
-                    <list level="2">ponctuation</list>
-                </comment>
+                <comments>
+                    <comment>
+                        <list level="1">Règles à déterminer :</list>
+                        <list level="2">utilisation des temps (futur, présent, ...)</list>
+                        <list level="2">utilisation de la casse (majuscule ou minuscule)</list>
+                        <list level="2">ponctuation</list>
+                    </comment>
+                </comments>
             </item>
             <item>
                 <name>Terme</name>
@@ -124,35 +128,37 @@
             <item>
                 <name>Données / présentation</name>
                 <description>Distinguer les informations utiles (données à transmettre) de la mise en page (manière de transmettre les données).</description>
-                <comment>
-                    <list level="1">Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée.</list>
-                    <list level="1">Les différentes vues peuvent être destinées :</list>
-                    <list level="2">à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)</list>
-                    <list level="2">à insiter sur différents aspects d'un ensemble de données au sein d'un même outil</list>
-                    <list level="1">La mise en oeuvre de ce principe est faite par l'utilisation de fichiers xml et xslt.</list>
-                    <list level="1">3 types de fichiers sont utilisés :</list>
-                    <list level="2">un fichier de "données", d'extension xml, stockant les données utiles</list>
-                    <list level="2">des fichiers "style", d'extension xslt, définissant chacun un style de présentation</list>
-                    <list level="2">des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style</list>
-                    <list level="3">
-                        <code lang="xml">
-                            <codeLine><![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]></codeLine>
-                            <codeLine><![CDATA[<?xml-stylesheet href="StyleUrl" type="text/xsl" ?>]]></codeLine>
-                            <codeLine><![CDATA[<!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>]]></codeLine>
-                            <codeLine><![CDATA[<linkedData>]]></codeLine>
-                            <codeLine><![CDATA[&data;]]></codeLine>
-                            <codeLine><![CDATA[</linkedData>]]></codeLine>
-                        </code>
-                    </list>
-                    <list level="3">à remplacer dans le template (+ exemple dans le cas de Subversion):</list>
-                    <list level="4">StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)</list>
-                    <list level="4">DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)</list>
-                    <list level="4">Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt</list>
-                    <list level="1">les fichiers xml doivent être encodés en <technic>UTF-8</technic></list>
-                    <list level="1">concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :</list>
-                    <list level="2">toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link</list>
-                    <list level="2">toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé</list>
-                </comment>
+                <comments>
+                    <comment>
+                        <list level="1">Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée.</list>
+                        <list level="1">Les différentes vues peuvent être destinées :</list>
+                        <list level="2">à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)</list>
+                        <list level="2">à insiter sur différents aspects d'un ensemble de données au sein d'un même outil</list>
+                        <list level="1">La mise en oeuvre de ce principe est faite par l'utilisation de fichiers xml et xslt.</list>
+                        <list level="1">3 types de fichiers sont utilisés :</list>
+                        <list level="2">un fichier de "données", d'extension xml, stockant les données utiles</list>
+                        <list level="2">des fichiers "style", d'extension xslt, définissant chacun un style de présentation</list>
+                        <list level="2">des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style</list>
+                        <list level="3">
+                            <code lang="xml">
+                                <codeLine><![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]></codeLine>
+                                <codeLine><![CDATA[<?xml-stylesheet href="StyleUrl" type="text/xsl" ?>]]></codeLine>
+                                <codeLine><![CDATA[<!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>]]></codeLine>
+                                <codeLine><![CDATA[<linkedData>]]></codeLine>
+                                <codeLine><![CDATA[&data;]]></codeLine>
+                                <codeLine><![CDATA[</linkedData>]]></codeLine>
+                            </code>
+                        </list>
+                        <list level="3">à remplacer dans le template (+ exemple dans le cas de Subversion):</list>
+                        <list level="4">StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)</list>
+                        <list level="4">DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)</list>
+                        <list level="4">Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt</list>
+                        <list level="1">les fichiers xml doivent être encodés en <technic>UTF-8</technic></list>
+                        <list level="1">concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :</list>
+                        <list level="2">toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link</list>
+                        <list level="2">toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé</list>
+                    </comment>
+                </comments>
             </item>
             <item>
                 <name>Concepts dans les métadonnées</name>
@@ -164,31 +170,35 @@
             <item>
                 <name>Taille</name>
                 <description>Entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité</description>
-                <comment>
-                    <list level="1">Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.</list>
-                    <list level="2">par exemple : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)</list>
-                    <list level="2">un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)</list>
-                    <list level="1">Utiliser les participes-présent plutôt que les subordonnées</list>
-                    <list level="2">"permettant" au lieu de "qui permettent" (gain de 4 caractères)</list>
-                </comment>
+                <comments>
+                    <comment>
+                        <list level="1">Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.</list>
+                        <list level="2">par exemple : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)</list>
+                        <list level="2">un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)</list>
+                        <list level="1">Utiliser les participes-présent plutôt que les subordonnées</list>
+                        <list level="2">"permettant" au lieu de "qui permettent" (gain de 4 caractères)</list>
+                    </comment>
+                </comments>
             </item>
             <item>
                 <name>Factorisation</name>
                 <description>Eliminer les redondances de mots ou de groupes de mots</description>
-                <comment>
-                    <list level="1">Eliminer les redondances d'informations d'un texte avec son titre (à développer)</list>
-                    <list level="1">Principe des "code smell"</list>
-                    <list level="2">"code smell" de répétition de mot</list>
-                    <list level="3">La liste :</list>
-                    <list level="4">Principes d'homogénéité</list>
-                    <list level="4">Principe de séparation</list>
-                    <list level="4">Principe de concision</list>
-                    <list level="3">peut être remplacée par :</list>
-                    <list level="4">Principes</list>
-                    <list level="5">Homogéneité</list>
-                    <list level="5">Séparation</list>
-                    <list level="5">Concision</list>
-                </comment>
+                <comments>
+                    <comment>
+                        <list level="1">Eliminer les redondances d'informations d'un texte avec son titre (à développer)</list>
+                        <list level="1">Principe des "code smell"</list>
+                        <list level="2">"code smell" de répétition de mot</list>
+                        <list level="3">La liste :</list>
+                        <list level="4">Principes d'homogénéité</list>
+                        <list level="4">Principe de séparation</list>
+                        <list level="4">Principe de concision</list>
+                        <list level="3">peut être remplacée par :</list>
+                        <list level="4">Principes</list>
+                        <list level="5">Homogéneité</list>
+                        <list level="5">Séparation</list>
+                        <list level="5">Concision</list>
+                    </comment>
+                </comments>
             </item>
         </group>
     </principles>
@@ -709,39 +719,49 @@
         <item>
             <name>Table <technic>ASCII</technic></name>
             <description>Table contenant 128 caractères</description>
-            <comment>Chaque caractère est codé sur 7 bit, ce qui permet bien la représentation de (2 puissance 7 =) 128 caractères</comment>
-            <comment>Chaque caractère peut être représenté par un chiffre hexadécimal (entre 0 et F) suivi par un chiffre entre 0 et 7, ce qui permet bien la représentation des (16 x 8 =) 128 caractères.</comment>
+            <comments>
+                <comment>Chaque caractère est codé sur 7 bit, ce qui permet bien la représentation de (2 puissance 7 =) 128 caractères</comment>
+                <comment>Chaque caractère peut être représenté par un chiffre hexadécimal (entre 0 et F) suivi par un chiffre entre 0 et 7, ce qui permet bien la représentation des (16 x 8 =) 128 caractères.</comment>
+            </comments>
         </item>
         <item>
             <name>Table <technic>ASCII</technic> étendue</name>
             <description>Table contenant 256 caractères</description>
-            <comment>Chaque caractère est codé sur 8 bit, ce qui permet bien la représentation de (2 puissance 8 =) 256 caractères</comment>
-            <comment>Chaque caractère peut être représenté par deux chiffres hexadécimal (entre 0 et F), ce qui permet bien la représentation des (16 x 16 =) 256 caractères.</comment>
-            <comment>Ceci n'est pas une mise à jour de la table <technic>ASCII</technic></comment>
-            <comment>Il existe plusieurs extensions propriétaires de la table <technic>ASCII</technic>, incompatibles entre elles.</comment>
-            <comment>Il existe plusieurs tables <technic>ASCII</technic> étendues définie par l'ISO : ce sont les table ISO 8859.</comment>
-            <comment>La plus populaire des tables ISO 8859 est la table SO 8859-1, appelée également ISO Latin1</comment>
+            <comments>
+                <comment>Chaque caractère est codé sur 8 bit, ce qui permet bien la représentation de (2 puissance 8 =) 256 caractères</comment>
+                <comment>Chaque caractère peut être représenté par deux chiffres hexadécimal (entre 0 et F), ce qui permet bien la représentation des (16 x 16 =) 256 caractères.</comment>
+                <comment>Ceci n'est pas une mise à jour de la table <technic>ASCII</technic></comment>
+                <comment>Il existe plusieurs extensions propriétaires de la table <technic>ASCII</technic>, incompatibles entre elles.</comment>
+                <comment>Il existe plusieurs tables <technic>ASCII</technic> étendues définie par l'ISO : ce sont les table ISO 8859.</comment>
+                <comment>La plus populaire des tables ISO 8859 est la table SO 8859-1, appelée également ISO Latin1</comment>
+            </comments>
         </item>
         <item>
             <name><technic>UTF-8</technic></name>
             <description>Système d'encodage des caractères internationaux d'Unicode rétro-compatible avec <technic>ASCII</technic></description>
-            <comment>Chaque caractère est codé sur un ensemble de 1 à 4 octets.</comment>
-            <comment>La rétro-compatibilité avec <technic>ASCII</technic> signifie que tout caractère <technic>ASCII</technic> se code en <technic>UTF-8</technic> sous forme d'un unique octet, identique au code <technic>ASCII</technic>.</comment>
+            <comments>
+                <comment>Chaque caractère est codé sur un ensemble de 1 à 4 octets.</comment>
+                <comment>La rétro-compatibilité avec <technic>ASCII</technic> signifie que tout caractère <technic>ASCII</technic> se code en <technic>UTF-8</technic> sous forme d'un unique octet, identique au code <technic>ASCII</technic>.</comment>
+            </comments>
         </item>
         <item>
             <name>Page de code</name>
             <description>Jeu de caractère associant un nombre à chaque caractère d'une langue.</description>
-            <comment>De nombreuse pages de code ont été définies autour de la norme <technic>ASCII</technic>, sous-ensemble commun à plusieurs pages de code.</comment>
+            <comments>
+                <comment>De nombreuse pages de code ont été définies autour de la norme <technic>ASCII</technic>, sous-ensemble commun à plusieurs pages de code.</comment>
+            </comments>
         </item>
         <item>
             <name>Unicode</name>
             <description>Standard informatique qui vise à permettre le codage de texte écrit en donnant à tout caractère de n’importe quel système d’écriture un nom et un identifiant numérique, et ce de manière unifiée, quelle que soit la plate-forme informatique ou le logiciel. Son but est de remplacer l’utilisation de pages de code nationales.</description>
-            <comment>Chaque caractère est associé à un nombre entier appelé point de code.</comment>
-            <comment>L'espace de codage de ces nombres est divisé en 17 zones de 65 536 points de codes. Ces zones sont appelées plans.</comment>
-            <comment>Un point de code est noté <technic>U+xxxx</technic> où <technic>xxxx</technic> est un nombre hexadécimal comportant de 4 à 6 chiffres.</comment>
-            <comment>Les points de code du premier plan (appelé plan multilingue de base) comportent 4 chiffres (entre <technic>U+0000</technic> et <technic>U+FFFF</technic>)</comment>
-            <comment>Les points de code des 15 plans suivants comportent 5 chiffres (entre <technic>U+10000</technic> et <technic>U+FFFFF</technic>)</comment>
-            <comment>Les points de code du dernier plans comportent 6 chiffres (entre <technic>U+100000</technic> et <technic>U+10FFFF</technic>).</comment>
+            <comments>
+                <comment>Chaque caractère est associé à un nombre entier appelé point de code.</comment>
+                <comment>L'espace de codage de ces nombres est divisé en 17 zones de 65 536 points de codes. Ces zones sont appelées plans.</comment>
+                <comment>Un point de code est noté <technic>U+xxxx</technic> où <technic>xxxx</technic> est un nombre hexadécimal comportant de 4 à 6 chiffres.</comment>
+                <comment>Les points de code du premier plan (appelé plan multilingue de base) comportent 4 chiffres (entre <technic>U+0000</technic> et <technic>U+FFFF</technic>)</comment>
+                <comment>Les points de code des 15 plans suivants comportent 5 chiffres (entre <technic>U+10000</technic> et <technic>U+FFFFF</technic>)</comment>
+                <comment>Les points de code du dernier plans comportent 6 chiffres (entre <technic>U+100000</technic> et <technic>U+10FFFF</technic>).</comment>
+            </comments>
         </item>
         <references>
             <reference>
@@ -816,12 +836,14 @@
         <item>
             <name>Fichier de configuration globale Git</name>
             <description>fichier <technic>.gitConfig</technic> dans le répertoire %USERPROFILE%</description>
-            <comment>Récupérable en java par :
-                <newLine/>
-                <code lang="java">
-                    <codeLine>System.getProperty("user.home");</codeLine>
-                </code>
-            </comment>
+            <comments>
+                <comment>Récupérable en java par :
+                    <newLine/>
+                    <code lang="java">
+                        <codeLine>System.getProperty("user.home");</codeLine>
+                    </code>
+                </comment>
+            </comments>
         </item>
         <item>
             <name>Branche</name>
@@ -1527,9 +1549,11 @@
                     <codeLine level="1">query=TCP,server-name,port</codeLine>
                 </code>
             </example>
-            <comment>dans l'exemple, <technic>server-name</technic> est le nom ou l'alias d'une machine</comment>
-            <comment>un data serveur peut héberger plusieurs bases</comment>
-            <comment>si <technic>A</technic> et <technic>B</technic> sont 2 bases sur un même data server, et si <technic>a</technic> est un objet de <technic>A</technic> et <technic>b</technic> un objet de <technic>B</technic>, <technic>a</technic> peut référencer <technic>b</technic> en utilisant la syntaxe <technic>B..b</technic></comment>
+            <comments>
+                <comment>dans l'exemple, <technic>server-name</technic> est le nom ou l'alias d'une machine</comment>
+                <comment>un data serveur peut héberger plusieurs bases</comment>
+                <comment>si <technic>A</technic> et <technic>B</technic> sont 2 bases sur un même data server, et si <technic>a</technic> est un objet de <technic>A</technic> et <technic>b</technic> un objet de <technic>B</technic>, <technic>a</technic> peut référencer <technic>b</technic> en utilisant la syntaxe <technic>B..b</technic></comment>
+            </comments>
         </item>
         <item>
             <name>L'outil <technic>isql</technic></name>
@@ -1539,31 +1563,37 @@
                     <codeLine>isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql</codeLine>
                 </code>
             </example>
-            <comment>Le fichier d'entrée (ex: <technic>script.sql</technic>) passé à <technic>isql</technic> peut inclure un fichier (ex : <technic>include.sql</technic>) à l'aide de la syntaxe :<newLine/>
-                <code>
-                    <codeLine>:r C:\Temp\include.sql</codeLine>
-                </code>
-            </comment>
-            <comment>il ne doit pas y avoir d'espace entre le début de la ligne et le <technic>:r</technic></comment>
+            <comments>
+                <comment>Le fichier d'entrée (ex: <technic>script.sql</technic>) passé à <technic>isql</technic> peut inclure un fichier (ex : <technic>include.sql</technic>) à l'aide de la syntaxe :<newLine/>
+                    <code>
+                        <codeLine>:r C:\Temp\include.sql</codeLine>
+                    </code>
+                </comment>
+                <comment>il ne doit pas y avoir d'espace entre le début de la ligne et le <technic>:r</technic></comment>
+            </comments>
         </item>
         <item>
             <name>L'outil <technic>bcp</technic></name>
             <definition>Outil Sybase permettant de sauvegarder les données d'une table dans un fichier, ou d'alimenter une table à partir des données d'un fichier.</definition>
-            <comment>Sauvegarde des données d'une table<newLine/>
-                <code>
-                    <codeLine>bcp BASE..TABLE out C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c</codeLine>
-                </code>
-            </comment>
-            <comment>Alimentation d'une table à partir d'un fichier<newLine/>
-                <code>
-                    <codeLine>bcp BASE..TABLE in C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c</codeLine>
-                </code>
-            </comment>
+            <comments>
+                <comment>Sauvegarde des données d'une table<newLine/>
+                    <code>
+                        <codeLine>bcp BASE..TABLE out C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c</codeLine>
+                    </code>
+                </comment>
+                <comment>Alimentation d'une table à partir d'un fichier<newLine/>
+                    <code>
+                        <codeLine>bcp BASE..TABLE in C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c</codeLine>
+                    </code>
+                </comment>
+            </comments>
         </item>
         <item>
             <name><technic>Allpages</technic> locking</name>
             <definition>Système de verrouillage par défaut d'une table. Vérouille l'intégralité de la table lors d'une modification de celle-ci (tout <technic>select</technic> est mis en attente pendant la mise à jour)</definition>
-            <comment>Une table est composée de pages. Une page est composées de lignes (row)</comment>
+            <comments>
+                <comment>Une table est composée de pages. Une page est composées de lignes (row)</comment>
+            </comments>
         </item>
         <item>
             <name><technic>Datapages</technic> locking</name>
@@ -1572,7 +1602,9 @@
         <item>
             <name><technic>Datarows</technic> locking</name>
             <definition>Système de verrouillage d'une table dans lequel toutes les lignes en cours de modifications sont verrouillées.</definition>
-            <comment>Il existe un nombre maximal de verrous sur une base Sybase. Utiliser des verrous de type <technic>Datarows</technic> permet une granularité plus fine de verrouillage mais accroît les risques d'atteindre la limite maximale du nombre de verrous (du fait de l'attribution d'un verrou à chaque ligne modifiée)</comment>
+            <comments>
+                <comment>Il existe un nombre maximal de verrous sur une base Sybase. Utiliser des verrous de type <technic>Datarows</technic> permet une granularité plus fine de verrouillage mais accroît les risques d'atteindre la limite maximale du nombre de verrous (du fait de l'attribution d'un verrou à chaque ligne modifiée)</comment>
+            </comments>
         </item>
     </sybase>
     <dos>
@@ -1664,7 +1696,9 @@
         <item>
             <name><technic>Less</technic></name>
             <description><technic>Less</technic> est le programme de mise en page (pager) par défaut utilisé par les fenêtres DOS.</description>
-            <comment><technic>Less</technic> peut utiliser les variables d'environnement LESSCHARSET et LESSCHARDEF.</comment>
+            <comments>
+                <comment><technic>Less</technic> peut utiliser les variables d'environnement LESSCHARSET et LESSCHARDEF.</comment>
+            </comments>
             <reference>
                 <name>FAQ sur <technic>Less</technic></name>
                 <link>http://www.greenwoodsoftware.com/less/faq.html</link>
@@ -1673,40 +1707,44 @@
         <item>
             <name><technic>LESSCHARSET</technic></name>
             <description>Variable d'environnement lue par <technic>Less</technic>, qui permet de préciser le jeux de caractère prédéfini à utiliser.</description>
-            <comment>Valeurs possibles : ascii, iso8859, latin1, dos, ebcdic, koi8-r, utf-8</comment>
-            <comment>
-                <code>
-                    <codeLine lang="dos">set LESSCHARSET = latin1</codeLine>
-                </code>
-            </comment>
+            <comments>
+                <comment>Valeurs possibles : ascii, iso8859, latin1, dos, ebcdic, koi8-r, utf-8</comment>
+                <comment>
+                    <code>
+                        <codeLine lang="dos">set LESSCHARSET = latin1</codeLine>
+                    </code>
+                </comment>
+            </comments>
 
         </item>
         <item>
             <name><technic>LESSCHARDEF</technic></name>
             <description>Variable d'environnement lue par <technic>Less</technic>, permettant de définir un jeux de caractères</description>
-            <comment>La chaîne de caractère affectée à cette variable défini le type des caractères de 0 à 255.</comment>
-            <comment>Les caractères possibles sont les suivants :<newLine/>
-                <table>
-                    <headerRow>
-                        <cell>Caractère</cell>
-                        <cell>Signification</cell>
-                    </headerRow>
-                    <row>
-                        <cell>.</cell>
-                        <cell>caractère normal</cell>
-                    </row>
-                    <row>
-                        <cell>c</cell>
-                        <cell>caractère de contrôle</cell>
-                    </row>
-                    <row>
-                        <cell>b</cell>
-                        <cell>binaire</cell>
-                    </row>
-                </table>
-            </comment>
-            <comment>Chacun des caractères ci-dessus peut être précédé par un nombre indiquent sur combien de caractères () porte le caractère suivant dans la chaîne</comment>
-            <comment>Exemple : le jeu prédéfini ascii correspond à 8bcccbcc18b95.b (caractères : 8 binaires + 3 contrôles + 1 binaire + 2 contrôles + 18 binaires + 95 normaux + 1 binaire soit 128 caractères définis)</comment>
+            <comments>
+                <comment>La chaîne de caractère affectée à cette variable défini le type des caractères de 0 à 255.</comment>
+                <comment>Les caractères possibles sont les suivants :<newLine/>
+                    <table>
+                        <headerRow>
+                            <cell>Caractère</cell>
+                            <cell>Signification</cell>
+                        </headerRow>
+                        <row>
+                            <cell>.</cell>
+                            <cell>caractère normal</cell>
+                        </row>
+                        <row>
+                            <cell>c</cell>
+                            <cell>caractère de contrôle</cell>
+                        </row>
+                        <row>
+                            <cell>b</cell>
+                            <cell>binaire</cell>
+                        </row>
+                    </table>
+                </comment>
+                <comment>Chacun des caractères ci-dessus peut être précédé par un nombre indiquent sur combien de caractères () porte le caractère suivant dans la chaîne</comment>
+                <comment>Exemple : le jeu prédéfini ascii correspond à 8bcccbcc18b95.b (caractères : 8 binaires + 3 contrôles + 1 binaire + 2 contrôles + 18 binaires + 95 normaux + 1 binaire soit 128 caractères définis)</comment>
+            </comments>
         </item>
     </dos>
     <keyboard>
@@ -2132,21 +2170,23 @@
         <item>
             <name>Paramètre et argument</name>
             <description>Un paramètre est une variable qui fait partie de la déclaration d'une méthode (signature de la méthode). Un argument est une expression utilisée lors de l'appel de la méthode</description>
-            <comment>
-                <code>
-                    <codeLine level="1">void method(int i, float f)</codeLine>
-                    <codeLine level="1">{</codeLine>
-                    <codeLine level="3">// Do things</codeLine>
-                    <codeLine level="1">}</codeLine>
-                    <codeLine level="1"></codeLine>
-                    <codeLine level="1">void Bar()</codeLine>
-                    <codeLine level="1">{</codeLine>
-                    <codeLine level="3">int anInt = 1;</codeLine>
-                    <codeLine level="3">method(anInt, 2.0);</codeLine>
-                    <codeLine level="1">}</codeLine>
-                </code>
-            </comment>
-            <comment>Dans cet exemple, <technic>i</technic> et <technic>f</technic> sont des paramètres et <technic>anInt</technic> et <technic>2.0</technic> sont des arguments.</comment>
+            <comments>
+                <comment>
+                    <code>
+                        <codeLine level="1">void method(int i, float f)</codeLine>
+                        <codeLine level="1">{</codeLine>
+                        <codeLine level="3">// Do things</codeLine>
+                        <codeLine level="1">}</codeLine>
+                        <codeLine level="1"></codeLine>
+                        <codeLine level="1">void Bar()</codeLine>
+                        <codeLine level="1">{</codeLine>
+                        <codeLine level="3">int anInt = 1;</codeLine>
+                        <codeLine level="3">method(anInt, 2.0);</codeLine>
+                        <codeLine level="1">}</codeLine>
+                    </code>
+                </comment>
+                <comment>Dans cet exemple, <technic>i</technic> et <technic>f</technic> sont des paramètres et <technic>anInt</technic> et <technic>2.0</technic> sont des arguments.</comment>
+            </comments>
         </item>
         <item>
             <name>Classes liées aux <technic>JTable</technic></name>
@@ -2344,13 +2384,10 @@
                     </row>
                 </table>
             </description>
-            <comment>Définitions de (et différence entre) column index et model index :
-                Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i. De plus, ces TableColumn sont stockés dans le TableColumnModel.
-                On appelle column index l'index de stockage d'un TableColumn au sein du TableColumnModel.
-                Le model index d'une TableColumn ne varient jamais. Par contre, le column index peut varier lors d'un déplacement de colonne.
-                L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.
-            </comment>
-            <comment>le tri de chaînes de caractères dépend de la locale</comment>
+            <comments>
+                <comment>Définitions de (et différence entre) column index et model index :<newLine/>Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i. De plus, ces TableColumn sont stockés dans le TableColumnModel.<newLine/>On appelle column index l'index de stockage d'un TableColumn au sein du TableColumnModel.<newLine/>Le model index d'une TableColumn ne varient jamais. Par contre, le column index peut varier lors d'un déplacement de colonne.<newLine/>L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.</comment>
+                <comment>le tri de chaînes de caractères dépend de la locale</comment>
+            </comments>
         </item>
         <item>
             <name>Classes liées aux <technic>JTree</technic></name>
@@ -2994,38 +3031,40 @@
         <item>
             <name>shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling</name>
             <description>Ligne en début de fichier débutant par <technic>#!</technic>, indiquant au système que le fichier est un script et par quel est son interpréteur associé</description>
-            <comment>
-                <table>
-                    <headerRow>
-                        <cell>shebang</cell>
-                        <cell>language de script</cell>
-                    </headerRow>
-                    <row>
-                        <cell><technic>#!/bin/sh</technic></cell>
-                        <cell>Bourne shell (ou autre shell compatible)</cell>
-                    </row>
-                    <row>
-                        <cell><technic>#!/bin/csh</technic></cell>
-                        <cell>C shell (ou autre shell compatible)</cell>
-                    </row>
-                    <row>
-                        <cell><technic>#!/usr/bin/perl</technic></cell>
-                        <cell>Perl</cell>
-                    </row>
-                    <row>
-                        <cell><technic>#!/usr/bin/php</technic></cell>
-                        <cell>PHP</cell>
-                    </row>
-                    <row>
-                        <cell><technic>#!/usr/bin/python</technic></cell>
-                        <cell>Python</cell>
-                    </row>
-                    <row>
-                        <cell><technic>#!/usr/bin/ruby</technic></cell>
-                        <cell>Ruby</cell>
-                    </row>
-                </table>
-            </comment>
+            <comments>
+                <comment>
+                    <table>
+                        <headerRow>
+                            <cell>shebang</cell>
+                            <cell>language de script</cell>
+                        </headerRow>
+                        <row>
+                            <cell><technic>#!/bin/sh</technic></cell>
+                            <cell>Bourne shell (ou autre shell compatible)</cell>
+                        </row>
+                        <row>
+                            <cell><technic>#!/bin/csh</technic></cell>
+                            <cell>C shell (ou autre shell compatible)</cell>
+                        </row>
+                        <row>
+                            <cell><technic>#!/usr/bin/perl</technic></cell>
+                            <cell>Perl</cell>
+                        </row>
+                        <row>
+                            <cell><technic>#!/usr/bin/php</technic></cell>
+                            <cell>PHP</cell>
+                        </row>
+                        <row>
+                            <cell><technic>#!/usr/bin/python</technic></cell>
+                            <cell>Python</cell>
+                        </row>
+                        <row>
+                            <cell><technic>#!/usr/bin/ruby</technic></cell>
+                            <cell>Ruby</cell>
+                        </row>
+                    </table>
+                </comment>
+            </comments>
         </item>
     </unix>
     <hudson>
@@ -3068,7 +3107,9 @@
         <method>
             <goal>Compiler des source en jdk6</goal>
             <solutions><solution>Préciser la version du jdk</solution></solutions>
-            <comment>Java 6 doit être configuré sur le poste, c'est-à-dire que la variable d'environnement %JAVA_HOME% doit pointer sur le répertoire du bon jdk et le %PATH% doit contenir le chemin du répertoire bin de ce jdk.</comment>
+            <comments>
+                <comment>Java 6 doit être configuré sur le poste, c'est-à-dire que la variable d'environnement %JAVA_HOME% doit pointer sur le répertoire du bon jdk et le %PATH% doit contenir le chemin du répertoire bin de ce jdk.</comment>
+            </comments>
         </method>
         <references>
             <reference>

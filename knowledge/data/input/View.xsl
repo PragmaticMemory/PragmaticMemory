@@ -81,7 +81,7 @@
             <xsl:for-each select="item">
                 <header level="3"><xsl:copy-of select="name"/></header>
                 <code><xsl:copy-of select="description"/><newLine/></code><newLine/>
-                <xsl:copy-of select="comment"/>
+                <xsl:copy-of select="comments/comment"/>
             </xsl:for-each>
         </xsl:for-each>
         <endOfSection/>
@@ -194,7 +194,7 @@
         <header level="2">Définitions</header>
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
-            <xsl:for-each select="comment">
+            <xsl:for-each select="comments/comment">
                 <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
         </xsl:for-each>
@@ -251,8 +251,8 @@
             <header level="2"><xsl:copy-of select="name"/></header>
             <xsl:copy-of select="definition"/><newLine/>
             <xsl:copy-of select="example"/><newLine/>
-            <xsl:if test="comment">Remarques :<newLine/></xsl:if>
-            <xsl:for-each select="comment">
+            <xsl:if test="comments/comment">Remarques :<newLine/></xsl:if>
+            <xsl:for-each select="comments/comment">
                 <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
         </xsl:for-each>
@@ -265,7 +265,7 @@
         <header level="1">DOS</header>
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
-            <xsl:for-each select="comment">
+            <xsl:for-each select="comments/comment">
                 <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
             <xsl:for-each select="reference">
@@ -363,8 +363,8 @@
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/></list>
             <xsl:copy-of select="description"/><newLine/>
-            <xsl:if test="comment"><xsl:text>Remarques :</xsl:text><newLine/></xsl:if>
-            <xsl:for-each select="comment">
+            <xsl:if test="comments/comment"><xsl:text>Remarques :</xsl:text><newLine/></xsl:if>
+            <xsl:for-each select="comments/comment">
                 <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
         </xsl:for-each>
@@ -414,7 +414,7 @@
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/></list>
             <list level="2"><xsl:text>Description : </xsl:text><xsl:copy-of select="description"/></list>
-            <xsl:for-each select="comment">
+            <xsl:for-each select="comments/comment">
                 <xsl:copy-of select="."/>
             </xsl:for-each>
         </xsl:for-each>
@@ -466,7 +466,7 @@
         <xsl:for-each select="item">
             <header level="2"><xsl:copy-of select="name"/></header>
             <code><xsl:copy-of select="description"/><newLine/></code><newLine/>
-            <xsl:copy-of select="comment"/>
+            <xsl:copy-of select="comments/comment"/>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>

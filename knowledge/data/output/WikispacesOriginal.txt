@@ -913,11 +913,10 @@ Remarques :
 
 Remarques :
 ** Définitions de (et différence entre) column index et model index :
-                Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i. De plus, ces TableColumn sont stockés dans le TableColumnModel.
-                On appelle column index l'index de stockage d'un TableColumn au sein du TableColumnModel.
-                Le model index d'une TableColumn ne varient jamais. Par contre, le column index peut varier lors d'un déplacement de colonne.
-                L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.
-            
+Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i. De plus, ces TableColumn sont stockés dans le TableColumnModel.
+On appelle column index l'index de stockage d'un TableColumn au sein du TableColumnModel.
+Le model index d'une TableColumn ne varient jamais. Par contre, le column index peut varier lors d'un déplacement de colonne.
+L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.
 ** le tri de chaînes de caractères dépend de la locale
 * Classes liées aux {{JTree}}
 || {{JTree.convertValueToText(...)}} || method || Convertie le user object en texte à afficher (par défaut, le texte affiché est celui retourné par la méthode {{toString()}}) ||
