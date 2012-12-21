@@ -1,15 +1,10 @@
-<codeLine level="1">&#60;build&#62;</codeLine>
-<codeLine level="3">&#60;pluginManagement&#62;</codeLine>
-<codeLine level="5">&#60;plugins&#62;</codeLine>
-<codeLine level="7">&#60;plugin&#62;</codeLine>
-<codeLine level="9">&#60;artifactId&#62;maven-compiler-plugin&#60;/artifactId&#62;</codeLine>
-<codeLine level="9">&#60;version&#62;2.0.2&#60;/version&#62;</codeLine>
-<codeLine level="9">&#60;configuration&#62;</codeLine>
-<codeLine level="10">&#60;source&#62;1.6&#60;/source&#62;</codeLine>
-<codeLine level="10">&#60;target&#62;1.6&#60;/target&#62;</codeLine>
-<codeLine level="10">&#60;encoding&#62;windows-1252&#60;/encoding&#62;</codeLine>
-<codeLine level="9">&#60;/configuration&#62;</codeLine>
-<codeLine level="7">&#60;/plugin&#62;</codeLine>
-<codeLine level="5">&#60;/plugins&#62;</codeLine>
-<codeLine level="3">&#60;/pluginManagement&#62;</codeLine>
-<codeLine level="1">&#60;/build&#62;</codeLine>
+<codeLine level="1">void method(int i, float f)</codeLine>
+<codeLine level="1">{</codeLine>
+<codeLine level="3">// Do things</codeLine>
+<codeLine level="1">}</codeLine>
+<codeLine level="1"></codeLine>
+<codeLine level="1">void Bar()</codeLine>
+<codeLine level="1">{</codeLine>
+<codeLine level="3">int anInt = 1;</codeLine>
+<codeLine level="3">method(anInt, 2.0);</codeLine>
+<codeLine level="1">}</codeLine>

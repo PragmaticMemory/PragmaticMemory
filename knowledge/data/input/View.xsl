@@ -460,6 +460,17 @@
         <endOfSection/>
     </xsl:template>
     
+     <!-- Typing -->
+    <xsl:template match="/data/typing">
+        <header level="1">Dactylographie</header>
+        <xsl:for-each select="item">
+            <header level="2"><xsl:copy-of select="name"/></header>
+            <code><xsl:copy-of select="description"/><newLine/></code><newLine/>
+            <xsl:copy-of select="comment"/>
+        </xsl:for-each>
+        <endOfSection/>
+    </xsl:template>
+    
     <!-- COMMON -->
     <xsl:template match="references">
         <header level="2"><xsl:text>Références</xsl:text>

@@ -792,6 +792,8 @@ Remarques :
 || java || [ˈdʒɑːvə] ||  ||  ||
 || ladder || [ˈlædə(r)] ||  || échelle ||
 || library || [ˈlaɪbrərɪ] || [ˈlaɪbrerɪ] ||  ||
+|| library || [ˈlaɪbrərɪ] || [ˈlaɪbrerɪ] ||  ||
+|| limb || [lɪm] || [membre (bras , jambe) / branche principale d'un arbre] ||  ||
 || maven || [ˈmeɪvən] ||  || flasque, mou ||
 || oath || [əʊθ] ||  || serment ||
 || obstacle || [ˈɒbstəkl] ||  || obstacle ||
@@ -802,10 +804,12 @@ Remarques :
 || program || [ˈprəʊɡræm] || [ˈprəʊɡrəm] ||  ||
 || raw || [rɔː] ||  || brut (raw data : données brutes) ||
 || reassure || [ˌriːəˈʃɔː(r)] || [ˌriːəˈʃʊər-] || rassurer (quelqu'un) (about : sur) ||
+|| release || [rɪˈliːs] ||  || libérer, livrer ||
 || row || [rəʊ] ||  || ligne ||
 || server || [ˈsɜːvə(r)] ||  ||  ||
 || source || [sɔːs] ||  ||  ||
 || subversion || [səˈbvɜːʃn] || [səˈbvɜːrʒn] ||  ||
+|| thumb || [θʌm] ||  || pouce ||
 || toe || [təʊ] ||  || orteil ||
 || tortoise || [ˈtɔːtəs] ||  || tortue (terrestre) ||
 || turtle || [ˈtɜːtl] ||  || tortue (générique) ||
@@ -847,6 +851,26 @@ Remarques :
 Java virtual machine (machine virtuelle java)
 * Classpath
 Ensemble de chemins utilisés par la jvm pour localiser les différentes ressources (dont les classes). Un classpath peut contenir : des noms de jar; des répertoires (dans ce cas, le répertoire en question doit contenir des .class au sein de sous-répertoires reproduisant l'arborescence des packages).
+* Class literal
+Tout objet qui représente une classe (par exemple {{String.class}})
+* reifiable type
+Un type "réifiable" est un type dont toute l'information de type est disponible à l'exécution. Un exemple de type non "réifiable" : {{List<String>}}, car ne sont disponible à l'exécution que les informations de {{List}}. Les tableaux et l'opérateur instanceof peuvent s'appliquer uniquement à des types réifiables.
+* Paramètre et argument
+Un paramètre est une variable qui fait partie de la déclaration d'une méthode (signature de la méthode). Un argument est une expression utilisée lors de l'appel de la méthode
+Remarques :
+** [[code]]
+  void method(int i, float f)
+  {
+      // Do things
+  }
+  
+  void Bar()
+  {
+      int anInt = 1;
+      method(anInt, 2.0);
+  }
+[[code]]
+** Dans cet exemple, {{i}} et {{f}} sont des paramètres et {{anInt}} et {{2.0}} sont des arguments.
 * Classes liées aux {{JTable}}
 || **Objet** || **Type** || **Description** ||
 || {{JTable}} || classe || vue du modèle de données ||
@@ -1127,6 +1151,7 @@ utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
 * [[http://www.ibm.com/developerworks/java/library/j-5things14/index.html|Example TreeTable SwingX]]
 * [[http://docs.oracle.com/javase/tutorial/uiswing/components/index.html|Composants swing]]
 * [[http://docs.oracle.com/javase/tutorial/java/generics/index.html|Génériques]]
+* [[http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html|Génériques (2)]]
 * [[http://www.eclipse.org/swt/|Librairie SWT]]
 * [[http://code.google.com/p/junit-ext/|Librairie JUnit-Ext]]
 * [[http://www.java2s.com/Code/Java/Swing-Components/JTreeTablecomponent.htm|Code du JTreeTable]]
@@ -1167,6 +1192,20 @@ Utiliser le goal {{analyze}} du plugin {{dependency}}
 Préciser la version du jdk
 ==Références==
 * [[http://www.sonatype.org/central|Repository Central Maven]]
+----
+=Dactylographie=
+==Conseil position des doigts==
+[[code]]
+Garder les doigts posés sur les touches de référence et revenir régulièrement à cette position entre les frappes successives. Ceci permet d'accroitre la précision des frappes.
+[[code]]
+==Conseil précision==
+[[code]]
+Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).
+[[code]]
+==Conseil vitesse==
+[[code]]
+Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)
+[[code]]
 ----
 =SECURITEE=
 ==Définitions==

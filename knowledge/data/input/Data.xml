@@ -1923,6 +1923,16 @@
             <phonetic>ˈlaɪbrerɪ</phonetic>
         </word>
         <word>
+            <name>library</name>
+            <phonetic>ˈlaɪbrərɪ</phonetic>
+            <phonetic>ˈlaɪbrerɪ</phonetic>
+        </word>
+        <word>
+            <name>limb</name>
+            <phonetic>lɪm</phonetic>
+            <phonetic>membre (bras , jambe) / branche principale d'un arbre</phonetic>
+        </word>
+        <word>
             <name>maven</name>
             <phonetic>ˈmeɪvən</phonetic>
             <description>flasque, mou</description>
@@ -1973,6 +1983,11 @@
             <description>rassurer (quelqu'un) (about : sur)</description>
         </word>
         <word>
+            <name>release</name>
+            <phonetic>rɪˈliːs</phonetic>
+            <description>libérer, livrer</description>
+        </word>
+        <word>
             <name>row</name>
             <phonetic>rəʊ</phonetic>
             <description>ligne</description>
@@ -1989,6 +2004,11 @@
             <name>subversion</name>
             <phonetic>səˈbvɜːʃn</phonetic>
             <phonetic>səˈbvɜːrʒn</phonetic>
+        </word>
+        <word>
+            <name>thumb</name>
+            <phonetic>θʌm</phonetic>
+            <description>pouce</description>
         </word>
         <word>
             <name>toe</name>
@@ -2100,6 +2120,33 @@
         <item>
             <name>Classpath</name>
             <description>Ensemble de chemins utilisés par la jvm pour localiser les différentes ressources (dont les classes). Un classpath peut contenir : des noms de jar; des répertoires (dans ce cas, le répertoire en question doit contenir des .class au sein de sous-répertoires reproduisant l'arborescence des packages).</description>
+        </item>
+        <item>
+            <name>Class literal</name>
+            <description>Tout objet qui représente une classe (par exemple <technic>String.class</technic>)</description>
+        </item>
+        <item>
+            <name>reifiable type</name>
+            <description>Un type "réifiable" est un type dont toute l'information de type est disponible à l'exécution. Un exemple de type non "réifiable" : <technic>List&#60;String&#62;</technic>, car ne sont disponible à l'exécution que les informations de <technic>List</technic>. Les tableaux et l'opérateur instanceof peuvent s'appliquer uniquement à des types réifiables.</description>
+        </item>
+        <item>
+            <name>Paramètre et argument</name>
+            <description>Un paramètre est une variable qui fait partie de la déclaration d'une méthode (signature de la méthode). Un argument est une expression utilisée lors de l'appel de la méthode</description>
+            <comment>
+                <code>
+                    <codeLine level="1">void method(int i, float f)</codeLine>
+                    <codeLine level="1">{</codeLine>
+                    <codeLine level="3">// Do things</codeLine>
+                    <codeLine level="1">}</codeLine>
+                    <codeLine level="1"></codeLine>
+                    <codeLine level="1">void Bar()</codeLine>
+                    <codeLine level="1">{</codeLine>
+                    <codeLine level="3">int anInt = 1;</codeLine>
+                    <codeLine level="3">method(anInt, 2.0);</codeLine>
+                    <codeLine level="1">}</codeLine>
+                </code>
+            </comment>
+            <comment>Dans cet exemple, <technic>i</technic> et <technic>f</technic> sont des paramètres et <technic>anInt</technic> et <technic>2.0</technic> sont des arguments.</comment>
         </item>
         <item>
             <name>Classes liées aux <technic>JTable</technic></name>
@@ -2906,6 +2953,10 @@
                 <link>http://docs.oracle.com/javase/tutorial/java/generics/index.html</link>
             </reference>
             <reference>
+                <name>Génériques (2)</name>
+                <link>http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html</link>
+            </reference>
+            <reference>
                 <name>Librairie SWT</name>
                 <link>http://www.eclipse.org/swt/</link>
             </reference>
@@ -3026,6 +3077,20 @@
             </reference>
         </references>
     </maven>
+    <typing>
+        <item>
+            <name>Conseil position des doigts</name>
+            <description>Garder les doigts posés sur les touches de référence et revenir régulièrement à cette position entre les frappes successives. Ceci permet d'accroitre la précision des frappes.</description>
+        </item>
+        <item>
+            <name>Conseil précision</name>
+            <description>Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).</description>
+        </item>
+        <item>
+            <name>Conseil vitesse</name>
+            <description>Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)</description>
+        </item>
+    </typing>
     <security>
         <item>
             <name>Clés asymétriques</name>
