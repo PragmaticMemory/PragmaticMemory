@@ -1947,6 +1947,11 @@
             <phonetic>ˈhʌdsən</phonetic>
         </word>
         <word>
+            <name>integer</name>
+            <phonetic>ˈɪntɪdʒər</phonetic>
+            <description>mathématiques : entier</description>
+        </word>
+        <word>
             <name>java</name>
             <phonetic>ˈdʒɑːvə</phonetic>
         </word>
@@ -3124,8 +3129,16 @@
             <description>Garder les doigts posés sur les touches de référence et revenir régulièrement à cette position entre les frappes successives. Ceci permet d'accroitre la précision des frappes.</description>
         </item>
         <item>
-            <name>Conseil précision</name>
+            <name>Conseil précision 1</name>
             <description>Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).</description>
+        </item>
+        <item>
+            <name>Conseil précision 2</name>
+            <description>N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.</description>
+        </item>
+        <item>
+            <name>Conseil précision 3</name>
+            <description>Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.</description>
         </item>
         <item>
             <name>Conseil vitesse</name>
