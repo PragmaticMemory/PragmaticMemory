@@ -8,8 +8,8 @@ import java.io.Reader;
 import java.io.Writer;
 public class FileRoute implements Route {
 
-    private File sourceFile;
-    private File destinationFile;
+    private final File sourceFile;
+    private final File destinationFile;
 
 
     public FileRoute(File sourceFile, File destinationFile) {

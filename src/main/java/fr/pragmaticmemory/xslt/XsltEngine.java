@@ -20,7 +20,6 @@ public class XsltEngine {
 
 
     public static void main(String[] args) throws Exception {
-
         final String inputXmlPath;
         final String outputXmlPath;
         final String xsltPath;
@@ -52,14 +51,14 @@ public class XsltEngine {
 
 
     private static void transform(File inputXmlPath, File xsltPath, File outputXmlPath) throws Exception {
-        Document document = getDOM(inputXmlPath.getAbsolutePath());
-        File file = new File(outputXmlPath.getAbsolutePath());
+        final Document document = getDOM(inputXmlPath.getAbsolutePath());
+        final File file = new File(outputXmlPath.getAbsolutePath());
 
-        StreamSource xslt = new StreamSource(new File(xsltPath.getAbsolutePath()));
-        TransformerFactory factory = TransformerFactory.newInstance();
+        final StreamSource xslt = new StreamSource(new File(xsltPath.getAbsolutePath()));
+        final TransformerFactory factory = TransformerFactory.newInstance();
         factory.setAttribute("indent-number", 6); // non pris en compte pour l'indentation de la sortie
 
-        Transformer transformer = factory.newTransformer(xslt);
+        final Transformer transformer = factory.newTransformer(xslt);
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
         // Vu dans un forum : If the Transformer implementation you're using is Xalan-J, then you should be able to use:
@@ -74,20 +73,20 @@ public class XsltEngine {
 
     private static Document getDOM(String filePath)
           throws ParserConfigurationException, SAXException, IOException, TransformerException {
-        DocumentBuilderFactory fabrique = DocumentBuilderFactory.newInstance();
+        final DocumentBuilderFactory fabrique = DocumentBuilderFactory.newInstance();
 
         // création d'un constructeur de documents
-        DocumentBuilder constructeur = fabrique.newDocumentBuilder();
+        final DocumentBuilder constructeur = fabrique.newDocumentBuilder();
 
         // lecture du contenu d'un fichier XML avec DOM
-        File xml = new File(filePath);
+        final File xml = new File(filePath);
         return constructeur.parse(xml);
     }
 
 
     private static void displayDomInConsole(Document document) throws TransformerException {
-        TransformerFactory factory = TransformerFactory.newInstance();
-        Transformer transformer = factory.newTransformer();
+        final TransformerFactory factory = TransformerFactory.newInstance();
+        final Transformer transformer = factory.newTransformer();
         transformer.transform(new DOMSource(document), new StreamResult(System.out));
     }
 

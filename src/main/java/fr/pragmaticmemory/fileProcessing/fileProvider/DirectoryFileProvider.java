@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class DirectoryFileProvider implements FileProvider {
 
-    private File rootDirectory;
+    private final File rootDirectory;
     private boolean isRecursive = true;
 
 
@@ -32,7 +32,7 @@ public class DirectoryFileProvider implements FileProvider {
 
 
     protected void getAllSubFilePath(File directory, List<File> fileList, boolean recursive) {
-        File[] childItems = directory.listFiles();
+        final File[] childItems = directory.listFiles();
         for (File childItem : childItems) {
             if (!childItem.isDirectory()) {
                 fileList.add(childItem);
@@ -50,7 +50,7 @@ public class DirectoryFileProvider implements FileProvider {
 
 
     public List<File> getAllFile() {
-        List<File> fileList = new ArrayList<File>();
+        final List<File> fileList = new ArrayList<File>();
         getAllSubFilePath(rootDirectory, fileList, isRecursive);
         return fileList;
     }

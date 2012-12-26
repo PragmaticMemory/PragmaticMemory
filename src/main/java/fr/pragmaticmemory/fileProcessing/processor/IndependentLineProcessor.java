@@ -12,7 +12,7 @@ public abstract class IndependentLineProcessor extends TextProcessor {
 
     @Override
     protected List<String> processFileContent(List<String> lines) throws Exception {
-        List<String> resultList = new ArrayList<String>();
+        final List<String> resultList = new ArrayList<String>();
         for (int i = 0, linesSize = lines.size(); i < linesSize; i++) {
             resultList.add(processLine(lines.get(i)));
         }

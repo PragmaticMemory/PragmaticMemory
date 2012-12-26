@@ -15,8 +15,8 @@ public abstract class TextProcessor extends Processor {
     @Override
     protected void process(int routeIndex) throws Exception {
         final Route route = routeProvider.getRoute(routeIndex);
-        List<String> lines = FileUtils.readLines(route.getReader());
-        List<String> processedLines = processFileContent(lines);
+        final List<String> lines = FileUtils.readLines(route.getReader());
+        final List<String> processedLines = processFileContent(lines);
         FileUtils.writeLines(processedLines, route.getWriter());
     }
 

@@ -3,7 +3,7 @@ package fr.pragmaticmemory.fileProcessing.fileProvider;
 import java.io.File;
 public class ExtensionFileFiler implements FileFilter {
 
-    private String extension;
+    private final String extension;
 
 
     public ExtensionFileFiler(String extension) {

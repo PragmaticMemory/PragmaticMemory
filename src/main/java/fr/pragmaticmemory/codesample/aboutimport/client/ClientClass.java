@@ -4,7 +4,7 @@ import fr.pragmaticmemory.codesample.aboutimport.middle.MiddleClass;
 public class ClientClass {
 
     public void clientMethod() {
-        MiddleClass middleClass = new MiddleClass();
+        final MiddleClass middleClass = new MiddleClass();
         middleClass.getServerClass().serverMethod();
     }
 
@@ -16,7 +16,7 @@ public class ClientClass {
         n'est pas suffisant.
     */
     public static void main(String[] args) {
-        ClientClass clientClass = new ClientClass();
+        final ClientClass clientClass = new ClientClass();
         clientClass.clientMethod();
     }
 }

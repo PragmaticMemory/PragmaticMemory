@@ -24,8 +24,8 @@ public class FileUtils {
 
 
     public static List<String> readLines(Reader reader) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(reader);
-        List<String> lines = new ArrayList<String>();
+        final BufferedReader bufferedReader = new BufferedReader(reader);
+        final List<String> lines = new ArrayList<String>();
         String line = bufferedReader.readLine();
         while (line != null) {
             lines.add(line);
@@ -50,7 +50,7 @@ public class FileUtils {
         if (lines.isEmpty()) {
             return;
         }
-        BufferedWriter bufferedWriter = new BufferedWriter(writer);
+        final BufferedWriter bufferedWriter = new BufferedWriter(writer);
         for (int i = 0; i < lines.size() - 1; i++) {
             bufferedWriter.write(lines.get(i));
             bufferedWriter.newLine();

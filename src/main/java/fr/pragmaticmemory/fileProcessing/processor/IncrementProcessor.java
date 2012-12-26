@@ -6,9 +6,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class IncrementProcessor extends IndependentLineProcessor {
     static final int DEFAULT_STEP = 1;
-    private Pattern simplePattern = Pattern.compile("\\d+");
+    private final Pattern simplePattern = Pattern.compile("\\d+");
+    private final Integer step;
     private Pattern specificPattern;
-    private Integer step;
 
 
     public IncrementProcessor(RouteProvider routeProvider, Integer step) {
@@ -38,9 +38,9 @@ public class IncrementProcessor extends IndependentLineProcessor {
 
 
     private String partialIncrement(String line) {
-        Matcher matcher = specificPattern.matcher(line);
+        final Matcher matcher = specificPattern.matcher(line);
+        final StringBuilder newLineBuilder = new StringBuilder();
         int firstIndex = 0;
-        StringBuilder newLineBuilder = new StringBuilder();
         while (matcher.find()) {
             final int startIndex = matcher.start();
             final int endIndex = matcher.end();
@@ -54,9 +54,9 @@ public class IncrementProcessor extends IndependentLineProcessor {
 
 
     private String fullIncrement(String line) {
-        Matcher matcher = simplePattern.matcher(line);
+        final Matcher matcher = simplePattern.matcher(line);
+        final StringBuilder newLineBuilder = new StringBuilder();
         int firstIndex = 0;
-        StringBuilder newLineBuilder = new StringBuilder();
         while (matcher.find()) {
             final int startIndex = matcher.start();
             final int endIndex = matcher.end();
@@ -70,10 +70,7 @@ public class IncrementProcessor extends IndependentLineProcessor {
 
 
     private String incrementIntegerString(String input) {
-//        final int oldInteger = Integer.parseInt(input);
-//        return oldInteger + step;
-
-        BigInteger bigInteger = new BigInteger(input);
+        final BigInteger bigInteger = new BigInteger(input);
         final BigInteger newbigInteger = bigInteger.add(new BigInteger(String.valueOf(step)));
         return newbigInteger.toString();
     }

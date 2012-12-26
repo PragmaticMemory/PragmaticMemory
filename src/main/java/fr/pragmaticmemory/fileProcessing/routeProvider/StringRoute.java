@@ -7,7 +7,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 public class StringRoute implements Route {
 
-    private String inputString;
+    private final String inputString;
     private StringWriter stringWriter;
 
 

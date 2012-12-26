@@ -2,7 +2,7 @@ package fr.pragmaticmemory.fileProcessing.core;
 
 public abstract class Processor {
 
-    protected RouteProvider routeProvider;
+    protected final RouteProvider routeProvider;
 
 
     protected Processor(RouteProvider routeProvider) {

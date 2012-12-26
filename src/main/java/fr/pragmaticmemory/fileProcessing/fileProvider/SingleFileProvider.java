@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class SingleFileProvider implements FileProvider {
 
-    private List<File> singleItemlist = new ArrayList<File>();
+    private final List<File> singleItemlist = new ArrayList<File>();
 
 
     public SingleFileProvider(String filePath) {

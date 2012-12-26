@@ -3,8 +3,8 @@ package fr.pragmaticmemory.fileProcessing.processor;
 import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
 public class TextReplacementProcessor extends IndependentLineProcessor {
 
-    private String sourceString;
-    private String targetString;
+    private final String sourceString;
+    private final String targetString;
 
 
     public TextReplacementProcessor(RouteProvider routeProvider, String sourceString, String targetString) {

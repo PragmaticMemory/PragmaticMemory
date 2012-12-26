@@ -5,8 +5,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class RegExpProcessor extends IndependentLineProcessor {
 
-    private String sourceRegExp;
-    private String replacementRegExp;
+    private final String sourceRegExp;
+    private final String replacementRegExp;
 
 
     public RegExpProcessor(RouteProvider routeProvider, String sourceRegExp, String replacementRegExp) {
@@ -18,11 +18,8 @@ public class RegExpProcessor extends IndependentLineProcessor {
 
     @Override
     protected String processLine(String line) {
-        Pattern pattern = Pattern.compile(sourceRegExp);
-        Matcher matcher = pattern.matcher(line);
-//        if (matcher.groupCount() > 1) {
-//            throw new Exception("Erreur : plus d'une occurrence de modelIndex sur la même ligne");
-//        }
+        final Pattern pattern = Pattern.compile(sourceRegExp);
+        final Matcher matcher = pattern.matcher(line);
         return matcher.replaceAll(replacementRegExp);
     }
 }

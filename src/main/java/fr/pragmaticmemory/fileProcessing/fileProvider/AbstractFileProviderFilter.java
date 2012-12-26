@@ -5,9 +5,9 @@ import java.util.List;
 
 public class AbstractFileProviderFilter implements FileProvider {
 
-    private FileProvider fileProvider;
-    private FileFilter fileFilter;
-    private boolean inclusive;
+    private final FileProvider fileProvider;
+    private final FileFilter fileFilter;
+    private final boolean inclusive;
 
 
     public AbstractFileProviderFilter(FileProvider fileProvider, FileFilter fileFilter, boolean isInclusive) {
@@ -18,7 +18,7 @@ public class AbstractFileProviderFilter implements FileProvider {
 
 
     public List<File> getAllFile() {
-        List<File> filteredFileList = new ArrayList<File>();
+        final List<File> filteredFileList = new ArrayList<File>();
         final List<File> allFileList = fileProvider.getAllFile();
         for (File file : allFileList) {
             if (fileFilter.filter(file) && inclusive) {

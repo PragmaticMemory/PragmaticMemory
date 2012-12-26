@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 public class DuplicateHierarchyRouteProvider implements RouteProvider {
 
-    private File destinationRootDirectory;
-    private List<Route> routeList = new ArrayList<Route>();
+    private final File destinationRootDirectory;
+    private final List<Route> routeList = new ArrayList<Route>();
 
 
     public DuplicateHierarchyRouteProvider(FileProvider fileProvider, File destinationRootDirectory)
@@ -27,7 +27,7 @@ public class DuplicateHierarchyRouteProvider implements RouteProvider {
 
 
     File getDestinationFile(File file) {
-        StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder();
         builder.append(destinationRootDirectory.getAbsolutePath());
         builder.append("\\");
         builder.append(file.getAbsolutePath().replace(":", ""));

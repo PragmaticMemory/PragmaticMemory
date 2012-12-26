@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
 public class IdentityFileRouteProvider implements RouteProvider {
-    List<File> fileList;
+    private final List<File> fileList;
 
 
     public IdentityFileRouteProvider(FileProvider fileProvider) {

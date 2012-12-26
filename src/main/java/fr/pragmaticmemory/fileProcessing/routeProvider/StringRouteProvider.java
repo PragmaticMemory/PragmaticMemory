@@ -4,7 +4,7 @@ import fr.pragmaticmemory.fileProcessing.core.Route;
 import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
 import java.io.FileNotFoundException;
 public class StringRouteProvider implements RouteProvider {
-    private StringRoute stringRoute;
+    private final StringRoute stringRoute;
 
 
     public StringRouteProvider(String inputString) {
