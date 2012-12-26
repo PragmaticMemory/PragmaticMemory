@@ -837,8 +837,7 @@
             <name>Fichier de configuration globale Git</name>
             <description>fichier <technic>.gitConfig</technic> dans le répertoire %USERPROFILE%</description>
             <comments>
-                <comment>Récupérable en java par :
-                    <newLine/>
+                <comment>Récupérable en java par :<newLine/>
                     <code lang="java">
                         <codeLine>System.getProperty("user.home");</codeLine>
                     </code>
@@ -1794,6 +1793,9 @@
             <solutions>
                 <solution><code>[^\W\d]</code></solution>
             </solutions>
+            <comments>
+                <comment>Le symbole indiquant la négation porte sur l'ensemble des caratères qui suivent. L'expression signifie donc <technic>non(\W ou \d)</technic> soit <technic>non(\W) et non(\d)</technic> c'est-à-dire <technic>\w et non(\d)</technic>.</comment>
+            </comments>
         </method>
     </regexp>
     <language>

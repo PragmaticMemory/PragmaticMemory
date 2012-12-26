@@ -61,6 +61,8 @@ public class XsltEngine {
         final Transformer transformer = factory.newTransformer(xslt);
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
+        ae = ae
+        ae=ae
         // Vu dans un forum : If the Transformer implementation you're using is Xalan-J, then you should be able to use:
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
         transformer.setParameter(OutputKeys.INDENT, "yes");

@@ -368,6 +368,10 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 =GIT=
 ==Objets==
 * Fichier de configuration globale Git : fichier {{.gitConfig}} dans le répertoire %USERPROFILE%
+** Récupérable en java par :
+[[code format="java"]]
+  System.getProperty("user.home");
+[[code]]
 * Branche : Pour Git, une branche est un pointeur sur un commit spécifique. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.
 * HEAD : Pointeur vers le parent du prochain commit. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.
 * HEAD~ : Pointeur vers le parent du commit pointé par HEAD
@@ -406,7 +410,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
   git config --local core.editor C:/GitEditor.bat
 [[code]]
-* Contenu de {{GitEditor.bat}} :
+** Contenu de {{GitEditor.bat}} :
 [[code]]
   #!/bin/sh
   "c:/Program Files/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin "$*"
@@ -459,7 +463,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
   git reflog
 [[code]]
-* Principaux formats :
+** Principaux formats :
 || **Format** || **Description** ||
 || %H || Commit hash ||
 || %h || Abbreviated commit hash ||
@@ -508,7 +512,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
 [[code]]
   git reset --soft version
 [[code]]
-* Ainsi, {{git reset --soft HEAD}}n'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail
+** Ainsi, {{git reset --soft HEAD}}n'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail
 * Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail
 [[code]]
   git reset version
@@ -557,7 +561,7 @@ L'objectif de cette section est de donner des méthodes de modification de fichi
   login COMPTE_GITHUB
   password MOT_DE_PASSE
 [[code]]
-* Ces lignes de code doivent être stockées dans le fichier {{_netrc}} qui doit se trouver dans le profil utilisateur
+** Ces lignes de code doivent être stockées dans le fichier {{_netrc}} qui doit se trouver dans le profil utilisateur
 ==Références==
 * [[http://git-scm.com/2011/07/11/reset.html|Commande reset]]
 * [[http://git-scm.com/book|Pro Git]]
@@ -755,6 +759,10 @@ Remarques :
 * {{\r}} : non reconnu
 * {{\n}} : non reconnu
 * Expression désignant le premier groupe capturé : {{\1}}
+==Méthodes indépendantes des outils==
+* Trouver les caractères de mots qui ne sont pas des chiffres
+[[code]]
+[^\W\d][[code]]
 ----
 =Anglais=
 ==Références==
@@ -789,6 +797,7 @@ Remarques :
 || France || [frɑːns] ||  || La France ||
 || GUI || [ˈguiː] ||  || Gui User Interface ||
 || Hudson || [ˈhʌdsən] ||  ||  ||
+|| integer || [ˈɪntɪdʒər] ||  || mathématiques : entier ||
 || java || [ˈdʒɑːvə] ||  ||  ||
 || ladder || [ˈlædə(r)] ||  || échelle ||
 || library || [ˈlaɪbrərɪ] || [ˈlaɪbrerɪ] ||  ||
@@ -975,7 +984,7 @@ L'ordre de stockage des TableColumn dans le TableColumnModel (column index) repr
 ||  ||  ||  || propertyChange ||
 
 ==Méthodes==
-==Lire les lignes d'un fichier==
+* Lire les lignes d'un fichier
 || **Package** || **Classes** ||
 || java.lang || String ||
 || java.util || List, ArrayList ||
@@ -993,8 +1002,8 @@ L'ordre de stockage des TableColumn dans le TableColumnModel (column index) repr
   }
 [[code]]
 Remarques :
-* Pour deux fichiers contenant respectivement {{A\r\nB}} et {{A\r\nB\r\n}}, la méthode {{readLines}} renvoie une liste identique (contenant les 2 éléments {{A}} et {{B}}).
-==Insérer des lignes dans un fichier==
+** Pour deux fichiers contenant respectivement {{A\r\nB}} et {{A\r\nB\r\n}}, la méthode {{readLines}} renvoie une liste identique (contenant les 2 éléments {{A}} et {{B}}).
+* Insérer des lignes dans un fichier
 || **Package** || **Classes** ||
 || java.lang || String ||
 || java.util || List ||
@@ -1012,8 +1021,8 @@ Remarques :
   }
 [[code]]
 Remarques :
-* la méthode {{writeLines}} n'ajoute pas de séquence de fin de ligne après la dernière ligne
-==Manipuler les listes==
+** la méthode {{writeLines}} n'ajoute pas de séquence de fin de ligne après la dernière ligne
+* Manipuler les listes
 || **Package** || **Classes** ||
 || java.lang || String ||
 || java.util || List, ArrayList, Arrays ||
@@ -1021,13 +1030,13 @@ Remarques :
   SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
   Date date = sdf.parse("10/11/2011");
 [[code]]
-==Récupérer les propriétés systèmes==
+* Récupérer les propriétés systèmes
 || **Package** || **Classes** ||
 || java.lang || System ||
 [[code format="java"]]
   System.getProperties()
 [[code]]
-==Récupérer une liste fixe de chaînes de caractères==
+* Récupérer une liste fixe de chaînes de caractères
 || **Package** || **Classes** ||
 || java.lang || String ||
 || java.util || List, ArrayList ||
@@ -1042,7 +1051,7 @@ Remarques :
     return stringList;
   }
 [[code]]
-==Modifier plusieurs fichiers==
+* Modifier plusieurs fichiers
 [[code format="java"]]
   public void process() throws Exception {
     for (String filePath : getAllFilePath()) {
@@ -1054,10 +1063,10 @@ Remarques :
   }
 [[code]]
 Remarques :
-* {{getAllFilePath}}, {{readLines}}, {{writeLines}} sont 3 méthodes définies dans cette section
-* La méthode {{process}} est la seule qui reste à définir
-* D'après les remarques sur les méthodes {{readLines}} et {{writeLines}}, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence
-==Utiliser les expressions régulières==
+** {{getAllFilePath}}, {{readLines}}, {{writeLines}} sont 3 méthodes définies dans cette section
+** La méthode {{process}} est la seule qui reste à définir
+** D'après les remarques sur les méthodes {{readLines}} et {{writeLines}}, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence
+* Utiliser les expressions régulières
 || **Package** || **Classes** ||
 || java.util.regex || Pattern, Matcher ||
 [[code format="java"]]
@@ -1080,7 +1089,7 @@ Remarques :
   }
 [[code]]
 Remarques :
-* L'éxécution du code précédent affiche la sortie suivante :
+** L'éxécution du code précédent affiche la sortie suivante :
 [[code]]
   MATCH !
   group()= abcd
@@ -1135,7 +1144,7 @@ Remarques :
   offset after group(3) last character = 13
   modifiedString = X XXmn
 [[code]]
-==Décompiler des classes java==
+* Décompiler des classes java
 utiliser l'outil [[http://java.decompiler.free.fr/?q=jdgui|JD-GUI]]
 ==Références==
 * [[http://www.jdocs.com/page/AllLibraries|Liste des librairies tiers java]]
@@ -1197,9 +1206,17 @@ Préciser la version du jdk
 [[code]]
 Garder les doigts posés sur les touches de référence et revenir régulièrement à cette position entre les frappes successives. Ceci permet d'accroitre la précision des frappes.
 [[code]]
-==Conseil précision==
+==Conseil précision 1==
 [[code]]
 Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).
+[[code]]
+==Conseil précision 2==
+[[code]]
+N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.
+[[code]]
+==Conseil précision 3==
+[[code]]
+Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.
 [[code]]
 ==Conseil vitesse==
 [[code]]

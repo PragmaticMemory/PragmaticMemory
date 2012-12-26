@@ -146,12 +146,7 @@
                         <note><technic><xsl:copy-of select="shortcut"/></technic></note>
                     </list>
                 </xsl:for-each>
-                <xsl:if test="comments/comment">
-                    <xsl:text>Remarques :</xsl:text><newLine/>
-                </xsl:if>
-                <xsl:for-each select="comments/comment">
-                   <list level="2"><xsl:copy-of select="."/></list>
-                </xsl:for-each>
+                <xsl:apply-templates select="comments"/>
             </xsl:for-each>
         </xsl:for-each>
         <header level="2">Exemples</header>
@@ -194,9 +189,7 @@
         <header level="2">Définitions</header>
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
-            <xsl:for-each select="comments/comment">
-                <list level="2"><xsl:copy-of select="."/></list>
-            </xsl:for-each>
+            <xsl:apply-templates select="comments/comment"/>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -214,6 +207,7 @@
         <header level="2">Objets</header>
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
+            <xsl:apply-templates select ="comments/comment"/>
         </xsl:for-each>
         <header level="2">Méthodes</header>
         <xsl:for-each select="method">
@@ -221,9 +215,7 @@
             <xsl:for-each select="solutions/solution">
                 <xsl:copy-of select="."/><newLine/>
             </xsl:for-each>
-            <xsl:for-each select="comments/comment">
-                <list level="1"><xsl:copy-of select="."/></list>
-            </xsl:for-each>
+            <xsl:apply-templates select ="comments/comment"/>
         </xsl:for-each>
         <xsl:apply-templates select="references"/>
         <endOfSection/>
@@ -251,10 +243,7 @@
             <header level="2"><xsl:copy-of select="name"/></header>
             <xsl:copy-of select="definition"/><newLine/>
             <xsl:copy-of select="example"/><newLine/>
-            <xsl:if test="comments/comment">Remarques :<newLine/></xsl:if>
-            <xsl:for-each select="comments/comment">
-                <list level="2"><xsl:copy-of select="."/></list>
-            </xsl:for-each>
+            <xsl:apply-templates select="comments"/>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -265,9 +254,7 @@
         <header level="1">DOS</header>
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
-            <xsl:for-each select="comments/comment">
-                <list level="2"><xsl:copy-of select="."/></list>
-            </xsl:for-each>
+            <xsl:apply-templates select="comments/comment"/>
             <xsl:for-each select="reference">
                 <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
@@ -308,6 +295,8 @@
                 <list level="1"><xsl:copy-of select="key('metadata', '/data/regexp/tool/remplacement')"/> : <technic><xsl:copy-of select="."/></technic></list>
             </xsl:for-each>
         </xsl:for-each>
+        <header level="2">Méthodes indépendantes des outils</header>
+        <xsl:apply-templates select="method"/>
         <endOfSection/>
     </xsl:template>
 
@@ -363,14 +352,11 @@
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/></list>
             <xsl:copy-of select="description"/><newLine/>
-            <xsl:if test="comments/comment"><xsl:text>Remarques :</xsl:text><newLine/></xsl:if>
-            <xsl:for-each select="comments/comment">
-                <list level="2"><xsl:copy-of select="."/></list>
-            </xsl:for-each>
+            <xsl:apply-templates select="comments"/>
         </xsl:for-each>
         <header level="2">Méthodes</header>
         <xsl:for-each select="method">
-            <header level="2"><xsl:copy-of select="goal"/></header>
+            <list level="1"><xsl:copy-of select="goal"/></list>
             <xsl:if test="solutions/solution/package">
                 <table>
                     <headerRow>
@@ -397,12 +383,7 @@
             <xsl:for-each select="solutions/solution/step">
                 <xsl:copy-of select="."/><newLine/>
             </xsl:for-each>
-            <xsl:if test="comments/comment">
-                <xsl:text>Remarques :</xsl:text><newLine/>
-                <xsl:for-each select="comments/comment">
-                   <list level="1"><xsl:copy-of select="."/></list>
-                </xsl:for-each>
-            </xsl:if>
+            <xsl:apply-templates select="comments"/>
         </xsl:for-each>
         <xsl:apply-templates select="references"/>
         <endOfSection/>
@@ -466,7 +447,6 @@
         <xsl:for-each select="item">
             <header level="2"><xsl:copy-of select="name"/></header>
             <code><xsl:copy-of select="description"/><newLine/></code><newLine/>
-            <xsl:copy-of select="comments/comment"/>
         </xsl:for-each>
         <endOfSection/>
     </xsl:template>
@@ -487,6 +467,15 @@
     
     <xsl:template match="method">
         <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solutions/solution"/></list>
+    </xsl:template>
+    
+    <xsl:template match="comments">
+        <xsl:text>Remarques :</xsl:text><newLine/>
+        <xsl:apply-templates select="comment"/>
+    </xsl:template>
+    
+    <xsl:template match="comment|comments/comment">
+        <list level="2"><xsl:copy-of select="."/></list>
     </xsl:template>
     
 </xsl:stylesheet>
