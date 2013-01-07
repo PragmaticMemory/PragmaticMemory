@@ -762,7 +762,8 @@ Remarques :
 ==Méthodes indépendantes des outils==
 * Trouver les caractères de mots qui ne sont pas des chiffres
 [[code]]
-[^\W\d][[code]]
+  [^\W\d]
+[[code]]
 ----
 =Anglais=
 ==Références==

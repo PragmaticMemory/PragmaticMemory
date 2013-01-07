@@ -1794,7 +1794,7 @@
         <method>
             <goal>Trouver les caractères de mots qui ne sont pas des chiffres</goal>
             <solutions>
-                <solution><code>[^\W\d]</code></solution>
+                <solution><code><codeLine>[^\W\d]</codeLine></code></solution>
             </solutions>
             <comments>
                 <comment>Le symbole indiquant la négation porte sur l'ensemble des caratères qui suivent. L'expression signifie donc <technic>non(\W ou \d)</technic> soit <technic>non(\W) et non(\d)</technic> c'est-à-dire <technic>\w et non(\d)</technic>.</comment>
