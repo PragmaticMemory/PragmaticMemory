@@ -187,10 +187,7 @@
             </xsl:for-each>
         </xsl:for-each>
         <header level="2">Définitions</header>
-        <xsl:for-each select="item">
-            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
-            <xsl:apply-templates select="comments/comment"/>
-        </xsl:for-each>
+        <xsl:apply-templates select="item"/>
         <endOfSection/>
     </xsl:template>
 
@@ -205,10 +202,7 @@
     <xsl:template match="/data/git">
         <header level="1">GIT</header>
         <header level="2">Objets</header>
-        <xsl:for-each select="item">
-            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
-            <xsl:apply-templates select ="comments/comment"/>
-        </xsl:for-each>
+        <xsl:apply-templates select="item"/>
         <header level="2">Méthodes</header>
         <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/></list>
@@ -255,7 +249,7 @@
         <xsl:for-each select="item">
             <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
             <xsl:apply-templates select="comments/comment"/>
-            <xsl:for-each select="reference">
+            <xsl:for-each select="references/reference">
                 <list level="2"><xsl:copy-of select="."/></list>
             </xsl:for-each>
         </xsl:for-each>
@@ -329,16 +323,13 @@
     </xsl:template>
 
     <!-- WebAndWiki -->
-   
-    <!-- xslt -->
-   
-   
     <xsl:template match="/data/webAndWiki">
         <header level="1">WEB AND WIKI</header>
         <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
 
+    <!-- Xml -->
     <xsl:template match="/data/xml">
         <header level="1">XML</header>
         <xsl:apply-templates/>
@@ -406,23 +397,17 @@
     <xsl:template match="/data/hudson">
         <header level="1">HUDSON</header>
         <header level="2">Définitions</header>
-        <xsl:for-each select="item">
-            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
-        </xsl:for-each>
+        <xsl:apply-templates select="item"/>
         <header level="2">Méthodes</header>
-        <xsl:for-each select="method">
-            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solutions/solution"/></list>
-        </xsl:for-each>
+        <xsl:apply-templates select="method"/>
         <endOfSection/>
     </xsl:template>
-    
+
     <!-- Security -->
     <xsl:template match="/data/security">
         <header level="1">SECURITEE</header>
         <header level="2">Définitions</header>
-        <xsl:for-each select="item">
-            <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
-        </xsl:for-each>
+        <xsl:apply-templates select="item"/>
         <xsl:apply-templates select="references"/>
         <endOfSection/>
     </xsl:template>
@@ -440,7 +425,7 @@
         <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
-    
+
      <!-- Typing -->
     <xsl:template match="/data/typing">
         <header level="1">Dactylographie</header>
@@ -448,9 +433,12 @@
             <header level="2"><xsl:copy-of select="name"/></header>
             <code><xsl:copy-of select="description"/><newLine/></code><newLine/>
         </xsl:for-each>
+        <xsl:apply-templates select="item"/>
+        <xsl:apply-templates select="method"/>
+        <xsl:apply-templates select="references"/>
         <endOfSection/>
     </xsl:template>
-    
+
     <!-- COMMON -->
     <xsl:template match="references">
         <header level="2"><xsl:text>Références</xsl:text>
@@ -460,22 +448,27 @@
         </header>
         <xsl:apply-templates select="reference"/>
     </xsl:template>
-    
+
     <xsl:template match="reference">
         <list level="1"><xsl:copy-of select="."/></list>
     </xsl:template>
-    
+
     <xsl:template match="method">
         <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solutions/solution"/></list>
     </xsl:template>
-    
+
+    <xsl:template match="item">
+         <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
+         <xsl:apply-templates select="comments/comment"/>
+    </xsl:template>
+
     <xsl:template match="comments">
         <xsl:text>Remarques :</xsl:text><newLine/>
         <xsl:apply-templates select="comment"/>
     </xsl:template>
-    
+
     <xsl:template match="comment|comments/comment">
         <list level="2"><xsl:copy-of select="."/></list>
     </xsl:template>
-    
+
 </xsl:stylesheet>

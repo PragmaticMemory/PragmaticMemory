@@ -1687,10 +1687,12 @@
         <item>
             <name>Commande externe</name>
             <description>Une commande non incluse dans <technic>command.com</technic></description>
-            <reference>
-                <name>Commande externe MD-DOS</name>
-                <link>http://www.computerhope.com/jargon/e/extecomm.htm</link>
-            </reference>
+            <references>
+                <reference>
+                    <name>Commande externe MD-DOS</name>
+                    <link>http://www.computerhope.com/jargon/e/extecomm.htm</link>
+                </reference>
+            </references>
         </item>
         <item>
             <name><technic>Less</technic></name>
@@ -1698,10 +1700,12 @@
             <comments>
                 <comment><technic>Less</technic> peut utiliser les variables d'environnement LESSCHARSET et LESSCHARDEF.</comment>
             </comments>
-            <reference>
-                <name>FAQ sur <technic>Less</technic></name>
-                <link>http://www.greenwoodsoftware.com/less/faq.html</link>
-            </reference>
+            <references>
+                <reference>
+                    <name>FAQ sur <technic>Less</technic></name>
+                    <link>http://www.greenwoodsoftware.com/less/faq.html</link>
+                </reference>
+            </references>
         </item>
         <item>
             <name><technic>LESSCHARSET</technic></name>
@@ -1714,7 +1718,6 @@
                     </code>
                 </comment>
             </comments>
-
         </item>
         <item>
             <name><technic>LESSCHARDEF</technic></name>
@@ -3126,26 +3129,51 @@
         </references>
     </maven>
     <typing>
-        <item>
-            <name>Conseil position des doigts</name>
-            <description>Garder les doigts posés sur les touches de référence et revenir régulièrement à cette position entre les frappes successives. Ceci permet d'accroitre la précision des frappes.</description>
-        </item>
-        <item>
-            <name>Conseil précision 1</name>
-            <description>Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).</description>
-        </item>
-        <item>
-            <name>Conseil précision 2</name>
-            <description>N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.</description>
-        </item>
-        <item>
-            <name>Conseil précision 3</name>
-            <description>Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.</description>
-        </item>
-        <item>
-            <name>Conseil vitesse</name>
-            <description>Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)</description>
-        </item>
+        <method>
+            <goal>Conseil position des doigts</goal>
+            <solutions><solution>Garder les doigts posés sur les touches de référence et revenir régulièrement à cette position entre les frappes successives. Ceci permet d'accroitre la précision des frappes.</solution></solutions>
+        </method>
+        <method>
+            <goal>Conseil précision 1</goal>
+            <solutions><solution>Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).</solution></solutions>
+        </method>
+        <method>
+            <goal>Conseil précision 2</goal>
+            <solutions><solution>N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.</solution></solutions>
+        </method>
+        <method>
+            <goal>Conseil précision 3</goal>
+            <solutions><solution>Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.</solution></solutions>
+        </method>
+        <method>
+            <goal>Conseil vitesse</goal>
+            <solutions><solution>Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)</solution></solutions>
+        </method>
+        <method>
+            <goal>Comment taper les caractères ne correspondant à aucune touche ?</goal>
+            <solutions>
+                <solution>Maintenir la touche <technic>ALT</technic> enfoncée, taper le code correspondant (voir tableau ci-dessous) en utilisant le clavier numérique, puis relacher la touche <technic>ALT</technic><newLine/>
+                <headerRow>
+                    <cell>Caractère</cell>
+                    <cell>Code associé</cell>
+                </headerRow>
+                <row>
+                    <cell>œ</cell>
+                    <cell>0156</cell>
+                </row>
+                <row>
+                    <cell>Ç</cell>
+                    <cell>0199</cell>
+                </row>
+                </solution>
+            </solutions>
+        </method>
+        <references>
+            <reference>
+            <name>Liste de codes des caractères</name>
+            <link>http://www.toutimages.com/codes_caracteres.htm</link>
+            </reference>
+        </references>
     </typing>
     <security>
         <item>

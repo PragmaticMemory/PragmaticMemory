@@ -1202,26 +1202,24 @@ Préciser la version du jdk
 * [[http://www.sonatype.org/central|Repository Central Maven]]
 ----
 =Dactylographie=
-==Conseil position des doigts==
-[[code]]
+* Conseil position des doigts
 Garder les doigts posés sur les touches de référence et revenir régulièrement à cette position entre les frappes successives. Ceci permet d'accroitre la précision des frappes.
-[[code]]
-==Conseil précision 1==
-[[code]]
+* Conseil précision 1
 Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).
-[[code]]
-==Conseil précision 2==
-[[code]]
+* Conseil précision 2
 N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.
-[[code]]
-==Conseil précision 3==
-[[code]]
+* Conseil précision 3
 Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.
-[[code]]
-==Conseil vitesse==
-[[code]]
+* Conseil vitesse
 Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)
-[[code]]
+* Comment taper les caractères ne correspondant à aucune touche ?
+Maintenir la touche {{ALT}} enfoncée, taper le code correspondant (voir tableau ci-dessous) en utilisant le clavier numérique, puis relacher la touche {{ALT}}
+|| **Caractère** || **Code associé** ||
+|| œ || 0156 ||
+|| Ç || 0199 ||
+
+==Références==
+* [[http://www.toutimages.com/codes_caracteres.htm|Liste de codes des caractères]]
 ----
 =SECURITEE=
 ==Définitions==
