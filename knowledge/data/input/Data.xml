@@ -98,9 +98,7 @@
                 <name>Formulation</name>
                 <description>Entre deux formulations d'une même information, utiliser la plus claire.</description>
                 <comments>
-                    <comment>
-                        <list level="1">(à développer) Utiliser la mise en forme pour permettre une distinction des types d'information</list>
-                    </comment>
+                    <comment>(à développer) Utiliser la mise en forme pour permettre une distinction des types d'information</comment>
                 </comments>
             </item>
         </group>
@@ -110,12 +108,9 @@
                 <name>Forme</name>
                 <description>Utiliser la même forme pour transmettre un même type d'information.</description>
                 <comments>
-                    <comment>
-                        <list level="1">Règles à déterminer :</list>
-                        <list level="2">utilisation des temps (futur, présent, ...)</list>
-                        <list level="2">utilisation de la casse (majuscule ou minuscule)</list>
-                        <list level="2">ponctuation</list>
-                    </comment>
+                    <comment>voir l'utilisation des temps (futur, présent, ...)</comment>
+                    <comment>voir l'utilisation de la casse (majuscule ou minuscule)</comment>
+                    <comment>voir l'utilisation de la ponctuation</comment>
                 </comments>
             </item>
             <item>
@@ -129,35 +124,33 @@
                 <name>Données / présentation</name>
                 <description>Distinguer les informations utiles (données à transmettre) de la mise en page (manière de transmettre les données).</description>
                 <comments>
-                    <comment>
-                        <list level="1">Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée.</list>
-                        <list level="1">Les différentes vues peuvent être destinées :</list>
-                        <list level="2">à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)</list>
-                        <list level="2">à insiter sur différents aspects d'un ensemble de données au sein d'un même outil</list>
-                        <list level="1">La mise en oeuvre de ce principe est faite par l'utilisation de fichiers xml et xslt.</list>
-                        <list level="1">3 types de fichiers sont utilisés :</list>
-                        <list level="2">un fichier de "données", d'extension xml, stockant les données utiles</list>
-                        <list level="2">des fichiers "style", d'extension xslt, définissant chacun un style de présentation</list>
-                        <list level="2">des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style</list>
-                        <list level="3">
-                            <code lang="xml">
-                                <codeLine><![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]></codeLine>
-                                <codeLine><![CDATA[<?xml-stylesheet href="StyleUrl" type="text/xsl" ?>]]></codeLine>
-                                <codeLine><![CDATA[<!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>]]></codeLine>
-                                <codeLine><![CDATA[<linkedData>]]></codeLine>
-                                <codeLine><![CDATA[&data;]]></codeLine>
-                                <codeLine><![CDATA[</linkedData>]]></codeLine>
-                            </code>
-                        </list>
-                        <list level="3">à remplacer dans le template (+ exemple dans le cas de Subversion):</list>
-                        <list level="4">StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)</list>
-                        <list level="4">DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)</list>
-                        <list level="4">Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt</list>
-                        <list level="1">les fichiers xml doivent être encodés en <technic>UTF-8</technic></list>
-                        <list level="1">concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :</list>
-                        <list level="2">toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link</list>
-                        <list level="2">toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé</list>
+                    <comment>Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée, les différentes vues pouvant être destinées :<newLine/>                        
+                        <list level="3">à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)</list>
+                        <list level="3">à insiter sur différents aspects d'un ensemble de données au sein d'un même outil</list>
                     </comment>
+                    <comment>La mise en oeuvre de ce principe est faite par l'utilisation 3 types de fichiers sont utilisés :<newLine/>                        
+                        <list level="3">un fichier de "données", d'extension xml, stockant les données utiles</list>
+                        <list level="3">des fichiers "style", d'extension xslt, définissant chacun un style de présentation</list>
+                        <list level="3">des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style</list>
+                    </comment>
+                    <comment>Format du fichier de lien<newLine/>
+                        <code lang="xml">
+                            <codeLine><![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]></codeLine>
+                            <codeLine><![CDATA[<?xml-stylesheet href="StyleUrl" type="text/xsl" ?>]]></codeLine>
+                            <codeLine><![CDATA[<!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>]]></codeLine>
+                            <codeLine><![CDATA[<linkedData>]]></codeLine>
+                            <codeLine><![CDATA[&data;]]></codeLine>
+                            <codeLine><![CDATA[</linkedData>]]></codeLine>
+                        </code><newLine/>avec à remplacer dans le template (+ exemple dans le cas de Subversion):<newLine/>
+                        <list level="3">StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)</list>
+                        <list level="3">DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)</list>
+                        <list level="3">Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt</list>
+                    </comment>
+                    <comment>les fichiers xml doivent être encodés en <technic>UTF-8</technic></comment>
+                    <comment>concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :<newLine/>
+                        <list level="3">toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link</list>
+                        <list level="3">toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé</list>
+                    </comment>                    
                 </comments>
             </item>
             <item>
@@ -171,12 +164,12 @@
                 <name>Taille</name>
                 <description>Entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité</description>
                 <comments>
-                    <comment>
-                        <list level="1">Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.</list>
-                        <list level="2">par exemple : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)</list>
-                        <list level="2">un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)</list>
-                        <list level="1">Utiliser les participes-présent plutôt que les subordonnées</list>
-                        <list level="2">"permettant" au lieu de "qui permettent" (gain de 4 caractères)</list>
+                    <comment>Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.<newLine/>                   
+                        <list level="3">par exemple : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)</list>
+                        <list level="3">un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)</list>
+                    </comment>
+                    <comment>Utiliser les participes-présent plutôt que les subordonnées<newLine/>                        
+                        <list level="3">"permettant" au lieu de "qui permettent" (gain de 4 caractères)</list>
                     </comment>
                 </comments>
             </item>
@@ -184,10 +177,8 @@
                 <name>Factorisation</name>
                 <description>Eliminer les redondances de mots ou de groupes de mots</description>
                 <comments>
-                    <comment>
-                        <list level="1">Eliminer les redondances d'informations d'un texte avec son titre (à développer)</list>
-                        <list level="1">Principe des "code smell"</list>
-                        <list level="2">"code smell" de répétition de mot</list>
+                    <comment>Eliminer les redondances d'informations d'un texte avec son titre (à développer)</comment>
+                    <comment>Principe des "code smell". Exemple de "code smell" de répétition de mot<newLine/>
                         <list level="3">La liste :</list>
                         <list level="4">Principes d'homogénéité</list>
                         <list level="4">Principe de séparation</list>
@@ -196,7 +187,7 @@
                         <list level="4">Principes</list>
                         <list level="5">Homogéneité</list>
                         <list level="5">Séparation</list>
-                        <list level="5">Concision</list>
+                        <list level="5">Concision</list>                    
                     </comment>
                 </comments>
             </item>
@@ -3086,7 +3077,7 @@
             <name>slave (esclave)</name>
             <description>Machine sur laquelle se font les build. Les sources sont extraites sur les machines esclaves; les goals maven sont exécutés sur les machines esclaves</description>
         </item>
-         <item>
+        <item>
             <name>node (noeud)</name>
             <description>Machine maître ou esclave</description>
         </item>

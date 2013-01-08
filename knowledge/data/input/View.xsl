@@ -73,15 +73,15 @@
     -->
 
     <!-- Principles -->
-    <xsl:template match="/data/principles">
-       <header level="1">PRINCIPES DE REDACTION</header>
+    <xsl:template match="/data/principles"><header level="1">PRINCIPES DE REDACTION</header>
        <xsl:copy-of select="goal"/><newLine/>
        <xsl:for-each select="group">
-            <header level="2"><xsl:copy-of select="name"/></header>
+            <newLine/><header level="2"><xsl:copy-of select="name"/></header>
             <xsl:for-each select="item">
                 <header level="3"><xsl:copy-of select="name"/></header>
-                <code><xsl:copy-of select="description"/><newLine/></code><newLine/>
-                <xsl:copy-of select="comments/comment"/>
+                <code><codeLine><xsl:value-of select="description"/></codeLine></code>
+                <xsl:if test="comments"><newLine/></xsl:if>
+                <xsl:apply-templates select="comments"/>
             </xsl:for-each>
         </xsl:for-each>
         <endOfSection/>
@@ -194,7 +194,7 @@
     <!-- Subversion -->
     <xsl:template match="/data/subversion">
         <header level="1">SUBVERSION</header>
-        <xsl:apply-templates select ="method"/>
+        <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
 
@@ -204,13 +204,7 @@
         <header level="2">Objets</header>
         <xsl:apply-templates select="item"/>
         <header level="2">Méthodes</header>
-        <xsl:for-each select="method">
-            <list level="1"><xsl:copy-of select="goal"/></list>
-            <xsl:for-each select="solutions/solution">
-                <xsl:copy-of select="."/><newLine/>
-            </xsl:for-each>
-            <xsl:apply-templates select ="comments/comment"/>
-        </xsl:for-each>
+        <xsl:apply-templates select="method"/>
         <xsl:apply-templates select="references"/>
         <endOfSection/>
     </xsl:template>
@@ -242,7 +236,6 @@
         <endOfSection/>
     </xsl:template>
 
-
     <!-- Dos -->
     <xsl:template match="/data/dos">
         <header level="1">DOS</header>
@@ -273,7 +266,7 @@
     <!-- Keyboard -->
     <xsl:template match="/data/keyboard">
         <header level="1">KEYBOARD</header>
-        <xsl:apply-templates select="method"/>
+        <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
 
@@ -407,8 +400,7 @@
     <xsl:template match="/data/security">
         <header level="1">SECURITEE</header>
         <header level="2">Définitions</header>
-        <xsl:apply-templates select="item"/>
-        <xsl:apply-templates select="references"/>
+        <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
 
@@ -428,14 +420,8 @@
 
      <!-- Typing -->
     <xsl:template match="/data/typing">
-        <header level="1">Dactylographie</header>
-        <xsl:for-each select="item">
-            <header level="2"><xsl:copy-of select="name"/></header>
-            <code><xsl:copy-of select="description"/><newLine/></code><newLine/>
-        </xsl:for-each>
-        <xsl:apply-templates select="item"/>
-        <xsl:apply-templates select="method"/>
-        <xsl:apply-templates select="references"/>
+        <header level="1">Dactylographie</header>        
+        <xsl:apply-templates/>        
         <endOfSection/>
     </xsl:template>
 
@@ -454,7 +440,13 @@
     </xsl:template>
 
     <xsl:template match="method">
-        <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solutions/solution"/></list>
+        <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:apply-templates select="solutions/solution"/></list>
+        <xsl:apply-templates select ="comments/comment"/>
+    </xsl:template>
+
+    <xsl:template match="solution">
+        <xsl:variable name="isNotLastSolution" select="count(./following-sibling::solution)>0"/>
+        <xsl:copy-of select="."/><xsl:if test ="$isNotLastSolution"><newLine/></xsl:if>        
     </xsl:template>
 
     <xsl:template match="item">

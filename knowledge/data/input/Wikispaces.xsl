@@ -31,11 +31,7 @@
     </xsl:template>
 
      <xsl:template match="code">
-        <xsl:text>[[code</xsl:text>
-        <xsl:if test="@lang"><xsl:text> format="</xsl:text><xsl:value-of select="@lang"/><xsl:text>"</xsl:text></xsl:if>
-        <xsl:text>]]</xsl:text><xsl:value-of select="$newline"/>
-        <xsl:apply-templates/>
-        <xsl:text>[[code]]</xsl:text>
+        <xsl:text>[[code</xsl:text><xsl:if test="@lang"><xsl:text> format="</xsl:text><xsl:value-of select="@lang"/><xsl:text>"</xsl:text></xsl:if><xsl:text>]]</xsl:text><xsl:value-of select="$newline"/><xsl:apply-templates select="codeLine"/><xsl:text>[[code]]</xsl:text>
     </xsl:template>
 
     <xsl:template match="codeLine">

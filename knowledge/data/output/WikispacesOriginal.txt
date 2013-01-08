@@ -44,40 +44,45 @@
 ----
 =PRINCIPES DE REDACTION=
 L'objectif de cette section est de lister les principes permettant d'améliorer la forme du wiki, afin d'éliminer tout ce qui n'est pas indispensable ou qui peut minimiser la compréhension.
+
 ==Clarté==
 ===Formulation===
 [[code]]
-Entre deux formulations d'une même information, utiliser la plus claire.
+  Entre deux formulations d'une même information, utiliser la plus claire.
 [[code]]
-* (à développer) Utiliser la mise en forme pour permettre une distinction des types d'information
+Remarques :
+** (à développer) Utiliser la mise en forme pour permettre une distinction des types d'information
+
 ==Homogénéité==
 ===Forme===
 [[code]]
-Utiliser la même forme pour transmettre un même type d'information.
+  Utiliser la même forme pour transmettre un même type d'information.
 [[code]]
-* Règles à déterminer :
-** utilisation des temps (futur, présent, ...)
-** utilisation de la casse (majuscule ou minuscule)
-** ponctuation
+Remarques :
+** voir l'utilisation des temps (futur, présent, ...)
+** voir l'utilisation de la casse (majuscule ou minuscule)
+** voir l'utilisation de la ponctuation
 ===Terme===
 [[code]]
-Utiliser toujours les mêmes termes pour désigner une même notion.
+  Utiliser toujours les mêmes termes pour désigner une même notion.
 [[code]]
 ==Séparation==
 ===Données / présentation===
 [[code]]
-Distinguer les informations utiles (données à transmettre) de la mise en page (manière de transmettre les données).
+  Distinguer les informations utiles (données à transmettre) de la mise en page (manière de transmettre les données).
 [[code]]
-* Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée.
-* Les différentes vues peuvent être destinées :
-** à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)
-** à insiter sur différents aspects d'un ensemble de données au sein d'un même outil
-* La mise en oeuvre de ce principe est faite par l'utilisation de fichiers xml et xslt.
-* 3 types de fichiers sont utilisés :
-** un fichier de "données", d'extension xml, stockant les données utiles
-** des fichiers "style", d'extension xslt, définissant chacun un style de présentation
-** des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style
-*** [[code format="xml"]]
+Remarques :
+** Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée, les différentes vues pouvant être destinées :
+*** à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)
+*** à insiter sur différents aspects d'un ensemble de données au sein d'un même outil
+
+** La mise en oeuvre de ce principe est faite par l'utilisation 3 types de fichiers sont utilisés :
+*** un fichier de "données", d'extension xml, stockant les données utiles
+*** des fichiers "style", d'extension xslt, définissant chacun un style de présentation
+*** des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style
+
+** Format du fichier de lien
+[[code format="xml"]]
   <?xml version="1.0" encoding="UTF-8"?>
   <?xml-stylesheet href="StyleUrl" type="text/xsl" ?>
   <!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>
@@ -85,35 +90,40 @@ Distinguer les informations utiles (données à transmettre) de la mise en page 
   &data;
   </linkedData>
 [[code]]
-*** à remplacer dans le template (+ exemple dans le cas de Subversion):
-**** StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)
-**** DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)
-**** Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt
-* les fichiers xml doivent être encodés en {{UTF-8}}
-* concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :
-** toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link
-** toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé
+avec à remplacer dans le template (+ exemple dans le cas de Subversion):
+*** StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)
+*** DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)
+*** Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt
+
+** les fichiers xml doivent être encodés en {{UTF-8}}
+** concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :
+*** toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link
+*** toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé
+
 ===Concepts dans les métadonnées===
 [[code]]
-Liste des concepts : item, group, reference, method, task
+  Liste des concepts : item, group, reference, method, task
 [[code]]
 ==Concision==
 ===Taille===
 [[code]]
-Entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité
+  Entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité
 [[code]]
-* Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.
-** par exemple : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)
-** un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)
-* Utiliser les participes-présent plutôt que les subordonnées
-** "permettant" au lieu de "qui permettent" (gain de 4 caractères)
+Remarques :
+** Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.
+*** par exemple : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)
+*** un contre-exemple : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)
+
+** Utiliser les participes-présent plutôt que les subordonnées
+*** "permettant" au lieu de "qui permettent" (gain de 4 caractères)
+
 ===Factorisation===
 [[code]]
-Eliminer les redondances de mots ou de groupes de mots
+  Eliminer les redondances de mots ou de groupes de mots
 [[code]]
-* Eliminer les redondances d'informations d'un texte avec son titre (à développer)
-* Principe des "code smell"
-** "code smell" de répétition de mot
+Remarques :
+** Eliminer les redondances d'informations d'un texte avec son titre (à développer)
+** Principe des "code smell". Exemple de "code smell" de répétition de mot
 *** La liste :
 **** Principes d'homogénéité
 **** Principe de séparation
@@ -123,6 +133,7 @@ Eliminer les redondances de mots ou de groupes de mots
 ***** Homogéneité
 ***** Séparation
 ***** Concision
+
 ----
 =SANDBOX=
 phrase dont une partie est {{mise en évidence}} car elle représente un élément technique
@@ -764,6 +775,7 @@ Remarques :
 [[code]]
   [^\W\d]
 [[code]]
+** Le symbole indiquant la négation porte sur l'ensemble des caratères qui suivent. L'expression signifie donc {{non(\W ou \d)}} soit {{non(\W) et non(\d)}} c'est-à-dire {{\w et non(\d)}}.
 ----
 =Anglais=
 ==Références==
@@ -1199,6 +1211,7 @@ Utiliser le goal {{tree}} du plugin {{dependency}}
 Utiliser le goal {{analyze}} du plugin {{dependency}}
 * Compiler des source en jdk6
 Préciser la version du jdk
+** Java 6 doit être configuré sur le poste, c'est-à-dire que la variable d'environnement %JAVA_HOME% doit pointer sur le répertoire du bon jdk et le %PATH% doit contenir le chemin du répertoire bin de ce jdk.
 ==Références==
 * [[http://www.sonatype.org/central|Repository Central Maven]]
 ----
