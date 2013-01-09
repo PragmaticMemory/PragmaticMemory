@@ -223,10 +223,7 @@
     <!-- Sybase -->
     <xsl:template match="/data/sybase">
         <header level="1">SYBASE</header>
-        <xsl:for-each select="method">
-            <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:copy-of select="solutions/solution"/></list>
-            <xsl:if test="example"><list level="2">example : <technic><xsl:copy-of select="example"/></technic></list></xsl:if>
-        </xsl:for-each>
+        <xsl:apply-templates select="method"/>
         <xsl:for-each select="item">
             <header level="2"><xsl:copy-of select="name"/></header>
             <xsl:copy-of select="definition"/><newLine/>
@@ -420,8 +417,8 @@
 
      <!-- Typing -->
     <xsl:template match="/data/typing">
-        <header level="1">Dactylographie</header>        
-        <xsl:apply-templates/>        
+        <header level="1">Dactylographie</header>
+        <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
 
@@ -441,12 +438,13 @@
 
     <xsl:template match="method">
         <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:apply-templates select="solutions/solution"/></list>
+        <xsl:if test="example"><list level="2">example : <technic><xsl:copy-of select="example"/></technic></list></xsl:if>
         <xsl:apply-templates select ="comments/comment"/>
     </xsl:template>
 
     <xsl:template match="solution">
         <xsl:variable name="isNotLastSolution" select="count(./following-sibling::solution)>0"/>
-        <xsl:copy-of select="."/><xsl:if test ="$isNotLastSolution"><newLine/></xsl:if>        
+        <xsl:copy-of select="."/><xsl:if test ="$isNotLastSolution"><newLine/></xsl:if>
     </xsl:template>
 
     <xsl:template match="item">
