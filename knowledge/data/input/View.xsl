@@ -212,11 +212,7 @@
     <!-- Sql -->
     <xsl:template match="/data/sql">
         <header level="1">SQL</header>
-        <xsl:for-each select="method">
-            <list level="1"><xsl:copy-of select="goal"/></list>
-            <xsl:if test="example"><list level="2">Exemple :<newLine/><xsl:copy-of select="example"/></list></xsl:if>
-            <xsl:if test="solutions/solution"><list level="2">Requête :<newLine/><xsl:copy-of select="solutions/solution"/></list></xsl:if>
-        </xsl:for-each>
+        <xsl:apply-templates/>
         <endOfSection/>
     </xsl:template>
 
@@ -442,8 +438,12 @@
     </xsl:template>
 
     <xsl:template match="method">
-        <list level="1"><xsl:copy-of select="goal"/><newLine/><xsl:apply-templates select="solutions/solution"/></list>
-        <xsl:if test="example"><list level="2">example : <technic><xsl:copy-of select="example"/></technic></list></xsl:if>
+        <list level="1">
+            <xsl:copy-of select="goal"/><newLine/>
+            <xsl:if test="useCase"><list level="2">exemple de contexte : <newLine/><xsl:copy-of select="useCase"/></list></xsl:if>
+            <xsl:apply-templates select="solutions/solution"/>
+            <xsl:if test="example"><newLine/><list level="2">example : <newLine/><xsl:copy-of select="example"/></list></xsl:if>
+        </list>
         <xsl:apply-templates select ="comments/comment"/>
     </xsl:template>
 

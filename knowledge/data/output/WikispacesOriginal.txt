@@ -594,7 +594,7 @@ Remarques :
 ----
 =SQL=
 * sélectionner le maximum d'une colonne en fonction d'une autre colonne
-** Exemple :
+** exemple de contexte : 
 [[code format="sql"]]
   create table max_test(code varchar(3), value int)
   insert into max_test(code, value) values ('A', 3)
@@ -606,12 +606,10 @@ Remarques :
   insert into max_test(code, value) values ('C', 6)
   insert into max_test(code, value) values ('C', 5)
 [[code]]
-** Requête :
 [[code format="sql"]]
   select code, max(value) from max_test group by code
 [[code]]
 * écrire un case dans un select
-** Requête :
 [[code format="sql"]]
   case
     when condition_1 then value_1
@@ -639,12 +637,19 @@ Remarques :
 [[code format="sql"]]
   declare @nom_de_la_variable type_de_la_variable
 [[code]]
+** example : 
+[[code format="sql"]]
+  declare @ptf_cod varchar(12)
+[[code]]
 ** example : {{declare @ptf_cod varchar(12)}}
 * Affecter une valeur à une variable
 [[code format="sql"]]
   select @nom_de_la_variable = @valeur_de_la_variable
 [[code]]
-** example : {{select @ptf_cod = 'ZX23'}}
+** example : 
+[[code format="sql"]]
+  select @ptf_cod = 'ZX23'
+[[code]]
 * Voir le code d'une procédure stockée
 [[code format="sql"]]
   sp_helptext 'nom_de_procedure'
