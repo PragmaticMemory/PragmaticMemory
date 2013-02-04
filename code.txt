@@ -1,10 +1,10 @@
-void method(int i, float f)
-{
-    // Do things
-}
+{composition-setup}
+cloak.toggle.type = default
+cloak.toggle.open = +
+cloak.toggle.close = -
+{composition-setup}
 
-void Bar()
-{
-    int anInt = 1;
-    method(anInt, 2.0);
-}
+
+{toggle-cloak:id=Step1}{*}capture d'écran*
+{cloak:id=Step1|visible=false} !horodate.PNG|align=center!
+{cloak}

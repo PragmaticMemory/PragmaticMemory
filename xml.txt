@@ -1,10 +1,10 @@
-<codeLine level="1">void method(int i, float f)</codeLine>
-<codeLine level="1">{</codeLine>
-<codeLine level="3">// Do things</codeLine>
-<codeLine level="1">}</codeLine>
+<codeLine level="1">{composition-setup}</codeLine>
+<codeLine level="1">cloak.toggle.type = default</codeLine>
+<codeLine level="1">cloak.toggle.open = +</codeLine>
+<codeLine level="1">cloak.toggle.close = -</codeLine>
+<codeLine level="1">{composition-setup}</codeLine>
 <codeLine level="1"></codeLine>
-<codeLine level="1">void Bar()</codeLine>
-<codeLine level="1">{</codeLine>
-<codeLine level="3">int anInt = 1;</codeLine>
-<codeLine level="3">method(anInt, 2.0);</codeLine>
-<codeLine level="1">}</codeLine>
+<codeLine level="1"></codeLine>
+<codeLine level="1">{toggle-cloak:id=Step1}{*}capture d'écran*</codeLine>
+<codeLine level="1">{cloak:id=Step1|visible=false} !horodate.PNG|align=center!</codeLine>
+<codeLine level="1">{cloak}</codeLine>

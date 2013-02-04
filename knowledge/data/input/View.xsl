@@ -224,12 +224,7 @@
     <xsl:template match="/data/sybase">
         <header level="1">SYBASE</header>
         <xsl:apply-templates select="method"/>
-        <xsl:for-each select="item">
-            <header level="2"><xsl:copy-of select="name"/></header>
-            <xsl:copy-of select="definition"/><newLine/>
-            <xsl:copy-of select="example"/><newLine/>
-            <xsl:apply-templates select="comments"/>
-        </xsl:for-each>
+        <xsl:apply-templates select="item"/>
         <endOfSection/>
     </xsl:template>
 
@@ -338,6 +333,9 @@
         <header level="2">Méthodes</header>
         <xsl:for-each select="method">
             <list level="1"><xsl:copy-of select="goal"/></list>
+            <xsl:if test="solutions/solution/description">
+                <xsl:copy-of select="solutions/solution/description"/><newLine/>
+            </xsl:if>
             <xsl:if test="solutions/solution/package">
                 <table>
                     <headerRow>
@@ -422,6 +420,13 @@
         <endOfSection/>
     </xsl:template>
 
+    <!-- Confluence -->
+    <xsl:template match="/data/confluence">
+        <header level="1">CONFLUENCE</header>
+        <xsl:apply-templates/>
+        <endOfSection/>
+    </xsl:template>
+    
     <!-- COMMON -->
     <xsl:template match="references">
         <header level="2"><xsl:text>Références</xsl:text>
@@ -444,12 +449,15 @@
 
     <xsl:template match="solution">
         <xsl:variable name="isNotLastSolution" select="count(./following-sibling::solution)>0"/>
-        <xsl:copy-of select="."/><xsl:if test ="$isNotLastSolution"><newLine/></xsl:if>
+        <xsl:if test="description"><xsl:copy-of select="description"/><xsl:if test="count(description/following-sibling::code)>0"><newLine/></xsl:if></xsl:if>
+        <xsl:if test="code"><xsl:copy-of select="code"/></xsl:if>
+        <xsl:if test ="$isNotLastSolution"><newLine/></xsl:if>
     </xsl:template>
 
     <xsl:template match="item">
-         <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
-         <xsl:apply-templates select="comments/comment"/>
+        <list level="1"><xsl:copy-of select="name"/><xsl:text> : </xsl:text><xsl:copy-of select="description"/></list>
+        <xsl:if test="example"><xsl:copy-of select="example"/><newLine/></xsl:if>
+        <xsl:apply-templates select="comments"/>
     </xsl:template>
 
     <xsl:template match="comments">
@@ -457,7 +465,7 @@
         <xsl:apply-templates select="comment"/>
     </xsl:template>
 
-    <xsl:template match="comment|comments/comment">
+    <xsl:template match="comment">
         <list level="2"><xsl:copy-of select="."/></list>
     </xsl:template>
 

@@ -1532,7 +1532,7 @@
         </method>
         <item>
             <name>Le fichier <technic>sql.ini</technic></name>
-            <definition>Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier <technic>sql.ini</technic> (présent par exemple dans <technic>C:\Program Files\sybase\12.5.1\ini</technic>). Ils sont définis suivant le template :</definition>
+            <description>Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier <technic>sql.ini</technic> (présent par exemple dans <technic>C:\Program Files\sybase\12.5.1\ini</technic>). Ils sont définis suivant le template :</description>
             <example>
                 <code>
                     <codeLine level="1">[DATA_SERVEUR_NAME]</codeLine>
@@ -1547,7 +1547,7 @@
         </item>
         <item>
             <name>L'outil <technic>isql</technic></name>
-            <definition>Outil Sybase permettant l'exécution d'un script sql via la syntaxe :</definition>
+            <description>Outil Sybase permettant l'exécution d'un script sql via la syntaxe :</description>
             <example>
                 <code>
                     <codeLine>isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql</codeLine>
@@ -1564,7 +1564,7 @@
         </item>
         <item>
             <name>L'outil <technic>bcp</technic></name>
-            <definition>Outil Sybase permettant de sauvegarder les données d'une table dans un fichier, ou d'alimenter une table à partir des données d'un fichier.</definition>
+            <description>Outil Sybase permettant de sauvegarder les données d'une table dans un fichier, ou d'alimenter une table à partir des données d'un fichier.</description>
             <comments>
                 <comment>Sauvegarde des données d'une table<newLine/>
                     <code>
@@ -1580,18 +1580,18 @@
         </item>
         <item>
             <name><technic>Allpages</technic> locking</name>
-            <definition>Système de verrouillage par défaut d'une table. Vérouille l'intégralité de la table lors d'une modification de celle-ci (tout <technic>select</technic> est mis en attente pendant la mise à jour)</definition>
+            <description>Système de verrouillage par défaut d'une table. Vérouille l'intégralité de la table lors d'une modification de celle-ci (tout <technic>select</technic> est mis en attente pendant la mise à jour)</description>
             <comments>
                 <comment>Une table est composée de pages. Une page est composées de lignes (row)</comment>
             </comments>
         </item>
         <item>
             <name><technic>Datapages</technic> locking</name>
-            <definition>Système de verrouillage d'une table dans lequel toutes les pages contenant les lignes en cours de modifications sont verrouillées.</definition>
+            <description>Système de verrouillage d'une table dans lequel toutes les pages contenant les lignes en cours de modifications sont verrouillées.</description>
         </item>
         <item>
             <name><technic>Datarows</technic> locking</name>
-            <definition>Système de verrouillage d'une table dans lequel toutes les lignes en cours de modifications sont verrouillées.</definition>
+            <description>Système de verrouillage d'une table dans lequel toutes les lignes en cours de modifications sont verrouillées.</description>
             <comments>
                 <comment>Il existe un nombre maximal de verrous sur une base Sybase. Utiliser des verrous de type <technic>Datarows</technic> permet une granularité plus fine de verrouillage mais accroît les risques d'atteindre la limite maximale du nombre de verrous (du fait de l'attribution d'un verrou à chaque ligne modifiée)</comment>
             </comments>
@@ -1744,7 +1744,7 @@
         <method>
             <goal>Basculer entre anglais et français</goal>
             <solutions>
-                <solution><technic>ALT + SHIFT</technic></solution>
+                <solution><description><technic>ALT + SHIFT</technic></description></solution>
             </solutions>
         </method>
     </keyboard>
@@ -2690,6 +2690,14 @@
             </description>
         </item>
         <method>
+            <goal>Effectuer un traitement à la fermeture d'un JInternalFrame</goal>
+            <solutions>
+                <solution>
+                    <description>Passer une instance de <technic>javax.swing.event.InternalFrameAdapter</technic> à la méthode <technic>JInternalFrame.addInternalFrameListener(...)</technic></description>
+                </solution>
+            </solutions>
+        </method>
+        <method>
             <goal>Lire les lignes d'un fichier</goal>
             <solutions>
                 <solution>
@@ -3092,22 +3100,22 @@
         <method>
             <goal>Associer un label à un noeud</goal>
             <solutions>
-                <solution>Hudson > nodes >  "noeud spécifique" > Configurer > Etiquette</solution>
+                <solution><description>Hudson > nodes >  "noeud spécifique" > Configurer > Etiquette</description></solution>
             </solutions>
         </method>
     </hudson>
     <maven>
         <method>
-            <goal>Afficher les dépendances défini dans les poms (en lisant uniquement les poms mais sans analyser les dépendances réelles comme le fait <technic>analyze</technic>)</goal>
-            <solutions><solution>Utiliser le goal <technic>tree</technic> du plugin <technic>dependency</technic></solution></solutions>
+            <goal>Afficher les dépendances définies dans les poms (en lisant uniquement les poms mais sans analyser les dépendances réelles comme le fait <technic>analyze</technic>)</goal>
+            <solutions><solution><description>Utiliser le goal <technic>tree</technic> du plugin <technic>dependency</technic></description></solution></solutions>
         </method>
         <method>
             <goal>Afficher les dépendances déclarées et non utilisées / non déclarées et utilisées</goal>
-            <solutions><solution>Utiliser le goal <technic>analyze</technic> du plugin <technic>dependency</technic></solution></solutions>
+            <solutions><solution><description>Utiliser le goal <technic>analyze</technic> du plugin <technic>dependency</technic></description></solution></solutions>
         </method>
         <method>
             <goal>Compiler des source en jdk6</goal>
-            <solutions><solution>Préciser la version du jdk</solution></solutions>
+            <solutions><solution><description>Préciser la version du jdk</description></solution></solutions>
             <comments>
                 <comment>Java 6 doit être configuré sur le poste, c'est-à-dire que la variable d'environnement %JAVA_HOME% doit pointer sur le répertoire du bon jdk et le %PATH% doit contenir le chemin du répertoire bin de ce jdk.</comment>
             </comments>
@@ -3122,40 +3130,54 @@
     <typing>
         <method>
             <goal>Conseil position des doigts</goal>
-            <solutions><solution>Garder les doigts posés sur les touches de référence et revenir régulièrement à cette position entre les frappes successives. Ceci permet d'accroitre la précision des frappes.</solution></solutions>
+            <solutions><solution><description>Ramener régulièrement les doigt sur leur position de référence entre les frappes successives. Ceci permet d'accroitre la précision des frappes.</description></solution></solutions>
         </method>
         <method>
             <goal>Conseil précision 1</goal>
-            <solutions><solution>Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).</solution></solutions>
+            <solutions><solution><description>Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).</description></solution></solutions>
         </method>
         <method>
             <goal>Conseil précision 2</goal>
-            <solutions><solution>N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.</solution></solutions>
+            <solutions><solution><description>N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.</description></solution></solutions>
         </method>
         <method>
             <goal>Conseil précision 3</goal>
-            <solutions><solution>Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.</solution></solutions>
+            <solutions><solution><description>Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.</description></solution></solutions>
+        </method>
+        <method>
+            <goal>Conseil précision 4</goal>
+            <solutions><solution><description>Décaler légèrement la main en quittant temporairement la position de référence pour appuyer sur les touches les moins accessibles (comme le w par exemple).</description></solution></solutions>
+        </method>
+        <method>
+            <goal>Conseil précision 5</goal>
+            <solutions><solution><description>Taper avec les bons doigts sur les touches (en particulier, utiliser le petit doigt pour taper sur la touche de suppression).</description></solution></solutions>
         </method>
         <method>
             <goal>Conseil vitesse</goal>
-            <solutions><solution>Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)</solution></solutions>
+            <solutions><solution><description>Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)</description></solution></solutions>
+        </method>
+        <method>
+            <goal>Conseil rythme de frappe</goal>
+            <solutions><solution><description>Ne faire des accélérations que sur des groupes de 3 lettres maximum.</description></solution></solutions>
         </method>
         <method>
             <goal>Comment taper les caractères ne correspondant à aucune touche ?</goal>
             <solutions>
-                <solution>Maintenir la touche <technic>ALT</technic> enfoncée, taper le code correspondant (voir tableau ci-dessous) en utilisant le clavier numérique, puis relacher la touche <technic>ALT</technic><newLine/>
-                <headerRow>
-                    <cell>Caractère</cell>
-                    <cell>Code associé</cell>
-                </headerRow>
-                <row>
-                    <cell>œ</cell>
-                    <cell>0156</cell>
-                </row>
-                <row>
-                    <cell>Ç</cell>
-                    <cell>0199</cell>
-                </row>
+                <solution>
+                    <description>Maintenir la touche <technic>ALT</technic> enfoncée, taper le code correspondant (voir tableau ci-dessous) en utilisant le clavier numérique, puis relacher la touche <technic>ALT</technic><newLine/>
+                        <headerRow>
+                            <cell>Caractère</cell>
+                            <cell>Code associé</cell>
+                        </headerRow>
+                        <row>
+                            <cell>œ</cell>
+                            <cell>0156</cell>
+                        </row>
+                        <row>
+                            <cell>Ç</cell>
+                            <cell>0199</cell>
+                        </row>
+                    </description>
                 </solution>
             </solutions>
         </method>
@@ -3198,6 +3220,28 @@
             </reference>
         </references>
     </security>
+    <confluence>
+         <method>
+            <goal>Créer une section que l'on peut masquer/afficher</goal>
+            <solutions>
+                <solution>
+                    <description>Utiliser le plugin composition-setup</description>
+                    <code>
+                        <codeLine level="1">{composition-setup}</codeLine>
+                        <codeLine level="1">cloak.toggle.type = default</codeLine>
+                        <codeLine level="1">cloak.toggle.open = +</codeLine>
+                        <codeLine level="1">cloak.toggle.close = -</codeLine>
+                        <codeLine level="1">{composition-setup}</codeLine>
+                        <codeLine level="1"></codeLine>
+                        <codeLine level="1"></codeLine>
+                        <codeLine level="1">{toggle-cloak:id=Step1}{*}capture d'écran*</codeLine>
+                        <codeLine level="1">{cloak:id=Step1|visible=false} !horodate.PNG|align=center!</codeLine>
+                        <codeLine level="1">{cloak}</codeLine>
+                    </code>
+                </solution>
+            </solutions>
+        </method>
+    </confluence>
     <miscellaneous>
         <reference>
             <name>Comprendre nos impôts</name>
