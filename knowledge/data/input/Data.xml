@@ -3129,36 +3129,43 @@
     </maven>
     <typing>
         <method>
-            <goal>Conseil position des doigts</goal>
-            <solutions><solution><description>Ramener régulièrement les doigt sur leur position de référence entre les frappes successives. Ceci permet d'accroitre la précision des frappes.</description></solution></solutions>
-        </method>
-        <method>
-            <goal>Conseil précision 1</goal>
-            <solutions><solution><description>Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).</description></solution></solutions>
-        </method>
-        <method>
-            <goal>Conseil précision 2</goal>
-            <solutions><solution><description>N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.</description></solution></solutions>
-        </method>
-        <method>
-            <goal>Conseil précision 3</goal>
-            <solutions><solution><description>Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.</description></solution></solutions>
-        </method>
-        <method>
-            <goal>Conseil précision 4</goal>
-            <solutions><solution><description>Décaler légèrement la main en quittant temporairement la position de référence pour appuyer sur les touches les moins accessibles (comme le w par exemple).</description></solution></solutions>
-        </method>
-        <method>
-            <goal>Conseil précision 5</goal>
-            <solutions><solution><description>Taper avec les bons doigts sur les touches (en particulier, utiliser le petit doigt pour taper sur la touche de suppression).</description></solution></solutions>
+            <goal>Conseil précision</goal>
+            <solutions>
+                <solution>
+                    <description>Ramener régulièrement les doigt sur leur position de référence entre les frappes successives. Ceci permet d'accroitre la précision des frappes.</description>
+                </solution>
+                <solution>
+                    <description>Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).</description>
+                </solution>
+                <solution>
+                    <description>N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.</description>
+                </solution>
+                <solution>
+                    <description>Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.</description>
+                </solution>
+                <solution>
+                    <description>Décaler légèrement la main en quittant temporairement la position de référence pour appuyer sur les touches les moins accessibles (comme le w par exemple).</description>
+                </solution>
+                <solution>
+                    <description>Taper avec les bons doigts sur les touches (en particulier, utiliser le petit doigt pour taper sur la touche de suppression).</description>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Conseil vitesse</goal>
-            <solutions><solution><description>Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)</description></solution></solutions>
+            <solutions>
+                <solution>
+                    <description>Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)</description>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Conseil rythme de frappe</goal>
-            <solutions><solution><description>Ne faire des accélérations que sur des groupes de 3 lettres maximum.</description></solution></solutions>
+            <solutions>
+                <solution>
+                    <description>Ne faire des accélérations que sur des groupes de 3 lettres maximum.</description>
+                </solution>
+            </solutions>
         </method>
         <method>
             <goal>Comment taper les caractères ne correspondant à aucune touche ?</goal>

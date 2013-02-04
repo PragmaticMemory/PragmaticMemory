@@ -1219,17 +1219,12 @@ Préciser la version du jdk
 * [[http://www.sonatype.org/central|Repository Central Maven]]
 ----
 =Dactylographie=
-* Conseil position des doigts
+* Conseil précision
 Ramener régulièrement les doigt sur leur position de référence entre les frappes successives. Ceci permet d'accroitre la précision des frappes.
-* Conseil précision 1
 Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).
-* Conseil précision 2
 N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.
-* Conseil précision 3
 Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.
-* Conseil précision 4
 Décaler légèrement la main en quittant temporairement la position de référence pour appuyer sur les touches les moins accessibles (comme le w par exemple).
-* Conseil précision 5
 Taper avec les bons doigts sur les touches (en particulier, utiliser le petit doigt pour taper sur la touche de suppression).
 * Conseil vitesse
 Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)
