@@ -1467,7 +1467,11 @@
                     </code>
                 </solution>
             </solutions>
-            <example><code lang="sql"><codeLine>declare @ptf_cod varchar(12)</codeLine></code></example>
+            <example>
+                <code lang="sql">
+                    <codeLine>declare @ptf_cod varchar(12)</codeLine>
+                </code>
+            </example>
         </method>
         <method>
             <goal>Affecter une valeur à une variable</goal>
@@ -1478,7 +1482,11 @@
                     </code>
                 </solution>
             </solutions>
-            <example><code lang="sql"><codeLine>select @ptf_cod = 'ZX23'</codeLine></code></example>
+            <example>
+                <code lang="sql">
+                    <codeLine>select @ptf_cod = 'ZX23'</codeLine>
+                </code>
+            </example>
         </method>
         <method>
             <goal>Voir le code d'une procédure stockée</goal>

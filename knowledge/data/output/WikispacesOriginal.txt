@@ -641,7 +641,6 @@ Remarques :
 [[code format="sql"]]
   declare @ptf_cod varchar(12)
 [[code]]
-** example : {{declare @ptf_cod varchar(12)}}
 * Affecter une valeur à une variable
 [[code format="sql"]]
   select @nom_de_la_variable = @valeur_de_la_variable
