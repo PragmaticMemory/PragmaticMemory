@@ -212,233 +212,115 @@ Powershell
             variante avec utilisation du caractère d'échappement `r signifiant un retour à la ligne :
                 Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}
 
-    <fileModification>
-        <metadata xpath="/data/fileModification/endOfLine/character">Caractères pouvant intervenir dans la séquence indiquant une fin de ligne</metadata>
-        <metadata xpath="/data/fileModification/endOfLine/sequence">Séquences de caractères indiquant une fin de ligne</metadata>
-        <goal>L'objectif de cette section est de donner des méthodes de modification de fichiers. Elle détaille les outils utilisés, ainsi que les commandes au sein de ces outils.</goal>
-        <endOfLine>
-            <character>Carriage return (CR): <technic>\r</technic></character>
-            <character>Line feed (LF) : <technic>\n</technic></character>
-            <sequence>sous UNIX : <technic>\n</technic></sequence>
-            <sequence>sous Windows : <technic>\r\n</technic></sequence>
-            <sequence>sous Mac : <technic>\r</technic></sequence>
-        </endOfLine>
-        <method>
-            <goal>Convertir les fins de ligne d'un fichier (Windows/Unix/Mac)</goal>
-            <solutions>
-                <solution>
-                    <tool>Notepad++</tool>
-                    <step>vers UNIX : Edition > Convertir les sauts de ligne > Convertir en Format UNIX (LF)</step>
-                    <step>vers Windows : Edition > Convertir les sauts de ligne > Convertir en Format Windows (CR+LF)</step>
-                    <step>vers Mac : Edition > Convertir les sauts de ligne > Convertir en Format Mac (CR)</step>
-                </solution>
-            </solutions>
-        </method>
-        <method>
-            <goal>Voir les séquences de fin de ligne</goal>
-            <solutions>
-                <solution>
-                    <tool>Notepad++</tool>
-                    <step>Affichage > Symboles spéciaux > Afficher les symboles de fin de ligne</step>
-                </solution>
-            </solutions>
-        </method>
-        <method>
-            <goal>Voir les blancs et les tabulations</goal>
-            <solutions>
-                <solution>
-                    <tool>Notepad++</tool>
-                    <step>Affichage > Symboles spéciaux > Afficher les blancs et les tabulations</step>
-                </solution>
-            </solutions>
-        </method>
-        <method>
-            <goal>Supprimer des lignes vides (i.e ne contenant aucun caractère, pas même des espaces)</goal>
-            <solutions>
-                <solution>
-                    <tool>Notepad++ (plugin TextFX)</tool>
-                    <step>TextFX > TextFX Edit > Delete Blank Lines</step>
-                </solution>
-            </solutions>
-        </method>
-        <method>
-            <goal>Compacter des lignes vides consécutives en une seule ligne vide</goal>
-            <solutions>
-                <solution>
-                    <tool>Notepad++ (plugin TextFX)</tool>
-                    <step>TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)</step>
-                </solution>
-            </solutions>
-        </method>
-        <method>
-            <goal>Distribuer sur différentes lignes des items faisant partie d'une liste</goal>
-            <example>
-                <source>
-                    <code>
-                        <codeLine>A, B, C</codeLine>
-                    </code>
-                </source>
-                <target>
-                    <code>
-                        <codeLine>A</codeLine>
-                        <codeLine>B</codeLine>
-                        <codeLine>C</codeLine>
-                    </code>
-                </target>
-            </example>
-            <solutions>
-                <solution>
-                    <tool>Notepad++</tool>
-                    <step>remplacer (<technic>CTRL + H</technic>)</step>
-                    <step>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</step>
-                    <step>recherche : <technic>,</technic></step>
-                    <step>remplacer par : <technic>\r\n</technic></step>
-                </solution>
-            </solutions>
-        </method>
-        <method>
-            <goal>Assembler différentes lignes en une liste</goal>
-            <example>
-                <source>
-                    <code>
-                        <codeLine>A</codeLine>
-                        <codeLine>B</codeLine>
-                        <codeLine>C</codeLine>
-                    </code>
-                </source>
-                <target>
-                    <code>
-                        <codeLine>A, B, C</codeLine>
-                    </code>
-                </target>
-            </example>
-            <solutions>
-                <solution>
-                    <tool>Notepad++</tool>
-                    <step>remplacer (<technic>CTRL + H</technic>)</step>
-                    <step>mode étendu (<technic>\n</technic>, <technic>\r</technic>, <technic>\t</technic>, <technic>\0</technic>, <technic>\x</technic>...)</step>
-                    <step>recherche : <technic>\r\n</technic></step>
-                    <step>remplacer par : <technic>,</technic></step>
-                </solution>
-            </solutions>
-        </method>
-        <method>
-            <goal>Trier des lignes en supprimant les doublons</goal>
-            <solutions>
-                <solution>
-                    <tool>Notepad++ (plugin TextFX)</tool>
-                    <step>Notepad++TextFX > TextFX Tools > cocher "+Sort outputs only UNIQUE (at column) lines"</step>
-                    <step>Notepad++TextFX > TextFX Tools > cocher "+Sort ascending" pour un tri par ordre alphabétique / décocher pour un ordre inverse</step>
-                    <step>Notepad++TextFX > TextFX Tools > cliquer sur "Sort lines case sensitive (at column)" ou sur "Sort lines case insensitive (at column)"</step>
-                </solution>
-            </solutions>
-        </method>
-        <method>
-            <goal>Indenter les xml</goal>
-            <solutions>
-                <solution>
-                    <tool>IntelliJ</tool>
-                    <step>Code > Reformat Code...</step>
-                    <step>Raccourci par défaut : CTRL + ALT + L</step>
-                    <step>Fonctionne sur tous les fichiers du projet ou sur un ensemble de fichiers sélectionnés.</step>
-                </solution>
-            </solutions>
-        </method>
-        <method>
-            <goal>Convertir "underscore" vers "camelcase"</goal>
-            <example>
-                <source>iinvCEqSector</source>
-                <target>IINV_C_EQ_SECTOR</target>
-            </example>
-            <solutions>
-                <solution>
-                    <tool>Notepad++</tool>
-                    <step>étape 1 : remplacer l'expression régulière ([A-Z]) par _\1 (cocher Respecter la casse)</step>
-                    <step>étape 2 : passer en majuscule (CTRL + SHIFT + U)</step>
-                </solution>
-            </solutions>
-        </method>
-        <method>
-            <goal>Comparer 2 listes</goal>
-            <solutions>
-                <solution>
-                    <tool>Excel</tool>
-                    <step>en A1, saisir le formattage conditionnel<newLine/>
-                        <code>
-                            <codeLine>=ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)</codeLine>
-                        </code>
-                    </step>
-                    <step>en B1, saisir le formattage conditionnel<newLine/>
-                        <code>
-                            <codeLine>=ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)</codeLine>
-                        </code>
-                    </step>
-                    <step>copier le format de A1 sur la colonne A</step>
-                    <step>copier le format de B1 sur la colonne B</step>
-                    <step>Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND</step>
-                    <step>
-                        <reference>
-                            <name>Inspiré de l'article</name>
-                            <link>http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310</link>
-                        </reference>
-                    </step>
-                </solution>
-            </solutions>
-        </method>
-        <item>
-            <name>Table <technic>ASCII</technic></name>
-            <description>Table contenant 128 caractères</description>
-            <comments>
-                <comment>Chaque caractère est codé sur 7 bit, ce qui permet bien la représentation de (2 puissance 7 =) 128 caractères</comment>
-                <comment>Chaque caractère peut être représenté par un chiffre hexadécimal (entre 0 et F) suivi par un chiffre entre 0 et 7, ce qui permet bien la représentation des (16 x 8 =) 128 caractères.</comment>
-            </comments>
-        </item>
-        <item>
-            <name>Table <technic>ASCII</technic> étendue</name>
-            <description>Table contenant 256 caractères</description>
-            <comments>
-                <comment>Chaque caractère est codé sur 8 bit, ce qui permet bien la représentation de (2 puissance 8 =) 256 caractères</comment>
-                <comment>Chaque caractère peut être représenté par deux chiffres hexadécimal (entre 0 et F), ce qui permet bien la représentation des (16 x 16 =) 256 caractères.</comment>
-                <comment>Ceci n'est pas une mise à jour de la table <technic>ASCII</technic></comment>
-                <comment>Il existe plusieurs extensions propriétaires de la table <technic>ASCII</technic>, incompatibles entre elles.</comment>
-                <comment>Il existe plusieurs tables <technic>ASCII</technic> étendues définie par l'ISO : ce sont les table ISO 8859.</comment>
-                <comment>La plus populaire des tables ISO 8859 est la table SO 8859-1, appelée également ISO Latin1</comment>
-            </comments>
-        </item>
-        <item>
-            <name><technic>UTF-8</technic></name>
-            <description>Système d'encodage des caractères internationaux d'Unicode rétro-compatible avec <technic>ASCII</technic></description>
-            <comments>
-                <comment>Chaque caractère est codé sur un ensemble de 1 à 4 octets.</comment>
-                <comment>La rétro-compatibilité avec <technic>ASCII</technic> signifie que tout caractère <technic>ASCII</technic> se code en <technic>UTF-8</technic> sous forme d'un unique octet, identique au code <technic>ASCII</technic>.</comment>
-            </comments>
-        </item>
-        <item>
-            <name>Page de code</name>
-            <description>Jeu de caractère associant un nombre à chaque caractère d'une langue.</description>
-            <comments>
-                <comment>De nombreuse pages de code ont été définies autour de la norme <technic>ASCII</technic>, sous-ensemble commun à plusieurs pages de code.</comment>
-            </comments>
-        </item>
-        <item>
-            <name>Unicode</name>
-            <description>Standard informatique qui vise à permettre le codage de texte écrit en donnant à tout caractère de n’importe quel système d’écriture un nom et un identifiant numérique, et ce de manière unifiée, quelle que soit la plate-forme informatique ou le logiciel. Son but est de remplacer l’utilisation de pages de code nationales.</description>
-            <comments>
-                <comment>Chaque caractère est associé à un nombre entier appelé point de code.</comment>
-                <comment>L'espace de codage de ces nombres est divisé en 17 zones de 65 536 points de codes. Ces zones sont appelées plans.</comment>
-                <comment>Un point de code est noté <technic>U+xxxx</technic> où <technic>xxxx</technic> est un nombre hexadécimal comportant de 4 à 6 chiffres.</comment>
-                <comment>Les points de code du premier plan (appelé plan multilingue de base) comportent 4 chiffres (entre <technic>U+0000</technic> et <technic>U+FFFF</technic>)</comment>
-                <comment>Les points de code des 15 plans suivants comportent 5 chiffres (entre <technic>U+10000</technic> et <technic>U+FFFFF</technic>)</comment>
-                <comment>Les points de code du dernier plans comportent 6 chiffres (entre <technic>U+100000</technic> et <technic>U+10FFFF</technic>).</comment>
-            </comments>
-        </item>
-        <references>
-            <reference>
-                <name>ASCII table</name>
-                <link>http://www.asciitable.com/</link>
-            </reference>
-        </references>
-    </fileModification>
+Modification de fichiers
+------------------------
+    L'objectif de cette section est de donner des méthodes de modification de fichiers. Elle détaille les outils utilisés, ainsi que les commandes au sein de ces outils.
+
+    Carriage return (CR): \r
+    Line feed (LF)      : \n
+    fin de ligne
+        sous UNIX       : \n
+        sous Windows    : \r\n
+        sous Mac        : \r
+
+
+    Convertir les fins de ligne d'un fichier (Windows/Unix/Mac)
+        Notepad++
+            vers UNIX : Edition > Convertir les sauts de ligne > Convertir en Format UNIX (LF)
+            vers Windows : Edition > Convertir les sauts de ligne > Convertir en Format Windows (CR+LF)
+            vers Mac : Edition > Convertir les sauts de ligne > Convertir en Format Mac (CR)
+    Voir les séquences de fin de ligne
+        Notepad++
+            Affichage > Symboles spéciaux > Afficher les symboles de fin de ligne
+    Voir les blancs et les tabulations
+        Notepad++
+            Affichage > Symboles spéciaux > Afficher les blancs et les tabulations
+    Supprimer des lignes vides (i.e ne contenant aucun caractère, pas même des espaces)
+        Notepad++ (plugin TextFX)
+            TextFX > TextFX Edit > Delete Blank Lines
+    Compacter des lignes vides consécutives en une seule ligne vide
+        Notepad++ (plugin TextFX)
+            TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)
+    Distribuer sur différentes lignes des items faisant partie d'une liste
+        Exemple :            A
+                  A, B, C -> B
+                             C
+        Notepad++
+            remplacer (CTRL + H)
+            mode étendu (\n, \r, \t, \0, \x...)
+            recherche : ,
+            remplacer par : \r\n
+    Assembler différentes lignes en une liste
+        Exemple :   A
+                    B -> A, B, C
+                    C
+        Notepad++
+            remplacer (CTRL + H)
+            mode étendu (\n, \r, \t, \0, \x...)
+            recherche : \r\n
+            remplacer par : ,
+
+    Trier des lignes en supprimant les doublons
+        Notepad++ (plugin TextFX)
+            TextFX > TextFX Tools > cocher "+Sort outputs only UNIQUE (at column) lines"
+            TextFX > TextFX Tools > cocher "+Sort ascending" pour un tri par ordre alphabétique / décocher pour un ordre inverse
+            TextFX > TextFX Tools > cliquer sur "Sort lines case sensitive (at column)" ou sur "Sort lines case insensitive (at column)"
+    Indenter les xml
+        IntelliJ
+            Code > Reformat Code...
+            Raccourci par défaut : CTRL + ALT + L
+            Fonctionne sur tous les fichiers du projet ou sur un ensemble de fichiers sélectionnés.
+    Convertir "underscore" vers "camelcase"
+        Example : iinvCEqSector -> IINV_C_EQ_SECTOR
+        Notepad++
+            étape 1 : remplacer l'expression régulière ([A-Z]) par _\1 (cocher Respecter la casse)
+            étape 2 : passer en majuscule (CTRL + SHIFT + U)
+    Comparer 2 listes
+        Dans un feuille Excel :
+            en A1, saisir le formattage conditionnel : =ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)
+            en B1, saisir le formattage conditionnel : =ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)
+            copier le format de A1 sur la colonne A
+            copier le format de B1 sur la colonne B
+        Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND
+        Inspiré de l'article http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310
+
+
+    Table ASCII
+        Table contenant 128 caractères
+        Chaque caractère est codé sur 7 bit, ce qui permet bien la représentation de (2 puissance 7 =) 128 caractères
+        Chaque caractère peut être représenté par un chiffre hexadécimal (entre 0 et F) suivi par un chiffre entre 0 et 7, ce qui permet bien la représentation des (16 x 8 =) 128 caractères.
+        Voir http://www.asciitable.com/
+
+    Table ASCII étendue
+        Table contenant 256 caractères
+        Chaque caractère est codé sur 8 bit, ce qui permet bien la représentation de (2 puissance 8 =) 256 caractères
+        Chaque caractère peut être représenté par deux chiffres hexadécimal (entre 0 et F), ce qui permet bien la représentation des (16 x 16 =) 256 caractères.
+        Ceci n'est pas une mise à jour de la table ASCII
+        Il existe plusieurs extensions propriétaires de la table ASCII, incompatibles entre elles.
+        Il existe plusieurs tables ASCII étendues définie par l'ISO : ce sont les table ISO 8859.
+        La plus populaire des tables ISO 8859 est la table SO 8859-1, appelée également ISO Latin1
+
+    UTF-8
+        Système d'encodage des caractères internationaux d'Unicode rétro-compatible avec ASCII
+        Chaque caractère est codé sur un ensemble de 1 à 4 octets.
+        La rétro-compatibilité avec ASCII signifie que tout caractère ASCII se code en UTF-8 sous forme d'un unique octet, identique au code ASCII.
+
+    Page de code
+        Jeu de caractère associant un nombre à chaque caractère d'une langue.
+        De nombreuse pages de code ont été définies autour de la norme ASCII, sous-ensemble commun à plusieurs pages de code.
+
+    Unicode
+        Standard informatique qui vise à permettre le codage de texte écrit en donnant à tout caractère de n’importe quel système d’écriture un nom et un identifiant numérique, et ce de manière unifiée, quelle que soit la plate-forme informatique ou le logiciel.
+        Son but est de remplacer l’utilisation de pages de code nationales.        
+        Chaque caractère est associé à un nombre entier appelé point de code.
+        L'espace de codage de ces nombres est divisé en 17 zones de 65 536 points de codes. Ces zones sont appelées plans.
+        Un point de code est noté U+xxxx où xxxx est un nombre hexadécimal comportant de 4 à 6 chiffres.
+        Les points de code du premier plan (appelé plan multilingue de base) comportent 4 chiffres (entre U+0000 et U+FFFF)
+        Les points de code des 15 plans suivants comportent 5 chiffres (entre U+10000 et U+FFFFF)
+        Les points de code du dernier plans comportent 6 chiffres (entre U+100000 et U+10FFFF).
+
+
+
 
 Subversion
 ----------
@@ -458,7 +340,7 @@ GIT
     HEAD                                        : Pointeur vers le parent du prochain commit. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.
     HEAD~                                       : Pointeur vers le parent du commit pointé par HEAD
     HEAD~2                                      : Pointeur vers le parent du commit parent du commit pointé par HEAD (et de même HEAD~3, HEAD~4, etc...)
-    HEAD détaché                                : Le HEAD est dit détaché lorsqu'il ne pointe pas sur le dernier commit de la branche courante. Ceci se produit lorsque l'on fait un checkout sur une référence qui n'est pas une branche (comme <technic>master~2</technic> par exemple), l'effet étant de créer une branche anonyme.
+    HEAD détaché                                : Le HEAD est dit détaché lorsqu'il ne pointe pas sur le dernier commit de la branche courante. Ceci se produit lorsque l'on fait un checkout sur une référence qui n'est pas une branche (comme master~2 par exemple), l'effet étant de créer une branche anonyme.
     Répertoire de travail (working directory)   : Ensemble des fichiers présents sur le disque dur, qui contient aussi bien les fichiers suivis que non suivis. C'est ce répertoire de travail qui contient les versions courantes (c'est-à-dire éventuellement modifiées) des fichiers.
     Index (Staging area)                        : Versions d'un ensemble de fichiers qui feront parti du prochain commit
     Action "Stage"                              : Ajout de fichiers à l'index
@@ -604,7 +486,7 @@ SYBASE
     Obtenir la liste des groupes : sp_helpgroup
     Ajouter à une base un groupe défini sur le data serveur : sp_addgroup 'nom_de_groupe'
     Connaître le nom réel d'un base (renvoyé par les messages d'erreurs Sybase) : select @@servername
-     
+
     Le fichier sql.ini
         Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier sql.ini(présent par exemple dans C:\Program Files\sybase\12.5.1\ini).
         Ils sont définis suivant le template :
@@ -627,8 +509,8 @@ SYBASE
             bcp BASE..TABLE out C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c
         Alimentation d'une table à partir d'un fichier
             bcp BASE..TABLE in C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c
-    
-    
+
+
     Système de verrouillage de table : 
         Une table est composée de pages. Une page est composées de lignes (row).
         Les différents systèmes de verrouillage d'une table sont : 
@@ -650,7 +532,7 @@ DOS
     Changer de répertoire               : cd nom_de_repertoire
     Afficher le contenu d'un fichier    : more nom_de_fichier
     Créer un fichier                    : echo "contenu du fichier" > nom_de_fichier
-            
+
     Commande externe : Une commande non incluse dans command.com
         Voir http://www.computerhope.com/jargon/e/extecomm.htm
 
@@ -661,7 +543,7 @@ DOS
     LESSCHARSET : Variable d'environnement lue par Less qui permet de préciser le jeux de caractère prédéfini à utiliser.
         Valeurs possibles   : ascii, iso8859, latin1, dos, ebcdic, koi8-r, utf-8
         Exemple             : set LESSCHARSET = latin1
-    
+
     LESSCHARDEF : Variable d'environnement lue par >Less, permettant de définir un jeux de caractères
         La chaîne de caractère affectée à cette variable défini le type des caractères de 0 à 255.
         Les caractères possibles sont les suivants :
@@ -687,7 +569,7 @@ RegExp
         \n : matche avec la séquence de fin de ligne (\r\n sous Windows et \n sous Unix)
         Remplacement : $1
     Notepad++
-            
+
         \t : matche avec les tabulations
         \r : non reconnu
         \n : non reconnu
@@ -697,309 +579,86 @@ RegExp
     Trouver les caractères de mots qui ne sont pas des chiffres : [^\W\d]
         Le symbole indiquant la négation porte sur l'ensemble des caratères qui suivent.
         L'expression signifie donc non(\W ou \d) soit non(\W) et non(\d) c'est-à-dire \w et non(\d).
-            
-    <language>
-        <name>Anglais</name>
-        <references>
-            <reference>
-                <name>Les transcriptions phonétiques sont tirées du site suivant :</name>
-                <link>http://www.wordreference.com</link>
-            </reference>
-            <reference>
-                <name>Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple iː au lieu de i) :</name>
-                <link>http://dictionary.reference.com/</link>
-            </reference>
-            <reference>
-                <name>traduction</name>
-                <link>http://www.wordreference.com</link>
-            </reference>
-            <reference>
-                <name>Liste des symboles phonétiques</name>
-                <link>http://www.wordreference.com/fr/French-Pronunciation.aspx</link>
-            </reference>
-            <reference>
-                <name>prononciation des sons ipa</name>
-                <link>http://www.antimoon.com/how/pronunc-soundsipa.htm</link>
-            </reference>
-        </references>
-        <word>
-            <name></name>
-            <phonetic></phonetic>
-            <description></description>
-        </word>
-        <word>
-            <name>agile</name>
-            <phonetic>ˈædʒaɪl</phonetic>
-            <phonetic>ˈædʒl</phonetic>
-            <description>agile</description>
-        </word>
-        <word>
-            <name>area</name>
-            <phonetic>ˈeərɪə</phonetic>
-            <description>région, superficie</description>
-        </word>
-        <word>
-            <name>ash</name>
-            <phonetic>æʃ</phonetic>
-            <description>cendre</description>
-        </word>
-        <word>
-            <name>automatically</name>
-            <phonetic>ˌɔːtəˈmætɪklɪ</phonetic>
-        </word>
-        <word>
-            <name>bat</name>
-            <phonetic>bæt</phonetic>
-            <description></description>
-        </word>
-        <word>
-            <name>bet</name>
-            <phonetic>bet</phonetic>
-            <description></description>
-        </word>
-          <word>
-            <name>bot</name>
-            <phonetic>bɒt</phonetic>
-            <description></description>
-        </word>
-        <word>
-            <name>but</name>
-            <phonetic>bʌt</phonetic>
-            <description></description>
-        </word>
-        <word>
-            <name>barrage</name>
-            <phonetic>ˈbærɑːʒ</phonetic>
-            <phonetic>bəˈrɑːʒ</phonetic>
-            <description>barrage</description>
-        </word>
-        <word>
-            <name>browse</name>
-            <phonetic>braʊz</phonetic>
-            <description>naviguer</description>
-        </word>
-        <word>
-            <name>confluence</name>
-            <phonetic>ˈkɒnflʊəns</phonetic>
-            <description>confort</description>
-        </word>
-         <word>
-            <name>comfort</name>
-            <phonetic>ˈkʌmfət</phonetic>
-            <description>confort</description>
-        </word>
-        <word>
-            <name>comfortable</name>
-            <phonetic>ˈkʌmftəbl</phonetic>
-            <phonetic>ˈkʌmfərtbl</phonetic>
-            <description>confortable</description>
-        </word>
-        <word>
-            <name>command</name>
-            <phonetic>kəˈmɑːnd</phonetic>
-            <phonetic>kəˈmænd</phonetic>
-            <description>confortable</description>
-        </word>
-        <word>
-            <name>database</name>
-            <phonetic>ˈdeɪtəˌbeɪs</phonetic>
-            <description>base de données</description>
-        </word>
-        <word>
-            <name>directory</name>
-            <phonetic>daɪˈrektərɪ / dɪˈrektərɪ / dɪˈrektrɪ</phonetic>
-            <description>base de données</description>
-        </word>
-        <word>
-            <name>eclipse</name>
-            <phonetic>ɪˈklɪps</phonetic>
-        </word>
-        <word>
-            <name>era</name>
-            <phonetic>ˈɪərə</phonetic>
-            <description>époque</description>
-        </word>
-        <word>
-            <name>error</name>
-            <phonetic>ˈerə(r)</phonetic>
-            <description>erreur</description>
-        </word>
-        <word>
-            <name>extreme</name>
-            <phonetic>ɪkˈstriːm</phonetic>
-            <description>extreme</description>
-        </word>
-        <word>
-            <name>flaccid</name>
-            <phonetic>ˈflæsɪd / ˈflæksɪd</phonetic>
-            <description>flasque, mou</description>
-        </word>
-        <word>
-            <name>France</name>
-            <phonetic>frɑːns</phonetic>
-            <description>La France</description>
-        </word>
-        <word>
-            <name>GUI</name>
-            <phonetic>ˈguiː</phonetic>
-            <description>Gui User Interface</description>
-        </word>
-        <word>
-            <name>Hudson</name>
-            <phonetic>ˈhʌdsən</phonetic>
-        </word>
-        <word>
-            <name>integer</name>
-            <phonetic>ˈɪntɪdʒər</phonetic>
-            <description>mathématiques : entier</description>
-        </word>
-        <word>
-            <name>java</name>
-            <phonetic>ˈdʒɑːvə</phonetic>
-        </word>
-        <word>
-            <name>ladder</name>
-            <phonetic>ˈlædə(r)</phonetic>
-            <description>échelle</description>
-        </word>
-        <word>
-            <name>library</name>
-            <phonetic>ˈlaɪbrərɪ</phonetic>
-            <phonetic>ˈlaɪbrerɪ</phonetic>
-        </word>
-        <word>
-            <name>library</name>
-            <phonetic>ˈlaɪbrərɪ</phonetic>
-            <phonetic>ˈlaɪbrerɪ</phonetic>
-        </word>
-        <word>
-            <name>limb</name>
-            <phonetic>lɪm</phonetic>
-            <phonetic>membre (bras , jambe) / branche principale d'un arbre</phonetic>
-        </word>
-        <word>
-            <name>maven</name>
-            <phonetic>ˈmeɪvən</phonetic>
-            <description>flasque, mou</description>
-        </word>
-        <word>
-            <name>oath</name>
-            <phonetic>əʊθ</phonetic>
-            <description>serment</description>
-        </word>
-        <word>
-            <name>obstacle</name>
-            <phonetic>ˈɒbstəkl</phonetic>
-            <description>obstacle</description>
-        </word>
-        <word>
-            <name>pawn</name>
-            <phonetic>pɔːn</phonetic>
-            <description>pions (aux échecs)</description>
-        </word>
-        <word>
-            <name>phase</name>
-            <phonetic>feɪz</phonetic>
-        </word>
-        <word>
-            <name>platform</name>
-            <phonetic>ˈplætfɔːm</phonetic>
-            <description>plateforme</description>
-        </word>
-        <word>
-            <name>procedure</name>
-            <phonetic> prəˈsiːdʒə(r)</phonetic>
-            <description>procédure</description>
-        </word>
-        <word>
-            <name>program</name>
-            <phonetic>ˈprəʊɡræm</phonetic>
-            <phonetic>ˈprəʊɡrəm</phonetic>
-        </word>
-        <word>
-            <name>raw</name>
-            <phonetic>rɔː</phonetic>
-            <description>brut (raw data : données brutes)</description>
-        </word>
-        <word>
-            <name>reassure</name>
-            <phonetic>ˌriːəˈʃɔː(r)</phonetic>
-            <phonetic>ˌriːəˈʃʊər-</phonetic>
-            <description>rassurer (quelqu'un) (about : sur)</description>
-        </word>
-        <word>
-            <name>release</name>
-            <phonetic>rɪˈliːs</phonetic>
-            <description>libérer, livrer</description>
-        </word>
-        <word>
-            <name>row</name>
-            <phonetic>rəʊ</phonetic>
-            <description>ligne</description>
-        </word>
-        <word>
-            <name>server</name>
-            <phonetic>ˈsɜːvə(r)</phonetic>
-        </word>
-        <word>
-            <name>source</name>
-            <phonetic>sɔːs</phonetic>
-        </word>
-        <word>
-            <name>subversion</name>
-            <phonetic>səˈbvɜːʃn</phonetic>
-            <phonetic>səˈbvɜːrʒn</phonetic>
-        </word>
-        <word>
-            <name>thumb</name>
-            <phonetic>θʌm</phonetic>
-            <description>pouce</description>
-        </word>
-        <word>
-            <name>toe</name>
-            <phonetic>təʊ</phonetic>
-            <description>orteil</description>
-        </word>
-        <word>
-            <name>tortoise</name>
-            <phonetic>ˈtɔːtəs</phonetic>
-            <description>tortue (terrestre)</description>
-        </word>
-        <word>
-            <name>turtle</name>
-            <phonetic>ˈtɜːtl</phonetic>
-            <description>tortue (générique)</description>
-        </word>
-        <word>
-            <name>variable</name>
-            <phonetic>ˈveərɪəbl</phonetic>
-            <description>variable</description>
-        </word>
-        <word>
-            <name>wound</name>
-            <phonetic>wuːnd</phonetic>
-            <description>blessure</description>
-        </word>
-    </language>
-    <language>
-        <name>Français</name>
-        <references>
-            <reference>
-                <name>Définition</name>
-                <link>http://www.lexilogos.com/francais_langue_dictionnaires.htm</link>
-            </reference>
-        </references>
-        <word>
-            <name>atermoiement</name>
-            <description>(souvent au pluriel) action de différer, retarder; hésitation, tergiversation</description>
-        </word>
-    </language>
+
+Anglais
+-------
+
+    Les transcriptions phonétiques sont tirées du site suivant : http://www.wordreference.com
+    Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple iː au lieu de i) : http://dictionary.reference.com
+    Traduction : http://www.wordreference.com
+    Liste des symboles phonétiques : http://www.wordreference.com/fr/French-Pronunciation.aspx
+    Prononciation des sons ipa : http://www.antimoon.com/how/pronunc-soundsipa.htm
+
+
+    ┌———————————————┬——————————————————————————————————┬———————————————————————————————————————————————————————┐
+    │ mot           │ phonétique                       │ définition                                            │
+    ├———————————————+——————————————————————————————————+———————————————————————————————————————————————————————┤
+    | agile         │ ˈædʒaɪl/ˈædʒl                    │ agile                                                 │
+    | area          │ ˈeərɪə                           │ région, superficie                                    │
+    | ash           │  æʃ                              │ cendre                                                │
+    | automatically │ ˌɔːtəˈmætɪklɪ                    │ automatiquement                                       │
+    | bat           │  bæt                             │ chauve-souris                                         │
+    | bet           │  bet                             │                                                       │
+    | bot           │  bɒt                             │                                                       │
+    | but           │  bʌt                             │ mais                                                  │
+    | barrage       │ ˈbærɑːʒ ; bəˈrɑːʒ                │ barrage                                               │
+    | browse        │  braʊz                           │ naviguer                                              │
+    | confluence    │ ˈkɒnflʊəns                       │                                                       │
+    | comfort       │ ˈkʌmfət                          │ confort                                               │
+    | comfortable   │ ˈkʌmftəbl/ˈkʌmfərtbl             │ confortable                                           │
+    | command       │ kəˈmɑːnd/kəˈmænd                 │                                                       │
+    | database      │ ˈdeɪtəˌbeɪs                      │ base de données                                       │
+    | directory     │ daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ │ répertoire                                            │
+    | eclipse       │ ɪˈklɪps                          │                                                       │
+    | era           │ ˈɪərə                            │ époque                                                │
+    | error         │ ˈerə(r)                          │ erreur                                                │
+    | extreme       │ ɪkˈstriːm                        │ extreme                                               │
+    | flaccid       │ ˈflæsɪd/ˈflæksɪd                 │ flasque, mou                                          │
+    | France        │ frɑːns                           │ La France                                             │
+    | GUI           │ ˈguiː                            │ Gui User Interface                                    │
+    | Hudson        │ ˈhʌdsən                          │                                                       │
+    | integer       │ ˈɪntɪdʒər                        │ mathématiques : entier                                │
+    | java          │ ˈdʒɑːvə                          │                                                       │
+    | ladder        │ ˈlædə(r)                         │ échelle                                               │
+    | library       │ ˈlaɪbrərɪ/ˈlaɪbrerɪ              │                                                       │
+    | limb          │ lɪm                              │ membre (bras , jambe) / branche principale d'un arbre │
+    | maven         │ ˈmeɪvən                          │ expert                                                │
+    | oath          │ əʊθ                              │ serment                                               │
+    | obstacle      │ ˈɒbstəkl                         │ obstacle                                              │
+    | pawn          │ pɔːn                             │ pions (aux échecs)                                    │
+    | phase         │ feɪz                             │ phase                                                 │
+    | platform      │ ˈplætfɔːm                        │ plateforme                                            │
+    | procedure     │ prəˈsiːdʒə(r)                    │ procédure                                             │
+    | program       │ ˈprəʊɡræm/ˈprəʊɡrəm              │ programme                                             │
+    | raw           │ rɔː                              │ brut (raw data : données brutes)                      │
+    | reassure      │ ˌriːəˈʃɔː(r)/riːəˈʃʊər           │ rassurer (quelqu'un) (about : sur)                    │
+    | release       │ rɪˈliːs                          │ libérer, livrer                                       │
+    | row           │ rəʊ                              │ ligne                                                 │
+    | server        │ ˈsɜːvə(r)                        │ serveur                                               │
+    | source        │ sɔːs                             │ source                                                │
+    | subversion    │ səˈbvɜːʃn/səˈbvɜːrʒn             │                                                       │
+    | thumb         │ θʌm                              │ pouce                                                 │
+    | toe           │ təʊ                              │ orteil                                                │
+    | tortoise      │ ˈtɔːtəs                          │ tortue (terrestre)                                    │
+    | turtle        │ ˈtɜːtl                           │ tortue (générique)                                    │
+    | variable      │ ˈveərɪəbl                        │ variable                                              │
+    | wound         │ wuːnd                            │ blessure                                              │
+    └———————————————└——————————————————————————————————┴———————————————————————————————————————————————————————┘
+
+Français
+--------
+    Définition : http://www.lexilogos.com/francais_langue_dictionnaires.htm
+    ┌——————————————┬———————————————————————————————————————————————————————————————————————————————┐
+    │ mot          │ définition                                                                    │
+    ├——————————————+———————————————————————————————————————————————————————————————————————————————┤
+    | atermoiement | (souvent au pluriel) action de différer, retarder; hésitation, tergiversation │
+    └——————————————————————————————————————————————————————————————————————————————————————————————┘
+
 
 Web et Wiki
 -----------
     Créer son wiki      : http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki
     Créer son site web  : http://www.2createawebsite.com
-
 
 XML
 ---
@@ -1014,12 +673,12 @@ XML
         Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné) : http://xmlfr.org/documentations/faq/041013-0001
         Regroupement xslt : la méthode Muenchian : http://www.jenitennison.com/xslt/grouping/muenchian.html
         Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.
-    
+
     Tutoriaux XSD
             Tutorial Xsd 1  : http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes
             Tutorial Xsd 2  : http://www.w3schools.com/schema/default.asp
             DTD et XSD      : http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas
-            
+
     Validateur XSD online
         Xsd online validator : http://www.corefiling.com/opensource/schemaValidate.html
 
@@ -1034,7 +693,7 @@ XML
         </item>
         <item>
             <name>Class literal</name>
-            <description>Tout objet qui représente une classe (par exemple <technic>String.class</technic>)</description>
+            <description>Tout objet qui représente une classe (par exemple String.class</technic>)</description>
         </item>
         <item>
             <name>reifiable type</name>
@@ -2031,4 +1690,3 @@ Divers
     Abréviations courantes                  : http://monsu.desiderio.free.fr/atelier/abrevia.html
     Abréviations courantes MR               : http://fr.wikipedia.org/wiki/MR
     Raccourcis clavier d'Internet Explorer  : http://windows.microsoft.com/fr-BE/windows-vista/Internet-Explorer-8-keyboard-shortcuts
-                                                                                                                                                                                                     
