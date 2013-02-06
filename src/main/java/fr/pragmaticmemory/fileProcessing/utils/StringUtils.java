@@ -14,4 +14,9 @@ public class StringUtils {
     public static String rightPad(String s, int width) {
         return String.format("%-" + width + "s", s);
     }
+
+
+    public static String[] split(String string, String regExp) {
+        return string.split(regExp, -1);
+    }
 }

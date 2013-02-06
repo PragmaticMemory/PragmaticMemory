@@ -682,587 +682,164 @@ XML
     Validateur XSD online
         Xsd online validator : http://www.corefiling.com/opensource/schemaValidate.html
 
-    <java>
-        <item>
-            <name>Jvm</name>
-            <description>Java virtual machine (machine virtuelle java)</description>
-        </item>
-        <item>
-            <name>Classpath</name>
-            <description>Ensemble de chemins utilisés par la jvm pour localiser les différentes ressources (dont les classes). Un classpath peut contenir : des noms de jar; des répertoires (dans ce cas, le répertoire en question doit contenir des .class au sein de sous-répertoires reproduisant l'arborescence des packages).</description>
-        </item>
-        <item>
-            <name>Class literal</name>
-            <description>Tout objet qui représente une classe (par exemple String.class</technic>)</description>
-        </item>
-        <item>
-            <name>reifiable type</name>
-            <description>Un type "réifiable" est un type dont toute l'information de type est disponible à l'exécution. Un exemple de type non "réifiable" : <technic>List&#60;String&#62;</technic>, car ne sont disponible à l'exécution que les informations de <technic>List</technic>. Les tableaux et l'opérateur instanceof peuvent s'appliquer uniquement à des types réifiables.</description>
-        </item>
-        <item>
-            <name>Paramètre et argument</name>
-            <description>Un paramètre est une variable qui fait partie de la déclaration d'une méthode (signature de la méthode). Un argument est une expression utilisée lors de l'appel de la méthode</description>
-            <comments>
-                <comment>
-                    <code>
-                        <codeLine level="1">void method(int i, float f)</codeLine>
-                        <codeLine level="1">{</codeLine>
-                        <codeLine level="3">// Do things</codeLine>
-                        <codeLine level="1">}</codeLine>
-                        <codeLine level="1"></codeLine>
-                        <codeLine level="1">void Bar()</codeLine>
-                        <codeLine level="1">{</codeLine>
-                        <codeLine level="3">int anInt = 1;</codeLine>
-                        <codeLine level="3">method(anInt, 2.0);</codeLine>
-                        <codeLine level="1">}</codeLine>
-                    </code>
-                </comment>
-                <comment>Dans cet exemple, <technic>i</technic> et <technic>f</technic> sont des paramètres et <technic>anInt</technic> et <technic>2.0</technic> sont des arguments.</comment>
-            </comments>
-        </item>
-        <item>
-            <name>Classes liées aux <technic>JTable</technic></name>
-            <description>
-                <table>
-                    <headerRow>
-                        <cell>Objet</cell>
-                        <cell>Type</cell>
-                        <cell>Description</cell>
-                    </headerRow>
-                    <row>
-                        <cell><technic>JTable</technic></cell>
-                        <cell>classe</cell>
-                        <cell>vue du modèle de données</cell>
-                    </row>
-                    <row>
-                        <cell><technic>JTable.getModel()</technic></cell>
-                        <cell>méthode</cell>
-                        <cell>récupération du modèle de données</cell>
-                    </row>
-                    <row>
-                        <cell><technic>JTable.getSelectionModel()</technic></cell>
-                        <cell>méthode</cell>
-                        <cell>récupération du modèle de sélection</cell>
-                    </row>
-                    <row>
-                        <cell><technic>JTable.getColumnModel()</technic></cell>
-                        <cell>méthode</cell>
-                        <cell>récupération du modèle de colonnes</cell>
-                    </row>
-                    <row>
-                        <cell><technic>JTable.getTableHeader()</technic></cell>
-                        <cell>méthode</cell>
-                        <cell>récupération du JTableHeader</cell>
-                    </row>
-                    <row>
-                        <cell><technic>JTable.setDefaultRenderer(...)</technic></cell>
-                        <cell>méthode</cell>
-                        <cell>modification du renderer par défaut d'une classe donnée</cell>
-                    </row>
-                    <row>
-                        <cell><technic>JTable.getCellRenderer(int row, int column)</technic></cell>
-                        <cell>method</cell>
-                        <cell>Sélection du renderer de la table : renvoie en priorité le renderer particulier de la colonne; sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass()</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableColumnModel</technic></cell>
-                        <cell>interface</cell>
-                        <cell>modèle des colonnes de la table. L'ordre des colonnes dans ce modèle (column index) peut être modifié par la JTable afin de refléter l'ordre d'affichage des colonnes.</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableColumn</technic></cell>
-                        <cell>classe</cell>
-                        <cell>modèle d'une colonne de la table</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableColumn.setCellRenderer()</technic></cell>
-                        <cell>method</cell>
-                        <cell>modification du renderer d'une colonne</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableModel</technic></cell>
-                        <cell>interface</cell>
-                        <cell>modèle de données de la table</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableModelEvent</technic></cell>
-                        <cell>classe</cell>
-                        <cell>évenement de modification du modèle de données</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableModelListener</technic></cell>
-                        <cell>interface</cell>
-                        <cell>callback de traitement des modifications d'un TableModel; gère des TableModelEvent via la méthode tableChanged()</cell>
-                    </row>
-                    <row>
-                        <cell><technic>DefaultTableModel</technic></cell>
-                        <cell>classe</cell>
-                        <cell>modèle de table par défaut; représente uniquement des chaînes de caractères et ne permets pas la représentation d'autre types (booléen, par exemple)</cell>
-                    </row>
-                    <row>
-                        <cell><technic>AbstractTableModel</technic></cell>
-                        <cell>classe</cell>
-                        <cell>classe de base de modèle qui implémente des méthodes de notification de modification (méthodes fireTableRowsUpdated(), fireTableRowsInserted(), ... appellant la méthode TableModelListener.tableChanged avec des TableModelEvent appropriés)</cell>
-                    </row>
-                    <row>
-                        <cell><technic>ListSelectionModel</technic></cell>
-                        <cell>interface</cell>
-                        <cell>modèle de sélection de la table (par ligne , par colonne, par cellule)</cell>
-                    </row>
-                    <row>
-                        <cell><technic>JTableHeader</technic></cell>
-                        <cell>classe</cell>
-                        <cell>headers de la table</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableColumnModelListener</technic></cell>
-                        <cell>interface</cell>
-                        <cell>callback de traitement des modifications du modèle do colonnes</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableColumnModelEvent</technic></cell>
-                        <cell>classe</cell>
-                        <cell>évenement de modification du modèle de colonnes</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableCellRenderer</technic></cell>
-                        <cell>class</cell>
-                        <cell>Renderer de la table,dont le rôle est de retourner un composant de rendu</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableCellRenderer.getTableCellRendererComponent()</technic></cell>
-                        <cell>method</cell>
-                        <cell>Sélection du composant effectuant le rendu</cell>
-                    </row>
-                    <row>
-                        <cell><technic>DefaultTableCellRenderer</technic></cell>
-                        <cell>class</cell>
-                        <cell>Renderer par défaut, le composant assurant le rendu des cellules étant un JLabel</cell>
-                    </row>
-                    <row>
-                        <cell><technic>DefaultRowSorter</technic></cell>
-                        <cell>abstract class</cell>
-                        <cell>classe de base de TableRowSorter</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableRowSorter</technic></cell>
-                        <cell>class</cell>
-                        <cell>une implémentation de <technic>RowSorter</technic> qui fournit un tri et un filtre en utilisant un <technic>TableModel</technic></cell>
-                    </row>
-                    <row>
-                        <cell><technic>RowSorter</technic></cell>
-                        <cell>abstract class</cell>
-                        <cell>base de tri et filtrage</cell>
-                    </row>
-                    <row>
-                        <cell><technic>RowSorter.SortKey</technic></cell>
-                        <cell>inner class</cell>
-                        <cell>Décrit l'ordre de tri pour une colonne</cell>
-                    </row>
-                    <row>
-                        <cell><technic>RowSorter.setSortKeys(...)</technic></cell>
-                        <cell>method</cell>
-                        <cell>Précise les SortKeys du <technic>RowSorter</technic></cell>
-                    </row>
-                    <row>
-                        <cell><technic>RowFilter</technic></cell>
-                        <cell>abstract class</cell>
-                        <cell>Filtrage des données du modèle pour affichage dans la vue</cell>
-                    </row>
-                    <row>
-                        <cell><technic>RowFilter.regexFilter(...)</technic></cell>
-                        <cell>method</cell>
-                        <cell>créée une instance de RegexFilter</cell>
-                    </row>
-                    <row>
-                        <cell><technic>RowFilter.dateFilter(...)</technic></cell>
-                        <cell>method</cell>
-                        <cell>créée une instance de DateFilter</cell>
-                    </row>
-                    <row>
-                        <cell><technic>RowFilter.numberFilter(...)</technic></cell>
-                        <cell>method</cell>
-                        <cell>créée une instance de NumberFilter</cell>
-                    </row>
-                    <row>
-                        <cell><technic>RowFilter.orFilter(...)</technic></cell>
-                        <cell>method</cell>
-                        <cell>créée une instance de OrFilter</cell>
-                    </row>
-                    <row>
-                        <cell><technic>RowFilter.andFilter(...)</technic></cell>
-                        <cell>method</cell>
-                        <cell>créée une instance de AndFilter</cell>
-                    </row>
-                    <row>
-                        <cell><technic>RowFilter.notFilter()</technic></cell>
-                        <cell>method</cell>
-                        <cell>créée une instance de NotFilter</cell>
-                    </row>
-                    <row>
-                        <cell><technic>DefaultCellEditor</technic></cell>
-                        <cell>class</cell>
-                        <cell>éditeur par défaut des tables et des arbres</cell>
-                    </row>
-                    <row>
-                        <cell><technic>CellEditor.getCellEditorValue()</technic></cell>
-                        <cell>method</cell>
-                        <cell>doit renvoyer la valeur de l'éditeur</cell>
-                    </row>
-                    <row>
-                        <cell><technic>TableCellEditor.getTableCellEditorComponent()</technic></cell>
-                        <cell>method</cell>
-                        <cell>doit renvoyer le composant d'édition</cell>
-                    </row>
-                </table>
-            </description>
-            <comments>
-                <comment>Définitions de (et différence entre) column index et model index :<newLine/>Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i. De plus, ces TableColumn sont stockés dans le TableColumnModel.<newLine/>On appelle column index l'index de stockage d'un TableColumn au sein du TableColumnModel.<newLine/>Le model index d'une TableColumn ne varient jamais. Par contre, le column index peut varier lors d'un déplacement de colonne.<newLine/>L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.</comment>
-                <comment>le tri de chaînes de caractères dépend de la locale</comment>
-            </comments>
-        </item>
-        <item>
-            <name>Classes liées aux <technic>JTree</technic></name>
-            <description>
-                <row>
-                    <cell><technic>JTree.convertValueToText(...)</technic></cell>
-                    <cell>method</cell>
-                    <cell>Convertie le user object en texte à afficher (par défaut, le texte affiché est celui retourné par la méthode <technic>toString()</technic>)</cell>
-                </row>
-                <row>
-                    <cell><technic>JTree.addTreeSelectionListener(...)</technic></cell>
-                    <cell>method</cell>
-                    <cell>ajout d'un listener sur les événements de sélection dans l'arbre</cell>
-                </row>
-                <row>
-                    <cell><technic>DefaultMutableTreeNode.add(...)</technic></cell>
-                    <cell>method</cell>
-                    <cell>ajoute un MutableTreeNode comme enfant du noeud</cell>
-                </row>
-                <row>
-                    <cell><technic>DefaultMutableTreeNode.getUserObject(...)</technic></cell>
-                    <cell>method</cell>
-                    <cell>renvoi l'Object passé au noeud lors de la construction ou via la méthode setUserObject()</cell>
-                </row>
-                <row>
-                    <cell><technic>TreeSelectionListener</technic></cell>
-                    <cell></cell>
-                    <cell>getLastSelectedPathComponent (revoie un Object)</cell>
-                </row>
-                <row>
-                    <cell><technic>DefaultTreeCellRenderer.setLeafIcon(...)</technic></cell>
-                    <cell>method</cell>
-                    <cell>définition de l'icône pour les noeuds feuilles</cell>
-                </row>
-                <row>
-                    <cell><technic>DefaultTreeCellRenderer.setOpenIcon(...)</technic></cell>
-                    <cell>method</cell>
-                    <cell>définition de l'icône pour les noeuds non feuilles ouverts</cell>
-                </row>
-                <row>
-                    <cell><technic>DefaultTreeCellRenderer.setClosedIcon(...)</technic></cell>
-                    <cell>method</cell>
-                    <cell>définition de l'icône pour les noeuds non feuilles fermés</cell>
-                </row>
-                <row>
-                    <cell><technic>TreeCellRenderer.getTreeCellRendererComponent(...)</technic></cell>
-                    <cell>method</cell>
-                    <cell>sélection du composant effectuant le rendu</cell>
-                </row>
-                <row>
-                    <cell><technic>DefaultTreeModel.insertNodeInto(...)</technic></cell>
-                    <cell>method</cell>
-                    <cell>ajout d'un noeud dans le modèle</cell>
-                </row>
-            </description>
-        </item>
-        <item>
-            <name>Classes liées aux <technic>JTreeTable</technic></name>
-            <description>
-                <row>
-                    <cell><technic>JTreeTable</technic></cell>
-                    <cell>class</cell>
-                    <cell>une JTable dont le renderer est un JTree</cell>
-                </row>
-                <row>
-                    <cell><technic>TreeTableCellRenderer</technic></cell>
-                    <cell>class</cell>
-                    <cell>Renderer du <technic>JTreeTable</technic></cell>
-                </row>
-                <row>
-                    <cell><technic>TreeTableModel</technic></cell>
-                    <cell>interface</cell>
-                    <cell>Modèle du <technic>JTreeTable</technic></cell>
-                </row>
-                <row>
-                    <cell><technic>TreeTableModelAdapter</technic></cell>
-                    <cell>class</cell>
-                    <cell>un AbstractTableModel faisant le lien avec le TreeTableModel</cell>
-                </row>
-                <row>
-                    <cell><technic>JTreeTable.TreeCellRendererAdapter</technic></cell>
-                    <cell>inner class</cell>
-                    <cell></cell>
-                </row>
-                <row>
-                    <cell><technic>AbstractCellEditor.fireEditingStopped()</technic></cell>
-                    <cell>method</cell>
-                    <cell>à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché</cell>
-                </row>
-            </description>
-        </item>
-        <item>
-            <name>Gestion des évènements par la classe Component</name>
-            <description>
-                <headerRow>
-                    <cell>Listener</cell>
-                    <cell>Event traité</cell>
-                    <cell>méthode d'ajout du Listener dans Component</cell>
-                    <cell>méthodes du listener</cell>
-                </headerRow>
-                <row>
-                    <cell>ComponentListener</cell>
-                    <cell>ComponentEvent</cell>
-                    <cell>addComponentListener</cell>
-                    <cell></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>componentResized</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>componentMoved</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>componentShown</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>componentHidden</cell>
-                </row>
-                <row>
-                    <cell>FocusListener</cell>
-                    <cell>FocusEvent</cell>
-                    <cell>addFocusListener</cell>
-                    <cell></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>focusGained</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>focusLost</cell>
-                </row>
-                <row>
-                    <cell>HierarchyBoundsListener</cell>
-                    <cell>HierarchyEvent</cell>
-                    <cell>addHierarchyBoundsListener</cell>
-                    <cell></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>ancestorMoved</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>ancestorResized</cell>
-                </row>
-                <row>
-                    <cell>HierarchyListener</cell>
-                    <cell>HierarchyEvent</cell>
-                    <cell>addHierarchyListener</cell>
-                    <cell></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>hierarchyChanged</cell>
-                </row>
-                <row>
-                    <cell>InputMethodListener</cell>
-                    <cell>InputMethodEvent</cell>
-                    <cell>addInputMethodListener</cell>
-                    <cell></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>inputMethodTextChanged</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>caretPositionChanged</cell>
-                </row>
-                <row>
-                    <cell>KeyListener</cell>
-                    <cell>KeyEvent</cell>
-                    <cell>addKeyListener</cell>
-                    <cell></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>keyTyped</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>keyPressed</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>keyReleased</cell>
-                </row>
-                <row>
-                    <cell>MouseListener</cell>
-                    <cell>MouseEvent</cell>
-                    <cell>addMouseListener</cell>
-                    <cell></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>mouseClicked</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>mousePressed</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>mouseReleased</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>mouseEntered</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>mouseExited</cell>
-                </row>
-                <row>
-                    <cell>MouseMotionListener</cell>
-                    <cell>MouseEvent</cell>
-                    <cell>addMouseMotionListener</cell>
-                    <cell></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>mouseDragged</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>mouseMoved</cell>
-                </row>
-                <row>
-                    <cell>MouseWheelListener</cell>
-                    <cell>MouseWheelEvent</cell>
-                    <cell>addMouseWheelListener</cell>
-                    <cell></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>mouseWheelMoved</cell>
-                </row>
-                <row>
-                    <cell>PropertyChangeListener</cell>
-                    <cell>PropertyChangeEvent</cell>
-                    <cell>addPropertyChangeListener</cell>
-                    <cell></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>propertyChange</cell>
-                </row>
-            </description>
-        </item>
-        <method>
-            <goal>Effectuer un traitement à la fermeture d'un JInternalFrame</goal>
-            <solutions>
-                <solution>
-                    <description>Passer une instance de <technic>javax.swing.event.InternalFrameAdapter</technic> à la méthode <technic>JInternalFrame.addInternalFrameListener(...)</technic></description>
-                </solution>
-            </solutions>
-        </method>
-        <method>
-            <goal>Lire les lignes d'un fichier</goal>
-            <solutions>
-                <solution>
-                    <tested>jdk6</tested>
-                    <package>
-                        <name>java.lang</name>
-                        <class>String</class>
-                    </package>
-                    <package>
-                        <name>java.util</name>
-                        <class>List</class>
-                        <class>ArrayList</class>
-                    </package>
-                    <code lang="java">
-                        <codeLine level="1">public static List&#60;String&#62; readLines(File file) throws IOException {</codeLine>
-                        <codeLine level="2">BufferedReader reader = new BufferedReader(new FileReader(file));</codeLine>
-                        <codeLine level="2">List&#60;String&#62; lines = new ArrayList&#60;String&#62;();</codeLine>
-                        <codeLine level="2">String line = reader.readLine();</codeLine>
-                        <codeLine level="2">while (line != null) {</codeLine>
-                        <codeLine level="3">lines.add(line);</codeLine>
-                        <codeLine level="3">line = reader.readLine();</codeLine>
-                        <codeLine level="2">}</codeLine>
-                        <codeLine level="2">reader.close();</codeLine>
-                        <codeLine level="2">return lines;</codeLine>
-                        <codeLine level="1">}</codeLine>
-                    </code>
-                </solution>
-            </solutions>
-            <comments>
-                <comment>Pour deux fichiers contenant respectivement <technic>A\r\nB</technic> et <technic>A\r\nB\r\n</technic>, la méthode <technic>readLines</technic> renvoie une liste identique (contenant les 2 éléments <technic>A</technic> et <technic>B</technic>).</comment>
-            </comments>
-        </method>
-        <method>
-            <goal>Insérer des lignes dans un fichier</goal>
+Java
+----
+    Jvm : Java virtual machine (machine virtuelle java)
+    Classpath : Ensemble de chemins utilisés par la jvm pour localiser les différentes ressources (dont les classes). Un classpath peut contenir : des noms de jar; des répertoires (dans ce cas, le répertoire en question doit contenir des .class au sein de sous-répertoires reproduisant l'arborescence des packages).
+    Class literal : Tout objet qui représente une classe (par exemple String.class)
+    Reifiable type : Un type "réifiable" est un type dont toute l'information de type est disponible à l'exécution. Un exemple de type non "réifiable" : List<String>, car ne sont disponible à l'exécution que les informations de List. Les tableaux et l'opérateur instanceof peuvent s'appliquer uniquement à des types réifiables.
+    Paramètre et argument : 
+        Un paramètre est une variable qui fait partie de la déclaration d'une méthode (signature de la méthode). Un argument est une expression utilisée lors de l'appel de la méthode
+        Exemple :
+            void method(int i, float f)
+            {
+                // Do things
+            }
+            
+            void Bar()
+            {
+                int anInt = 1;
+                method(anInt, 2.0);
+            }
+        
+            Dans cet exemple, i et f sont des paramètres et anInt et 2.0 sont des arguments.
+
+    Classes liées aux JTable
+        | Objet                                             | Type           | Description                                                                                                                                                                                                                                   |
+        | JTable                                            | classe         | vue du modèle de données                                                                                                                                                                                                                      |
+        | JTable.getModel()                                 | méthod         | récupération du modèle de données                                                                                                                                                                                                             |
+        | JTable.getSelectionModel()                        | méthod         | récupération du modèle de sélection                                                                                                                                                                                                           |
+        | JTable.getColumnModel()                           | méthod         | récupération du modèle de colonnes                                                                                                                                                                                                            |
+        | JTable.getTableHeader()                           | méthod         | récupération du JTableHeader                                                                                                                                                                                                                  |
+        | JTable.setDefaultRenderer(...)                    | méthod         | modification du renderer par défaut d'une classe donnée                                                                                                                                                                                       |
+        | JTable.getCellRenderer(int row, int column)       | method         | Sélection du renderer de la table : renvoie en priorité le renderer particulier de la colonne; sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass()                                           |
+        | TableColumnModel                                  | interface      | modèle des colonnes de la table. L'ordre des colonnes dans ce modèle (column index) peut être modifié par la JTable afin de refléter l'ordre d'affichage des colonnes.                                                                        |
+        | TableColumn                                       | classe         | modèle d'une colonne de la table                                                                                                                                                                                                              |
+        | TableColumn.setCellRenderer()                     | method         | modification du renderer d'une colonne                                                                                                                                                                                                        |
+        | TableModel                                        | interface      | modèle de données de la table                                                                                                                                                                                                                 |
+        | TableModelEvent                                   | classe         | évenement de modification du modèle de données                                                                                                                                                                                                |
+        | TableModelListener                                | interface      | callback de traitement des modifications d'un TableModel; gère des TableModelEvent via la méthode tableChanged()                                                                                                                              |
+        | DefaultTableModel                                 | classe         | modèle de table par défaut; représente uniquement des chaînes de caractères et ne permets pas la représentation d'autre types (booléen, par exemple)                                                                                          |
+        | AbstractTableModel                                | classe         | classe de base de modèle qui implémente des méthodes de notification de modification (méthodes fireTableRowsUpdated(), fireTableRowsInserted(), ... appellant la méthode TableModelListener.tableChanged avec des TableModelEvent appropriés) |
+        | ListSelectionModel                                | interface      | modèle de sélection de la table (par ligne , par colonne, par cellule)                                                                                                                                                                        |
+        | JTableHeader                                      | classe         | headers de la table                                                                                                                                                                                                                           |
+        | TableColumnModelListener                          | interface      | callback de traitement des modifications du modèle de colonnes                                                                                                                                                                                |
+        | TableColumnModelEvent                             | classe         | évenement de modification du modèle de colonnes                                                                                                                                                                                               |
+        | TableCellRenderer                                 | class          | Renderer de la table,dont le rôle est de retourner un composant de rendu                                                                                                                                                                      |
+        | TableCellRenderer.getTableCellRendererComponent() | method         | Sélection du composant effectuant le rendu                                                                                                                                                                                                    |
+        | DefaultTableCellRenderer                          | class          | Renderer par défaut, le composant assurant le rendu des cellules étant un JLabel                                                                                                                                                              |
+        | DefaultRowSorter                                  | abstract class | classe de base de TableRowSorter                                                                                                                                                                                                              |
+        | TableRowSorter                                    | class          | une implémentation de RowSorter qui fournit un tri et un filtre en utilisant un TableModel                                                                                                                                                    |
+        | RowSorter                                         | abstract class | base de tri et filtrage                                                                                                                                                                                                                       |
+        | RowSorter.SortKey                                 | inner class    | Décrit l'ordre de tri pour une colonne                                                                                                                                                                                                        |
+        | RowSorter.setSortKeys(...)                        | method         | Précise les SortKeys du RowSorter                                                                                                                                                                                                             |
+        | RowFilter                                         | abstract class | Filtrage des données du modèle pour affichage dans la vue                                                                                                                                                                                     |
+        | RowFilter.regexFilter(...)                        | method         | créée une instance de RegexFilter                                                                                                                                                                                                             |
+        | RowFilter.dateFilter(...)                         | method         | créée une instance de DateFilter                                                                                                                                                                                                              |
+        | RowFilter.numberFilter(...)                       | method         | créée une instance de NumberFilter                                                                                                                                                                                                            |
+        | RowFilter.orFilter(...)                           | method         | créée une instance de OrFilter                                                                                                                                                                                                                |
+        | RowFilter.andFilter(...)                          | method         | créée une instance de AndFilter                                                                                                                                                                                                               |
+        | RowFilter.notFilter()                             | method         | créée une instance de NotFilter                                                                                                                                                                                                               |
+        | DefaultCellEditor                                 | class          | éditeur par défaut des tables et des arbres                                                                                                                                                                                                   |
+        | CellEditor.getCellEditorValue()                   | method         | doit renvoyer la valeur de l'éditeur                                                                                                                                                                                                          |
+        | TableCellEditor.getTableCellEditorComponent()     | method         | doit renvoyer le composant d'édition                                                                                                                                                                                                          |
+                    
+
+        Définitions de (et différence entre) column index et model index :
+            Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i.
+            De plus, ces TableColumn sont stockés dans le TableColumnModel.
+            On appelle column index l'index de stockage d'un TableColumn au sein du TableColumnModel.
+            Le model index d'une TableColumn ne varient jamais.
+            Par contre, le column index peut varier lors d'un déplacement de colonne.
+            L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.
+        Remarque : le tri de chaînes de caractères dépend de la locale
+            
+    Classes liées aux JTree
+    
+        | Objet                                              | Type   | Description                                                                                                              | 
+        | JTree.convertValueToText(...)                      | method | Convertie le user object en texte à afficher (par défaut, le texte affiché est celui retourné par la méthode toString()) |
+        | JTree.addTreeSelectionListener(...)                | method | ajout d'un listener sur les événements de sélection dans l'arbre                                                         |
+        | DefaultMutableTreeNode.add(...)                    | method | ajoute un MutableTreeNode comme enfant du noeud                                                                          |
+        | DefaultMutableTreeNode.getUserObject(...)          | method | renvoi l'Object passé au noeud lors de la construction ou via la méthode setUserObject()                                 |
+        | TreeSelectionListener                              |        | getLastSelectedPathComponent (revoie un Object)                                                                          |
+        | DefaultTreeCellRenderer.setLeafIcon(...)           | method | définition de l'icône pour les noeuds feuilles                                                                           |
+        | DefaultTreeCellRenderer.setOpenIcon(...)           | method | définition de l'icône pour les noeuds non feuilles ouverts                                                               |
+        | DefaultTreeCellRenderer.setClosedIcon(...)         | method | définition de l'icône pour les noeuds non feuilles fermés                                                                |
+        | TreeCellRenderer.getTreeCellRendererComponent(...) | method | sélection du composant effectuant le rendu                                                                               |
+        | DefaultTreeModel.insertNodeInto(...)               | method | ajout d'un noeud dans le modèle                                                                                          |
+
+    Classes liées aux JTreeTable
+    -
+        | Objet                                   | Type        | Description                                                                  |
+        -
+        | JTreeTable                              | class       | une JTable dont le renderer est un JTree                                     |
+        | TreeTableCellRenderer                   | class       | Renderer du JTreeTable                                                       |
+        | TreeTableModel                          | interface   | Modèle du JTreeTable                                                         |
+        | TreeTableModelAdapter                   | class       | un AbstractTableModel faisant le lien avec le TreeTableModel                 |
+        | JTreeTable.TreeCellRendererAdapter      | inner class |                                                                              |
+        | AbstractCellEditor.fireEditingStopped() | method      | à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché |
+                
+    Gestion des évènements par la classe Component
+            
+        | Listener                | Event traité        | méthode d'ajout du Listener dans Component | méthodes du listener   |
+        | ComponentListener       | ComponentEvent      | addComponentListener                       |                        |
+        |                         |                     |                                            | componentResized       |
+        |                         |                     |                                            | componentMoved         |
+        |                         |                     |                                            | componentShown         |
+        |                         |                     |                                            | componentHidden        |
+        | FocusListener           | FocusEvent          | addFocusListener                           |                        |
+        |                         |                     |                                            | focusGained            |
+        |                         |                     |                                            | focusLost              |
+        | HierarchyBoundsListener | HierarchyEvent      | addHierarchyBoundsListener                 |                        |
+        |                         |                     |                                            | ancestorMoved          |
+        |                         |                     |                                            | ancestorResized        |
+        | HierarchyListener       | HierarchyEvent      | addHierarchyListener                       |                        |
+        |                         |                     |                                            | hierarchyChanged       |
+        | InputMethodListener     | InputMethodEvent    | addInputMethodListener                     |                        |
+        |                         |                     |                                            | inputMethodTextChanged |
+        |                         |                     |                                            | caretPositionChanged   |
+        | KeyListener             | KeyEvent            | addKeyListener                             |                        |
+        |                         |                     |                                            | keyTyped               |
+        |                         |                     |                                            | keyPressed             |
+        |                         |                     |                                            | keyReleased            |
+        | MouseListener           | MouseEvent          | addMouseListener                           |                        |
+        |                         |                     |                                            | mouseClicked           |
+        |                         |                     |                                            | mousePressed           |
+        |                         |                     |                                            | mouseReleased          |
+        |                         |                     |                                            | mouseEntered           |
+        |                         |                     |                                            | mouseExited            |
+        | MouseMotionListener     | MouseEvent          | addMouseMotionListener                     |                        |
+        |                         |                     |                                            | mouseDragged           |
+        |                         |                     |                                            | mouseMoved             |
+        | MouseWheelListener      | MouseWheelEvent     | addMouseWheelListener                      |                        |
+        |                         |                     |                                            | mouseWheelMoved        |
+        | PropertyChangeListener  | PropertyChangeEvent | addPropertyChangeListener                  |                        |
+        |                         |                     |                                            | propertyChange         |
+        
+    Effectuer un traitement à la fermeture d'un JInternalFrame
+        Passer une instance de javax.swing.event.InternalFrameAdapter à la méthode JInternalFrame.addInternalFrameListener(...)
+
+    Lire les lignes d'un fichier (jdk6)
+        |package|class|
+        |java.lang|String|
+        |java.util|List|
+        ||ArrayList|
+
+        public static List<String> readLines(File file) throws IOException {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            List<String> lines = new ArrayList<String>();
+            String line = reader.readLine();
+            while (line != null) {
+                lines.add(line);
+            line = reader.readLine();
+            }
+            reader.close();
+            return lines;
+        }
+        
+        Pour deux fichiers contenant respectivement A\r\nB et A\r\nB\r\n, la méthode readLines renvoie une liste identique (contenant les 2 éléments A et B).
+            
+         <goal>Insérer des lignes dans un fichier</goal>
             <solutions>
                 <solution>
                     <tested>jdk6</tested>
@@ -1280,9 +857,9 @@ XML
                         <class>BufferedWriter</class>
                     </package>
                     <code lang="java">
-                        <codeLine level="1">public static void writeLines(List&#60;String&#62; lines, File file) throws IOException {</codeLine>
+                        <codeLine level="1">public static void writeLines(List<String> lines, File file) throws IOException {</codeLine>
                         <codeLine level="2">BufferedWriter writer = new BufferedWriter(new FileWriter(file));</codeLine>
-                        <codeLine level="2">for (int i = 0; i &#60; lines.size() - 1; i++) {</codeLine>
+                        <codeLine level="2">for (int i = 0; i < lines.size() - 1; i++) {</codeLine>
                         <codeLine level="3">writer.write(lines.get(i));</codeLine>
                         <codeLine level="3">writer.newLine();</codeLine>
                         <codeLine level="2">}</codeLine>
@@ -1347,12 +924,12 @@ XML
                         <class>ArrayList</class>
                     </package>
                     <code lang="java">
-                        <codeLine level="1">public List&#60;String&#62; getAllFilePath() {</codeLine>
+                        <codeLine level="1">public List<String> getAllFilePath() {</codeLine>
                         <codeLine level="2">String[] pathArray = {</codeLine>
                         <codeLine level="3">"C:\\dev\\file1.xml",</codeLine>
                         <codeLine level="3">"C:\\dev\\file2.txt"</codeLine>
                         <codeLine level="2">};</codeLine>
-                        <codeLine level="2">List&#60;String&#62; stringList = new ArrayList&#60;String&#62;();</codeLine>
+                        <codeLine level="2">List<String> stringList = new ArrayList<String>();</codeLine>
                         <codeLine level="2">stringList.addAll(Arrays.asList(pathArray));</codeLine>
                         <codeLine level="2">return stringList;</codeLine>
                         <codeLine level="1">}</codeLine>
@@ -1368,8 +945,8 @@ XML
                         <codeLine level="1">public void process() throws Exception {</codeLine>
                         <codeLine level="2">for (String filePath : getAllFilePath()) {</codeLine>
                         <codeLine level="3">File file = new File(filePath);</codeLine>
-                        <codeLine level="3">List&#60;String&#62; lines = readLines(file);</codeLine>
-                        <codeLine level="3">List&#60;String&#62; processedLines = process(lines);</codeLine>
+                        <codeLine level="3">List<String> lines = readLines(file);</codeLine>
+                        <codeLine level="3">List<String> processedLines = process(lines);</codeLine>
                         <codeLine level="3">writeLines(processedLines, file);</codeLine>
                         <codeLine level="2">}</codeLine>
                         <codeLine level="1">}</codeLine>
@@ -1402,7 +979,7 @@ XML
                         <codeLine level="3">System.out.println("offset before first matched character = " + matcher.start());</codeLine>
                         <codeLine level="3">System.out.println("offset after last matched character= " + matcher.end());</codeLine>
                         <codeLine level="3">System.out.println("groupCount = " + matcher.groupCount());</codeLine>
-                        <codeLine level="3">for (int i = 0; i &#60; matcher.groupCount() + 1; i++) {</codeLine>
+                        <codeLine level="3">for (int i = 0; i < matcher.groupCount() + 1; i++) {</codeLine>
                         <codeLine level="4">System.out.println("\tgroup(" + i + ") = " + matcher.group(i));</codeLine>
                         <codeLine level="4">System.out.println("\t\toffset before group(" + i + ") first character= " + matcher.start(i));</codeLine>
                         <codeLine level="4">System.out.println("\t\toffset after group(" + i + ") last character = " + matcher.end(i));</codeLine>

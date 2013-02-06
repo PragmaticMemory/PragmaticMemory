@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class ArrayFormatterProcessor extends TextProcessor {
 
-    static final String ANALYSE_CELL_SEPARATOR = "\\s*\\|\\s*";
+    static final String ANALYSE_CELL_SEPARATOR = "\\|";
     static final String OUTPUT_CELL_SEPARATOR = "|";
     static final String SPACE = " ";
 
@@ -20,6 +20,8 @@ public class ArrayFormatterProcessor extends TextProcessor {
     protected List<String> processFileContent(List<String> inputLines) throws Exception {
         List<String[]> rowCellContentList = buildCellContents(inputLines);
 
+        trimCellContent(rowCellContentList);
+
         check(inputLines, rowCellContentList);
 
         Integer[] columnContentSize = getColumnContentSize(rowCellContentList);
@@ -28,12 +30,21 @@ public class ArrayFormatterProcessor extends TextProcessor {
     }
 
 
+    private void trimCellContent(List<String[]> rowCellContentList) {
+        for (String[] rowCellContent : rowCellContentList) {
+            for (int i = 0, rowCellContentLength = rowCellContent.length; i < rowCellContentLength; i++) {
+                rowCellContent[i] = rowCellContent[i].trim();
+            }
+        }
+    }
+
+
     private List<String> buildOutputLines(List<String[]> rowCellContentList, Integer[] columnContentSize) {
         List<String> outputLines = new ArrayList<String>();
         for (String[] rowCellContent : rowCellContentList) {
             StringBuilder outputLineBuilder = new StringBuilder();
             outputLineBuilder.append(OUTPUT_CELL_SEPARATOR);
-            for (int i = 1, analysedLineLength = rowCellContent.length; i < analysedLineLength; i++) {
+            for (int i = 1, analysedLineLength = rowCellContent.length - 1; i < analysedLineLength; i++) {
                 String cellContent = rowCellContent[i];
                 outputLineBuilder.append(SPACE);
                 outputLineBuilder.append(StringUtils.rightPad(cellContent, columnContentSize[i]));
@@ -70,7 +81,7 @@ public class ArrayFormatterProcessor extends TextProcessor {
         if (lineNumber > 1) {
             for (int i = 1; i < lineNumber; i++) {
                 if (cellContentByLine.get(i).length != cellContentByLine.get(i - 1).length) {
-                    throw new Exception("Different column number between lines " + (i - 1) + "and " + i);
+                    throw new Exception("Different column number between lines " + (i - 1) + " and " + i);
                 }
             }
         }
@@ -78,9 +89,9 @@ public class ArrayFormatterProcessor extends TextProcessor {
 
 
     private List<String[]> buildCellContents(List<String> inputLines) {
-        ArrayList<String[]> cellContentByLine = new ArrayList<String[]>();
+        List<String[]> cellContentByLine = new ArrayList<String[]>();
         for (String line : inputLines) {
-            String[] cells = line.split(ANALYSE_CELL_SEPARATOR);
+            String[] cells = StringUtils.split(line, ANALYSE_CELL_SEPARATOR);
             if (cells.length == 0) {
                 continue;
             }
