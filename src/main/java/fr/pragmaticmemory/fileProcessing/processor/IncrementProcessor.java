@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class IncrementProcessor extends IndependentLineProcessor {
     static final int DEFAULT_STEP = 1;
-    private final Pattern simplePattern = Pattern.compile("\\d+");
+    private final Pattern defaultPattern = Pattern.compile("\\d+");
     private final Integer step;
     private Pattern specificPattern;
 
@@ -31,13 +31,13 @@ public class IncrementProcessor extends IndependentLineProcessor {
     @Override
     protected String processLine(String line) {
         if (specificPattern == null) {
-            return fullIncrement(line);
+            return incrementAll(line);
         }
-        return partialIncrement(line);
+        return incrementOnlyPattern(line);
     }
 
 
-    private String partialIncrement(String line) {
+    private String incrementOnlyPattern(String line) {
         final Matcher matcher = specificPattern.matcher(line);
         final StringBuilder newLineBuilder = new StringBuilder();
         int firstIndex = 0;
@@ -45,7 +45,7 @@ public class IncrementProcessor extends IndependentLineProcessor {
             final int startIndex = matcher.start();
             final int endIndex = matcher.end();
             newLineBuilder.append(line.substring(firstIndex, startIndex));
-            newLineBuilder.append(fullIncrement(line.substring(startIndex, endIndex)));
+            newLineBuilder.append(incrementAll(line.substring(startIndex, endIndex)));
             firstIndex = endIndex;
         }
         newLineBuilder.append(line.substring(firstIndex, line.length()));
@@ -53,8 +53,8 @@ public class IncrementProcessor extends IndependentLineProcessor {
     }
 
 
-    private String fullIncrement(String line) {
-        final Matcher matcher = simplePattern.matcher(line);
+    private String incrementAll(String line) {
+        final Matcher matcher = defaultPattern.matcher(line);
         final StringBuilder newLineBuilder = new StringBuilder();
         int firstIndex = 0;
         while (matcher.find()) {

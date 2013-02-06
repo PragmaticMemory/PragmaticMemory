@@ -23,4 +23,12 @@ public class IdentityFileRouteProvider implements RouteProvider {
     public Route getRoute(int routeIndex) throws FileNotFoundException {
         return new IdentityFileRoute(fileList.get(routeIndex));
     }
+
+
+    private class IdentityFileRoute extends FileRoute {
+
+        private IdentityFileRoute(File file) {
+            super(file, file);
+        }
+    }
 }

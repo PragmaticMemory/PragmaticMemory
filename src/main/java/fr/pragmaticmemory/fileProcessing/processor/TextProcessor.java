@@ -21,5 +21,5 @@ public abstract class TextProcessor extends Processor {
     }
 
 
-    abstract protected List<String> processFileContent(List<String> lines) throws Exception;
+    abstract protected List<String> processFileContent(List<String> inputLines) throws Exception;
 }

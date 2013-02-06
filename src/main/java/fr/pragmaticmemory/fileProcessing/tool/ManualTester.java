@@ -2,16 +2,16 @@ package fr.pragmaticmemory.fileProcessing.tool;
 
 import fr.pragmaticmemory.fileProcessing.core.Processor;
 import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
+import fr.pragmaticmemory.fileProcessing.fileProvider.DirectoryFileProvider;
+import fr.pragmaticmemory.fileProcessing.fileProvider.ExtensionFileFiler;
+import fr.pragmaticmemory.fileProcessing.fileProvider.FileProvider;
+import fr.pragmaticmemory.fileProcessing.fileProvider.IncludeFiles;
+import fr.pragmaticmemory.fileProcessing.fileProvider.SingleFileProvider;
 import fr.pragmaticmemory.fileProcessing.processor.CopyProcessor;
 import fr.pragmaticmemory.fileProcessing.processor.IncrementProcessor;
 import fr.pragmaticmemory.fileProcessing.processor.RegExpProcessor;
 import fr.pragmaticmemory.fileProcessing.routeProvider.DuplicateHierarchyRouteProvider;
 import fr.pragmaticmemory.fileProcessing.routeProvider.IdentityFileRouteProvider;
-import fr.pragmaticmemory.fileProcessing.fileProvider.DirectoryFileProvider;
-import fr.pragmaticmemory.fileProcessing.fileProvider.ExtensionFileFiler;
-import fr.pragmaticmemory.fileProcessing.fileProvider.FileProvider;
-import fr.pragmaticmemory.fileProcessing.fileProvider.InclusiveFilter;
-import fr.pragmaticmemory.fileProcessing.fileProvider.SingleFileProvider;
 import java.io.File;
 public class ManualTester {
 
@@ -56,21 +56,24 @@ public class ManualTester {
 
     private static void test6() throws Exception {
         DirectoryFileProvider fileProvider = new DirectoryFileProvider("C:\\dev\\projects\\gimw\\oscar-release-test");
-        InclusiveFilter tokioFileProvider = new InclusiveFilter(fileProvider, new ExtensionFileFiler(".tokio"));
+        FileProvider tokioFileProvider = new IncludeFiles(fileProvider, new ExtensionFileFiler(".tokio"));
         RouteProvider routeProvider = new IdentityFileRouteProvider(tokioFileProvider);
         Processor modifier = new IncrementProcessor(routeProvider, 1, "\"\\d+\"");
         modifier.process();
     }
 
+
     private static void test7() throws Exception {
         DirectoryFileProvider fileProvider = new DirectoryFileProvider("C:\\dev\\projects\\gimw\\oscar-release-test");
-        InclusiveFilter tokioFileProvider = new InclusiveFilter(fileProvider, new ExtensionFileFiler(".tokio"));
-        RouteProvider tokioRouteProvider = new DuplicateHierarchyRouteProvider(tokioFileProvider, new File("C:\\Temp\\Save\\tokio"));
+        IncludeFiles tokioFileProvider = new IncludeFiles(fileProvider, new ExtensionFileFiler(".tokio"));
+        RouteProvider tokioRouteProvider = new DuplicateHierarchyRouteProvider(tokioFileProvider,
+                                                                               new File("C:\\Temp\\Save\\tokio"));
         Processor tokioProcessor = new CopyProcessor(tokioRouteProvider);
         tokioProcessor.process();
 
-        InclusiveFilter xmlFileProvider = new InclusiveFilter(fileProvider, new ExtensionFileFiler(".xml"));
-        RouteProvider xmlRouteProvider = new DuplicateHierarchyRouteProvider(xmlFileProvider, new File("C:\\Temp\\Save\\xml"));
+        IncludeFiles xmlFileProvider = new IncludeFiles(fileProvider, new ExtensionFileFiler(".xml"));
+        RouteProvider xmlRouteProvider = new DuplicateHierarchyRouteProvider(xmlFileProvider,
+                                                                             new File("C:\\Temp\\Save\\xml"));
         Processor xmlProcessor = new CopyProcessor(xmlRouteProvider);
         xmlProcessor.process();
     }

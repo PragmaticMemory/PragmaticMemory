@@ -9,13 +9,13 @@
             écran large    (1680 x 1050) : 203
             écran standard (1280 x 800)  : 153
     Template de tableau :
-        ┌———————————┬——————————┐
-        │ header 1  │ header 2 │
-        ├———————————+——————————┤
-        │           │          │
-        │           │          │
-        │           │          │
-        └———————————┴——————————┘
+        +-----------+----------+
+        | header 1  | header 2 |
+        +-----------+----------+
+        |           |          |
+        |           |          |
+        |           |          |
+        +-----------+----------+
     Marqueur du nombre de caractères :
                                               50>                                              100>                                              150>
 Tâches
@@ -131,10 +131,10 @@ Powershell
         object          : un objet au sens large
 
     Compatibilité de type
-        un objet de type │file      │ peut être utilisé partout ou un │file set   │ est attendu
-                         │string    │                                 │string set │ 
-                         │string    │                                 │string list│ 
-                         │quelconque│                                 │object     │
+        un objet de type |file      | peut être utilisé partout ou un |file set   | est attendu
+                         |string    |                                 |string set | 
+                         |string    |                                 |string list| 
+                         |quelconque|                                 |object     |
 
     Propriétés de file:
         BaseName        : nom du fichier sans son extension        
@@ -378,25 +378,25 @@ GIT
                                        git log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all
                                        git reflog
         Principaux formats 
-        ┌————————┬—————————————————————————————————————————————————┐
-        │ Format │ Description                                     │
-        ├————————+—————————————————————————————————————————————————┤
-        │   %H   │ Commit hash                                     │
-        │   %h   │ Abbreviated commit hash                         │
-        │   %T   │ Tree hash                                       │
-        │   %t   │ Abbreviated tree hash                           │
-        │   %P   │ Parent hashes                                   │
-        │   %p   │ Abbreviated parent hashes                       │
-        │   %an  │ Author name                                     │
-        │   %ae  │ Author e-mail                                   │
-        │   %ad  │ Author date (format respects the –date= option) │
-        │   %ar  │ Author date, relative                           │
-        │   %cn  │ Committer name                                  │
-        │   %ce  │ Committer email                                 │
-        │   %cd  │ Committer date                                  │
-        │   %cr  │ Committer date, relative                        │
-        │   %s   │ Subject                                         │
-        └————————┴—————————————————————————————————————————————————┘
+        +--------+-------------------------------------------------+
+        | Format | Description                                     |
+        +--------+-------------------------------------------------+
+        |   %H   | Commit hash                                     |
+        |   %h   | Abbreviated commit hash                         |
+        |   %T   | Tree hash                                       |
+        |   %t   | Abbreviated tree hash                           |
+        |   %P   | Parent hashes                                   |
+        |   %p   | Abbreviated parent hashes                       |
+        |   %an  | Author name                                     |
+        |   %ae  | Author e-mail                                   |
+        |   %ad  | Author date (format respects the –date= option) |
+        |   %ar  | Author date, relative                           |
+        |   %cn  | Committer name                                  |
+        |   %ce  | Committer email                                 |
+        |   %cd  | Committer date                                  |
+        |   %cr  | Committer date, relative                        |
+        |   %s   | Subject                                         |
+        +--------+-------------------------------------------------+
 
     Afficher l'historique des commit (version graphique) : gitk
                                                            gitk --all
@@ -547,13 +547,13 @@ DOS
     LESSCHARDEF : Variable d'environnement lue par >Less, permettant de définir un jeux de caractères
         La chaîne de caractère affectée à cette variable défini le type des caractères de 0 à 255.
         Les caractères possibles sont les suivants :
-        ┌———————————┬———————————————————————┐
-        │ Caractère │ Signification         │
-        ├———————————+———————————————————————┤
-        │      .    │ caractère normal      │
-        │      c    │ caractère de contrôle │
-        │      b    │ binaire               │
-        └———————————┴———————————————————————┘
+        +-----------+-----------------------+
+        | Caractère | Signification         |
+        +-----------+-----------------------+
+        |      .    | caractère normal      |
+        |      c    | caractère de contrôle |
+        |      b    | binaire               |
+        +-----------+-----------------------+
         Chacun des caractères ci-dessus peut être précédé par un nombre indiquent sur combien de caractères porte le caractère suivant dans la chaîne
         Exemple : le jeu prédéfini ascii correspond à 8bcccbcc18b95.b (caractères : 8 binaires + 3 contrôles + 1 binaire + 2 contrôles + 18 binaires + 95 normaux + 1 binaire soit 128 caractères définis)
 
@@ -590,69 +590,69 @@ Anglais
     Prononciation des sons ipa : http://www.antimoon.com/how/pronunc-soundsipa.htm
 
 
-    ┌———————————————┬——————————————————————————————————┬———————————————————————————————————————————————————————┐
-    │ mot           │ phonétique                       │ définition                                            │
-    ├———————————————+——————————————————————————————————+———————————————————————————————————————————————————————┤
-    | agile         │ ˈædʒaɪl/ˈædʒl                    │ agile                                                 │
-    | area          │ ˈeərɪə                           │ région, superficie                                    │
-    | ash           │  æʃ                              │ cendre                                                │
-    | automatically │ ˌɔːtəˈmætɪklɪ                    │ automatiquement                                       │
-    | bat           │  bæt                             │ chauve-souris                                         │
-    | bet           │  bet                             │                                                       │
-    | bot           │  bɒt                             │                                                       │
-    | but           │  bʌt                             │ mais                                                  │
-    | barrage       │ ˈbærɑːʒ ; bəˈrɑːʒ                │ barrage                                               │
-    | browse        │  braʊz                           │ naviguer                                              │
-    | confluence    │ ˈkɒnflʊəns                       │                                                       │
-    | comfort       │ ˈkʌmfət                          │ confort                                               │
-    | comfortable   │ ˈkʌmftəbl/ˈkʌmfərtbl             │ confortable                                           │
-    | command       │ kəˈmɑːnd/kəˈmænd                 │                                                       │
-    | database      │ ˈdeɪtəˌbeɪs                      │ base de données                                       │
-    | directory     │ daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ │ répertoire                                            │
-    | eclipse       │ ɪˈklɪps                          │                                                       │
-    | era           │ ˈɪərə                            │ époque                                                │
-    | error         │ ˈerə(r)                          │ erreur                                                │
-    | extreme       │ ɪkˈstriːm                        │ extreme                                               │
-    | flaccid       │ ˈflæsɪd/ˈflæksɪd                 │ flasque, mou                                          │
-    | France        │ frɑːns                           │ La France                                             │
-    | GUI           │ ˈguiː                            │ Gui User Interface                                    │
-    | Hudson        │ ˈhʌdsən                          │                                                       │
-    | integer       │ ˈɪntɪdʒər                        │ mathématiques : entier                                │
-    | java          │ ˈdʒɑːvə                          │                                                       │
-    | ladder        │ ˈlædə(r)                         │ échelle                                               │
-    | library       │ ˈlaɪbrərɪ/ˈlaɪbrerɪ              │                                                       │
-    | limb          │ lɪm                              │ membre (bras , jambe) / branche principale d'un arbre │
-    | maven         │ ˈmeɪvən                          │ expert                                                │
-    | oath          │ əʊθ                              │ serment                                               │
-    | obstacle      │ ˈɒbstəkl                         │ obstacle                                              │
-    | pawn          │ pɔːn                             │ pions (aux échecs)                                    │
-    | phase         │ feɪz                             │ phase                                                 │
-    | platform      │ ˈplætfɔːm                        │ plateforme                                            │
-    | procedure     │ prəˈsiːdʒə(r)                    │ procédure                                             │
-    | program       │ ˈprəʊɡræm/ˈprəʊɡrəm              │ programme                                             │
-    | raw           │ rɔː                              │ brut (raw data : données brutes)                      │
-    | reassure      │ ˌriːəˈʃɔː(r)/riːəˈʃʊər           │ rassurer (quelqu'un) (about : sur)                    │
-    | release       │ rɪˈliːs                          │ libérer, livrer                                       │
-    | row           │ rəʊ                              │ ligne                                                 │
-    | server        │ ˈsɜːvə(r)                        │ serveur                                               │
-    | source        │ sɔːs                             │ source                                                │
-    | subversion    │ səˈbvɜːʃn/səˈbvɜːrʒn             │                                                       │
-    | thumb         │ θʌm                              │ pouce                                                 │
-    | toe           │ təʊ                              │ orteil                                                │
-    | tortoise      │ ˈtɔːtəs                          │ tortue (terrestre)                                    │
-    | turtle        │ ˈtɜːtl                           │ tortue (générique)                                    │
-    | variable      │ ˈveərɪəbl                        │ variable                                              │
-    | wound         │ wuːnd                            │ blessure                                              │
-    └———————————————└——————————————————————————————————┴———————————————————————————————————————————————————————┘
+    +---------------+----------------------------------+-------------------------------------------------------+
+    | mot           | phonétique                       | définition                                            |
+    +---------------+----------------------------------+-------------------------------------------------------+
+    | agile         | ˈædʒaɪl/ˈædʒl                    | agile                                                 |
+    | area          | ˈeərɪə                           | région, superficie                                    |
+    | ash           |  æʃ                              | cendre                                                |
+    | automatically | ˌɔːtəˈmætɪklɪ                    | automatiquement                                       |
+    | bat           |  bæt                             | chauve-souris                                         |
+    | bet           |  bet                             |                                                       |
+    | bot           |  bɒt                             |                                                       |
+    | but           |  bʌt                             | mais                                                  |
+    | barrage       | ˈbærɑːʒ ; bəˈrɑːʒ                | barrage                                               |
+    | browse        |  braʊz                           | naviguer                                              |
+    | confluence    | ˈkɒnflʊəns                       |                                                       |
+    | comfort       | ˈkʌmfət                          | confort                                               |
+    | comfortable   | ˈkʌmftəbl/ˈkʌmfərtbl             | confortable                                           |
+    | command       | kəˈmɑːnd/kəˈmænd                 |                                                       |
+    | database      | ˈdeɪtəˌbeɪs                      | base de données                                       |
+    | directory     | daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ | répertoire                                            |
+    | eclipse       | ɪˈklɪps                          |                                                       |
+    | era           | ˈɪərə                            | époque                                                |
+    | error         | ˈerə(r)                          | erreur                                                |
+    | extreme       | ɪkˈstriːm                        | extreme                                               |
+    | flaccid       | ˈflæsɪd/ˈflæksɪd                 | flasque, mou                                          |
+    | France        | frɑːns                           | La France                                             |
+    | GUI           | ˈguiː                            | Gui User Interface                                    |
+    | Hudson        | ˈhʌdsən                          |                                                       |
+    | integer       | ˈɪntɪdʒər                        | mathématiques : entier                                |
+    | java          | ˈdʒɑːvə                          |                                                       |
+    | ladder        | ˈlædə(r)                         | échelle                                               |
+    | library       | ˈlaɪbrərɪ/ˈlaɪbrerɪ              |                                                       |
+    | limb          | lɪm                              | membre (bras , jambe) / branche principale d'un arbre |
+    | maven         | ˈmeɪvən                          | expert                                                |
+    | oath          | əʊθ                              | serment                                               |
+    | obstacle      | ˈɒbstəkl                         | obstacle                                              |
+    | pawn          | pɔːn                             | pions (aux échecs)                                    |
+    | phase         | feɪz                             | phase                                                 |
+    | platform      | ˈplætfɔːm                        | plateforme                                            |
+    | procedure     | prəˈsiːdʒə(r)                    | procédure                                             |
+    | program       | ˈprəʊɡræm/ˈprəʊɡrəm              | programme                                             |
+    | raw           | rɔː                              | brut (raw data : données brutes)                      |
+    | reassure      | ˌriːəˈʃɔː(r)/riːəˈʃʊər           | rassurer (quelqu'un) (about : sur)                    |
+    | release       | rɪˈliːs                          | libérer, livrer                                       |
+    | row           | rəʊ                              | ligne                                                 |
+    | server        | ˈsɜːvə(r)                        | serveur                                               |
+    | source        | sɔːs                             | source                                                |
+    | subversion    | səˈbvɜːʃn/səˈbvɜːrʒn             |                                                       |
+    | thumb         | θʌm                              | pouce                                                 |
+    | toe           | təʊ                              | orteil                                                |
+    | tortoise      | ˈtɔːtəs                          | tortue (terrestre)                                    |
+    | turtle        | ˈtɜːtl                           | tortue (générique)                                    |
+    | variable      | ˈveərɪəbl                        | variable                                              |
+    | wound         | wuːnd                            | blessure                                              |
+    +---------------+----------------------------------+-------------------------------------------------------+
 
 Français
 --------
     Définition : http://www.lexilogos.com/francais_langue_dictionnaires.htm
-    ┌——————————————┬———————————————————————————————————————————————————————————————————————————————┐
-    │ mot          │ définition                                                                    │
-    ├——————————————+———————————————————————————————————————————————————————————————————————————————┤
-    | atermoiement | (souvent au pluriel) action de différer, retarder; hésitation, tergiversation │
-    └——————————————————————————————————————————————————————————————————————————————————————————————┘
+    +--------------+-------------------------------------------------------------------------------+
+    | mot          | définition                                                                    |
+    +--------------+-------------------------------------------------------------------------------+
+    | atermoiement | (souvent au pluriel) action de différer, retarder; hésitation, tergiversation |
+    +----------------------------------------------------------------------------------------------+
 
 
 Web et Wiki
@@ -1573,16 +1573,16 @@ Unix
     shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling : 
         Ligne en début de fichier débutant par #!, indiquant au système que le fichier est un script et par quel est son interpréteur associé.
 
-        ┌———————————————————┬——————————————————————————————————————————┐
-        │ shebang           │ language de script                       │
-        ├———————————————————+——————————————————————————————————————————┤
-        │ #!/bin/sh         │ Bourne shell (ou autre shell compatible) │
-        │ #!/bin/csh        │ C shell (ou autre shell compatible)      │
-        │ #!/usr/bin/perl   │ Perl                                     │
-        │ #!/usr/bin/php    │ PHP                                      │
-        │ #!/usr/bin/python │ Python                                   │
-        │ #!/usr/bin/ruby   │ Ruby                                     │
-        └———————————————————┴——————————————————————————————————————————┘
+        +-------------------+------------------------------------------+
+        | shebang           | language de script                       |
+        +-------------------+------------------------------------------+
+        | #!/bin/sh         | Bourne shell (ou autre shell compatible) |
+        | #!/bin/csh        | C shell (ou autre shell compatible)      |
+        | #!/usr/bin/perl   | Perl                                     |
+        | #!/usr/bin/php    | PHP                                      |
+        | #!/usr/bin/python | Python                                   |
+        | #!/usr/bin/ruby   | Ruby                                     |
+        +-------------------+------------------------------------------+
 
 Hudson
 -------
@@ -1632,22 +1632,22 @@ Dactylographie
 
 
 
-            ┌———————————┬——————————————┐
-            │ Caractère │ Code associé │
-            ├———————————+——————————————┤
-            │     œ     │     0156     │
-            │     Ç     │     0199     │
-            │     ├     │      195     │
-            │     ┤     │      180     │
-            │     —     │      151     │
-            │     ┌     │      218     │
-            │     ┬     │      194     │
-            │     ┐     │      191     │
-            │     └     │      192     │
-            │     ┘     │      217     │
-            │     │     │      179     │
-            │     ┴     │      193     │
-            └———————————┴——————————————┘
+            +-----------+--------------+
+            | Caractère | Code associé |
+            +-----------+--------------+
+            |     œ     |     0156     |
+            |     Ç     |     0199     |
+            |     ├     |      195     |
+            |     ┤     |      180     |
+            |     —     |      151     |
+            |     ┌     |      218     |
+            |     ┬     |      194     |
+            |     ┐     |      191     |
+            |     └     |      192     |
+            |     ┘     |      217     |
+            |     │     |      179     |
+            |     ┴     |      193     |
+            +-----------+--------------+
 
     Références :
         Liste de codes des caractères : http://www.toutimages.com/codes_caracteres.htm

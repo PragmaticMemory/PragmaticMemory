@@ -11,10 +11,10 @@ public abstract class IndependentLineProcessor extends TextProcessor {
 
 
     @Override
-    protected List<String> processFileContent(List<String> lines) throws Exception {
+    protected List<String> processFileContent(List<String> inputLines) throws Exception {
         final List<String> resultList = new ArrayList<String>();
-        for (int i = 0, linesSize = lines.size(); i < linesSize; i++) {
-            resultList.add(processLine(lines.get(i)));
+        for (int i = 0, linesSize = inputLines.size(); i < linesSize; i++) {
+            resultList.add(processLine(inputLines.get(i)));
         }
         return resultList;
     }
