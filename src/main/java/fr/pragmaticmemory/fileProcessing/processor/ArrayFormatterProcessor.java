@@ -8,6 +8,8 @@ public class ArrayFormatterProcessor extends TextProcessor {
 
     static final String ANALYSE_CELL_SEPARATOR = "\\|";
     static final String OUTPUT_CELL_SEPARATOR = "|";
+    static final String HEADER_OUTPUT_CELL_SEPARATOR = "+";
+    static final String HEADER_OUTPUT_LINE = "-";
     static final String SPACE = " ";
 
 
@@ -18,6 +20,9 @@ public class ArrayFormatterProcessor extends TextProcessor {
 
     @Override
     protected List<String> processFileContent(List<String> inputLines) throws Exception {
+        inputLines.remove(0);
+        inputLines.remove(1);
+        inputLines.remove(inputLines.size() - 1);
         List<String[]> rowCellContentList = buildCellContents(inputLines);
 
         trimCellContent(rowCellContentList);
@@ -41,19 +46,51 @@ public class ArrayFormatterProcessor extends TextProcessor {
 
     private List<String> buildOutputLines(List<String[]> rowCellContentList, Integer[] columnContentSize) {
         List<String> outputLines = new ArrayList<String>();
-        for (String[] rowCellContent : rowCellContentList) {
+        String separatorLine = getSeparatorLine(columnContentSize);
+        outputLines.add(separatorLine);
+        for (int lineIndex = 0, rowCellContentListSize = rowCellContentList.size();
+             lineIndex < rowCellContentListSize;
+             lineIndex++) {
+            if (lineIndex == 1) {
+                outputLines.add(separatorLine);
+            }
             StringBuilder outputLineBuilder = new StringBuilder();
+            String[] rowCellContent = rowCellContentList.get(lineIndex);
             outputLineBuilder.append(OUTPUT_CELL_SEPARATOR);
-            for (int i = 1, analysedLineLength = rowCellContent.length - 1; i < analysedLineLength; i++) {
-                String cellContent = rowCellContent[i];
+            for (int cellIndex = 1, analysedLineLength = rowCellContent.length - 1;
+                 cellIndex < analysedLineLength;
+                 cellIndex++) {
+                String cellContent = rowCellContent[cellIndex];
                 outputLineBuilder.append(SPACE);
-                outputLineBuilder.append(StringUtils.rightPad(cellContent, columnContentSize[i]));
+                outputLineBuilder.append(StringUtils.rightPad(cellContent, columnContentSize[cellIndex]));
                 outputLineBuilder.append(SPACE);
                 outputLineBuilder.append(OUTPUT_CELL_SEPARATOR);
             }
+
             outputLines.add(outputLineBuilder.toString());
         }
+        outputLines.add(separatorLine);
         return outputLines;
+    }
+
+
+    private String getSeparatorLine(Integer[] columnContentSize) {
+        StringBuilder separatorLineBuilder = new StringBuilder();
+        separatorLineBuilder.append(HEADER_OUTPUT_CELL_SEPARATOR);
+        for (int columnIndex = 1, columnContentSizeLength = columnContentSize.length - 1;
+             columnIndex < columnContentSizeLength;
+             columnIndex++) {
+            for (int j = 0; j < columnContentSize[columnIndex] + 2; j++) {
+                separatorLineBuilder.append(HEADER_OUTPUT_LINE);
+            }
+            separatorLineBuilder.append(HEADER_OUTPUT_CELL_SEPARATOR);
+        }
+        return separatorLineBuilder.toString();
+    }
+
+
+    private boolean isLineSeparatorIndex(List<String[]> rowCellContentList, int lineIndex) {
+        return lineIndex == 0 || lineIndex == 2 || lineIndex == rowCellContentList.size() - 1;
     }
 
 

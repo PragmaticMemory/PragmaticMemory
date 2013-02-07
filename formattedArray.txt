@@ -1,34 +1,10 @@
-| Listener                | Event traité        | méthode d'ajout du Listener dans Component | méthodes du listener   |
-| ComponentListener       | ComponentEvent      | addComponentListener                       |                        |
-|                         |                     |                                            | componentResized       |
-|                         |                     |                                            | componentMoved         |
-|                         |                     |                                            | componentShown         |
-|                         |                     |                                            | componentHidden        |
-| FocusListener           | FocusEvent          | addFocusListener                           |                        |
-|                         |                     |                                            | focusGained            |
-|                         |                     |                                            | focusLost              |
-| HierarchyBoundsListener | HierarchyEvent      | addHierarchyBoundsListener                 |                        |
-|                         |                     |                                            | ancestorMoved          |
-|                         |                     |                                            | ancestorResized        |
-| HierarchyListener       | HierarchyEvent      | addHierarchyListener                       |                        |
-|                         |                     |                                            | hierarchyChanged       |
-| InputMethodListener     | InputMethodEvent    | addInputMethodListener                     |                        |
-|                         |                     |                                            | inputMethodTextChanged |
-|                         |                     |                                            | caretPositionChanged   |
-| KeyListener             | KeyEvent            | addKeyListener                             |                        |
-|                         |                     |                                            | keyTyped               |
-|                         |                     |                                            | keyPressed             |
-|                         |                     |                                            | keyReleased            |
-| MouseListener           | MouseEvent          | addMouseListener                           |                        |
-|                         |                     |                                            | mouseClicked           |
-|                         |                     |                                            | mousePressed           |
-|                         |                     |                                            | mouseReleased          |
-|                         |                     |                                            | mouseEntered           |
-|                         |                     |                                            | mouseExited            |
-| MouseMotionListener     | MouseEvent          | addMouseMotionListener                     |                        |
-|                         |                     |                                            | mouseDragged           |
-|                         |                     |                                            | mouseMoved             |
-| MouseWheelListener      | MouseWheelEvent     | addMouseWheelListener                      |                        |
-|                         |                     |                                            | mouseWheelMoved        |
-| PropertyChangeListener  | PropertyChangeEvent | addPropertyChangeListener                  |                        |
-|                         |                     |                                            | propertyChange         |
++-------------------------+--------------+
+| shebang                 | language     |
++-------------------------+--------------+
+| #!/bin/sh               | Bourne shell |
+| #!/bfdgdsfsdsdqsdin/csh | C shell      |
+| #!/usr/bin/perl         | Perl         |
+| #!/usr/bin/php          | PHP          |
+| #!/usr/bin/python       | Python       |
+| #!/usr/bin/ruby         | Ruby         |
++-------------------------+--------------+
