@@ -24,7 +24,7 @@ public class StringListReader extends Reader {
     public int read(char[] cbuffer, int offset, int length) throws IOException {
         StringBuilder builder = new StringBuilder();
         ReaderData readerData = getReaderData(offset);
-        int readNumber = recursiveRead(builder, readerData, length, -1);
+        int readNumber = recursiveRead(builder, readerData, length, 0);
         builder.append("\\n");
         char[] newBuffer = builder.toString().toCharArray();
         System.arraycopy(newBuffer, 0, cbuffer, 0, builder.length());
@@ -46,7 +46,7 @@ public class StringListReader extends Reader {
         }
         int localReadNumber = reader.read(cbuffer, relativeOffset, lineLength);
         if (localReadNumber == -1) {
-            return readNumber;
+            return -1;
         }
         builder.append(Arrays.copyOfRange(cbuffer, 0, localReadNumber));
         readNumber += localReadNumber;
