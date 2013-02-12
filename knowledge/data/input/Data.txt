@@ -1,763 +1,936 @@
-﻿Mise en page
-------------
-    Nombre de caractère par ligne à l'écran :
-        La mesure a été effectuée de la manière suivante
-            - affichage de Notepad++ en plein écran 
-            - fichier > Nouveau 
-            - décompte du nombre de caractère de la première ligne pouvant être affichés sans scroller
-        Résultat :
-            écran large    (1680 x 1050) : 203
-            écran standard (1280 x 800)  : 153
-    Template de tableau :
-        +-----------+----------+
-        | header 1  | header 2 |
-        +-----------+----------+
-        |           |          |
-        |           |          |
-        |           |          |
-        +-----------+----------+
-    Marqueur du nombre de caractères :
+﻿----------------
+- Mise en page -
+----------------
+  Nombre de caractère par ligne à l'écran :
+    La mesure a été effectuée de la manière suivante
+      - affichage de Notepad++ en plein écran
+      - fichier > Nouveau
+      - décompte du nombre de caractère de la première ligne pouvant être affichés sans scroller
+  Résultat :
+    écran large    (1680 x 1050) : 203
+    écran standard (1280 x 800)  : 153
+
+  Template de tableau :
+    +-----------+----------+
+    | header 1  | header 2 |
+    +-----------+----------+
+    |           |          |
+    |           |          |
+    |           |          |
+    +-----------+----------+
+
+  Marqueur du nombre de caractères :
                                               50>                                              100>                                              150>
-Tâches
-------
-    A faire :
-        - Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)
-        - Gérer les tag reference au lieu des tag link uniquement ?
-        - Compléter le fichier de données avec la liste de mots en français
-        - Compléter le fichier de données avec la liste de mots en anglais
-        - Rédiger la xsd validant Data.xml
-
-    Fait :
-        - Afficher les packages / classes sous forme de tableaux dans la section java
-        - Trouver le moyen le plus simple d'appliquer une xslt à un xml : Ecriture d'une classe java
-        - Ecrire une xslt de vue et une xslt de media appelables successivement
-        - Trouver un moyen de stoker le code : GitHub
-        - Gérer l'imbrication de code dans un tableau dans Wikispaces
-        - Rédiger les fichiers xml correspondant aux pages existantes sur PragmaticMemory.wikispaces
-        - Rédiger les fichiers xslt de mise en page au format wikispaces
-        - Choix du lieu de stockage des fichiers de données (xml), styles (xslt) et schemas (xsd)
-            -> Wikispaces
-                avantages       : Wiki gratuit pour un usage privé
-                inconvénients   : les versions des fichiers téléchargés dans Wikispaces ne peuvent pas être supprimées. Conséquence : la limite de taille risque d'être atteinte rapidement si les mises à jour sont fréquentes.
-            -> Google Docs
-                avantages       : Gratuit
-                inconvénients   : Site non accessible à partir du bureau
-            -> Digiposte
-                avantages       : Gratuit
-                                  Structure ayant plus de chance de durer que d'autre sites
-                inconvénients   : Pas de gestion de version : deux fichiers avec un nom identique sont stockés comme deux fichiers différents
-        - Séparer les données du formattage : Utilisation des xslt
-        - Séparer le formattage lié à la vue du formattage lié au media de diffusion : Création de xslt de vue et de xslt de media
-        - Gérer les indentations de ligne de code
-        - Gérer le language (java, sql,...) dans la balise de code
-
-Principes
----------
-    L'objectif de cette section est de lister les principes permettant d'améliorer la forme du wiki, afin d'éliminer tout ce qui n'est pas indispensable ou qui peut minimiser la compréhension.
-
-    Clarté
-        - de formulation :
-            Entre deux formulations d'une même information, utiliser la plus claire.
-            (à développer) Utiliser la mise en forme pour permettre une distinction des types d'information
-
-    Homogénéité
-        - de forme :
-            Utiliser la même forme pour transmettre un même type d'information.
-            voir l'utilisation
-                -> des temps (futur, présent, ...)
-                -> de la casse (majuscule ou minuscule)
-                -> de la ponctuation
-        - de terme :
-            Utiliser toujours les mêmes termes pour désigner une même notion.
-
-    Séparation
-        - des Données / présentation :
-            Distinguer les informations utiles (données à transmettre) de la mise en page (manière de transmettre les données).
-            Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée, les différentes vues pouvant être destinées :
-                -> à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)
-                -> à insiter sur différents aspects d'un ensemble de données au sein d'un même outil
-            La mise en oeuvre de ce principe est faite par l'utilisation 3 types de fichiers sont utilisés :
-                -> un fichier de "données", d'extension xml, stockant les données utiles
-                -> des fichiers "style", d'extension xslt, définissant chacun un style de présentation
-                ->  des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style
-            Format du fichier de lien
-                <?xml version="1.0" encoding="UTF-8"?>
-                <?xml-stylesheet href="StyleUrl" type="text/xsl" ?>
-                <!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>
-                <linkedData>
-                &data;
-                </linkedData>
-                avec à remplacer dans le template (+ exemple dans le cas de Subversion):
-                    -> StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)
-                    -> DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)
-                    -> Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt
-            Les fichiers xml doivent être encodés en UTF-8.
-            Concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :
-                -> toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link
-                -> toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé
-        - des concepts dans les métadonnées :
-                Liste des concepts : item, group, reference, method, task
-
-    Concision : 
-        - de taille :
-            Entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité
-            Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.
-                -> exemple          : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)
-                -> contre-exemple   : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)
-            Utiliser les participes-présent plutôt que les subordonnées : 
-                "permettant" au lieu de "qui permettent" (gain de 4 caractères)
-        - factorisation :
-            Eliminer les redondances de mots ou de groupes de mots
-            Eliminer les redondances d'informations d'un texte avec son titre (à développer)
-            Principe des "code smell". Exemple de "code smell" de répétition de mot
-                        La liste :
-                            Principes d'homogénéité
-                            Principe de séparation
-                            Principe de concision
-                        peut être remplacée par :
-                            Principes
-                                Homogéneité
-                                Séparation
-                                Concision
-
-Powershell
 ----------
-    Information de type :
-        file            : correspond à un fichier (FileInfo) ou un répertoire (DirectoryInfo)
-        string          : une chaîne de caractères. La nature de l'objet représenté est indiqué entre parenthèses (path par exemple)
-        file set        : un ensemble de file passé sur le pipe
-        string set      : un ensemble de chaînes de caractères passé sur le pipe
-        string list     : une liste de chaînes caractères séparées par des ,
-        object          : un objet au sens large
-
-    Compatibilité de type
-        un objet de type |file      | peut être utilisé partout ou un |file set   | est attendu
-                         |string    |                                 |string set | 
-                         |string    |                                 |string list| 
-                         |quelconque|                                 |object     |
-
-    Propriétés de file:
-        BaseName        : nom du fichier sans son extension        
-        Extension       : extension du fichier
-        FullName        : nom complet du fichier (avec son path)
-        Name            : nom du fichier avec son extension
-        PSParentPath    : nom du répertoire parent
-
-
-    Template des commandes
-        objectif de la commande
-                type d'entrée 1 > commande 1 > type de sortie 1
-                type d'entrée 2 > commande 2 > type de sortie 2
-                alias 1, alias 2, alias 3
-                option 1 (shortcut 1)
-                option 2 (shortcut 2)
-                remarque 1
-                remarque 2
-
-    IO
-        lister tous les éléments (fichiers et répertoires) d'un répertoire donné
-            directory path > Get-ChildItem -r "... > file set
-            directory path > $dir="...";Get-ChildItem -r $dir > file set
-                dir, ls
-                -recurse (-r)
-
-        lire le contenu d'un fichier
-            string (path) list > Get-Content(...) > string set
-            string (path) list > Get-Content(...) > file list
-
-        récupérer un file set à partir d'une liste de path
-                            string (path) list > Get-Content(...) > file
-
-        écrire dans un fichier
-            object, string (path) > ... | Out-File -filepath "..." > file
-                -append : permet de compléter un fichier déjà existant
-                -inputObject : permet de préciser un objet à écrire
-
-    Filtrage
-        ne conserver que les répertoires d'un file set (et pas les fichiers)
-            file set > ... | where {$_.PsIsContainer} > file set
-
-        ne conserver que les fichiers d'un file set (et pas les répertoires)
-            file set > ... | where {!$_.PsIsContainer} > file set
-
-        ne conserver que les entrées qui correspondent à une expression régulière
-            string set, regular expression > ... | where {$_ -match "..."} > string set
-
-    Boucle
-        effectuer un même traitement sur un ensemble de données
-            string set + commande powershell > ... | Foreach{...} > string set (si écriture par la commande)
-            file set + commande powershell > ... | Foreach{...} > string set (si écriture par la commande)
-                Au début du Foreach, créer les variables qui seront utilisées dans la commande
-                l'expression $_ désigne l'entrée courante du "string set"
-                plusieurs sous-commandes peuvent être séparées par un ;
-
-    Pipeline
-        écrire un objet sur le pipeline
-            objet > Write-Output(...) > objet
-
-    Information sur les objets
-        connaître le type et les membres d'un objet
-            objet > ... | Get-Member > MemberDefinition
-
-        lister les noms d'un ensemble de fichiers
-            file set > ... | Foreach{$_.FullName} > string set
-            file set > ... | Foreach{$_.Name} > string set
-
-    Exemples :
-        copie de tous les fichiers contenus dans le répertoire "C:\Temp\PS", avec ajout de BEGIN sur la première ligne et de END sur la dernière lignes
-            sans utilisation de pipe au sein du Foreach :
-                Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}
-            avec utilisation de pipe au sein du Foreach :
-                Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}
-            variante avec utilisation du caractère d'échappement `r signifiant un retour à la ligne :
-                Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}
-
-Modification de fichiers
-------------------------
-    L'objectif de cette section est de donner des méthodes de modification de fichiers. Elle détaille les outils utilisés, ainsi que les commandes au sein de ces outils.
-
-    Carriage return (CR): \r
-    Line feed (LF)      : \n
-    fin de ligne
-        sous UNIX       : \n
-        sous Windows    : \r\n
-        sous Mac        : \r
-
-
-    Convertir les fins de ligne d'un fichier (Windows/Unix/Mac)
-        Notepad++
-            vers UNIX : Edition > Convertir les sauts de ligne > Convertir en Format UNIX (LF)
-            vers Windows : Edition > Convertir les sauts de ligne > Convertir en Format Windows (CR+LF)
-            vers Mac : Edition > Convertir les sauts de ligne > Convertir en Format Mac (CR)
-    Voir les séquences de fin de ligne
-        Notepad++
-            Affichage > Symboles spéciaux > Afficher les symboles de fin de ligne
-    Voir les blancs et les tabulations
-        Notepad++
-            Affichage > Symboles spéciaux > Afficher les blancs et les tabulations
-    Supprimer des lignes vides (i.e ne contenant aucun caractère, pas même des espaces)
-        Notepad++ (plugin TextFX)
-            TextFX > TextFX Edit > Delete Blank Lines
-    Compacter des lignes vides consécutives en une seule ligne vide
-        Notepad++ (plugin TextFX)
-            TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)
-    Distribuer sur différentes lignes des items faisant partie d'une liste
-        Exemple :            A
-                  A, B, C -> B
-                             C
-        Notepad++
-            remplacer (CTRL + H)
-            mode étendu (\n, \r, \t, \0, \x...)
-            recherche : ,
-            remplacer par : \r\n
-    Assembler différentes lignes en une liste
-        Exemple :   A
-                    B -> A, B, C
-                    C
-        Notepad++
-            remplacer (CTRL + H)
-            mode étendu (\n, \r, \t, \0, \x...)
-            recherche : \r\n
-            remplacer par : ,
-
-    Trier des lignes en supprimant les doublons
-        Notepad++ (plugin TextFX)
-            TextFX > TextFX Tools > cocher "+Sort outputs only UNIQUE (at column) lines"
-            TextFX > TextFX Tools > cocher "+Sort ascending" pour un tri par ordre alphabétique / décocher pour un ordre inverse
-            TextFX > TextFX Tools > cliquer sur "Sort lines case sensitive (at column)" ou sur "Sort lines case insensitive (at column)"
-    Indenter les xml
-        IntelliJ
-            Code > Reformat Code...
-            Raccourci par défaut : CTRL + ALT + L
-            Fonctionne sur tous les fichiers du projet ou sur un ensemble de fichiers sélectionnés.
-    Convertir "underscore" vers "camelcase"
-        Example : iinvCEqSector -> IINV_C_EQ_SECTOR
-        Notepad++
-            étape 1 : remplacer l'expression régulière ([A-Z]) par _\1 (cocher Respecter la casse)
-            étape 2 : passer en majuscule (CTRL + SHIFT + U)
-    Comparer 2 listes
-        Dans un feuille Excel :
-            en A1, saisir le formattage conditionnel : =ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)
-            en B1, saisir le formattage conditionnel : =ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)
-            copier le format de A1 sur la colonne A
-            copier le format de B1 sur la colonne B
-        Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND
-        Inspiré de l'article http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310
-
-
-    Table ASCII
-        Table contenant 128 caractères
-        Chaque caractère est codé sur 7 bit, ce qui permet bien la représentation de (2 puissance 7 =) 128 caractères
-        Chaque caractère peut être représenté par un chiffre hexadécimal (entre 0 et F) suivi par un chiffre entre 0 et 7, ce qui permet bien la représentation des (16 x 8 =) 128 caractères.
-        Voir http://www.asciitable.com/
-
-    Table ASCII étendue
-        Table contenant 256 caractères
-        Chaque caractère est codé sur 8 bit, ce qui permet bien la représentation de (2 puissance 8 =) 256 caractères
-        Chaque caractère peut être représenté par deux chiffres hexadécimal (entre 0 et F), ce qui permet bien la représentation des (16 x 16 =) 256 caractères.
-        Ceci n'est pas une mise à jour de la table ASCII
-        Il existe plusieurs extensions propriétaires de la table ASCII, incompatibles entre elles.
-        Il existe plusieurs tables ASCII étendues définie par l'ISO : ce sont les table ISO 8859.
-        La plus populaire des tables ISO 8859 est la table SO 8859-1, appelée également ISO Latin1
-
-    UTF-8
-        Système d'encodage des caractères internationaux d'Unicode rétro-compatible avec ASCII
-        Chaque caractère est codé sur un ensemble de 1 à 4 octets.
-        La rétro-compatibilité avec ASCII signifie que tout caractère ASCII se code en UTF-8 sous forme d'un unique octet, identique au code ASCII.
-
-    Page de code
-        Jeu de caractère associant un nombre à chaque caractère d'une langue.
-        De nombreuse pages de code ont été définies autour de la norme ASCII, sous-ensemble commun à plusieurs pages de code.
-
-    Unicode
-        Standard informatique qui vise à permettre le codage de texte écrit en donnant à tout caractère de n’importe quel système d’écriture un nom et un identifiant numérique, et ce de manière unifiée, quelle que soit la plate-forme informatique ou le logiciel.
-        Son but est de remplacer l’utilisation de pages de code nationales.        
-        Chaque caractère est associé à un nombre entier appelé point de code.
-        L'espace de codage de ces nombres est divisé en 17 zones de 65 536 points de codes. Ces zones sont appelées plans.
-        Un point de code est noté U+xxxx où xxxx est un nombre hexadécimal comportant de 4 à 6 chiffres.
-        Les points de code du premier plan (appelé plan multilingue de base) comportent 4 chiffres (entre U+0000 et U+FFFF)
-        Les points de code des 15 plans suivants comportent 5 chiffres (entre U+10000 et U+FFFFF)
-        Les points de code du dernier plans comportent 6 chiffres (entre U+100000 et U+10FFFF).
-
-
-
-
-Subversion
+- Tâches -
 ----------
-    Différences entre le working directory et la base               : svn diff
-    Différences entre le working directory et le serveur            : svn diff -r HEAD
-    Résumé des modifications locales                                : svn status
-    "Nettoyage" du working directory                                : svn cleanup
-    Informations sur le repository (branche, numéro de révision)    : svn info
-    Passer un conflit en "résolu"                                   : svn resolved filename
+  A faire :
+    - Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)
+    - Gérer les tag reference au lieu des tag link uniquement ?
+    - Compléter le fichier de données avec la liste de mots en français
+    - Compléter le fichier de données avec la liste de mots en anglais
+    - Rédiger la xsd validant Data.xml
+
+  Fait :
+    - Afficher les packages / classes sous forme de tableaux dans la section java
+    - Trouver le moyen le plus simple d'appliquer une xslt à un xml : Ecriture d'une classe java
+    - Ecrire une xslt de vue et une xslt de media appelables successivement
+    - Trouver un moyen de stoker le code : GitHub
+    - Gérer l'imbrication de code dans un tableau dans Wikispaces
+    - Rédiger les fichiers xml correspondant aux pages existantes sur PragmaticMemory.wikispaces
+    - Rédiger les fichiers xslt de mise en page au format wikispaces
+    - Choix du lieu de stockage des fichiers de données (xml), styles (xslt) et schemas (xsd)
+        -> Wikispaces
+          avantages     : Wiki gratuit pour un usage privé
+          inconvénients : les versions des fichiers téléchargés dans Wikispaces ne peuvent pas être supprimées.
+                            Conséquence : la limite de taille risque d'être atteinte rapidement si les mises à jour sont fréquentes.
+        -> Google Docs
+          avantages     : Gratuit
+          inconvénients : Site non accessible à partir du bureau
+        -> Digiposte
+          avantages     : Gratuit
+                            Structure ayant plus de chance de durer que d'autre sites
+          inconvénients : Pas de gestion de version : deux fichiers avec un nom identique sont stockés comme deux fichiers différents
+    - Séparer les données du formattage : Utilisation des xslt
+    - Séparer le formattage lié à la vue du formattage lié au media de diffusion : Création de xslt de vue et de xslt de media
+    - Gérer les indentations de ligne de code
+    - Gérer le language (java, sql,...) dans la balise de code
+
+-------------
+- Principes -
+-------------
+  L'objectif de cette section est de lister les principes permettant d'améliorer la forme du wiki.
+  La principale problèmatique est d'éliminer tout ce qui n'est pas indispensable ou qui peut minimiser la compréhension.
+
+  Clarté
+    - de formulation :
+      Entre deux formulations d'une même information, utiliser la plus claire.
+      (à développer) Utiliser la mise en forme pour permettre une distinction des types d'information
+    - lisibilité (utilisation de tabulations)
+
+  Homogénéité
+    - de forme :
+      Utiliser la même forme pour transmettre un même type d'information.
+      voir l'utilisation
+        -> des temps (futur, présent, ...)
+        -> de la casse (majuscule ou minuscule)
+        -> de la ponctuation
+    - de terme :
+      Utiliser toujours les mêmes termes pour désigner une même notion.
 
 
-GIT
----
-    Fichier de configuration globale Git        : fichier .gitConfig dans le répertoire %USERPROFILE%
-                                                  Récupérable en java par : System.getProperty("user.home");
-    Branche                                     : Pour Git, une branche est un pointeur sur un commit spécifique. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.
-    HEAD                                        : Pointeur vers le parent du prochain commit. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.
-    HEAD~                                       : Pointeur vers le parent du commit pointé par HEAD
-    HEAD~2                                      : Pointeur vers le parent du commit parent du commit pointé par HEAD (et de même HEAD~3, HEAD~4, etc...)
-    HEAD détaché                                : Le HEAD est dit détaché lorsqu'il ne pointe pas sur le dernier commit de la branche courante. Ceci se produit lorsque l'on fait un checkout sur une référence qui n'est pas une branche (comme master~2 par exemple), l'effet étant de créer une branche anonyme.
-    Répertoire de travail (working directory)   : Ensemble des fichiers présents sur le disque dur, qui contient aussi bien les fichiers suivis que non suivis. C'est ce répertoire de travail qui contient les versions courantes (c'est-à-dire éventuellement modifiées) des fichiers.
-    Index (Staging area)                        : Versions d'un ensemble de fichiers qui feront parti du prochain commit
-    Action "Stage"                              : Ajout de fichiers à l'index
-    Action "Unstage"                            : Retrait de fichiers de l'index
-    Commande "Commit"                           : Création d'un commit fils du commit pointé par le HEAD. Après le commit créé, le HEAD est déplacé vers ce nouveau commit ainsi que la branche si le HEAD n'est pas détaché
-    Commande checkout                           : Déplacement du HEAD (éventuellement en le détachant)
-    Commande reset                              : Déplacement du HEAD et de la branche courante, avec mise à jour optionnelle de l'index et du working directory
-    Commande rebase                             : Déplacement d'une succession de commit (modification de leur parent)
-    .                                           : Désigne l'ensemble de tous les fichiers du répertoire courant
+  Portabilité
+    - du support des données
+    - du format (adaptation aux tailles d'écran)
+      limitation
+        de la taille des lignes à 150 caractères
+        de la longueur des tabulations à 2 espaces
 
-    Afficher la configuration globale : git config --global -l
-    Afficher la configuration locale à un répertoire git : git config --local -l
-                                                           git config --local --list
-    Supprimer une variable locale : git config --local --unset nom_de_variable
+  Séparation
+    - des Données / présentation :
+      Distinguer les informations utiles (données à transmettre) de la mise en page (manière de transmettre les données).
+      Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée, les différentes vues pouvant être destinées :
+        -> à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)
+        -> à insiter sur différents aspects d'un ensemble de données au sein d'un même outil
+      La mise en oeuvre de ce principe est faite par l'utilisation 3 types de fichiers sont utilisés :
+        -> un fichier de "données", d'extension xml, stockant les données utiles
+        -> des fichiers "style", d'extension xslt, définissant chacun un style de présentation
+        ->  des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style
+      Format du fichier de lien
+        <?xml version="1.0" encoding="UTF-8"?>
+        <?xml-stylesheet href="StyleUrl" type="text/xsl" ?>
+        <!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>
+        <linkedData>
+        &data;
+        </linkedData>
+        avec à remplacer dans le template (+ exemple dans le cas de Subversion):
+          -> StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)
+          -> DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)
+          -> Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt
+      Les fichiers xml doivent être encodés en UTF-8.
+      Concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :
+        -> toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link
+        -> toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé
+    - des concepts dans les métadonnées :
+      Liste des concepts : item, group, reference, method, task
 
-    Configurer Notepad++ comme editeur (en local) : git config --local core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
-    Configurer Notepad++ comme editeur (en local) en utilisant un fichier de script : git config --local core.editor C:/GitEditor.bat
-        Contenu de GitEditor.bat
-            #!/bin/sh
-            "c:/Program Files/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin "$*"
-    Initialiser un répertoire git : git init
-    Ajouter un fichier à l'index (faire un stage) : git add nom_de_fichier
-    Ajouter récursivement tous les fichiers du répertoire courant à l'index : git add .
-    Ajouter à l'index tous les fichiers modifiés déjà suivis (update) : git add -u
-    Faire un commit (ajouter les fichiers de l'index au repository) : git commit -m "message de commit
-    Afficher le status des fichiers : git status
-        Remarque : Cette commande ne montre pas tous les fichiers du répertoire de travail : les fichiers suivis mais non modifiés n'apparaissent pas
-    Afficher la liste des fichiers suivis (tracked), c'est-à-dire l'union des fichiers dans le repository et de ceux de l'index : git ls-files
-    Afficher la liste des fichiers dans le working dirctory mais non suivis (untracked) : git ls-files --others
-        Remarque : A la différence de la commande status, cette commande liste l'ensembles des enfants des répertoire non suivis
+  Concision :
+    - de taille :
+      Entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité
+      Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.
+        -> exemple          : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)
+        -> contre-exemple   : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)
+      Utiliser les participes-présent plutôt que les subordonnées :
+        "permettant" au lieu de "qui permettent" (gain de 4 caractères)
+    - factorisation :
+      Eliminer les redondances de mots ou de groupes de mots
+      Eliminer les redondances d'informations d'un texte avec son titre (à développer)
+      Principe des "code smell". Exemple de "code smell" de répétition de mot
+        La liste :
+          Principes d'homogénéité
+          Principe de séparation
+          Principe de concision
+        peut être remplacée par :
+          Principes
+            Homogéneité
+            Séparation
+            Concision
 
-    Afficher l'historique des commit : git log
-                                       git log --pretty=oneline
-                                       git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
-                                       git log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all
-                                       git reflog
-        Principaux formats 
-        +--------+-------------------------------------------------+
-        | Format | Description                                     |
-        +--------+-------------------------------------------------+
-        |   %H   | Commit hash                                     |
-        |   %h   | Abbreviated commit hash                         |
-        |   %T   | Tree hash                                       |
-        |   %t   | Abbreviated tree hash                           |
-        |   %P   | Parent hashes                                   |
-        |   %p   | Abbreviated parent hashes                       |
-        |   %an  | Author name                                     |
-        |   %ae  | Author e-mail                                   |
-        |   %ad  | Author date (format respects the –date= option) |
-        |   %ar  | Author date, relative                           |
-        |   %cn  | Committer name                                  |
-        |   %ce  | Committer email                                 |
-        |   %cd  | Committer date                                  |
-        |   %cr  | Committer date, relative                        |
-        |   %s   | Subject                                         |
-        +--------+-------------------------------------------------+
+--------------
+- Powershell -
+--------------
+  Information de type
+    file        : correspond à un fichier (FileInfo) ou un répertoire (DirectoryInfo)
+    string      : une chaîne de caractères. La nature de l'objet représenté est indiqué entre parenthèses (path par exemple)
+    file set    : un ensemble de file passé sur le pipe
+    string set  : un ensemble de chaînes de caractères passé sur le pipe
+    string list : une liste de chaînes caractères séparées par des ,
+    object      : un objet au sens large
 
-    Afficher l'historique des commit (version graphique) : gitk
-                                                           gitk --all
+  Compatibilité de type
+    un objet de type |file      | peut être utilisé partout ou un |file set   | est attendu
+                     |string    |                                 |string set |
+                     |string    |                                 |string list|
+                     |quelconque|                                 |object     |
 
-    Afficher les différences entre le répertoire de travail et l'index : git diff
-    Afficher les différences en utilisant un outil de diff spécifique : git difftool
-    Afficher les différences entre l'index et le repository : git diff --cached
-    Afficher les différences entre le répertoire de travail et le repository : git diff HEAD
-    Afficher les différences entre le HEAD et son parent : git diff HEAD HEAD~
-    <!--
-    Question : Sometimes git suggests git rm - -cached to unstage a file, sometimes git reset HEAD file. When should I use which?
-    Answer : git rm - -cached doesn't unstage a file. It stages the removal of the file. git reset on the other hand, will unstage any staged changes for a given file.
-             Edit: Thinking about it, though, if you used git rm - -cached on a new file that is staged, it would basically look like you had just unstaged it since it had never been committed before. Maybe that's what you were seeing?
-    Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git-rm-cached-asd-and-git-reset-head-asd
-    -->
-
-    Déplacer le HEAD sans modifier l'index ni le répertoire de travail : git reset --soft version
-        Ainsi, git reset --soft HEADn'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail
-    Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail : git reset version
-                                                                              git reset --medium version
-
-    Déplacer le HEAD en modifiant l'index et le répertoire de travail : git reset --hard version
-    Déplacer la branche courante (et le HEAD associé)   : git reset v1
-                                                          git reset sha1
-    Annuler l'opération d'ajout d'un fichier à l'index : git reset HEAD nom_de_fichier
-    Récupérer localement la version pointée par le HEAD : git checkout nom_de_fichier
-    Créér une branche : git branch myBranch
-    Effacer une branche : git branch -d myBranch
-    Créér un tag : git tag v1
-    Effacer un tag : git tag -d v1
-    Stocker les login / mot de passe pour GitHub
-        Ajouter les lignes de code suivantes dans le fichier _netrc se trouvant dans le profil utilisateur
-            machine github.com
-            login COMPTE_GITHUB
-            password MOT_DE_PASSE
-
-    Références
-        Commande reset                  : http://git-scm.com/2011/07/11/reset.html
-        Pro Git                         : http://git-scm.com/book
-        Git Community Book en français  : http://alx.github.com/gitbook/index.html
-        Tutorial "Immersion"            : http://gitimmersion.com
-        Tutorial "Git c'est facile 2"   : http://www.yterium.net/GIT-c-est-facile-2
-        Tutorial "Git ready"            : http://gitready.com
-        Tutorial "Learn GitHub"         : http://learn.github.com/p/intro.html
-        Tutorial "Learn GitHub" (suite) : http://learn.github.com/p/diff.html
-        Utiliser Git en entreprise      : http://canop.org/blog/?p=101
-        A Visual Git Reference (+++)    : http://marklodato.github.com/visual-git-guide/index-en.html
-        Understanding Git Conceptually  : http://www.sbf5.com/~cduan/technical/git/
-
-SQL
----
-    sélectionner le maximum d'une colonne en fonction d'une autre colonne
-        Exemple : 
-            create table max_test(code varchar(3), value int)
-            insert into max_test(code, value) values ('A', 3)
-            insert into max_test(code, value) values ('A', 4)
-            insert into max_test(code, value) values ('A', 5)
-            insert into max_test(code, value) values ('B', 1)
-            insert into max_test(code, value) values ('B', 4)
-            insert into max_test(code, value) values ('C', 7)
-            insert into max_test(code, value) values ('C', 6)
-            insert into max_test(code, value) values ('C', 5)
-
-        select code, max(value) from max_test group by code
+  Propriétés de file
+    BaseName      : nom du fichier sans son extension
+    Extension     : extension du fichier
+    FullName      : nom complet du fichier (avec son path)
+    Name          : nom du fichier avec son extension
+    PSParentPath  : nom du répertoire parent
 
 
-    écrire un case dans un select
-        case
-            when condition_1 then   value_1
-            when condition_2 then   value_2
-            ...
-            when condition_n then   value_n
-            else                    value_else
-        end
+  Template des commandes
+    objectif de la commande
+      type d'entrée 1 > commande 1 > type de sortie 1
+      type d'entrée 2 > commande 2 > type de sortie 2
+      alias 1, alias 2, alias 3
+      option 1 (shortcut 1)
+      option 2 (shortcut 2)
+      remarque 1
+      remarque 2
 
-SYBASE
-------
-    Vérifier l'existence d'une table : select 1 from sysobjects where type = 'U' and name = 'nom_de_table'
-    Vérifier l'existence d'une procédure stockée : select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'
-    Vérifier l'existence d'une table temporaire : select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'
-    Déclarer une variable : declare @nom_de_la_variable type_de_la_variable
-        exemple : declare @ptf_cod varchar(12)
-    Affecter une valeur à une variable : select @nom_de_la_variable = @valeur_de_la_variable
-        exemple : select @ptf_cod = 'ZX23'
-    Voir le code d'une procédure stockée : sp_helptext 'nom_de_procedure'
-    Obtenir la liste des utilisateurs : sp_helpuser
-    Obtenir la liste des groupes : sp_helpgroup
-    Ajouter à une base un groupe défini sur le data serveur : sp_addgroup 'nom_de_groupe'
-    Connaître le nom réel d'un base (renvoyé par les messages d'erreurs Sybase) : select @@servername
+  IO
+    lister tous les éléments (fichiers et répertoires) d'un répertoire donné
+      directory path > Get-ChildItem -r "... > file set
+      directory path > $dir="...";Get-ChildItem -r $dir > file set
+        dir, ls
+        -recurse (-r)
 
-    Le fichier sql.ini
-        Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier sql.ini(présent par exemple dans C:\Program Files\sybase\12.5.1\ini).
-        Ils sont définis suivant le template :
-            [DATA_SERVEUR_NAME]
-            query=TCP,server-name,port
-        Dans l'exemple, server-name est le nom ou l'alias d'une machine
-        Un data serveur peut héberger plusieurs bases
-        Si A et B sont 2 bases sur un même data server, et si a est un objet de A et b un objet de B, a peut référencer b en utilisant la syntaxe B..b
+    lire le contenu d'un fichier
+      string (path) list > Get-Content(...) > string set
+      string (path) list > Get-Content(...) > file list
 
-    L'outil isql
-        Outil Sybase permettant l'exécution d'un script sql via la syntaxe :
-            isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql
-            Le fichier d'entrée (ex: script.sql) passé à isql peut inclure un fichier (ex : include.sql) à l'aide de la syntaxe :
-                :r C:\Temp\include.sql
-            Il ne doit pas y avoir d'espace entre le début de la ligne et le :r
+    récupérer un file set à partir d'une liste de path
+      string (path) list > Get-Content(...) > file
 
-    L'outil bcp
-        Outil Sybase permettant de sauvegarder les données d'une table dans un fichier, ou d'alimenter une table à partir des données d'un fichier.
-        Sauvegarde des données d'une table
-            bcp BASE..TABLE out C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c
-        Alimentation d'une table à partir d'un fichier
-            bcp BASE..TABLE in C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c
+    écrire dans un fichier
+      object, string (path) > ... | Out-File -filepath "..." > file
+        -append : permet de compléter un fichier déjà existant
+        -inputObject : permet de préciser un objet à écrire
 
+  Filtrage
+    ne conserver que les répertoires d'un file set (et pas les fichiers)
+      file set > ... | where {$_.PsIsContainer} > file set
 
-    Système de verrouillage de table : 
-        Une table est composée de pages. Une page est composées de lignes (row).
-        Les différents systèmes de verrouillage d'une table sont : 
-            Allpages locking    : vérouille l'intégralité de la table lors d'une modification de celle-ci (tout select est mis en attente pendant la mise à jour).
-                                  c'est le système de verrouillage par défaut d'une table.                
-            Datapages locking   : système de verrouillage d'une table dans lequel toutes les pages contenant les lignes en cours de modifications sont verrouillées.
-            Datarows locking    : système de verrouillage d'une table dans lequel toutes les lignes en cours de modifications sont verrouillées.        
-                                  Il existe un nombre maximal de verrous sur une base Sybase.
-                                  Utiliser des verrous de type Datarows permet une granularité plus fine de verrouillage mais accroît les risques d'atteindre la limite maximale du nombre de verrous (du fait de l'attribution d'un verrou à chaque ligne modifiée)
+    ne conserver que les fichiers d'un file set (et pas les répertoires)
+      file set > ... | where {!$_.PsIsContainer} > file set
 
-DOS
----
-    Lister récursivement les fichiers d'un répertoire : dir /S /A:-D /B
-        /S (subdirectories) : permet la récursion sur les sous-répertoires
-        /A (attribute)      : -D signifie ne possédant pas l'attribut "Directory"
-        /B (bare format)    : présente seulement les noms de fichiers sans formattage (format nu)
-    Lister les répertoires              : dir
-    Créer un répertoire                 : mkdir nom_de_repertoire
-    Changer de répertoire               : cd nom_de_repertoire
-    Afficher le contenu d'un fichier    : more nom_de_fichier
-    Créer un fichier                    : echo "contenu du fichier" > nom_de_fichier
+    ne conserver que les entrées qui correspondent à une expression régulière
+      string set, regular expression > ... | where {$_ -match "..."} > string set
 
-    Commande externe : Une commande non incluse dans command.com
-        Voir http://www.computerhope.com/jargon/e/extecomm.htm
+  Boucle
+    effectuer un même traitement sur un ensemble de données
+      string set + commande powershell > ... | Foreach{...} > string set (si écriture par la commande)
+      file set + commande powershell > ... | Foreach{...} > string set (si écriture par la commande)
+        Au début du Foreach, créer les variables qui seront utilisées dans la commande
+        l'expression $_ désigne l'entrée courante du "string set"
+        plusieurs sous-commandes peuvent être séparées par un ;
 
-    Less :  programme de mise en page (pager) par défaut utilisé par les fenêtres DOS.
-            Less peut utiliser les variables d'environnement LESSCHARSET et LESSCHARDEF.
-            FAQ sur Less : http://www.greenwoodsoftware.com/less/faq.html
+  Pipeline
+    écrire un objet sur le pipeline
+      objet > Write-Output(...) > objet
 
-    LESSCHARSET : Variable d'environnement lue par Less qui permet de préciser le jeux de caractère prédéfini à utiliser.
-        Valeurs possibles   : ascii, iso8859, latin1, dos, ebcdic, koi8-r, utf-8
-        Exemple             : set LESSCHARSET = latin1
+  Information sur les objets
+    connaître le type et les membres d'un objet
+      objet > ... | Get-Member > MemberDefinition
 
-    LESSCHARDEF : Variable d'environnement lue par >Less, permettant de définir un jeux de caractères
-        La chaîne de caractère affectée à cette variable défini le type des caractères de 0 à 255.
-        Les caractères possibles sont les suivants :
-        +-----------+-----------------------+
-        | Caractère | Signification         |
-        +-----------+-----------------------+
-        |      .    | caractère normal      |
-        |      c    | caractère de contrôle |
-        |      b    | binaire               |
-        +-----------+-----------------------+
-        Chacun des caractères ci-dessus peut être précédé par un nombre indiquent sur combien de caractères porte le caractère suivant dans la chaîne
-        Exemple : le jeu prédéfini ascii correspond à 8bcccbcc18b95.b (caractères : 8 binaires + 3 contrôles + 1 binaire + 2 contrôles + 18 binaires + 95 normaux + 1 binaire soit 128 caractères définis)
+    lister les noms d'un ensemble de fichiers
+      file set > ... | Foreach{$_.FullName} > string set
+      file set > ... | Foreach{$_.Name} > string set
 
-Clavier
--------
-    Basculer entre anglais et français : ALT + SHIFT
+  Exemples :
+    copie de tous les fichiers contenus dans le répertoire "C:\Temp\PS", avec ajout de BEGIN sur la première ligne et de END sur la dernière lignes
+      sans utilisation de pipe au sein du Foreach :
+        Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}
+      avec utilisation de pipe au sein du Foreach :
+        Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$content=Get-Content($input);Write-Output("BEGIN", $content, "END")}
+      variante avec utilisation du caractère d'échappement `r signifiant un retour à la ligne :
+        Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);$outputContent="BEGIN`r"+$content+"`rEND";Out-File -filePath "$output" -inputObject "$outputContent"}
 
-RegExp
-------
-    IntelliJ
-        \t : matche avec les tabulations
-        \r : non reconnu
-        \n : matche avec la séquence de fin de ligne (\r\n sous Windows et \n sous Unix)
-        Remplacement : $1
+----------------------------
+- Modification de fichiers -
+----------------------------
+  L'objectif de cette section est de donner des méthodes de modification de fichiers.
+  Elle détaille les outils utilisés, ainsi que les commandes au sein de ces outils.
+
+  Carriage return (CR): \r
+  Line feed (LF)      : \n
+  fin de ligne
+    sous UNIX         : \n
+    sous Windows      : \r\n
+    sous Mac          : \r
+
+  Convertir les fins de ligne d'un fichier (Windows/Unix/Mac)
     Notepad++
+      vers UNIX : Edition > Convertir les sauts de ligne > Convertir en Format UNIX (LF)
+      vers Windows : Edition > Convertir les sauts de ligne > Convertir en Format Windows (CR+LF)
+      vers Mac : Edition > Convertir les sauts de ligne > Convertir en Format Mac (CR)
 
-        \t : matche avec les tabulations
-        \r : non reconnu
-        \n : non reconnu
-        Remplacement : \1
+  Voir les séquences de fin de ligne
+    Notepad++
+      Affichage > Symboles spéciaux > Afficher les symboles de fin de ligne
 
+  Voir les blancs et les tabulations
+    Notepad++
+      Affichage > Symboles spéciaux > Afficher les blancs et les tabulations
 
-    Trouver les caractères de mots qui ne sont pas des chiffres : [^\W\d]
-        Le symbole indiquant la négation porte sur l'ensemble des caratères qui suivent.
-        L'expression signifie donc non(\W ou \d) soit non(\W) et non(\d) c'est-à-dire \w et non(\d).
+  Supprimer des lignes vides (i.e ne contenant aucun caractère, pas même des espaces)
+    Notepad++ (plugin TextFX)
+      TextFX > TextFX Edit > Delete Blank Lines
 
-Anglais
+  Compacter des lignes vides consécutives en une seule ligne vide
+    Notepad++ (plugin TextFX)
+      TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)
+
+  Distribuer sur différentes lignes des items faisant partie d'une liste
+    Exemple :
+                 A
+      A, B, C -> B
+                 C
+    Notepad++
+      remplacer (CTRL + H)
+      mode étendu (\n, \r, \t, \0, \x...)
+      recherche : ,
+      remplacer par : \r\n
+
+  Assembler différentes lignes en une liste
+    Exemple :
+      A
+      B -> A, B, C
+      C
+    Notepad++
+      remplacer (CTRL + H)
+      mode étendu (\n, \r, \t, \0, \x...)
+      recherche : \r\n
+      remplacer par : ,
+
+  Trier des lignes en supprimant les doublons
+    Notepad++ (plugin TextFX)
+      TextFX > TextFX Tools > cocher "+Sort outputs only UNIQUE (at column) lines"
+      TextFX > TextFX Tools > cocher "+Sort ascending" pour un tri par ordre alphabétique / décocher pour un ordre inverse
+      TextFX > TextFX Tools > cliquer sur "Sort lines case sensitive (at column)" ou sur "Sort lines case insensitive (at column)"
+
+  Indenter les xml
+    IntelliJ
+      Code > Reformat Code...
+      Raccourci par défaut : CTRL + ALT + L
+      Fonctionne sur tous les fichiers du projet ou sur un ensemble de fichiers sélectionnés.
+
+  Convertir "underscore" vers "camelcase"
+    Example : iinvCEqSector -> IINV_C_EQ_SECTOR
+    Notepad++
+      1/ remplacer l'expression régulière ([A-Z]) par _\1 (cocher Respecter la casse)
+      2/ passer en majuscule (CTRL + SHIFT + U)
+
+  Comparer 2 listes
+    Dans un feuille Excel :
+      en A1, saisir le formattage conditionnel : =ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)
+      en B1, saisir le formattage conditionnel : =ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)
+      copier le format de A1 sur la colonne A
+      copier le format de B1 sur la colonne B
+    Equivalence français / anglais : NB.SI / COUNTIF, ESTVIDE / ISBLANK, NON / NOT, ET / AND
+    Inspiré de l'article http://www.techrepublic.com/blog/msoffice/use-conditional-formatting-to-compare-lists-in-excel/4310
+
+  Table ASCII
+    Table contenant 128 caractères
+    Chaque caractère est codé sur 7 bit, ce qui permet bien la représentation de (2 puissance 7 =) 128 caractères
+    Chaque caractère peut être représenté par un chiffre hexadécimal (entre 0 et F) suivi par un chiffre entre 0 et 7, ce qui permet bien la représentation des (16 x 8 =) 128 caractères.
+    Voir http://www.asciitable.com/
+
+  Table ASCII étendue
+    Table contenant 256 caractères
+    Chaque caractère est codé sur 8 bit, ce qui permet bien la représentation de (2 puissance 8 =) 256 caractères
+    Chaque caractère peut être représenté par deux chiffres hexadécimal (entre 0 et F), ce qui permet bien la représentation des (16 x 16 =) 256 caractères.
+    Ceci n'est pas une mise à jour de la table ASCII
+    Il existe plusieurs extensions propriétaires de la table ASCII, incompatibles entre elles.
+    Il existe plusieurs tables ASCII étendues définie par l'ISO : ce sont les table ISO 8859.
+    La plus populaire des tables ISO 8859 est la table SO 8859-1, appelée également ISO Latin1
+
+  UTF-8
+    Système d'encodage des caractères internationaux d'Unicode rétro-compatible avec ASCII
+    Chaque caractère est codé sur un ensemble de 1 à 4 octets.
+    La rétro-compatibilité avec ASCII signifie que tout caractère ASCII se code en UTF-8 sous forme d'un unique octet, identique au code ASCII.
+
+  Page de code
+    Jeu de caractère associant un nombre à chaque caractère d'une langue.
+    De nombreuse pages de code ont été définies autour de la norme ASCII, sous-ensemble commun à plusieurs pages de code.
+
+  Unicode
+    Standard informatique qui vise à permettre le codage de texte écrit en donnant à tout caractère de n’importe quel système d’écriture un nom et un identifiant numérique, et ce de manière unifiée, quelle que soit la plate-forme informatique ou le logiciel.
+    Son but est de remplacer l’utilisation de pages de code nationales.
+    Chaque caractère est associé à un nombre entier appelé point de code.
+    L'espace de codage de ces nombres est divisé en 17 zones de 65 536 points de codes. Ces zones sont appelées plans.
+    Un point de code est noté U+xxxx où xxxx est un nombre hexadécimal comportant de 4 à 6 chiffres.
+    Les points de code du premier plan (appelé plan multilingue de base) comportent 4 chiffres (entre U+0000 et U+FFFF)
+    Les points de code des 15 plans suivants comportent 5 chiffres (entre U+10000 et U+FFFFF)
+    Les points de code du dernier plans comportent 6 chiffres (entre U+100000 et U+10FFFF).
+
+--------------
+- Subversion -
+--------------
+  Différences entre le working directory et la base
+    svn diff
+
+  Différences entre le working directory et le serveur
+    svn diff -r HEAD
+
+  Résumé des modifications locales
+    svn status
+
+  "Nettoyage" du working directory
+    svn cleanup
+
+  Informations sur le repository (branche, numéro de révision)
+    svn info
+
+  Passer un conflit en "résolu"
+    svn resolved filename
+
 -------
+- GIT -
+-------
+  Fichier de configuration globale Git
+    fichier .gitConfig dans le répertoire %USERPROFILE%
+    Récupérable en java par : System.getProperty("user.home");
+  Branche
+    Pour Git, une branche est un pointeur sur un commit spécifique. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.
 
-    Les transcriptions phonétiques sont tirées du site suivant : http://www.wordreference.com
-    Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple iː au lieu de i) : http://dictionary.reference.com
-    Traduction : http://www.wordreference.com
-    Liste des symboles phonétiques : http://www.wordreference.com/fr/French-Pronunciation.aspx
-    Prononciation des sons ipa : http://www.antimoon.com/how/pronunc-soundsipa.htm
+  HEAD
+    Pointeur vers le parent du prochain commit. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.
 
+  HEAD~
+    Pointeur vers le parent du commit pointé par HEAD
 
-    +---------------+----------------------------------+-------------------------------------------------------+
-    | mot           | phonétique                       | définition                                            |
-    +---------------+----------------------------------+-------------------------------------------------------+
-    | agile         | ˈædʒaɪl/ˈædʒl                    | agile                                                 |
-    | area          | ˈeərɪə                           | région, superficie                                    |
-    | ash           |  æʃ                              | cendre                                                |
-    | automatically | ˌɔːtəˈmætɪklɪ                    | automatiquement                                       |
-    | bat           |  bæt                             | chauve-souris                                         |
-    | bet           |  bet                             |                                                       |
-    | bot           |  bɒt                             |                                                       |
-    | but           |  bʌt                             | mais                                                  |
-    | barrage       | ˈbærɑːʒ ; bəˈrɑːʒ                | barrage                                               |
-    | browse        |  braʊz                           | naviguer                                              |
-    | confluence    | ˈkɒnflʊəns                       |                                                       |
-    | comfort       | ˈkʌmfət                          | confort                                               |
-    | comfortable   | ˈkʌmftəbl/ˈkʌmfərtbl             | confortable                                           |
-    | command       | kəˈmɑːnd/kəˈmænd                 |                                                       |
-    | database      | ˈdeɪtəˌbeɪs                      | base de données                                       |
-    | directory     | daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ | répertoire                                            |
-    | eclipse       | ɪˈklɪps                          |                                                       |
-    | era           | ˈɪərə                            | époque                                                |
-    | error         | ˈerə(r)                          | erreur                                                |
-    | extreme       | ɪkˈstriːm                        | extreme                                               |
-    | flaccid       | ˈflæsɪd/ˈflæksɪd                 | flasque, mou                                          |
-    | France        | frɑːns                           | La France                                             |
-    | GUI           | ˈguiː                            | Gui User Interface                                    |
-    | Hudson        | ˈhʌdsən                          |                                                       |
-    | integer       | ˈɪntɪdʒər                        | mathématiques : entier                                |
-    | java          | ˈdʒɑːvə                          |                                                       |
-    | ladder        | ˈlædə(r)                         | échelle                                               |
-    | library       | ˈlaɪbrərɪ/ˈlaɪbrerɪ              |                                                       |
-    | limb          | lɪm                              | membre (bras , jambe) / branche principale d'un arbre |
-    | maven         | ˈmeɪvən                          | expert                                                |
-    | oath          | əʊθ                              | serment                                               |
-    | obstacle      | ˈɒbstəkl                         | obstacle                                              |
-    | pawn          | pɔːn                             | pions (aux échecs)                                    |
-    | phase         | feɪz                             | phase                                                 |
-    | platform      | ˈplætfɔːm                        | plateforme                                            |
-    | procedure     | prəˈsiːdʒə(r)                    | procédure                                             |
-    | program       | ˈprəʊɡræm/ˈprəʊɡrəm              | programme                                             |
-    | raw           | rɔː                              | brut (raw data : données brutes)                      |
-    | reassure      | ˌriːəˈʃɔː(r)/riːəˈʃʊər           | rassurer (quelqu'un) (about : sur)                    |
-    | release       | rɪˈliːs                          | libérer, livrer                                       |
-    | row           | rəʊ                              | ligne                                                 |
-    | server        | ˈsɜːvə(r)                        | serveur                                               |
-    | source        | sɔːs                             | source                                                |
-    | subversion    | səˈbvɜːʃn/səˈbvɜːrʒn             |                                                       |
-    | thumb         | θʌm                              | pouce                                                 |
-    | toe           | təʊ                              | orteil                                                |
-    | tortoise      | ˈtɔːtəs                          | tortue (terrestre)                                    |
-    | turtle        | ˈtɜːtl                           | tortue (générique)                                    |
-    | variable      | ˈveərɪəbl                        | variable                                              |
-    | wound         | wuːnd                            | blessure                                              |
-    +---------------+----------------------------------+-------------------------------------------------------+
+  HEAD~2
+    Pointeur vers le parent du commit parent du commit pointé par HEAD (et de même HEAD~3, HEAD~4, etc...)
 
-Français
---------
-    Définition : http://www.lexilogos.com/francais_langue_dictionnaires.htm
-    +--------------+-------------------------------------------------------------------------------+
-    | mot          | définition                                                                    |
-    +--------------+-------------------------------------------------------------------------------+
-    | atermoiement | (souvent au pluriel) action de différer, retarder; hésitation, tergiversation |
-    +----------------------------------------------------------------------------------------------+
+  HEAD détaché
+    Le HEAD est dit détaché lorsqu'il ne pointe pas sur le dernier commit de la branche courante.
+    Ceci se produit lorsque l'on fait un checkout sur une référence qui n'est pas une branche (comme master~2 par exemple), l'effet étant de créer une branche anonyme.
 
+  Répertoire de travail (working directory)
+    Ensemble des fichiers présents sur le disque dur, qui contient aussi bien les fichiers suivis que non suivis.
+    C'est ce répertoire de travail qui contient les versions courantes (c'est-à-dire éventuellement modifiées) des fichiers.
 
-Web et Wiki
+  Index (Staging area)
+    Versions d'un ensemble de fichiers qui feront parti du prochain commit
+
+  Action "Stage"
+    Ajout de fichiers à l'index
+
+  Action "Unstage"
+    Retrait de fichiers de l'index
+
+  Commande "Commit"
+    Création d'un commit fils du commit pointé par le HEAD.
+    Après le commit créé, le HEAD est déplacé vers ce nouveau commit ainsi que la branche si le HEAD n'est pas détaché.
+
+  Commande checkout
+    Déplacement du HEAD (éventuellement en le détachant)
+
+  Commande reset
+    Déplacement du HEAD et de la branche courante, avec mise à jour optionnelle de l'index et du working directory.
+
+  Commande rebase
+    Déplacement d'une succession de commit (modification de leur parent)
+
+  .
+    : Désigne l'ensemble de tous les fichiers du répertoire courant
+
+  Afficher la configuration globale
+    git config --global -l
+
+  Afficher la configuration locale à un répertoire git
+    git config --local -l
+    git config --local --list
+
+  Supprimer une variable locale
+    git config --local --unset nom_de_variable
+
+  Configurer Notepad++ comme editeur (en local)
+    git config --local core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+
+  Configurer Notepad++ comme editeur (en local) en utilisant un fichier de script
+    git config --local core.editor C:/GitEditor.bat
+    Contenu de GitEditor.bat
+        #!/bin/sh
+        "c:/Program Files/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin "$*"
+
+  Initialiser un répertoire git
+    git init
+
+  Ajouter un fichier à l'index (faire un stage)
+    git add nom_de_fichier
+
+  Ajouter récursivement tous les fichiers du répertoire courant à l'index
+    git add .
+
+  Ajouter à l'index tous les fichiers modifiés déjà suivis (update)
+    git add -u
+
+  Faire un commit (ajouter les fichiers de l'index au repository)
+    git commit -m "message de commit
+
+  Afficher le status des fichiers
+    git status
+    Remarque : Cette commande ne montre pas tous les fichiers du répertoire de travail;
+               les fichiers suivis mais non modifiés n'apparaissent pas
+
+  Afficher la liste des fichiers suivis (tracked), c'est-à-dire l'union des fichiers dans le repository et de ceux de l'index
+    git ls-files
+
+  Afficher la liste des fichiers dans le working dirctory mais non suivis (untracked)
+    git ls-files --others
+    Remarque : A la différence de la commande status, cette commande liste l'ensembles des enfants des répertoire non suivis
+
+  Afficher l'historique des commit
+    git log
+    git log --pretty=oneline
+    git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
+    git log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all
+    git reflog
+
+    Principaux formats
+    +--------+-------------------------------------------------+
+    | Format | Description                                     |
+    +--------+-------------------------------------------------+
+    |   %H   | Commit hash                                     |
+    |   %h   | Abbreviated commit hash                         |
+    |   %T   | Tree hash                                       |
+    |   %t   | Abbreviated tree hash                           |
+    |   %P   | Parent hashes                                   |
+    |   %p   | Abbreviated parent hashes                       |
+    |   %an  | Author name                                     |
+    |   %ae  | Author e-mail                                   |
+    |   %ad  | Author date (format respects the –date= option) |
+    |   %ar  | Author date, relative                           |
+    |   %cn  | Committer name                                  |
+    |   %ce  | Committer email                                 |
+    |   %cd  | Committer date                                  |
+    |   %cr  | Committer date, relative                        |
+    |   %s   | Subject                                         |
+    +--------+-------------------------------------------------+
+
+  Afficher l'historique des commit (version graphique)
+    gitk
+    gitk --all
+
+  Afficher les différences entre le répertoire de travail et l'index
+    git diff
+
+  Afficher les différences en utilisant un outil de diff spécifique
+    git difftool
+
+  Afficher les différences entre l'index et le repository
+    git diff --cached
+
+  Afficher les différences entre le répertoire de travail et le repository
+    git diff HEAD
+
+  Afficher les différences entre le HEAD et son parent
+    git diff HEAD HEAD~
+
+<!--
+Question : Sometimes git suggests git rm - -cached to unstage a file, sometimes git reset HEAD file. When should I use which?
+Answer : git rm - -cached doesn't unstage a file. It stages the removal of the file. git reset on the other hand, will unstage any staged changes for a given file.
+         Edit: Thinking about it, though, if you used git rm - -cached on a new file that is staged, it would basically look like you had just unstaged it since it had never been committed before. Maybe that's what you were seeing?
+Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git-rm-cached-asd-and-git-reset-head-asd
+-->
+
+  Déplacer le HEAD sans modifier l'index ni le répertoire de travail : git reset --soft version
+    Ainsi, git reset --soft HEADn'a aucun effet puisqu'il deplace HEAD vers HEAD et qu'il ne modifie ni l'index, ni le répertoire de travail
+
+  Déplacer le HEAD en modifiant l'index mais pas le répertoire de travail
+    git reset version
+    git reset --medium version
+
+  Déplacer le HEAD en modifiant l'index et le répertoire de travail
+    git reset --hard version
+
+  Déplacer la branche courante (et le HEAD associé)
+    git reset v1
+    git reset sha1
+
+  Annuler l'opération d'ajout d'un fichier à l'index
+    git reset HEAD nom_de_fichier
+
+  Récupérer localement la version pointée par le HEAD
+    git checkout nom_de_fichier
+
+  Créer une branche
+    git branch myBranch
+
+  Effacer une branche
+    git branch -d myBranch
+
+  Créer un tag
+    git tag v1
+
+  Effacer un tag
+    git tag -d v1
+
+  Stocker les login / mot de passe pour GitHub
+    Ajouter les lignes de code suivantes dans le fichier _netrc se trouvant dans le profil utilisateur
+        machine github.com
+        login COMPTE_GITHUB
+        password MOT_DE_PASSE
+
+  Références
+    Commande reset                  : http://git-scm.com/2011/07/11/reset.html
+    Pro Git                         : http://git-scm.com/book
+    Git Community Book en français  : http://alx.github.com/gitbook/index.html
+    Tutorial "Immersion"            : http://gitimmersion.com
+    Tutorial "Git c'est facile 2"   : http://www.yterium.net/GIT-c-est-facile-2
+    Tutorial "Git ready"            : http://gitready.com
+    Tutorial "Learn GitHub"         : http://learn.github.com/p/intro.html
+    Tutorial "Learn GitHub" (suite) : http://learn.github.com/p/diff.html
+    Utiliser Git en entreprise      : http://canop.org/blog/?p=101
+    A Visual Git Reference (+++)    : http://marklodato.github.com/visual-git-guide/index-en.html
+    Understanding Git Conceptually  : http://www.sbf5.com/~cduan/technical/git/
+
+-------
+- SQL -
+-------
+  sélectionner le maximum d'une colonne en fonction d'une autre colonne
+    Exemple :
+        create table max_test(code varchar(3), value int)
+        insert into max_test(code, value) values ('A', 3)
+        insert into max_test(code, value) values ('A', 4)
+        insert into max_test(code, value) values ('A', 5)
+        insert into max_test(code, value) values ('B', 1)
+        insert into max_test(code, value) values ('B', 4)
+        insert into max_test(code, value) values ('C', 7)
+        insert into max_test(code, value) values ('C', 6)
+        insert into max_test(code, value) values ('C', 5)
+
+    select code, max(value) from max_test group by code
+
+  écrire un case dans un select
+    case
+        when condition_1 then   value_1
+        when condition_2 then   value_2
+        ...
+        when condition_n then   value_n
+        else                    value_else
+    end
+
+----------
+- SYBASE -
+----------
+  Vérifier l'existence d'une table
+    select 1 from sysobjects where type = 'U' and name = 'nom_de_table'
+
+  Vérifier l'existence d'une procédure stockée
+    select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'
+
+  Vérifier l'existence d'une table temporaire
+    select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'
+
+  Déclarer une variable
+    declare @nom_de_la_variable type_de_la_variable
+    exemple : declare @ptf_cod varchar(12)
+
+  Affecter une valeur constante à une variable
+    select @nom_de_la_variable = @valeur_de_la_variable
+    exemple : select @ptf_cod = 'ZX23'
+
+  Voir le code d'une procédure stockée
+    sp_helptext 'nom_de_procedure'
+
+  Obtenir la liste des utilisateurs
+    sp_helpuser
+
+  Obtenir la liste des groupes
+    sp_helpgroup
+
+  Ajouter à une base un groupe défini sur le data serveur
+    sp_addgroup 'nom_de_groupe'
+
+  Connaître le nom réel d'un base (renvoyé par les messages d'erreurs Sybase)
+    select @@servername
+
+  Le fichier sql.ini
+    Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier sql.ini(présent par exemple dans C:\Program Files\sybase\12.5.1\ini).
+    Ils sont définis suivant le template :
+        [DATA_SERVEUR_NAME]
+        query=TCP,server-name,port
+    Dans l'exemple, server-name est le nom ou l'alias d'une machine
+    Un data serveur peut héberger plusieurs bases
+    Si A et B sont 2 bases sur un même data server, et si a est un objet de A et b un objet de B, a peut référencer b en utilisant la syntaxe B..b
+
+  L'outil isql
+    Outil Sybase permettant l'exécution d'un script sql via la syntaxe :
+        isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql
+        Le fichier d'entrée (ex: script.sql) passé à isql peut inclure un fichier (ex : include.sql) à l'aide de la syntaxe :
+            :r C:\Temp\include.sql
+        Il ne doit pas y avoir d'espace entre le début de la ligne et le :r
+
+  L'outil bcp
+    Outil Sybase permettant de sauvegarder les données d'une table dans un fichier, ou d'alimenter une table à partir des données d'un fichier.
+    Sauvegarde des données d'une table
+        bcp BASE..TABLE out C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c
+    Alimentation d'une table à partir d'un fichier
+        bcp BASE..TABLE in C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c
+
+  Système de verrouillage de table :
+    Une table est composée de pages. Une page est composées de lignes (row).
+    Les différents systèmes de verrouillage d'une table sont :
+        Allpages locking    : vérouille l'intégralité de la table lors d'une modification de celle-ci (tout select est mis en attente pendant la mise à jour).
+                              c'est le système de verrouillage par défaut d'une table.
+        Datapages locking   : système de verrouillage d'une table dans lequel toutes les pages contenant les lignes en cours de modifications sont verrouillées.
+        Datarows locking    : système de verrouillage d'une table dans lequel toutes les lignes en cours de modifications sont verrouillées.
+                              Il existe un nombre maximal de verrous sur une base Sybase.
+                              Utiliser des verrous de type Datarows permet une granularité plus fine de verrouillage mais accroît les risques d'atteindre la limite maximale du nombre de verrous (du fait de l'attribution d'un verrou à chaque ligne modifiée)
+
+-------
+- DOS -
+-------
+  Lister récursivement les fichiers d'un répertoire
+    dir /S /A:-D /B
+    /S (subdirectories) : permet la récursion sur les sous-répertoires
+    /A (attribute)      : -D signifie ne possédant pas l'attribut "Directory"
+    /B (bare format)    : présente seulement les noms de fichiers sans formattage (format nu)
+
+  Lister les répertoires
+    dir
+
+  Créer un répertoire
+    mkdir nom_de_repertoire
+
+  Changer de répertoire
+    cd nom_de_repertoire
+
+  Afficher le contenu d'un fichier
+    more nom_de_fichier
+
+  Créer un fichier
+    echo "contenu du fichier" > nom_de_fichier
+
+  Commande externe
+    Une commande non incluse dans command.com
+    Voir http://www.computerhope.com/jargon/e/extecomm.htm
+
+  Less
+    programme de mise en page (pager) par défaut utilisé par les fenêtres DOS.
+    Less peut utiliser les variables d'environnement LESSCHARSET et LESSCHARDEF.
+    FAQ sur Less : http://www.greenwoodsoftware.com/less/faq.html
+
+  LESSCHARSET
+    Variable d'environnement lue par Less qui permet de préciser le jeux de caractère prédéfini à utiliser.
+    Valeurs possibles   : ascii, iso8859, latin1, dos, ebcdic, koi8-r, utf-8
+    Exemple             : set LESSCHARSET = latin1
+
+  LESSCHARDEF
+    Variable d'environnement lue par >Less, permettant de définir un jeux de caractères
+    La chaîne de caractère affectée à cette variable défini le type des caractères de 0 à 255.
+    Les caractères possibles sont les suivants :
+    +-----------+-----------------------+
+    | Caractère | Signification         |
+    +-----------+-----------------------+
+    |      .    | caractère normal      |
+    |      c    | caractère de contrôle |
+    |      b    | binaire               |
+    +-----------+-----------------------+
+    Chacun des caractères ci-dessus peut être précédé par un nombre indiquent sur combien de caractères porte le caractère suivant dans la chaîne
+    Exemple : le jeu prédéfini ascii correspond à 8bcccbcc18b95.b (caractères : 8 binaires + 3 contrôles + 1 binaire + 2 contrôles + 18 binaires + 95 normaux + 1 binaire soit 128 caractères définis)
+
 -----------
-    Créer son wiki      : http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki
-    Créer son site web  : http://www.2createawebsite.com
+- Clavier -
+-----------
+  Basculer entre anglais et français
+    ALT + SHIFT
 
-XML
----
-    Tutoriaux xml
-        xml, xslt, dtd, ... : http://www.liafa.univ-paris-diderot.fr/~carton/Enseignement/XML/Cours/index.html
+----------
+- RegExp -
+----------
+  IntelliJ
+      \t : matche avec les tabulations
+      \r : non reconnu
+      \n : matche avec la séquence de fin de ligne (\r\n sous Windows et \n sous Unix)
+      Remplacement : $1
 
-    Testeurs Xslt online
-        mark bucayan : http://markbucayan.appspot.com/xslt/index.html
-        xslt cake : http://www.xsltcake.com
+  Notepad++
+      \t : matche avec les tabulations
+      \r : non reconnu
+      \n : non reconnu
+      Remplacement : \1
 
-    Tutoriaux Xslt
-        Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné) : http://xmlfr.org/documentations/faq/041013-0001
-        Regroupement xslt : la méthode Muenchian : http://www.jenitennison.com/xslt/grouping/muenchian.html
-        Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.
+  Trouver les caractères de mots qui ne sont pas des chiffres : [^\W\d]
+      Le symbole indiquant la négation porte sur l'ensemble des caratères qui suivent.
+      L'expression signifie donc non(\W ou \d) soit non(\W) et non(\d) c'est-à-dire \w et non(\d).
 
-    Tutoriaux XSD
-            Tutorial Xsd 1  : http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes
-            Tutorial Xsd 2  : http://www.w3schools.com/schema/default.asp
-            DTD et XSD      : http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas
+-----------
+- Anglais -
+-----------
+  Les transcriptions phonétiques sont tirées du site suivant : http://www.wordreference.com
+  Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple iː au lieu de i) : http://dictionary.reference.com
+  Traduction : http://www.wordreference.com
+  Liste des symboles phonétiques : http://www.wordreference.com/fr/French-Pronunciation.aspx
+  Prononciation des sons ipa : http://www.antimoon.com/how/pronunc-soundsipa.htm
 
-    Validateur XSD online
-        Xsd online validator : http://www.corefiling.com/opensource/schemaValidate.html
+  +---------------+----------------------------------+-------------------------------------------------------+
+  | mot           | phonétique                       | définition                                            |
+  +---------------+----------------------------------+-------------------------------------------------------+
+  | agile         | ˈædʒaɪl/ˈædʒl                    | agile                                                 |
+  | area          | ˈeərɪə                           | région, superficie                                    |
+  | ash           |  æʃ                              | cendre                                                |
+  | automatically | ˌɔːtəˈmætɪklɪ                    | automatiquement                                       |
+  | bat           |  bæt                             | chauve-souris                                         |
+  | bet           |  bet                             |                                                       |
+  | bot           |  bɒt                             |                                                       |
+  | but           |  bʌt                             | mais                                                  |
+  | barrage       | ˈbærɑːʒ ; bəˈrɑːʒ                | barrage                                               |
+  | browse        |  braʊz                           | naviguer                                              |
+  | confluence    | ˈkɒnflʊəns                       |                                                       |
+  | comfort       | ˈkʌmfət                          | confort                                               |
+  | comfortable   | ˈkʌmftəbl/ˈkʌmfərtbl             | confortable                                           |
+  | command       | kəˈmɑːnd/kəˈmænd                 |                                                       |
+  | database      | ˈdeɪtəˌbeɪs                      | base de données                                       |
+  | directory     | daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ | répertoire                                            |
+  | eclipse       | ɪˈklɪps                          |                                                       |
+  | era           | ˈɪərə                            | époque                                                |
+  | error         | ˈerə(r)                          | erreur                                                |
+  | extreme       | ɪkˈstriːm                        | extreme                                               |
+  | flaccid       | ˈflæsɪd/ˈflæksɪd                 | flasque, mou                                          |
+  | France        | frɑːns                           | La France                                             |
+  | GUI           | ˈguiː                            | Gui User Interface                                    |
+  | Hudson        | ˈhʌdsən                          |                                                       |
+  | integer       | ˈɪntɪdʒər                        | mathématiques : entier                                |
+  | java          | ˈdʒɑːvə                          |                                                       |
+  | ladder        | ˈlædə(r)                         | échelle                                               |
+  | library       | ˈlaɪbrərɪ/ˈlaɪbrerɪ              |                                                       |
+  | limb          | lɪm                              | membre (bras , jambe) / branche principale d'un arbre |
+  | maven         | ˈmeɪvən                          | expert                                                |
+  | oath          | əʊθ                              | serment                                               |
+  | obstacle      | ˈɒbstəkl                         | obstacle                                              |
+  | pawn          | pɔːn                             | pions (aux échecs)                                    |
+  | phase         | feɪz                             | phase                                                 |
+  | platform      | ˈplætfɔːm                        | plateforme                                            |
+  | procedure     | prəˈsiːdʒə(r)                    | procédure                                             |
+  | program       | ˈprəʊɡræm/ˈprəʊɡrəm              | programme                                             |
+  | raw           | rɔː                              | brut (raw data : données brutes)                      |
+  | reassure      | ˌriːəˈʃɔː(r)/riːəˈʃʊər           | rassurer (quelqu'un) (about : sur)                    |
+  | release       | rɪˈliːs                          | libérer, livrer                                       |
+  | row           | rəʊ                              | ligne                                                 |
+  | server        | ˈsɜːvə(r)                        | serveur                                               |
+  | source        | sɔːs                             | source                                                |
+  | subversion    | səˈbvɜːʃn/səˈbvɜːrʒn             |                                                       |
+  | thumb         | θʌm                              | pouce                                                 |
+  | toe           | təʊ                              | orteil                                                |
+  | tortoise      | ˈtɔːtəs                          | tortue (terrestre)                                    |
+  | turtle        | ˈtɜːtl                           | tortue (générique)                                    |
+  | variable      | ˈveərɪəbl                        | variable                                              |
+  | wound         | wuːnd                            | blessure                                              |
+  +---------------+----------------------------------+-------------------------------------------------------+
 
-Java
-----
-    Jvm : Java virtual machine (machine virtuelle java)
-    Classpath : Ensemble de chemins utilisés par la jvm pour localiser les différentes ressources (dont les classes). Un classpath peut contenir : des noms de jar; des répertoires (dans ce cas, le répertoire en question doit contenir des .class au sein de sous-répertoires reproduisant l'arborescence des packages).
-    Class literal : Tout objet qui représente une classe (par exemple String.class)
-    Reifiable type : Un type "réifiable" est un type dont toute l'information de type est disponible à l'exécution. Un exemple de type non "réifiable" : List<String>, car ne sont disponible à l'exécution que les informations de List. Les tableaux et l'opérateur instanceof peuvent s'appliquer uniquement à des types réifiables.
-    Paramètre et argument : 
-        Un paramètre est une variable qui fait partie de la déclaration d'une méthode (signature de la méthode). Un argument est une expression utilisée lors de l'appel de la méthode
-        Exemple :
-            void method(int i, float f)
-            {
-                // Do things
-            }
-            
-            void Bar()
-            {
-                int anInt = 1;
-                method(anInt, 2.0);
-            }
-        
-            Dans cet exemple, i et f sont des paramètres et anInt et 2.0 sont des arguments.
+------------
+- Français -
+------------
+  Définition : http://www.lexilogos.com/francais_langue_dictionnaires.htm
 
-    Classes liées aux JTable
-        +---------------------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-        | Objet                                             | Type           | Description                                                                                                                                                                                                                                   |
-        +---------------------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-        | JTable                                            | classe         | vue du modèle de données                                                                                                                                                                                                                      |
-        | JTable.getModel()                                 | method         | récupération du modèle de données                                                                                                                                                                                                             |
-        | JTable.getSelectionModel()                        | method         | récupération du modèle de sélection                                                                                                                                                                                                           |
-        | JTable.getColumnModel()                           | method         | récupération du modèle de colonnes                                                                                                                                                                                                            |
-        | JTable.getTableHeader()                           | method         | récupération du JTableHeader                                                                                                                                                                                                                  |
-        | JTable.setDefaultRenderer(...)                    | method         | modification du renderer par défaut d'une classe donnée                                                                                                                                                                                       |
-        | JTable.getCellRenderer(int row, int column)       | method         | Sélection du renderer de la table : renvoie en priorité le renderer particulier de la colonne; sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass()                                           |
-        | TableColumnModel                                  | interface      | modèle des colonnes de la table. L'ordre des colonnes dans ce modèle (column index) peut être modifié par la JTable afin de refléter l'ordre d'affichage des colonnes.                                                                        |
-        | TableColumn                                       | classe         | modèle d'une colonne de la table                                                                                                                                                                                                              |
-        | TableColumn.setCellRenderer()                     | method         | modification du renderer d'une colonne                                                                                                                                                                                                        |
-        | TableModel                                        | interface      | modèle de données de la table                                                                                                                                                                                                                 |
-        | TableModelEvent                                   | classe         | évenement de modification du modèle de données                                                                                                                                                                                                |
-        | TableModelListener                                | interface      | callback de traitement des modifications d'un TableModel; gère des TableModelEvent via la méthode tableChanged()                                                                                                                              |
-        | DefaultTableModel                                 | classe         | modèle de table par défaut; représente uniquement des chaînes de caractères et ne permets pas la représentation d'autre types (booléen, par exemple)                                                                                          |
-        | AbstractTableModel                                | classe         | classe de base de modèle qui implémente des méthodes de notification de modification (méthodes fireTableRowsUpdated(), fireTableRowsInserted(), ... appellant la méthode TableModelListener.tableChanged avec des TableModelEvent appropriés) |
-        | ListSelectionModel                                | interface      | modèle de sélection de la table (par ligne , par colonne, par cellule)                                                                                                                                                                        |
-        | JTableHeader                                      | classe         | headers de la table                                                                                                                                                                                                                           |
-        | TableColumnModelListener                          | interface      | callback de traitement des modifications du modèle de colonnes                                                                                                                                                                                |
-        | TableColumnModelEvent                             | classe         | évenement de modification du modèle de colonnes                                                                                                                                                                                               |
-        | TableCellRenderer                                 | class          | Renderer de la table,dont le rôle est de retourner un composant de rendu                                                                                                                                                                      |
-        | TableCellRenderer.getTableCellRendererComponent() | method         | Sélection du composant effectuant le rendu                                                                                                                                                                                                    |
-        | DefaultTableCellRenderer                          | class          | Renderer par défaut, le composant assurant le rendu des cellules étant un JLabel                                                                                                                                                              |
-        | DefaultRowSorter                                  | abstract class | classe de base de TableRowSorter                                                                                                                                                                                                              |
-        | TableRowSorter                                    | class          | une implémentation de RowSorter qui fournit un tri et un filtre en utilisant un TableModel                                                                                                                                                    |
-        | RowSorter                                         | abstract class | base de tri et filtrage                                                                                                                                                                                                                       |
-        | RowSorter.SortKey                                 | inner class    | Décrit l'ordre de tri pour une colonne                                                                                                                                                                                                        |
-        | RowSorter.setSortKeys(...)                        | method         | Précise les SortKeys du RowSorter                                                                                                                                                                                                             |
-        | RowFilter                                         | abstract class | Filtrage des données du modèle pour affichage dans la vue                                                                                                                                                                                     |
-        | RowFilter.regexFilter(...)                        | method         | créée une instance de RegexFilter                                                                                                                                                                                                             |
-        | RowFilter.dateFilter(...)                         | method         | créée une instance de DateFilter                                                                                                                                                                                                              |
-        | RowFilter.numberFilter(...)                       | method         | créée une instance de NumberFilter                                                                                                                                                                                                            |
-        | RowFilter.orFilter(...)                           | method         | créée une instance de OrFilter                                                                                                                                                                                                                |
-        | RowFilter.andFilter(...)                          | method         | créée une instance de AndFilter                                                                                                                                                                                                               |
-        | RowFilter.notFilter()                             | method         | créée une instance de NotFilter                                                                                                                                                                                                               |
-        | DefaultCellEditor                                 | class          | éditeur par défaut des tables et des arbres                                                                                                                                                                                                   |
-        | CellEditor.getCellEditorValue()                   | method         | doit renvoyer la valeur de l'éditeur                                                                                                                                                                                                          |
-        | TableCellEditor.getTableCellEditorComponent()     | method         | doit renvoyer le composant d'édition                                                                                                                                                                                                          |
-        +---------------------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+  +--------------+-------------------------------------------------------------------------------+
+  | mot          | définition                                                                    |
+  +--------------+-------------------------------------------------------------------------------+
+  | atermoiement | (souvent au pluriel) action de différer, retarder; hésitation, tergiversation |
+  +----------------------------------------------------------------------------------------------+
 
+---------------
+- Web et Wiki -
+---------------
+  Créer son wiki      : http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki
+  Créer son site web  : http://www.2createawebsite.com
 
-        Définitions de (et différence entre) column index et model index :
-            Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i.
-            De plus, ces TableColumn sont stockés dans le TableColumnModel.
-            On appelle column index l'index de stockage d'un TableColumn au sein du TableColumnModel.
-            Le model index d'une TableColumn ne varient jamais.
-            Par contre, le column index peut varier lors d'un déplacement de colonne.
-            L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.
-        Remarque : le tri de chaînes de caractères dépend de la locale
-            
-    Classes liées aux JTree
+-------
+- XML -
+-------
+  Tutoriaux xml
+    xml, xslt, dtd, ... : http://www.liafa.univ-paris-diderot.fr/~carton/Enseignement/XML/Cours/index.html
+
+  Testeurs Xslt online
+    mark bucayan : http://markbucayan.appspot.com/xslt/index.html
+    xslt cake : http://www.xsltcake.com
+
+  Tutoriaux Xslt
+    Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné) : http://xmlfr.org/documentations/faq/041013-0001
+    Regroupement xslt : la méthode Muenchian : http://www.jenitennison.com/xslt/grouping/muenchian.html
+    Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.
+
+  Tutoriaux XSD
+    Tutorial Xsd 1  : http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes
+    Tutorial Xsd 2  : http://www.w3schools.com/schema/default.asp
+    DTD et XSD      : http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas
+
+  Validateur XSD online
+    Xsd online validator : http://www.corefiling.com/opensource/schemaValidate.html
+
+--------
+- Java -
+--------
+  Jvm
+    Java virtual machine (machine virtuelle java)
+
+  Classpath
+    Ensemble de chemins utilisés par la jvm pour localiser les différentes ressources (dont les classes).
+    Un classpath peut contenir : des noms de jar; des répertoires (dans ce cas, le répertoire en question doit contenir des .class au sein de sous-répertoires reproduisant l'arborescence des packages).
+
+  Class literal
+    Tout objet qui représente une classe (par exemple String.class)
+
+  Reifiable type
+    Un type "réifiable" est un type dont toute l'information de type est disponible à l'exécution. Un exemple de type non "réifiable" : List<String>, car ne sont disponible à l'exécution que les informations de List. Les tableaux et l'opérateur instanceof peuvent s'appliquer uniquement à des types réifiables.
+
+  Paramètre et argument
+    Un paramètre est une variable qui fait partie de la déclaration d'une méthode (signature de la méthode).
+    Un argument est une expression utilisée lors de l'appel de la méthode.
+    Exemple :
+      void method(int i, float f)
+      {
+          // Do things
+      }
+
+      void Bar()
+      {
+          int anInt = 1;
+          method(anInt, 2.0);
+      }
+
+      Dans cet exemple, i et f sont des paramètres et anInt et 2.0 sont des arguments.
+
+  Classes liées aux JTable
+    +---------------------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Objet                                             | Type           | Description                                                                                                                                                                                                                                   |
+    +---------------------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | JTable                                            | classe         | vue du modèle de données                                                                                                                                                                                                                      |
+    | JTable.getModel()                                 | method         | récupération du modèle de données                                                                                                                                                                                                             |
+    | JTable.getSelectionModel()                        | method         | récupération du modèle de sélection                                                                                                                                                                                                           |
+    | JTable.getColumnModel()                           | method         | récupération du modèle de colonnes                                                                                                                                                                                                            |
+    | JTable.getTableHeader()                           | method         | récupération du JTableHeader                                                                                                                                                                                                                  |
+    | JTable.setDefaultRenderer(...)                    | method         | modification du renderer par défaut d'une classe donnée                                                                                                                                                                                       |
+    | JTable.getCellRenderer(int row, int column)       | method         | Sélection du renderer de la table : renvoie en priorité le renderer particulier de la colonne; sinon, utilise un renderer par défaut approprié à la classe renvoyée par TableModel.getColumnClass()                                           |
+    | TableColumnModel                                  | interface      | modèle des colonnes de la table. L'ordre des colonnes dans ce modèle (column index) peut être modifié par la JTable afin de refléter l'ordre d'affichage des colonnes.                                                                        |
+    | TableColumn                                       | classe         | modèle d'une colonne de la table                                                                                                                                                                                                              |
+    | TableColumn.setCellRenderer()                     | method         | modification du renderer d'une colonne                                                                                                                                                                                                        |
+    | TableModel                                        | interface      | modèle de données de la table                                                                                                                                                                                                                 |
+    | TableModelEvent                                   | classe         | évenement de modification du modèle de données                                                                                                                                                                                                |
+    | TableModelListener                                | interface      | callback de traitement des modifications d'un TableModel; gère des TableModelEvent via la méthode tableChanged()                                                                                                                              |
+    | DefaultTableModel                                 | classe         | modèle de table par défaut; représente uniquement des chaînes de caractères et ne permets pas la représentation d'autre types (booléen, par exemple)                                                                                          |
+    | AbstractTableModel                                | classe         | classe de base de modèle qui implémente des méthodes de notification de modification (méthodes fireTableRowsUpdated(), fireTableRowsInserted(), ... appellant la méthode TableModelListener.tableChanged avec des TableModelEvent appropriés) |
+    | ListSelectionModel                                | interface      | modèle de sélection de la table (par ligne , par colonne, par cellule)                                                                                                                                                                        |
+    | JTableHeader                                      | classe         | headers de la table                                                                                                                                                                                                                           |
+    | TableColumnModelListener                          | interface      | callback de traitement des modifications du modèle de colonnes                                                                                                                                                                                |
+    | TableColumnModelEvent                             | classe         | évenement de modification du modèle de colonnes                                                                                                                                                                                               |
+    | TableCellRenderer                                 | class          | Renderer de la table,dont le rôle est de retourner un composant de rendu                                                                                                                                                                      |
+    | TableCellRenderer.getTableCellRendererComponent() | method         | Sélection du composant effectuant le rendu                                                                                                                                                                                                    |
+    | DefaultTableCellRenderer                          | class          | Renderer par défaut, le composant assurant le rendu des cellules étant un JLabel                                                                                                                                                              |
+    | DefaultRowSorter                                  | abstract class | classe de base de TableRowSorter                                                                                                                                                                                                              |
+    | TableRowSorter                                    | class          | une implémentation de RowSorter qui fournit un tri et un filtre en utilisant un TableModel                                                                                                                                                    |
+    | RowSorter                                         | abstract class | base de tri et filtrage                                                                                                                                                                                                                       |
+    | RowSorter.SortKey                                 | inner class    | Décrit l'ordre de tri pour une colonne                                                                                                                                                                                                        |
+    | RowSorter.setSortKeys(...)                        | method         | Précise les SortKeys du RowSorter                                                                                                                                                                                                             |
+    | RowFilter                                         | abstract class | Filtrage des données du modèle pour affichage dans la vue                                                                                                                                                                                     |
+    | RowFilter.regexFilter(...)                        | method         | créée une instance de RegexFilter                                                                                                                                                                                                             |
+    | RowFilter.dateFilter(...)                         | method         | créée une instance de DateFilter                                                                                                                                                                                                              |
+    | RowFilter.numberFilter(...)                       | method         | créée une instance de NumberFilter                                                                                                                                                                                                            |
+    | RowFilter.orFilter(...)                           | method         | créée une instance de OrFilter                                                                                                                                                                                                                |
+    | RowFilter.andFilter(...)                          | method         | créée une instance de AndFilter                                                                                                                                                                                                               |
+    | RowFilter.notFilter()                             | method         | créée une instance de NotFilter                                                                                                                                                                                                               |
+    | DefaultCellEditor                                 | class          | éditeur par défaut des tables et des arbres                                                                                                                                                                                                   |
+    | CellEditor.getCellEditorValue()                   | method         | doit renvoyer la valeur de l'éditeur                                                                                                                                                                                                          |
+    | TableCellEditor.getTableCellEditorComponent()     | method         | doit renvoyer le composant d'édition                                                                                                                                                                                                          |
+    +---------------------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+    Définitions de (et différence entre) column index et model index :
+      Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i.
+      De plus, ces TableColumn sont stockés dans le TableColumnModel.
+      On appelle column index l'index de stockage d'un TableColumn au sein du TableColumnModel.
+      Le model index d'une TableColumn ne varient jamais.
+      Par contre, le column index peut varier lors d'un déplacement de colonne.
+      L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.
+    Remarque : le tri de chaînes de caractères dépend de la locale
+
+  Classes liées aux JTree
     +----------------------------------------------------+--------+--------------------------------------------------------------------------------------------------------------------------+
     | Objet                                              | Type   | Description                                                                                                              |
     +----------------------------------------------------+--------+--------------------------------------------------------------------------------------------------------------------------+
@@ -773,7 +946,7 @@ Java
     | DefaultTreeModel.insertNodeInto(...)               | method | ajout d'un noeud dans le modèle                                                                                          |
     +----------------------------------------------------+--------+--------------------------------------------------------------------------------------------------------------------------+
 
-    Classes liées aux JTreeTable
+  Classes liées aux JTreeTable
     +-----------------------------------------+-------------+------------------------------------------------------------------------------+
     | Objet                                   | Type        | Description                                                                  |
     +-----------------------------------------+-------------+------------------------------------------------------------------------------+
@@ -785,372 +958,395 @@ Java
     | AbstractCellEditor.fireEditingStopped() | method      | à appeler à la fin de l'édition pour que le renderer soit de nouveau affiché |
     +-----------------------------------------+-------------+------------------------------------------------------------------------------+
 
-    Gestion des évènements par la classe Component
-        +-------------------------+---------------------+--------------------------------------------+------------------------+
-        | Listener                | Event traité        | méthode d'ajout du Listener dans Component | méthodes du listener   |
-        +-------------------------+---------------------+--------------------------------------------+------------------------+
-        | ComponentListener       | ComponentEvent      | addComponentListener                       |                        |
-        |                         |                     |                                            | componentResized       |
-        |                         |                     |                                            | componentMoved         |
-        |                         |                     |                                            | componentShown         |
-        |                         |                     |                                            | componentHidden        |
-        | FocusListener           | FocusEvent          | addFocusListener                           |                        |
-        |                         |                     |                                            | focusGained            |
-        |                         |                     |                                            | focusLost              |
-        | HierarchyBoundsListener | HierarchyEvent      | addHierarchyBoundsListener                 |                        |
-        |                         |                     |                                            | ancestorMoved          |
-        |                         |                     |                                            | ancestorResized        |
-        | HierarchyListener       | HierarchyEvent      | addHierarchyListener                       |                        |
-        |                         |                     |                                            | hierarchyChanged       |
-        | InputMethodListener     | InputMethodEvent    | addInputMethodListener                     |                        |
-        |                         |                     |                                            | inputMethodTextChanged |
-        |                         |                     |                                            | caretPositionChanged   |
-        | KeyListener             | KeyEvent            | addKeyListener                             |                        |
-        |                         |                     |                                            | keyTyped               |
-        |                         |                     |                                            | keyPressed             |
-        |                         |                     |                                            | keyReleased            |
-        | MouseListener           | MouseEvent          | addMouseListener                           |                        |
-        |                         |                     |                                            | mouseClicked           |
-        |                         |                     |                                            | mousePressed           |
-        |                         |                     |                                            | mouseReleased          |
-        |                         |                     |                                            | mouseEntered           |
-        |                         |                     |                                            | mouseExited            |
-        | MouseMotionListener     | MouseEvent          | addMouseMotionListener                     |                        |
-        |                         |                     |                                            | mouseDragged           |
-        |                         |                     |                                            | mouseMoved             |
-        | MouseWheelListener      | MouseWheelEvent     | addMouseWheelListener                      |                        |
-        |                         |                     |                                            | mouseWheelMoved        |
-        | PropertyChangeListener  | PropertyChangeEvent | addPropertyChangeListener                  |                        |
-        |                         |                     |                                            | propertyChange         |
-        +-------------------------+---------------------+--------------------------------------------+------------------------+
-        
-    Effectuer un traitement à la fermeture d'un JInternalFrame
-        Passer une instance de javax.swing.event.InternalFrameAdapter à la méthode JInternalFrame.addInternalFrameListener(...)
+  Gestion des évènements par la classe Component
+    +-------------------------+---------------------+--------------------------------------------+------------------------+
+    | Listener                | Event traité        | méthode d'ajout du Listener dans Component | méthodes du listener   |
+    +-------------------------+---------------------+--------------------------------------------+------------------------+
+    | ComponentListener       | ComponentEvent      | addComponentListener                       |                        |
+    |                         |                     |                                            | componentResized       |
+    |                         |                     |                                            | componentMoved         |
+    |                         |                     |                                            | componentShown         |
+    |                         |                     |                                            | componentHidden        |
+    | FocusListener           | FocusEvent          | addFocusListener                           |                        |
+    |                         |                     |                                            | focusGained            |
+    |                         |                     |                                            | focusLost              |
+    | HierarchyBoundsListener | HierarchyEvent      | addHierarchyBoundsListener                 |                        |
+    |                         |                     |                                            | ancestorMoved          |
+    |                         |                     |                                            | ancestorResized        |
+    | HierarchyListener       | HierarchyEvent      | addHierarchyListener                       |                        |
+    |                         |                     |                                            | hierarchyChanged       |
+    | InputMethodListener     | InputMethodEvent    | addInputMethodListener                     |                        |
+    |                         |                     |                                            | inputMethodTextChanged |
+    |                         |                     |                                            | caretPositionChanged   |
+    | KeyListener             | KeyEvent            | addKeyListener                             |                        |
+    |                         |                     |                                            | keyTyped               |
+    |                         |                     |                                            | keyPressed             |
+    |                         |                     |                                            | keyReleased            |
+    | MouseListener           | MouseEvent          | addMouseListener                           |                        |
+    |                         |                     |                                            | mouseClicked           |
+    |                         |                     |                                            | mousePressed           |
+    |                         |                     |                                            | mouseReleased          |
+    |                         |                     |                                            | mouseEntered           |
+    |                         |                     |                                            | mouseExited            |
+    | MouseMotionListener     | MouseEvent          | addMouseMotionListener                     |                        |
+    |                         |                     |                                            | mouseDragged           |
+    |                         |                     |                                            | mouseMoved             |
+    | MouseWheelListener      | MouseWheelEvent     | addMouseWheelListener                      |                        |
+    |                         |                     |                                            | mouseWheelMoved        |
+    | PropertyChangeListener  | PropertyChangeEvent | addPropertyChangeListener                  |                        |
+    |                         |                     |                                            | propertyChange         |
+    +-------------------------+---------------------+--------------------------------------------+------------------------+
 
-    Lire les lignes d'un fichier (jdk6)
-        +-----------+-----------+
-        | package   | class     |
-        +-----------+-----------+
-        | java.lang | String    |
-        | java.util | List      |
-        |           | ArrayList |
-        +-----------+-----------+
+  Effectuer un traitement à la fermeture d'un JInternalFrame
+    Passer une instance de javax.swing.event.InternalFrameAdapter à la méthode JInternalFrame.addInternalFrameListener(...)
 
-        public static List<String> readLines(File file) throws IOException {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            List<String> lines = new ArrayList<String>();
-            String line = reader.readLine();
-            while (line != null) {
-                lines.add(line);
-            line = reader.readLine();
+  Lire les lignes d'un fichier (jdk6)
+    +-----------+-----------+
+    | package   | class     |
+    +-----------+-----------+
+    | java.lang | String    |
+    | java.util | List      |
+    |           | ArrayList |
+    +-----------+-----------+
+
+    public static List<String> readLines(File file) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        List<String> lines = new ArrayList<String>();
+        String line = reader.readLine();
+        while (line != null) {
+            lines.add(line);
+        line = reader.readLine();
+        }
+        reader.close();
+        return lines;
+    }
+
+    Pour deux fichiers contenant respectivement A\r\nB et A\r\nB\r\n, la méthode readLines renvoie une liste identique (contenant les 2 éléments A et B).
+
+  Insérer des lignes dans un fichier (jdk6)
+    +-----------+----------------+
+    | package   | class          |
+    +-----------+----------------+
+    | java.lang | String         |
+    | java.util | List           |
+    | java.io   | FileWriter     |
+    |           | BufferedWriter |
+    +-----------+----------------+
+
+    public static void writeLines(List<String> lines, File file) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        for (int i = 0; i < lines.size() - 1; i++) {
+            writer.write(lines.get(i));
+            writer.newLine();
+        }
+        writer.write(lines.get(lines.size() - 1));
+        writer.flush();
+        writer.close();
+    }
+
+    La méthode writeLines n'ajoute pas de séquence de fin de ligne après la dernière ligne
+
+  Manipuler les listes (jdk6)
+    +-----------+-----------+
+    | package   | class     |
+    +-----------+-----------+
+    | java.lang | String    |
+    | java.util | List      |
+    |           | ArrayList |
+    |           | Arrays    |
+    +-----------+-----------+
+
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    Date date = sdf.parse("10/11/2011");
+
+  Récupérer les propriétés systèmes
+    +-----------+--------+
+    | package   | class  |
+    +-----------+--------+
+    | java.lang | System |
+    +-----------+--------+
+
+    System.getProperties()
+
+  Récupérer une liste fixe de chaînes de caractères
+    +-----------+-----------+
+    | package   | class     |
+    +-----------+-----------+
+    | java.lang | String    |
+    | java.util | List      |
+    |           | ArrayList |
+    +-----------+-----------+
+
+    public List<String> getAllFilePath() {
+        String[] pathArray = {
+            "C:\\dev\\file1.xml",
+            "C:\\dev\\file2.txt"
+        };
+        List<String> stringList = new ArrayList<String>();
+        stringList.addAll(Arrays.asList(pathArray));
+        return stringList;
+    }
+
+  Modifier plusieurs fichiers
+    public void process() throws Exception {
+        for (String filePath : getAllFilePath()) {
+            File file = new File(filePath);
+            List<String> lines = readLines(file);
+            List<String> processedLines = process(lines);
+            writeLines(processedLines, file);
+        }
+    }
+    getAllFilePath, readLines, writeLines sont 3 méthodes définies dans cette section
+    La méthode process est la seule qui reste à définir
+    D'après les remarques sur les méthodes readLines et writeLines, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence
+
+  Utiliser les expressions régulières (jdk6)
+    +-----------------+---------+
+    | package         | class   |
+    +-----------------+---------+
+    | java.util.regex | Pattern |
+    |                 | Matcher |
+    +-----------------+---------+
+
+    public static void main(String[] args) {
+        Pattern pattern = Pattern.compile("(\\w)(..)(.)");
+        Matcher matcher = pattern.matcher("abcd efghijklmn");
+        while (matcher.find()) {
+            System.out.println("MATCH !");
+            System.out.println("group()= " + matcher.group());
+            System.out.println("offset before first matched character = " + matcher.start());
+            System.out.println("offset after last matched character= " + matcher.end());
+            System.out.println("groupCount = " + matcher.groupCount());
+            for (int i = 0; i < matcher.groupCount() + 1; i++) {
+                System.out.println("\tgroup(" + i + ") = " + matcher.group(i));
+                System.out.println("\t\toffset before group(" + i + ") first character= " + matcher.start(i));
+                System.out.println("\t\toffset after group(" + i + ") last character = " + matcher.end(i));
             }
-            reader.close();
-            return lines;
         }
-        
-        Pour deux fichiers contenant respectivement A\r\nB et A\r\nB\r\n, la méthode readLines renvoie une liste identique (contenant les 2 éléments A et B).
-            
-    Insérer des lignes dans un fichier (jdk6)
-        +-----------+----------------+
-        | package   | class          |
-        +-----------+----------------+
-        | java.lang | String         |
-        | java.util | List           |
-        | java.io   | FileWriter     |
-        |           | BufferedWriter |
-        +-----------+----------------+
-            
-        public static void writeLines(List<String> lines, File file) throws IOException {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-            for (int i = 0; i < lines.size() - 1; i++) {
-                writer.write(lines.get(i));
-                writer.newLine();
-            }
-            writer.write(lines.get(lines.size() - 1));
-            writer.flush();
-            writer.close();
-        }
+        System.out.println("modifiedString = " + matcher.replaceAll("X"));
+    }
 
-        La méthode writeLines n'ajoute pas de séquence de fin de ligne après la dernière ligne
-            
-    Manipuler les listes (jdk6)
-        +-----------+-----------+
-        | package   | class     |
-        +-----------+-----------+
-        | java.lang | String    |
-        | java.util | List      |
-        |           | ArrayList |
-        |           | Arrays    |
-        +-----------+-----------+
+    L'éxécution du code précédent affiche la sortie suivante :
+        MATCH !
+        group()= abcd
+        offset before first matched character = 0
+        offset after last matched character= 4
+        groupCount = 3
+        group(0) = abcd
+        offset before group(0) first character= 0
+        offset after group(0) last character = 4
+        group(1) = a
+        offset before group(1) first character= 0
+        offset after group(1) last character = 1
+        group(2) = bc
+        offset before group(2) first character= 1
+        offset after group(2) last character = 3
+        group(3) = d
+        offset before group(3) first character= 3
+        offset after group(3) last character = 4
+        MATCH !
+        group()= efgh
+        offset before first matched character = 5
+        offset after last matched character= 9
+        groupCount = 3
+        group(0) = efgh
+        offset before group(0) first character= 5
+        offset after group(0) last character = 9
+        group(1) = e
+        offset before group(1) first character= 5
+        offset after group(1) last character = 6
+        group(2) = fg
+        offset before group(2) first character= 6
+        offset after group(2) last character = 8
+        group(3) = h
+        offset before group(3) first character= 8
+        offset after group(3) last character = 9
+        MATCH !
+        group()= ijkl
+        offset before first matched character = 9
+        offset after last matched character= 13
+        groupCount = 3
+        group(0) = ijkl
+        offset before group(0) first character= 9
+        offset after group(0) last character = 13
+        group(1) = i
+        offset before group(1) first character= 9
+        offset after group(1) last character = 10
+        group(2) = jk
+        offset before group(2) first character= 10
+        offset after group(2) last character = 12
+        group(3) = l
+        offset before group(3) first character= 12
+        offset after group(3) last character = 13
+        modifiedString = X XXmn
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = sdf.parse("10/11/2011");
+  Décompiler des classes java
+    utiliser l'outil JD-GUI (http://java.decompiler.free.fr/?q=jdgui)
 
-    Récupérer les propriétés systèmes
-        +-----------+--------+
-        | package   | class  |
-        +-----------+--------+
-        | java.lang | System |
-        +-----------+--------+
+  Références
+    Liste des librairies tiers java : http://www.jdocs.com/page/AllLibraries
+    Librairies Apache Common (Liste et documentation) : http://commons.apache.org
+    Librairies Apache Common (Liste plus complète avec des références vers les sites des projets - voir "Project Website : http://projects.apache.org/indexes/alpha.html
+    Librairie Apache Common Bean Utils. Une lib équivalente à BeanUtils : Beanlib : http://commons.apache.org/beanutils/commons-beanutils-1.7.0/docs/api/org/apache/commons/beanutils/package-summary.html
+    Liste des projets CodeHaus : http://xircles.codehaus.org/projects
+    Liste des projets dans la catégorie développement de SourceForge (voir les sous-catégories dans la partie gauche de la page + possibilité de filtrer les entrées : http://sourceforge.net/directory/development/development
+    Tutorial IO : http://tutorials.jenkov.com/java-io/index.html
+    Tutorial JXTreeTable : http://www.informit.com/guides/content.aspx?g=java&#38;seqNum=528
+    Exemples d'utilisation de JTable : http://www.java2s.com/Code/Java/Swing-Components/Grid-Table.htm
+    Example TreeTable SwingX : http://www.ibm.com/developerworks/java/library/j-5things14/index.html
+    Composants swing : http://docs.oracle.com/javase/tutorial/uiswing/components/index.html
+    Génériques : http://docs.oracle.com/javase/tutorial/java/generics/index.html
+    Génériques (2 : http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html
+    Librairie SWT : http://www.eclipse.org/swt
+    Librairie JUnit-Ext : http://code.google.com/p/junit-ext
+    Code du JTreeTable : http://www.java2s.com/Code/Java/Swing-Components/JTreeTablecomponent.htm
+    Description de la JTreeTable : http://bitguru.wordpress.com/2008/06/18/jtreetable
+    Schema UML des classes liées au JTreeTable : http://www.hameister.org/JavaSwingTreeTable.html
+    Synchronous versus asynchronous : http://openjavafaq.blogspot.fr/2009/07/synchronous-vs-asynchronous.html#!/2009/07/synchronous-vs-asynchronous.html
+    Class Loader : http://www.ibm.com/developerworks/java/tutorials/j-classloader/index.html
+    O'Reilly's CD bookshelfs : http://docstore.mik.ua/orelly/index.html
 
-        System.getProperties()
-
-    Récupérer une liste fixe de chaînes de caractères
-        +-----------+-----------+
-        | package   | class     |
-        +-----------+-----------+
-        | java.lang | String    |
-        | java.util | List      |
-        |           | ArrayList |
-        +-----------+-----------+
-
-        public List<String> getAllFilePath() {
-            String[] pathArray = {
-                "C:\\dev\\file1.xml",
-                "C:\\dev\\file2.txt"
-            };
-            List<String> stringList = new ArrayList<String>();
-            stringList.addAll(Arrays.asList(pathArray));
-            return stringList;
-        }
-    
-    Modifier plusieurs fichiers
-        public void process() throws Exception {
-            for (String filePath : getAllFilePath()) {
-                File file = new File(filePath);
-                List<String> lines = readLines(file);
-                List<String> processedLines = process(lines);
-                writeLines(processedLines, file);
-            }
-        }
-        getAllFilePath, readLines, writeLines sont 3 méthodes définies dans cette section
-        La méthode process est la seule qui reste à définir
-        D'après les remarques sur les méthodes readLines et writeLines, la lecture puis la réécriture d'un fichier se terminant par une séquence de fin de ligne aura pour conséquence la suppression de cette séquence
-
-    Utiliser les expressions régulières (jdk6)
-        +-----------------+---------+
-        | package         | class   |
-        +-----------------+---------+
-        | java.util.regex | Pattern |
-        |                 | Matcher |
-        +-----------------+---------+
-
-        public static void main(String[] args) {
-            Pattern pattern = Pattern.compile("(\\w)(..)(.)");
-            Matcher matcher = pattern.matcher("abcd efghijklmn");
-            while (matcher.find()) {
-                System.out.println("MATCH !");
-                System.out.println("group()= " + matcher.group());
-                System.out.println("offset before first matched character = " + matcher.start());
-                System.out.println("offset after last matched character= " + matcher.end());
-                System.out.println("groupCount = " + matcher.groupCount());
-                for (int i = 0; i < matcher.groupCount() + 1; i++) {
-                    System.out.println("\tgroup(" + i + ") = " + matcher.group(i));
-                    System.out.println("\t\toffset before group(" + i + ") first character= " + matcher.start(i));
-                    System.out.println("\t\toffset after group(" + i + ") last character = " + matcher.end(i));
-                }
-            }
-            System.out.println("modifiedString = " + matcher.replaceAll("X"));
-        }
-        
-        L'éxécution du code précédent affiche la sortie suivante :
-            MATCH !
-            group()= abcd
-            offset before first matched character = 0
-            offset after last matched character= 4
-            groupCount = 3
-            group(0) = abcd
-            offset before group(0) first character= 0
-            offset after group(0) last character = 4
-            group(1) = a
-            offset before group(1) first character= 0
-            offset after group(1) last character = 1
-            group(2) = bc
-            offset before group(2) first character= 1
-            offset after group(2) last character = 3
-            group(3) = d
-            offset before group(3) first character= 3
-            offset after group(3) last character = 4
-            MATCH !
-            group()= efgh
-            offset before first matched character = 5
-            offset after last matched character= 9
-            groupCount = 3
-            group(0) = efgh
-            offset before group(0) first character= 5
-            offset after group(0) last character = 9
-            group(1) = e
-            offset before group(1) first character= 5
-            offset after group(1) last character = 6
-            group(2) = fg
-            offset before group(2) first character= 6
-            offset after group(2) last character = 8
-            group(3) = h
-            offset before group(3) first character= 8
-            offset after group(3) last character = 9
-            MATCH !
-            group()= ijkl
-            offset before first matched character = 9
-            offset after last matched character= 13
-            groupCount = 3
-            group(0) = ijkl
-            offset before group(0) first character= 9
-            offset after group(0) last character = 13
-            group(1) = i
-            offset before group(1) first character= 9
-            offset after group(1) last character = 10
-            group(2) = jk
-            offset before group(2) first character= 10
-            offset after group(2) last character = 12
-            group(3) = l
-            offset before group(3) first character= 12
-            offset after group(3) last character = 13
-            modifiedString = X XXmn
-
-    Décompiler des classes java
-        utiliser l'outil JD-GUI (http://java.decompiler.free.fr/?q=jdgui)
-
-    Références :
-        Liste des librairies tiers java : http://www.jdocs.com/page/AllLibraries
-        Librairies Apache Common (Liste et documentation) : http://commons.apache.org
-        Librairies Apache Common (Liste plus complète avec des références vers les sites des projets - voir "Project Website : http://projects.apache.org/indexes/alpha.html
-        Librairie Apache Common Bean Utils. Une lib équivalente à BeanUtils : Beanlib : http://commons.apache.org/beanutils/commons-beanutils-1.7.0/docs/api/org/apache/commons/beanutils/package-summary.html
-        Liste des projets CodeHaus : http://xircles.codehaus.org/projects
-        Liste des projets dans la catégorie développement de SourceForge (voir les sous-catégories dans la partie gauche de la page + possibilité de filtrer les entrées : http://sourceforge.net/directory/development/development
-        Tutorial IO : http://tutorials.jenkov.com/java-io/index.html
-        Tutorial JXTreeTable : http://www.informit.com/guides/content.aspx?g=java&#38;seqNum=528
-        Exemples d'utilisation de JTable : http://www.java2s.com/Code/Java/Swing-Components/Grid-Table.htm
-        Example TreeTable SwingX : http://www.ibm.com/developerworks/java/library/j-5things14/index.html
-        Composants swing : http://docs.oracle.com/javase/tutorial/uiswing/components/index.html
-        Génériques : http://docs.oracle.com/javase/tutorial/java/generics/index.html
-        Génériques (2 : http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html
-        Librairie SWT : http://www.eclipse.org/swt
-        Librairie JUnit-Ext : http://code.google.com/p/junit-ext
-        Code du JTreeTable : http://www.java2s.com/Code/Java/Swing-Components/JTreeTablecomponent.htm
-        Description de la JTreeTable : http://bitguru.wordpress.com/2008/06/18/jtreetable
-        Schema UML des classes liées au JTreeTable : http://www.hameister.org/JavaSwingTreeTable.html
-        Synchronous versus asynchronous : http://openjavafaq.blogspot.fr/2009/07/synchronous-vs-asynchronous.html#!/2009/07/synchronous-vs-asynchronous.html
-        Class Loader : http://www.ibm.com/developerworks/java/tutorials/j-classloader/index.html
-        O'Reilly's CD bookshelfs : http://docstore.mik.ua/orelly/index.html
-        
-
-Unix
-----
-    shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling : 
-        Ligne en début de fichier débutant par #!, indiquant au système que le fichier est un script et par quel est son interpréteur associé.
-
-        +-------------------+------------------------------------------+
-        | shebang           | language de script                       |
-        +-------------------+------------------------------------------+
-        | #!/bin/sh         | Bourne shell (ou autre shell compatible) |
-        | #!/bin/csh        | C shell (ou autre shell compatible)      |
-        | #!/usr/bin/perl   | Perl                                     |
-        | #!/usr/bin/php    | PHP                                      |
-        | #!/usr/bin/python | Python                                   |
-        | #!/usr/bin/ruby   | Ruby                                     |
-        +-------------------+------------------------------------------+
-
-Hudson
--------
-
-    master (maître)                 : Serveur Hudson, hébergeant entre autres l'interface Web d'Hudson
-    slave (esclave)                 : Machine sur laquelle se font les build. Les sources sont extraites sur les machines esclaves; les goals maven sont exécutés sur les machines esclaves
-    node (noeud)                    : Machine maître ou esclave
-    Workspace (espace de travail)   : Répertoire (sur les esclaves) où les sources sont extraites.
-                                      Pour un projet donné, la rubrique "Espace de travail" de l'interface Web ne montre que le répertoire de l'esclave sur lequel a été effectué le dernier build.
-    Jenkins                         : Logiciel dont les sources sont un fork des sources d'Hudson, présentant des améliorations par rapport à ce dernier
-
-    Associer un label à un noeud : Hudson > nodes >  "noeud spécifique" > Configurer > Etiquette
-
-Maven
------
-    Afficher les dépendances définies dans les poms (en lisant uniquement les poms mais sans analyser les dépendances réelles comme le fait analyze)
-        Utiliser le goal tree du plugin dependency
-
-    Afficher les dépendances déclarées et non utilisées / non déclarées et utilisées
-        Utiliser le goal analyze du plugin dependency
-
-    Compiler des source en jdk6
-        Préciser la version du jdk
-        Java 6 doit être configuré sur le poste, c'est-à-dire que la variable d'environnement %JAVA_HOME% doit pointer sur le répertoire du bon jdk et le %PATH% doit contenir le chemin du répertoire bin de ce jdk.</comment>
-
-    Références
-        Repository Central Maven : http://www.sonatype.org/central
-
-Dactylographie
---------------
-    Conseil précision
-            Ramener régulièrement les doigt sur leur position de référence entre les frappes successives. Ceci permet d'accroitre la précision des frappes.
-            Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).
-            N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.
-            Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.
-            Décaler légèrement la main en quittant temporairement la position de référence pour appuyer sur les touches les moins accessibles (comme le w par exemple).
-            Taper avec les bons doigts sur les touches (en particulier, utiliser le petit doigt pour taper sur la touche de suppression).
-
-    Conseil vitesse
-        Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)
-
-    Conseil rythme de frappe
-        Ne faire des accélérations que sur des groupes de 3 lettres maximum.
-
-    Comment taper les caractères ne correspondant à aucune touche ?
-        Maintenir la touche ALT enfoncée, taper le code correspondant (voir tableau ci-dessous) en utilisant le clavier numérique, puis relacher la touche ALT
-
-        +-----------+--------------+
-        | Caractère | Code associé |
-        +-----------+--------------+
-        |     œ     |     0156     |
-        |     Ç     |     0199     |
-        |     ├     |      195     |
-        |     ┤     |      180     |
-        |     —     |      151     |
-        |     ┌     |      218     |
-        |     ┬     |      194     |
-        |     ┐     |      191     |
-        |     └     |      192     |
-        |     ┘     |      217     |
-        |     │     |      179     |
-        |     ┴     |      193     |
-        +-----------+--------------+
-
-    Références :
-        Liste de codes des caractères : http://www.toutimages.com/codes_caracteres.htm
-
-Sécurité
 --------
-    Clés asymétriques :
-        La propriété des clés asymétriques est qu'un message chiffré par une clé publique n'est lisible que par le propriétaire de la clé privée correspondante.
-        À l'inverse, un message chiffré par la clé privée sera lisible par tous ceux qui possèdent la clé publique.
-        Ainsi, le détenteur de la clé privée peut signer les messages qu'il envoi et lire les messages qui lui sont adressés.
+- Unix -
+--------
+  shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling :
+    Ligne en début de fichier débutant par #!, indiquant au système que le fichier est un script et par quel est son interpréteur associé.
 
-    Références :
-        Convivialité des mots de passe                      : http://www.baekdal.com/insights/password-security-usability
-        Convivialité des mots de passe (FAQ)                : http://www.baekdal.com/insights/the-usability-of-passwords-faq
-        Comprendre et maîtriser les clés SSH                : http://www.git-attitude.fr/2010/09/13/comprendre-et-maitriser-les-cles-ssh
-        L’importance de la taille des clés en cryptographie : http://blogresearch.smalsrech.be/?p=4299
-        Signature numérique                                 : http://fr.wikipedia.org/wiki/Signature_num%C3%A9rique
-        Certificat électronique                             : http://fr.wikipedia.org/wiki/Certificat_%C3%A9lectronique
+    +-------------------+------------------------------------------+
+    | shebang           | language de script                       |
+    +-------------------+------------------------------------------+
+    | #!/bin/sh         | Bourne shell (ou autre shell compatible) |
+    | #!/bin/csh        | C shell (ou autre shell compatible)      |
+    | #!/usr/bin/perl   | Perl                                     |
+    | #!/usr/bin/php    | PHP                                      |
+    | #!/usr/bin/python | Python                                   |
+    | #!/usr/bin/ruby   | Ruby                                     |
+    +-------------------+------------------------------------------+
 
-Confluence
 ----------
-    Créer une section que l'on peut masquer / afficher : 
-        1/ Déclarer le plugin composition-setup en début de page : 
-            {composition-setup}
-            cloak.toggle.type = default
-            cloak.toggle.open = +
-            cloak.toggle.close = -
-            {composition-setup}
-        2/ Créer la section :
-            {toggle-cloak:id=Step1}{*}capture d'écran*
-            {cloak:id=Step1|visible=false} !horodate.PNG|align=center!
-            {cloak}
+- Hudson -
+----------
+  master (maître)
+    Serveur Hudson, hébergeant entre autres l'interface Web d'Hudson
 
-Divers
-------
-    Comprendre nos impôts                   : http://www.yterium.net/Comprendre-nos-impots
-    5 alternatives gratuites à Visio        : http://maketecheasier.com/5-best-free-alternatives-to-microsoft-visio/2012/01/20
-    Distribution des niveaux de vie en 2009 : http://www.insee.fr/fr/themes/tableau.asp?reg_id=0&amp;ref_id=NATnon04247
-    Test salaire                            : http://www.inegalites.fr/spip.php?page=salaire
-    Abréviations courantes                  : http://monsu.desiderio.free.fr/atelier/abrevia.html
-    Abréviations courantes MR               : http://fr.wikipedia.org/wiki/MR
-    Raccourcis clavier d'Internet Explorer  : http://windows.microsoft.com/fr-BE/windows-vista/Internet-Explorer-8-keyboard-shortcuts
+  slave (esclave)
+    Machine sur laquelle se font les build. Les sources sont extraites sur les machines esclaves; les goals maven sont exécutés sur les machines esclaves
+
+  node (noeud)
+    Machine maître ou esclave
+
+  Workspace (espace de travail)
+    Répertoire (sur les esclaves) où les sources sont extraites.
+    Pour un projet donné, la rubrique "Espace de travail" de l'interface Web ne montre que le répertoire de l'esclave sur lequel a été effectué le dernier build.
+
+  Jenkins
+    Logiciel dont les sources sont un fork des sources d'Hudson, présentant des améliorations par rapport à ce dernier
+
+  Associer un label à un noeud
+    Hudson > nodes >  "noeud spécifique" > Configurer > Etiquette
+
+---------
+- Maven -
+---------
+  Afficher les dépendances définies dans les poms (en lisant uniquement les poms mais sans analyser les dépendances réelles comme le fait analyze)
+    Utiliser le goal tree du plugin dependency
+
+  Afficher les dépendances déclarées et non utilisées / non déclarées et utilisées
+    Utiliser le goal analyze du plugin dependency
+
+  Compiler des source en jdk6
+    Préciser la version du jdk
+    Java 6 doit être configuré sur le poste, c'est-à-dire que la variable d'environnement %JAVA_HOME% doit pointer sur le répertoire du bon jdk et le %PATH% doit contenir le chemin du répertoire bin de ce jdk.</comment>
+
+  Références
+    Repository Central Maven : http://www.sonatype.org/central
+
+------------------
+- Dactylographie -
+------------------
+  Conseil précision
+    Ramener régulièrement les doigt sur leur position de référence entre les frappes successives. Ceci permet d'accroitre la précision des frappes.
+    Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).
+    N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.
+    Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.
+    Décaler légèrement la main en quittant temporairement la position de référence pour appuyer sur les touches les moins accessibles (comme le w par exemple).
+    Taper avec les bons doigts sur les touches (en particulier, utiliser le petit doigt pour taper sur la touche de suppression).
+
+  Conseil vitesse
+    Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)
+
+  Conseil rythme de frappe
+    Ne faire des accélérations que sur des groupes de 3 lettres maximum.
+
+  Comment taper les caractères ne correspondant à aucune touche ?
+    1/ maintenir la touche ALT enfoncée
+    2/ taper le code correspondant (voir tableau ci-dessous) en utilisant le clavier numérique
+    3/ puis relacher la touche ALT
+
+    +-----------+--------------+
+    | Caractère | Code associé |
+    +-----------+--------------+
+    |     œ     |     0156     |
+    |     Ç     |     0199     |
+    |     ├     |      195     |
+    |     ┤     |      180     |
+    |     —     |      151     |
+    |     ┌     |      218     |
+    |     ┬     |      194     |
+    |     ┐     |      191     |
+    |     └     |      192     |
+    |     ┘     |      217     |
+    |     │     |      179     |
+    |     ┴     |      193     |
+    +-----------+--------------+
+
+  Références :
+    Liste de codes des caractères : http://www.toutimages.com/codes_caracteres.htm
+
+------------
+- Sécurité -
+------------
+  Clés asymétriques :
+    La propriété des clés asymétriques est qu'un message chiffré par une clé publique n'est lisible que par le propriétaire de la clé privée correspondante.
+    À l'inverse, un message chiffré par la clé privée sera lisible par tous ceux qui possèdent la clé publique.
+    Ainsi, le détenteur de la clé privée peut signer les messages qu'il envoi et lire les messages qui lui sont adressés.
+
+  Références :
+    Convivialité des mots de passe                      : http://www.baekdal.com/insights/password-security-usability
+    Convivialité des mots de passe (FAQ)                : http://www.baekdal.com/insights/the-usability-of-passwords-faq
+    Comprendre et maîtriser les clés SSH                : http://www.git-attitude.fr/2010/09/13/comprendre-et-maitriser-les-cles-ssh
+    L’importance de la taille des clés en cryptographie : http://blogresearch.smalsrech.be/?p=4299
+    Signature numérique                                 : http://fr.wikipedia.org/wiki/Signature_num%C3%A9rique
+    Certificat électronique                             : http://fr.wikipedia.org/wiki/Certificat_%C3%A9lectronique
+
+--------------
+- Confluence -
+--------------
+  Créer une section que l'on peut masquer / afficher :
+    1/ Déclarer le plugin composition-setup en début de page :
+      {composition-setup}
+      cloak.toggle.type = default
+      cloak.toggle.open = +
+      cloak.toggle.close = -
+      {composition-setup}
+    2/ Créer la section :
+      {toggle-cloak:id=Step1}{*}capture d'écran*
+      {cloak:id=Step1|visible=false} !horodate.PNG|align=center!
+      {cloak}
+
+-----------
+- Outlook -
+-----------
+  Raccourci pour la complétion de nom
+    CTRL + K
+
+----------
+- Divers -
+----------
+  Comprendre nos impôts                   : http://www.yterium.net/Comprendre-nos-impots
+  5 alternatives gratuites à Visio        : http://maketecheasier.com/5-best-free-alternatives-to-microsoft-visio/2012/01/20
+  Distribution des niveaux de vie en 2009 : http://www.insee.fr/fr/themes/tableau.asp?reg_id=0&amp;ref_id=NATnon04247
+  Test salaire                            : http://www.inegalites.fr/spip.php?page=salaire
+  Abréviations courantes                  : http://monsu.desiderio.free.fr/atelier/abrevia.html
+  Abréviations courantes MR               : http://fr.wikipedia.org/wiki/MR
+  Raccourcis clavier d'Internet Explorer  : http://windows.microsoft.com/fr-BE/windows-vista/Internet-Explorer-8-keyboard-shortcuts
