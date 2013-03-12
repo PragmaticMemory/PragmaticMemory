@@ -1,10 +1,57 @@
-+-------------------------+--------------+
-| shebang                 | language     |
-+-------------------------+--------------+
-| #!/bin/sh               | Bourne shell |
-| #!/bfdgdsfsdsdqsdin/csh | C shell      |
-| #!/usr/bin/perl         | Perl         |
-| #!/usr/bin/php          | PHP          |
-| #!/usr/bin/python       | Python       |
-| #!/usr/bin/ruby         | Ruby         |
-+-------------------------+--------------+
++---------------+----------------------------------+-------------------------------------------------------+
+| mot           | phonétique                       | définition                                            |
++---------------+----------------------------------+-------------------------------------------------------+
+| agile         | 'æd?a?l/'æd?l                    | agile                                                 |
+| area          | 'e?r??                           | région, superficie                                    |
+| ash           | æ?                               | cendre                                                |
+| automatically | ???t?'mæt?kl?                    | automatiquement                                       |
+| bat           | bæt                              | chauve-souris                                         |
+| bet           | bet                              |                                                       |
+| bot           | b?t                              |                                                       |
+| bribe         | bra?b                            | soudoyer, pot de vin                                  |
+| but           | b?t                              | mais                                                  |
+| barrage       | 'bær??? ; b?'r???                | barrage                                               |
+| browse        | bra?z                            | naviguer                                              |
+| confluence    | 'k?nfl??ns                       |                                                       |
+| comfort       | 'k?mf?t                          | confort                                               |
+| comfortable   | 'k?mft?bl/'k?mf?rtbl             | confortable                                           |
+| command       | k?'m??nd/k?'mænd                 |                                                       |
+| cumbersome    | 'k?mb?rs?m                       | [objet] encombrant [procédé, bureaucracie] lourd      |
+| database      | 'de?t??be?s                      | base de données                                       |
+| directory     | da?'rekt?r?/d?'rekt?r?/d?'rektr? | répertoire                                            |
+| eclipse       | ?'kl?ps                          |                                                       |
+| era           | '??r?                            | époque                                                |
+| error         | 'er?(r)                          | erreur                                                |
+| extreme       | ?k'stri?m                        | extreme                                               |
+| flaccid       | 'flæs?d/'flæks?d                 | flasque, mou                                          |
+| France        | fr??ns                           | La France                                             |
+| GUI           | 'gui?                            | Gui User Interface                                    |
+| Hudson        | 'h?ds?n                          |                                                       |
+| integer       | '?nt?d??r                        | mathématiques : entier                                |
+| java          | 'd???v?                          |                                                       |
+| ladder        | 'læd?(r)                         | échelle                                               |
+| library       | 'la?br?r?/'la?brer?              |                                                       |
+| limb          | l?m                              | membre (bras , jambe) / branche principale d'un arbre |
+| maven         | 'me?v?n                          | expert                                                |
+| oath          | ???                              | serment                                               |
+| obstacle      | '?bst?kl                         | obstacle                                              |
+| pawn          | p??n                             | pions (aux échecs)                                    |
+| phase         | fe?z                             | phase                                                 |
+| platform      | 'plætf??m                        | plateforme                                            |
+| procedure     | pr?'si?d??(r)                    | procédure                                             |
+| program       | 'pr??græm/'pr??gr?m              | programme                                             |
+| raw           | r??                              | brut (raw data : données brutes)                      |
+| reassure      | ?ri??'???(r)/ri??'???r           | rassurer (quelqu'un) (about : sur)                    |
+| release       | r?'li?s                          | libérer, livrer                                       |
+| row           | r??                              | ligne                                                 |
+| server        | 's??v?(r)                        | serveur                                               |
+| source        | s??s                             | source                                                |
+| subversion    | s?'bv???n/s?'bv??r?n             |                                                       |
+| thumb         | ??m                              | pouce                                                 |
+| toe           | t??                              | orteil                                                |
+| tortoise      | 't??t?s                          | tortue (terrestre)                                    |
+| turtle        | 't??tl                           | tortue (générique)                                    |
+| variable      | 've?r??bl                        | variable                                              |
+| workstation   |                                  | http://www.webopedia.com/TERM/W/workstation.html      |
+| wound         | wu?nd                            | blessure                                              |
++---------------+----------------------------------+-------------------------------------------------------+

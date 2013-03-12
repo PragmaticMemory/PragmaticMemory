@@ -760,6 +760,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | bat           |  bæt                             | chauve-souris                                         |
   | bet           |  bet                             |                                                       |
   | bot           |  bɒt                             |                                                       |
+  | bribe         |  braɪb                           | soudoyer, pot de vin                                  |
   | but           |  bʌt                             | mais                                                  |
   | barrage       | ˈbærɑːʒ ; bəˈrɑːʒ                | barrage                                               |
   | browse        |  braʊz                           | naviguer                                              |
@@ -767,6 +768,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | comfort       | ˈkʌmfət                          | confort                                               |
   | comfortable   | ˈkʌmftəbl/ˈkʌmfərtbl             | confortable                                           |
   | command       | kəˈmɑːnd/kəˈmænd                 |                                                       |
+  | cumbersome    | ˈkʌmbərsəm                       | [objet] encombrant [procédé, bureaucracie] lourd      |
   | database      | ˈdeɪtəˌbeɪs                      | base de données                                       |
   | directory     | daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ | répertoire                                            |
   | eclipse       | ɪˈklɪps                          |                                                       |
@@ -788,6 +790,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | pawn          | pɔːn                             | pions (aux échecs)                                    |
   | phase         | feɪz                             | phase                                                 |
   | platform      | ˈplætfɔːm                        | plateforme                                            |
+  | pragmatic     | prægˈmætɪk                       | pragmatic                                             |
   | procedure     | prəˈsiːdʒə(r)                    | procédure                                             |
   | program       | ˈprəʊɡræm/ˈprəʊɡrəm              | programme                                             |
   | raw           | rɔː                              | brut (raw data : données brutes)                      |
@@ -802,6 +805,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | tortoise      | ˈtɔːtəs                          | tortue (terrestre)                                    |
   | turtle        | ˈtɜːtl                           | tortue (générique)                                    |
   | variable      | ˈveərɪəbl                        | variable                                              |
+  | workstation   | ˈwɜːkˌsteɪʃən                    | http://www.webopedia.com/TERM/W/workstation.html      |
   | wound         | wuːnd                            | blessure                                              |
   +---------------+----------------------------------+-------------------------------------------------------+
 
@@ -816,6 +820,9 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | atermoiement | (souvent au pluriel) action de différer, retarder; hésitation, tergiversation |
   +----------------------------------------------------------------------------------------------+
 
+  Expressions : 
+    à nouveau / de nouveau :
+    d'avance / par avance :
 ---------------
 - Web et Wiki -
 ---------------
