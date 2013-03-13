@@ -600,13 +600,20 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 - SYBASE -
 ----------
   Vérifier l'existence d'une table
-    select 1 from sysobjects where type = 'U' and name = 'nom_de_table'
+    if exists(select 1 from sysobjects where type = 'U' and name = 'nom_de_table')
 
   Vérifier l'existence d'une procédure stockée
-    select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure'
+    if exists(select 1 from sysobjects where type = 'P' and name = 'nom_de_procedure')
 
   Vérifier l'existence d'une table temporaire
-    select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U'
+    if exists(select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U')
+    if object_id("#TEMP_TABLE") is not null 
+    
+  Détruire une table temporaire (script n'échouant pas même si la table n'existe pas)
+   if object_id("#TEMP_TABLE") is not null
+    begin
+      drop table #TEMP_TABLE
+    end
 
   Déclarer une variable
     declare @nom_de_la_variable type_de_la_variable
