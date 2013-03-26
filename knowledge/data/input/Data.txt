@@ -607,8 +607,8 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 
   Vérifier l'existence d'une table temporaire
     if exists(select 1 from tempdb..sysobjects where substring(name, 1, len('#INDEX_LIST')) = '#INDEX_LIST' and type = 'U')
-    if object_id("#TEMP_TABLE") is not null 
-    
+    if object_id("#TEMP_TABLE") is not null
+
   Détruire une table temporaire (script n'échouant pas même si la table n'existe pas)
    if object_id("#TEMP_TABLE") is not null
     begin
@@ -777,6 +777,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | command       | kəˈmɑːnd/kəˈmænd                 |                                                       |
   | cumbersome    | ˈkʌmbərsəm                       | [objet] encombrant [procédé, bureaucracie] lourd      |
   | database      | ˈdeɪtəˌbeɪs                      | base de données                                       |
+  | determine     | dɪˈtɜːmɪn                        |                                                       |
   | directory     | daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ | répertoire                                            |
   | eclipse       | ɪˈklɪps                          |                                                       |
   | era           | ˈɪərə                            | époque                                                |
@@ -827,7 +828,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | atermoiement | (souvent au pluriel) action de différer, retarder; hésitation, tergiversation |
   +----------------------------------------------------------------------------------------------+
 
-  Expressions : 
+  Expressions :
     à nouveau / de nouveau :
     d'avance / par avance :
 ---------------
@@ -1279,17 +1280,18 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 - Dactylographie -
 ------------------
   Conseil précision
-    Ramener régulièrement les doigt sur leur position de référence entre les frappes successives. Ceci permet d'accroitre la précision des frappes.
-    Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).
-    N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.
-    Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.
-    Décaler légèrement la main en quittant temporairement la position de référence pour appuyer sur les touches les moins accessibles (comme le w par exemple).
     Taper avec les bons doigts sur les touches (en particulier, utiliser le petit doigt pour taper sur la touche de suppression).
+    Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).
+    Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.
+    N'appuyer sur les touches que lorsque l'on est sûr de ne pas commettre d'erreur.
+    Ramener régulièrement les doigt sur leur position de référence entre les frappes successives. Ceci permet d'accroitre la précision des frappes.
+    Décaler légèrement la main en quittant temporairement la position de référence pour appuyer sur les touches les moins accessibles (comme le w par exemple).
 
   Conseil vitesse
     Prendre plus de temps sur les mots complexes et accélérer sur les mots simples (the, of, ...) ou les groupes de lettres (ou, on, ...)
 
   Conseil rythme de frappe
+    Découper mentalement le mot à taper en groupes cohérents de lettres.
     Ne faire des accélérations que sur des groupes de 3 lettres maximum.
 
   Comment taper les caractères ne correspondant à aucune touche ?
@@ -1301,17 +1303,8 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     | Caractère | Code associé |
     +-----------+--------------+
     |     œ     |     0156     |
-    |     Ç     |     0199     |
-    |     ├     |      195     |
-    |     ┤     |      180     |
-    |     —     |      151     |
-    |     ┌     |      218     |
-    |     ┬     |      194     |
-    |     ┐     |      191     |
-    |     └     |      192     |
-    |     ┘     |      217     |
-    |     │     |      179     |
-    |     ┴     |      193     |
+    |     À     |     0192     |
+    |     Ç     |     0199     |    
     +-----------+--------------+
 
   Références :
