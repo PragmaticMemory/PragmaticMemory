@@ -1,6 +1,5 @@
 package fr.pragmaticmemory.fileProcessing.processor;
 
-import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
 import fr.pragmaticmemory.fileProcessing.utils.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +10,6 @@ public class ArrayFormatterProcessor extends TextProcessor {
     static final String HEADER_OUTPUT_CELL_SEPARATOR = "+";
     static final String HEADER_OUTPUT_LINE = "-";
     static final String SPACE = " ";
-
-
-    public ArrayFormatterProcessor(RouteProvider routeProvider) {
-        super(routeProvider);
-    }
 
 
     @Override

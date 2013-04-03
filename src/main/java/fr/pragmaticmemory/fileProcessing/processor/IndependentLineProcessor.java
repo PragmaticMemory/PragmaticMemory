@@ -1,14 +1,8 @@
 package fr.pragmaticmemory.fileProcessing.processor;
 
-import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
 import java.util.ArrayList;
 import java.util.List;
 public abstract class IndependentLineProcessor extends TextProcessor {
-
-    protected IndependentLineProcessor(RouteProvider routeProvider) {
-        super(routeProvider);
-    }
-
 
     @Override
     protected List<String> processFileContent(List<String> inputLines) throws Exception {

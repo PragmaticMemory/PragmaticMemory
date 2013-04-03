@@ -28,7 +28,7 @@ public class ArrayFormatter {
         SingleFileProvider inputFileProvider = new SingleFileProvider(inputFileName);
         SingleFileProvider outputFileProvider = new SingleFileProvider(outputFileName);
         RouteProvider routeProvider = new MappedFileRouteProvider(inputFileProvider, outputFileProvider);
-        Processor processor = new ArrayFormatterProcessor(routeProvider);
-        processor.process();
+        Processor processor = new ArrayFormatterProcessor();
+        processor.process(routeProvider);
     }
 }

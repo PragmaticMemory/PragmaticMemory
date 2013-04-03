@@ -9,7 +9,7 @@ public class ArrayFormatterProcessorTest extends TestCase {
     public void testFormatArray() throws Exception {
         List<String> unformattedArrayLines = TestUtils.getTestFileLines(getClass(), "unformattedArray.txt");
         List<String> formattedArrayLines = TestUtils.getTestFileLines(getClass(), "formattedArray.txt");
-        ArrayFormatterProcessor processor = new ArrayFormatterProcessor(null);
+        ArrayFormatterProcessor processor = new ArrayFormatterProcessor();
         Assert.assertEquals(formattedArrayLines, processor.processFileContent(unformattedArrayLines));
     }
 }

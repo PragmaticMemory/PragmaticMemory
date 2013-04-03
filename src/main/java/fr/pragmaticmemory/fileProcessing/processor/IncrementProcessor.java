@@ -1,6 +1,5 @@
 package fr.pragmaticmemory.fileProcessing.processor;
 
-import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
 import java.math.BigInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,20 +10,19 @@ public class IncrementProcessor extends IndependentLineProcessor {
     private Pattern specificPattern;
 
 
-    public IncrementProcessor(RouteProvider routeProvider, Integer step) {
-        super(routeProvider);
+    public IncrementProcessor(Integer step) {
         this.step = step;
     }
 
 
-    public IncrementProcessor(RouteProvider routeProvider, Integer step, String specificPattern) {
-        this(routeProvider, step);
+    public IncrementProcessor(Integer step, String specificPattern) {
+        this(step);
         this.specificPattern = Pattern.compile(specificPattern);
     }
 
 
-    public IncrementProcessor(RouteProvider routeProvider) {
-        this(routeProvider, DEFAULT_STEP);
+    public IncrementProcessor() {
+        this(DEFAULT_STEP);
     }
 
 

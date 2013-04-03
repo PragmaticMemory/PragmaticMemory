@@ -1,6 +1,5 @@
 package fr.pragmaticmemory.fileProcessing.processor;
 
-import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class RegExpProcessor extends IndependentLineProcessor {
@@ -9,8 +8,7 @@ public class RegExpProcessor extends IndependentLineProcessor {
     private final String replacementRegExp;
 
 
-    public RegExpProcessor(RouteProvider routeProvider, String sourceRegExp, String replacementRegExp) {
-        super(routeProvider);
+    public RegExpProcessor(String sourceRegExp, String replacementRegExp) {
         this.sourceRegExp = sourceRegExp;
         this.replacementRegExp = replacementRegExp;
     }

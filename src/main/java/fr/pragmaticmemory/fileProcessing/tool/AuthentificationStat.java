@@ -26,8 +26,8 @@ public class AuthentificationStat {
         SingleFileProvider inputFileProvider = new SingleFileProvider(inputFileName);
         SingleFileProvider outputFileProvider = new SingleFileProvider(outputFileName);
         RouteProvider routeProvider = new MappedFileRouteProvider(inputFileProvider, outputFileProvider);
-        Processor processor = new AuthStatProcessor(routeProvider);
-        processor.process();
+        Processor processor = new AuthStatProcessor();
+        processor.process(routeProvider);
     }
 
 
@@ -40,11 +40,6 @@ public class AuthentificationStat {
               "Adding node <country_of_" + USER + "_\\w+> to the platform");
         static private final Pattern END_PATTERN = Pattern.compile("Login '" + USER + "' accepted");
         static private final Pattern CLEAN_PATTERN = Pattern.compile("(\\s*\\d+ \\w+ \\d+ \\d+:\\d+:\\d+,\\d+).+");
-
-
-        private AuthStatProcessor(RouteProvider routeProvider) {
-            super(routeProvider);
-        }
 
 
         @Override

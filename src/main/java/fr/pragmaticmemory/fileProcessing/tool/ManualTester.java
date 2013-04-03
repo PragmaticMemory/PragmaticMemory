@@ -25,32 +25,32 @@ public class ManualTester {
         FileProvider fileProvider = new SingleFileProvider(
               "C:\\dev\\projects\\gimw\\oscar-release-test\\src\\main\\usecase\\Isr\\GestionDesDroits.tokio");
         RouteProvider routeProvider = new IdentityFileRouteProvider(fileProvider);
-        Processor processor = new IncrementProcessor(routeProvider, 1, "\"\\d+\"");
-        processor.process();
+        Processor processor = new IncrementProcessor(1, "\"\\d+\"");
+        processor.process(routeProvider);
     }
 
 
     private static void test2() throws Exception {
         FileProvider fileProvider = new SingleFileProvider("C:\\Temp\\Test\\test.txt");
         RouteProvider routeProvider = new IdentityFileRouteProvider(fileProvider);
-        Processor modifier = new RegExpProcessor(routeProvider, "\\d", "chiffre");
-        modifier.process();
+        Processor modifier = new RegExpProcessor("\\d", "chiffre");
+        modifier.process(routeProvider);
     }
 
 
     private static void test4() throws Exception {
         FileProvider fileProvider = new SingleFileProvider("C:\\Temp\\Test\\test.txt");
         RouteProvider routeProvider = new IdentityFileRouteProvider(fileProvider);
-        Processor modifier = new IncrementProcessor(routeProvider, -2);
-        modifier.process();
+        Processor modifier = new IncrementProcessor(-2);
+        modifier.process(routeProvider);
     }
 
 
     private static void test5() throws Exception {
         DirectoryFileProvider fileProvider = new DirectoryFileProvider("C:\\Temp\\Test");
         RouteProvider routeProvider = new IdentityFileRouteProvider(fileProvider);
-        Processor modifier = new IncrementProcessor(routeProvider, -2);
-        modifier.process();
+        Processor modifier = new IncrementProcessor(-2);
+        modifier.process(routeProvider);
     }
 
 
@@ -58,8 +58,8 @@ public class ManualTester {
         DirectoryFileProvider fileProvider = new DirectoryFileProvider("C:\\dev\\projects\\gimw\\oscar-release-test");
         FileProvider tokioFileProvider = new IncludeFiles(fileProvider, new ExtensionFileFiler(".tokio"));
         RouteProvider routeProvider = new IdentityFileRouteProvider(tokioFileProvider);
-        Processor modifier = new IncrementProcessor(routeProvider, 1, "\"\\d+\"");
-        modifier.process();
+        Processor modifier = new IncrementProcessor(1, "\"\\d+\"");
+        modifier.process(routeProvider);
     }
 
 
@@ -68,13 +68,13 @@ public class ManualTester {
         IncludeFiles tokioFileProvider = new IncludeFiles(fileProvider, new ExtensionFileFiler(".tokio"));
         RouteProvider tokioRouteProvider = new DuplicateHierarchyRouteProvider(tokioFileProvider,
                                                                                new File("C:\\Temp\\Save\\tokio"));
-        Processor tokioProcessor = new CopyProcessor(tokioRouteProvider);
-        tokioProcessor.process();
+        Processor tokioProcessor = new CopyProcessor();
+        tokioProcessor.process(tokioRouteProvider);
 
         IncludeFiles xmlFileProvider = new IncludeFiles(fileProvider, new ExtensionFileFiler(".xml"));
         RouteProvider xmlRouteProvider = new DuplicateHierarchyRouteProvider(xmlFileProvider,
                                                                              new File("C:\\Temp\\Save\\xml"));
-        Processor xmlProcessor = new CopyProcessor(xmlRouteProvider);
-        xmlProcessor.process();
+        Processor xmlProcessor = new CopyProcessor();
+        xmlProcessor.process(xmlRouteProvider);
     }
 }
