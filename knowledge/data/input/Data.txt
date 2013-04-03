@@ -761,15 +761,17 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | mot           | phonétique                       | définition                                            |
   +---------------+----------------------------------+-------------------------------------------------------+
   | agile         | ˈædʒaɪl/ˈædʒl                    | agile                                                 |
+  | aka           | (abréviation) also known as      |                                                       |
   | area          | ˈeərɪə                           | région, superficie                                    |
-  | ash           |  æʃ                              | cendre                                                |
+  | ash           | æʃ                               | cendre                                                |
   | automatically | ˌɔːtəˈmætɪklɪ                    | automatiquement                                       |
-  | bat           |  bæt                             | chauve-souris                                         |
-  | bet           |  bet                             |                                                       |
-  | bot           |  bɒt                             |                                                       |
-  | bribe         |  braɪb                           | soudoyer, pot de vin                                  |
-  | but           |  bʌt                             | mais                                                  |
+  | bat           | bæt                              | chauve-souris                                         |
+  | bet           | bet                              |                                                       |
+  | bot           | bɒt                              |                                                       |
+  | bribe         | braɪb                            | soudoyer, pot de vin                                  |
+  | but           | bʌt                              | mais                                                  |
   | barrage       | ˈbærɑːʒ ; bəˈrɑːʒ                | barrage                                               |
+  | bloodstain    | ˈblʌdsteɪn                       | tache de sang                                         |
   | browse        |  braʊz                           | naviguer                                              |
   | confluence    | ˈkɒnflʊəns                       |                                                       |
   | comfort       | ˈkʌmfət                          | confort                                               |
@@ -778,6 +780,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | cumbersome    | ˈkʌmbərsəm                       | [objet] encombrant [procédé, bureaucracie] lourd      |
   | database      | ˈdeɪtəˌbeɪs                      | base de données                                       |
   | determine     | dɪˈtɜːmɪn                        |                                                       |
+  | directly      | daɪˈrɛktli (UK) dɪˈrɛktli(US)    | directement                                           |
   | directory     | daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ | répertoire                                            |
   | eclipse       | ɪˈklɪps                          |                                                       |
   | era           | ˈɪərə                            | époque                                                |
@@ -788,10 +791,12 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | GUI           | ˈguiː                            | Gui User Interface                                    |
   | Hudson        | ˈhʌdsən                          |                                                       |
   | integer       | ˈɪntɪdʒər                        | mathématiques : entier                                |
+  | intertwine    | ˌɪntərˈtwaɪn                     | entremêler (histoire, destin)                         |
   | java          | ˈdʒɑːvə                          |                                                       |
   | ladder        | ˈlædə(r)                         | échelle                                               |
   | library       | ˈlaɪbrərɪ/ˈlaɪbrerɪ              |                                                       |
   | limb          | lɪm                              | membre (bras , jambe) / branche principale d'un arbre |
+  | loophole      |ˈluːphəʊl                         | échappatoire, faille (ex : texte de loi), meurtrière  |
   | maven         | ˈmeɪvən                          | expert                                                |
   | oath          | əʊθ                              | serment                                               |
   | obstacle      | ˈɒbstəkl                         | obstacle                                              |
@@ -799,6 +804,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | phase         | feɪz                             | phase                                                 |
   | platform      | ˈplætfɔːm                        | plateforme                                            |
   | pragmatic     | prægˈmætɪk                       | pragmatic                                             |
+  | probe         | ˈprəʊb                           | enquête, sonde                                        |
   | procedure     | prəˈsiːdʒə(r)                    | procédure                                             |
   | program       | ˈprəʊɡræm/ˈprəʊɡrəm              | programme                                             |
   | raw           | rɔː                              | brut (raw data : données brutes)                      |
@@ -813,9 +819,39 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | tortoise      | ˈtɔːtəs                          | tortue (terrestre)                                    |
   | turtle        | ˈtɜːtl                           | tortue (générique)                                    |
   | variable      | ˈveərɪəbl                        | variable                                              |
+  | wind          | ˈwɪnd                            | vent                                                  |
+  | wind          | ˈwaɪnd                           | enrouler                                              |
   | workstation   | ˈwɜːkˌsteɪʃən                    | http://www.webopedia.com/TERM/W/workstation.html      |
   | wound         | wuːnd                            | blessure                                              |
+  | wound         | ˈwaʊnd                           | preterit / past perfect de wind (enrouler)            |
   +---------------+----------------------------------+-------------------------------------------------------+
+
+  +-----------+----------------------+----------+
+  | anglais   | phonétique UK / US   | français |
+  +-----------+----------------------+----------+
+  | Monday    | ˈmʌndeɪ   / ˈmʌndi   | lundi    |
+  | Tuesday   | ˈtjuːzdeɪ / 'tjuːzdi | mardi    |
+  | Wednesday | ˈwɛnzdeɪ  / ˈwɛnzdi  | mercredi |
+  | Thursday  | ˈθɜːrzdeɪ / ˈθɜːrzdi | jeudi    |
+  | Friday    | ˈfraɪdeɪ  / ˈfraɪdi  | vendredi |
+  +-----------+----------------------+----------+
+
+  +-----------+-------------------+
+  | anglais   | phonétique        |
+  +-----------+-------------------+
+  | January   | ˈdʒænjʊərɪ        |
+  | February  | ˈfebrʊərɪ         |
+  | March     | ˈmɑːrtʃ           |
+  | April     | ˈeɪprəl           |
+  | May       | ˈmeɪ              |
+  | June      | dʒuːn             |
+  | July      | dʒuˈlaɪ / dʒəˈlaɪ |
+  | August    | ˈɔːgəst           |
+  | September | sepˈtembəʳ        |
+  | October   | ɒkˈtəʊbəʳ         |
+  | November  | nəʊˈvembəʳ        |
+  | December  | dɪˈsembəʳ         |
+  +-----------+-------------------+
 
 ------------
 - Français -
@@ -1206,6 +1242,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     Liste des projets CodeHaus : http://xircles.codehaus.org/projects
     Liste des projets dans la catégorie développement de SourceForge (voir les sous-catégories dans la partie gauche de la page + possibilité de filtrer les entrées : http://sourceforge.net/directory/development/development
     Tutorial IO : http://tutorials.jenkov.com/java-io/index.html
+    Tutorial IO : http://anisfrikha.developpez.com/tutoriel/java-io/
     Tutorial JXTreeTable : http://www.informit.com/guides/content.aspx?g=java&#38;seqNum=528
     Exemples d'utilisation de JTable : http://www.java2s.com/Code/Java/Swing-Components/Grid-Table.htm
     Example TreeTable SwingX : http://www.ibm.com/developerworks/java/library/j-5things14/index.html
@@ -1220,6 +1257,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     Synchronous versus asynchronous : http://openjavafaq.blogspot.fr/2009/07/synchronous-vs-asynchronous.html#!/2009/07/synchronous-vs-asynchronous.html
     Class Loader : http://www.ibm.com/developerworks/java/tutorials/j-classloader/index.html
     O'Reilly's CD bookshelfs : http://docstore.mik.ua/orelly/index.html
+    Articles sur java (dont quiz très intéressant) : http://thecodersbreakfast.net/
 
 --------
 - Unix -
@@ -1304,7 +1342,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     +-----------+--------------+
     |     œ     |     0156     |
     |     À     |     0192     |
-    |     Ç     |     0199     |    
+    |     Ç     |     0199     |
     +-----------+--------------+
 
   Références :
