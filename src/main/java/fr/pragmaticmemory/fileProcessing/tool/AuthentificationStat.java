@@ -11,6 +11,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class AuthentificationStat {
 
+    private static final String USER = "USER_BATCH";
+//        private static final String USER="\\w+";
+
+
     public static void main(String[] args) throws Exception {
         String inputFileName = null;
         String outputFileName = null;
@@ -33,8 +37,8 @@ public class AuthentificationStat {
         private List<String> endLines = new ArrayList<String>();
         private List<String> outputLines = new ArrayList<String>();
         static private final Pattern START_PATTERN = Pattern.compile(
-              "Adding node <country_of_USER_BATCH_\\w+> to the platform");
-        static private final Pattern END_PATTERN = Pattern.compile("Login 'USER_BATCH' accepted");
+              "Adding node <country_of_" + USER + "_\\w+> to the platform");
+        static private final Pattern END_PATTERN = Pattern.compile("Login '" + USER + "' accepted");
         static private final Pattern CLEAN_PATTERN = Pattern.compile("(\\s*\\d+ \\w+ \\d+ \\d+:\\d+:\\d+,\\d+).+");
 
 
