@@ -798,11 +798,13 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | ladder         | ˈlædə(r)                         | échelle                                               |
   | library        | ˈlaɪbrərɪ/ˈlaɪbrerɪ              |                                                       |
   | limb           | lɪm                              | membre (bras , jambe) / branche principale d'un arbre |
-  | loophole       |ˈluːphəʊl                         | échappatoire, faille (ex : texte de loi), meurtrière  |
+  | loophole       | ˈluːphəʊl                        | échappatoire, faille (ex : texte de loi), meurtrière  |
+  | ludicrous      | ˈluːdɪkrəs                       | ridicule, absurde                                     |
   | maven          | ˈmeɪvən                          | expert                                                |
   | oath           | əʊθ                              | serment                                               |
   | obstacle       | ˈɒbstəkl                         | obstacle                                              |
   | outlet         | ˈaʊtlɪt                          | point de vente / exutoire (for emotion)               |
+  | passage        | ˈpæsɪdʒ                          | couloir                                               |
   | pawn           | pɔːn                             | pions (aux échecs)                                    |
   | phase          | feɪz                             | phase                                                 |
   | platform       | ˈplætfɔːm                        | plateforme                                            |
@@ -814,6 +816,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | reassure       | ˌriːəˈʃɔː(r)/riːəˈʃʊər           | rassurer (quelqu'un) (about : sur)                    |
   | release        | rɪˈliːs                          | libérer, livrer                                       |
   | row            | rəʊ                              | ligne                                                 |
+  | rug            |ˈrʌg                              | tapis                                                 |
   | server         | ˈsɜːvə(r)                        | serveur                                               |
   | source         | sɔːs                             | source                                                |
   | subversion     | səˈbvɜːʃn/səˈbvɜːrʒn             |                                                       |
@@ -868,8 +871,25 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   +----------------------------------------------------------------------------------------------+
 
   Expressions :
-    à nouveau / de nouveau :
+    à nouveau / de nouveau : 
+      "à nouveau"  signifie "d'une nouvelle façon"
+      "de nouveau" signifie "de la même façon"
+      Exemples :  J'ai raté ce dessin, je vais le faire à nouveau  : d'une nouvelle façon, donc il a plus de chance d'être réussi. 
+                  J'ai raté ce dessin, je vais le faire de nouveau : de la même façon, donc il sera encore raté.
+
     d'avance / par avance :
+      "par avance" est plus littéraire que "d'avance"
+    
+    entre autres : 
+      "autres" prend un "s"
+    
+    se rappeler / se souvenir :
+      cf : http://www.pincetonfrancais.be/v1/article.php3?id_article=4
+    
+  Références : 
+    http://www.cnrtl.fr/definition/
+    http://www.projet-voltaire.fr/blog/
+  
 ---------------
 - Web et Wiki -
 ---------------
@@ -1321,6 +1341,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 - Dactylographie -
 ------------------
   Conseil précision
+    Garder les doigts "pliés".
     Taper avec les bons doigts sur les touches (en particulier, utiliser le petit doigt pour taper sur la touche de suppression).
     Privilégier la précision à la vitesse de frappe. Ceci permet d'éviter le recours à la touche de correction qui a pour effet de faire perdre la position de référence. En outre, plus la vitesse de frappe augmente, plus une correction coûte cher (plus de caractères à corriger).
     Ne pas enchainer trop de lettre à la suite pour ne pas perdre en précision.
@@ -1398,3 +1419,12 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   Abréviations courantes                  : http://monsu.desiderio.free.fr/atelier/abrevia.html
   Abréviations courantes MR               : http://fr.wikipedia.org/wiki/MR
   Raccourcis clavier d'Internet Explorer  : http://windows.microsoft.com/fr-BE/windows-vista/Internet-Explorer-8-keyboard-shortcuts
+  
+-----------
+- Finance -
+-----------
+  Différence cotation "en pièce" / "en nominal"
+    - les obligations sont côtées "en nominal", c'est-à-dire que la cotation d'une obligation est exprimée en pourcentage de son nominal.
+      La quantité est le nombre d'obligations possédées.
+    - les actions sont cotés "en pièce", c'est-à-dire que la cotation d'une action est exprimée en devise, et donne le prix d'une action.
+      La quantité est le nombre d'action possédées.
