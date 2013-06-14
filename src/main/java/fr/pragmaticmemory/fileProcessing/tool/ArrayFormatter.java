@@ -3,7 +3,7 @@ package fr.pragmaticmemory.fileProcessing.tool;
 import fr.pragmaticmemory.fileProcessing.core.Processor;
 import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
 import fr.pragmaticmemory.fileProcessing.fileProvider.SingleFileProvider;
-import fr.pragmaticmemory.fileProcessing.processor.ArrayFormatterProcessor;
+import fr.pragmaticmemory.fileProcessing.processor.arrayFormatter.ArrayFormatterProcessor;
 import fr.pragmaticmemory.fileProcessing.routeProvider.MappedFileRouteProvider;
 public class ArrayFormatter {
 

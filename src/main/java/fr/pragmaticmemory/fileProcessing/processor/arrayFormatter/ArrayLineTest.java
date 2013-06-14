@@ -1,4 +1,5 @@
-package fr.pragmaticmemory.fileProcessing.processor;
+package fr.pragmaticmemory.fileProcessing.processor.arrayFormatter;
+import fr.pragmaticmemory.fileProcessing.processor.arrayFormatter.ArrayLine;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 

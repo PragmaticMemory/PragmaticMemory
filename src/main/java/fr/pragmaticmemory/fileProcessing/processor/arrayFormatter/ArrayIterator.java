@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.fileProcessing.processor;
+package fr.pragmaticmemory.fileProcessing.processor.arrayFormatter;
 
 import java.util.Iterator;
 public class ArrayIterator implements Iterator<ArrayLine> {

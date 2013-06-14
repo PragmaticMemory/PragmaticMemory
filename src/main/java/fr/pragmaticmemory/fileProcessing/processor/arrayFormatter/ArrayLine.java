@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.fileProcessing.processor;
+package fr.pragmaticmemory.fileProcessing.processor.arrayFormatter;
 
 import fr.pragmaticmemory.fileProcessing.utils.StringUtils;
 import java.util.Arrays;

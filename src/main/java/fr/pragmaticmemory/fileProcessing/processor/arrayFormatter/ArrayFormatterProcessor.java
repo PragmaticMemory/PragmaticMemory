@@ -1,5 +1,6 @@
-package fr.pragmaticmemory.fileProcessing.processor;
+package fr.pragmaticmemory.fileProcessing.processor.arrayFormatter;
 
+import fr.pragmaticmemory.fileProcessing.processor.TextProcessor;
 import fr.pragmaticmemory.fileProcessing.utils.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
