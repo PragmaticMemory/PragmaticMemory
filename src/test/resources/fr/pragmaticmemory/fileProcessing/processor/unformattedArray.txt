@@ -1,4 +1,4 @@
-+-----------+
+   +-----------+
 | couleur |  taille|
 +------------+
         |   vert        |   vraiment très grand   |

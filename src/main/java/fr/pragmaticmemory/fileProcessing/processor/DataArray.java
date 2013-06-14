@@ -1,15 +1,11 @@
 package fr.pragmaticmemory.fileProcessing.processor;
 
-import fr.pragmaticmemory.fileProcessing.utils.StringUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 public class DataArray implements Iterable<ArrayLine> {
-    static final String OUTPUT_CELL_SEPARATOR = "|";
-    static final String HEADER_OUTPUT_CELL_SEPARATOR = "+";
-    static final String HEADER_OUTPUT_LINE = "-";
-    static final String SPACE = " ";
     private List<ArrayLine> arrayLineList = new ArrayList<ArrayLine>();
+    private List<ArrayLine> dataArrayLines;
     private Integer[] columnContentSize;
 
 
@@ -25,8 +21,16 @@ public class DataArray implements Iterable<ArrayLine> {
     }
 
 
+    public Integer[] getColumnContentSize() throws Exception {
+        if (columnContentSize == null) {
+            columnContentSize = buildColumnContentSize();
+        }
+        return columnContentSize;
+    }
+
+
     private Integer[] buildColumnContentSize() throws Exception {
-        check();
+        checkColumsNumber();
         List<ArrayLine> dataArrayLineList = getDataArrayLines();
         Integer sizeArray[] = new Integer[dataArrayLineList.get(0).getCellsNumber()];
         for (int cellIndex = 0, cellsNumber = sizeArray.length; cellIndex < cellsNumber; cellIndex++) {
@@ -44,32 +48,11 @@ public class DataArray implements Iterable<ArrayLine> {
     }
 
 
-    private Integer[] getColumnContentSize() throws Exception {
-        if (columnContentSize == null) {
-            columnContentSize = buildColumnContentSize();
-        }
-        return columnContentSize;
-    }
-
-
-    private int getDataLineNumber() {
-        int dataLineNumber = 0;
-        for (ArrayLine arrayLine : arrayLineList) {
-            if (arrayLine.isDataLine()) {
-                dataLineNumber++;
-            }
-        }
-        return dataLineNumber;
-    }
-
-
-    private void check() throws Exception {
-        List<ArrayLine> dataArrayLines = getDataArrayLines();
-        int dataLineNumber = getDataLineNumber();
-
+    private void checkColumsNumber() throws Exception {
+        int dataLineNumber = getDataArrayLines().size();
         if (dataLineNumber > 1) {
             for (int i = 1; i < dataLineNumber; i++) {
-                if (dataArrayLines.get(i).getCellsNumber() != dataArrayLines.get(i - 1).getCellsNumber()) {
+                if (getDataArrayLines().get(i).getCellsNumber() != getDataArrayLines().get(i - 1).getCellsNumber()) {
                     throw new Exception("Different column number between lines " + (i - 1) + " and " + i);
                 }
             }
@@ -78,6 +61,14 @@ public class DataArray implements Iterable<ArrayLine> {
 
 
     private List<ArrayLine> getDataArrayLines() {
+        if (dataArrayLines == null) {
+            dataArrayLines = buildDataArrayLines();
+        }
+        return dataArrayLines;
+    }
+
+
+    private List<ArrayLine> buildDataArrayLines() {
         List<ArrayLine> dataArrayLineList = new ArrayList<ArrayLine>();
         for (ArrayLine arrayLine : arrayLineList) {
             if (arrayLine.isDataLine()) {
@@ -85,45 +76,5 @@ public class DataArray implements Iterable<ArrayLine> {
             }
         }
         return dataArrayLineList;
-    }
-
-
-    public List<String> buildOutputLines() throws Exception {
-        List<String> outputLines = new ArrayList<String>();
-        String separatorLine = getSeparatorLine();
-        for (ArrayLine arrayLine : arrayLineList) {
-            if (arrayLine.isSeparator()) {
-                outputLines.add(separatorLine);
-                continue;
-            }
-            StringBuilder outputLineBuilder = new StringBuilder();
-            String[] rowCellContent = arrayLine.getCellContents();
-            outputLineBuilder.append(OUTPUT_CELL_SEPARATOR);
-            for (int cellIndex = 0, analysedLineLength = rowCellContent.length;
-                 cellIndex < analysedLineLength;
-                 cellIndex++) {
-                String cellContent = rowCellContent[cellIndex];
-                outputLineBuilder.append(SPACE);
-                outputLineBuilder.append(StringUtils.rightPad(cellContent, getColumnContentSize()[cellIndex]));
-                outputLineBuilder.append(SPACE);
-                outputLineBuilder.append(OUTPUT_CELL_SEPARATOR);
-            }
-
-            outputLines.add(outputLineBuilder.toString());
-        }
-        return outputLines;
-    }
-
-
-    private String getSeparatorLine() throws Exception {
-        StringBuilder separatorLineBuilder = new StringBuilder();
-        separatorLineBuilder.append(HEADER_OUTPUT_CELL_SEPARATOR);
-        for (Integer size : getColumnContentSize()) {
-            for (int j = 0; j < size + 2; j++) {
-                separatorLineBuilder.append(HEADER_OUTPUT_LINE);
-            }
-            separatorLineBuilder.append(HEADER_OUTPUT_CELL_SEPARATOR);
-        }
-        return separatorLineBuilder.toString();
     }
 }

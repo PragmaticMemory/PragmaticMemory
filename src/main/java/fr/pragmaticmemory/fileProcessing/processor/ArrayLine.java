@@ -5,30 +5,35 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class ArrayLine {
-    static final String ANALYSE_CELL_SEPARATOR = "\\|";
-    static private final Pattern PATTERN = Pattern.compile("(\\+-+)\\+");
-    private String content;
-    String[] cellContents;
+    static private final String CELL_SEPARATOR = "\\|";
+    static private final Pattern SEPARATOR_PATTERN = Pattern.compile("^\\s*(\\+-+)\\+$\\s*");
+    private String lineContent;
+    private String[] cellContents;
 
 
-    public ArrayLine(String content) {
-        this.content = content;
+    public ArrayLine(String lineContent) {
+        this.lineContent = lineContent;
     }
 
 
-    public String getContent() {
-        return content;
-    }
-
-
-    protected boolean isSeparator() {
-        final Matcher matcher = PATTERN.matcher(content);
+    public boolean isSeparator() {
+        final Matcher matcher = SEPARATOR_PATTERN.matcher(lineContent);
         return matcher.find();
     }
 
 
-    protected boolean isDataLine() {
+    public boolean isDataLine() {
         return !isSeparator();
+    }
+
+
+    public int getCellsNumber() {
+        return getCellContents().length;
+    }
+
+
+    public String getCellContent(int cellIndex) {
+        return getCellContents()[cellIndex];
     }
 
 
@@ -40,20 +45,10 @@ public class ArrayLine {
     }
 
 
-    public String[] buildCellContents() {
-        String[] cells = StringUtils.split(content, ANALYSE_CELL_SEPARATOR);
+    private String[] buildCellContents() {
+        String[] cells = StringUtils.split(lineContent, CELL_SEPARATOR);
         trim(cells);
         return Arrays.copyOfRange(cells, 1, cells.length - 1);
-    }
-
-
-    public int getCellsNumber() {
-        return getCellContents().length;
-    }
-
-
-    public String getCellContent(int cellIndex) {
-        return getCellContents()[cellIndex];
     }
 
 
