@@ -10,7 +10,6 @@ public class DataArray implements Iterable<ArrayLine> {
     static final String HEADER_OUTPUT_LINE = "-";
     static final String SPACE = " ";
     private List<ArrayLine> arrayLineList = new ArrayList<ArrayLine>();
-    private List<String[]> cellContents;
     private Integer[] columnContentSize;
 
 
@@ -26,33 +25,18 @@ public class DataArray implements Iterable<ArrayLine> {
     }
 
 
-    protected List<String[]> buildCellContents() {
-        List<String[]> cellContentByLine = new ArrayList<String[]>();
-        for (ArrayLine line : arrayLineList) {
-            if (line.isSeparator()) {
-                continue;
-            }
-            String[] cells = line.getCellContents();
-            if (cells.length == 0) {
-                continue;
-            }
-            cellContentByLine.add(cells);
-        }
-        return cellContentByLine;
-    }
-
-
     private Integer[] buildColumnContentSize() throws Exception {
         check();
-        List<String[]> cellContentByLine = getCellContents();
-        Integer sizeArray[] = new Integer[cellContentByLine.get(0).length];
-        for (int i = 0, sizeLength = sizeArray.length; i < sizeLength; i++) {
-            sizeArray[i] = 0;
+        List<ArrayLine> dataArrayLineList = getDataArrayLines();
+        Integer sizeArray[] = new Integer[dataArrayLineList.get(0).getCellsNumber()];
+        for (int cellIndex = 0, cellsNumber = sizeArray.length; cellIndex < cellsNumber; cellIndex++) {
+            sizeArray[cellIndex] = 0;
         }
-        for (String[] analysedLine : cellContentByLine) {
-            for (int i = 0, analysedLineLength = analysedLine.length; i < analysedLineLength; i++) {
-                if (analysedLine[i].length() > sizeArray[i]) {
-                    sizeArray[i] = analysedLine[i].length();
+
+        for (ArrayLine dataArrayLine : dataArrayLineList) {
+            for (int i = 0, cellsNumber = dataArrayLine.getCellsNumber(); i < cellsNumber; i++) {
+                if (dataArrayLine.getCellContent(i).length() > sizeArray[i]) {
+                    sizeArray[i] = dataArrayLine.getCellContent(i).length();
                 }
             }
         }
@@ -68,7 +52,7 @@ public class DataArray implements Iterable<ArrayLine> {
     }
 
 
-    public int getDataLineNumber() {
+    private int getDataLineNumber() {
         int dataLineNumber = 0;
         for (ArrayLine arrayLine : arrayLineList) {
             if (arrayLine.isDataLine()) {
@@ -79,15 +63,13 @@ public class DataArray implements Iterable<ArrayLine> {
     }
 
 
-    public void check() throws Exception {
-        List<String[]> cellContentByLine = getCellContents();
-        int lineNumber = getDataLineNumber();
-        if (lineNumber != cellContentByLine.size()) {
-            throw new Exception("getDataLineNumber() != getCellContents.size()");
-        }
-        if (lineNumber > 1) {
-            for (int i = 1; i < lineNumber; i++) {
-                if (cellContentByLine.get(i).length != cellContentByLine.get(i - 1).length) {
+    private void check() throws Exception {
+        List<ArrayLine> dataArrayLines = getDataArrayLines();
+        int dataLineNumber = getDataLineNumber();
+
+        if (dataLineNumber > 1) {
+            for (int i = 1; i < dataLineNumber; i++) {
+                if (dataArrayLines.get(i).getCellsNumber() != dataArrayLines.get(i - 1).getCellsNumber()) {
                     throw new Exception("Different column number between lines " + (i - 1) + " and " + i);
                 }
             }
@@ -95,26 +77,27 @@ public class DataArray implements Iterable<ArrayLine> {
     }
 
 
-    private List<String[]> getCellContents() {
-        if (cellContents == null) {
-            cellContents = buildCellContents();
+    private List<ArrayLine> getDataArrayLines() {
+        List<ArrayLine> dataArrayLineList = new ArrayList<ArrayLine>();
+        for (ArrayLine arrayLine : arrayLineList) {
+            if (arrayLine.isDataLine()) {
+                dataArrayLineList.add(arrayLine);
+            }
         }
-        return cellContents;
+        return dataArrayLineList;
     }
 
 
     public List<String> buildOutputLines() throws Exception {
         List<String> outputLines = new ArrayList<String>();
         String separatorLine = getSeparatorLine();
-        outputLines.add(separatorLine);
-        for (int lineIndex = 0, rowCellContentListSize = getCellContents().size();
-             lineIndex < rowCellContentListSize;
-             lineIndex++) {
-            if (lineIndex == 1) {
+        for (ArrayLine arrayLine : arrayLineList) {
+            if (arrayLine.isSeparator()) {
                 outputLines.add(separatorLine);
+                continue;
             }
             StringBuilder outputLineBuilder = new StringBuilder();
-            String[] rowCellContent = getCellContents().get(lineIndex);
+            String[] rowCellContent = arrayLine.getCellContents();
             outputLineBuilder.append(OUTPUT_CELL_SEPARATOR);
             for (int cellIndex = 0, analysedLineLength = rowCellContent.length;
                  cellIndex < analysedLineLength;
@@ -128,7 +111,6 @@ public class DataArray implements Iterable<ArrayLine> {
 
             outputLines.add(outputLineBuilder.toString());
         }
-        outputLines.add(separatorLine);
         return outputLines;
     }
 

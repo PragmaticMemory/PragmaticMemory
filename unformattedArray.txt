@@ -4,9 +4,11 @@
 | agile         | 'æd?a?l/'æd?l                    | agile                                                   |
 | area          | 'e?r??                           | région, superficie                                      |
 | ash           | æ?                               | cendre                                                  |
++-+
 | automatically | ???t?'mæt?kl?                    | automatiquement                                         |
 | bat           | bæt                              | chauve-souris                                           |
 | bet           | bet                              |                                                         |
++-+
 | bot           | b?t                              |                                                         |
 | bribe         | bra?b                            | soudoyer, pot de vin                                    |
 | but           | b?t                              | mais                                                    |

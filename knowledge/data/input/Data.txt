@@ -550,6 +550,9 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 
   Effacer un tag
     git tag -d v1
+    
+  Modifier le message du dernier commit (non encore pushé)
+    git commit --amend -m 'new message'
 
   Stocker les login / mot de passe pour GitHub
     Ajouter les lignes de code suivantes dans le fichier _netrc se trouvant dans le profil utilisateur
@@ -1257,6 +1260,15 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   Décompiler des classes java
     utiliser l'outil JD-GUI (http://java.decompiler.free.fr/?q=jdgui)
 
+  Extraire un sous-tableau
+    +-----------+--------+
+    | package   | class  |
+    +-----------+--------+
+    | java.util | Arrays |
+    +-----------+--------+
+    
+    Arrays.copyOfRange(T[] original, int from, int to)
+  
   Références
     Liste des librairies tiers java : http://www.jdocs.com/page/AllLibraries
     Librairies Apache Common (Liste et documentation) : http://commons.apache.org
@@ -1281,6 +1293,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     Class Loader : http://www.ibm.com/developerworks/java/tutorials/j-classloader/index.html
     O'Reilly's CD bookshelfs : http://docstore.mik.ua/orelly/index.html
     Articles sur java (dont quiz très intéressant) : http://thecodersbreakfast.net/
+    Différents moyens de filtrer une collection : http://guidogarcia.net/blog/2011/10/29/java-different-ways-filter-collection/
 
 --------
 - Unix -
