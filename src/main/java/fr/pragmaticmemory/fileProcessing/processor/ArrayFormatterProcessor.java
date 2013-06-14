@@ -5,7 +5,7 @@ public class ArrayFormatterProcessor extends TextProcessor {
 
     @Override
     protected List<String> processFileContent(List<String> inputLines) throws Exception {
-        Array array = new Array(inputLines);
-        return array.buildOutputLines();
+        DataArray dataArray = new DataArray(inputLines);
+        return dataArray.buildOutputLines();
     }
 }
