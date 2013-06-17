@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class ArrayLine {
     static private final String CELL_SEPARATOR = "\\|";
-    static private final Pattern SEPARATOR_PATTERN = Pattern.compile("^\\s*(\\+-+)\\+$\\s*");
+    static private final Pattern SEPARATOR_PATTERN = Pattern.compile("^\\s*(\\+-+)+\\+\\s*$");
     private String lineContent;
     private String[] cellContents;
 

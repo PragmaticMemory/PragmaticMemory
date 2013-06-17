@@ -1,59 +1,49 @@
-+---------------+----------------------------------+-------------------------------------------------------+
-| mot           | phonétique                       | définition                                            |
-+---------------+----------------------------------+-------------------------------------------------------+
-| agile         | 'æd?a?l/'æd?l                    | agile                                                   |
-| area          | 'e?r??                           | région, superficie                                      |
-| ash           | æ?                               | cendre                                                  |
-+-+
-| automatically | ???t?'mæt?kl?                    | automatiquement                                         |
-| bat           | bæt                              | chauve-souris                                           |
-| bet           | bet                              |                                                         |
-+-+
-| bot           | b?t                              |                                                         |
-| bribe         | bra?b                            | soudoyer, pot de vin                                    |
-| but           | b?t                              | mais                                                    |
-| barrage       | 'bær??? ; b?'r???                | barrage                                                 |
-| browse        |  bra?z                           | naviguer                                                |
-| confluence    | 'k?nfl??ns                       |                                                         |
-| comfort       | 'k?mf?t                          | confort                                                 |
-| comfortable   | 'k?mft?bl/'k?mf?rtbl             | confortable                                             |
-| command       | k?'m??nd/k?'mænd                 |                                                         |
-| cumbersome    | 'k?mb?rs?m                       |[objet] encombrant [procédé, bureaucracie] lourd |
-| database      | 'de?t??be?s                      | base de données                                         |
-| directory     | da?'rekt?r?/d?'rekt?r?/d?'rektr? | répertoire                                              |
-| eclipse       | ?'kl?ps                          |                                                         |
-| era           | '??r?                            | époque                                                  |
-| error         | 'er?(r)                          | erreur                                                  |
-| extreme       | ?k'stri?m                        | extreme                                                 |
-| flaccid       | 'flæs?d/'flæks?d                 | flasque, mou                                            |
-| France        | fr??ns                           | La France                                               |
-| GUI           | 'gui?                            | Gui User Interface                                      |
-| Hudson        | 'h?ds?n                          |                                                         |
-| integer       | '?nt?d??r                        | mathématiques : entier                                  |
-| java          | 'd???v?                          |                                                         |
-| ladder        | 'læd?(r)                         | échelle                                                 |
-| library       | 'la?br?r?/'la?brer?              |                                                         |
-| limb          | l?m                              | membre (bras , jambe) / branche principale d'un arbre   |
-| maven         | 'me?v?n                          | expert                                                  |
-| oath          | ???                              | serment                                                 |
-| obstacle      | '?bst?kl                         | obstacle                                                |
-| pawn          | p??n                             | pions (aux échecs)                                      |
-| phase         | fe?z                             | phase                                                   |
-| platform      | 'plætf??m                        | plateforme                                              |
-| procedure     | pr?'si?d??(r)                    | procédure                                               |
-| program       | 'pr??græm/'pr??gr?m              | programme                                               |
-| raw           | r??                              | brut (raw data : données brutes)                        |
-| reassure      | ?ri??'???(r)/ri??'???r           | rassurer (quelqu'un) (about : sur)                      |
-| release       | r?'li?s                          | libérer, livrer                                         |
-| row           | r??                              | ligne                                                   |
-| server        | 's??v?(r)                        | serveur                                                 |
-| source        | s??s                             | source                                                  |
-| subversion    | s?'bv???n/s?'bv??r?n             |                                                         |
-| thumb         | ??m                              | pouce                                                   |
-| toe           | t??                              | orteil                                                  |
-| tortoise      | 't??t?s                          | tortue (terrestre)                                      |
-| turtle        | 't??tl                           | tortue (générique)                                      |
-| variable      | 've?r??bl                        | variable                                                |
-| workstation   |                                  | http://www.webopedia.com/TERM/W/workstation.html         |
-| wound         | wu?nd                            | blessure                                                |
-+---------------+----------------------------------+-------------------------------------------------------+
++--------------+----------------------+-------------------------+--------------------------+--------------------------------+---------------------------+-------------------+----------------------+---------------------+
+| Type         | SubType              | valoCStrat              | couponCouruStrat         | cleanMarketValueStrat          | valoThStrat               | sensiStrat        | durationStrat        | spreadDurStrat      |
++--------------+----------------------+-------------------------+--------------------------+--------------------------------+---------------------------+-------------------+----------------------+---------------------+
+| Equity       | EQUITY               | CASH_VALOC              |                          | CASH_VALOC                     | CASH_VALOC                |                   |                      |                     |
+| Cash         | CASH                 | CASH_VALOC              |                          | CASH_VALOC                     | CASH_VALOC                |                   |                      |                     |
+| Cash         | CHANGE               | CASH_VALOC              |                          | CASH_VALOC                     | CASH_VALOC                |                   |                      |                     |
+| Opcvm        | OPCVM                | OPCVM_VALOC             |                          | OPCVM_VALOC                    | OPCVM_VALOC               |                   |                      |                     |
+| Opcvm        | OPCVM_MONETAIRE      | CASH_VALOC              |                          | CASH_VALOC                     | CASH_VALOC                |                   |                      |                     |
+| Cds          | CDS                  | CDS_VALO                | CDS_COUPON_COURU         | CDS_CLEAN_MARKET_VALUE         | NOMINAL_AS_VALOTH         |                   |                      | CDS_SPREAD_DURATION |
+| Futures      | FUTURES              |                         |                          |                                |                           |                   |                      |                     |
+| Futures      | FUTURE_INDEX         | FUTUREINDEX_VALOC       |                          |                                |                           |                   |                      |                     |
+| Futures      | FUTURE_LONG          |                         |                          |                                | FUTURELONG_VALOTH         |                   |                      |                     |
+| Futures      | FUTURE_COURT         |                         |                          |                                | FUTURECOURT_VALOTH        | FUTURECOURT_SENSI | FUTURECOURT_DURATION |                     |
+| Futures      | FUTURE_LONG_SSC      |                         |                          |                                | FUTURELONG_VALOTH         |                   |                      |                     |
+| FutureOption | OPTIONS              | OPTION_FUTURELONG_VALOC |                          | OPTION_FUTURELONG_VALOC        | OPTION_FUTURECOURT_VALOTH |                   |                      |                     |
+| FutureOption | OPTION_FUTURE_LONG   | OPTION_FUTURELONG_VALOC |                          | OPTION_FUTURELONG_VALOC        | OPTION_FUTURELONG_VALOTH  | SENSI_OPTION      |                      |                     |
+| FutureOption | OPTION_FUTURE_COURT  | OPTION_FUTURELONG_VALOC |                          | OPTION_FUTURELONG_VALOC        | OPTION_FUTURECOURT_VALOTH | SENSI_OPTION      |                      |                     |
+| Swap         | SWAP                 | SWAP_VALOC              | SWAP_COUPON_COURU        | SWAP_CLEAN_MARKET_VALUE        | SWAP_VALOTH               |                   |                      |                     |
+| Swap         | JAMBE                | SWAP_VALOC              | SWAP_COUPON_COURU        | SWAP_CLEAN_MARKET_VALUE        | SWAP_VALOTH               |                   |                      |                     |
+| Bond         | BOND                 | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | INDEX_LINKED         | INDEXLINKED_VALOC       | INDEXLINKED_COUPON_COURU | INDEXLINKED_CLEAN_MARKET_VALUE |                           | SENSI_BETA        | DURATION_BETA        |                     |
+| Bond         | GOVERNEMENT          | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | LOCAL_GOVERNEMENT    | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | SOVEREIGN            | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | AGENCY               | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | COLLATERALIZED       | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | CORPORATE_IG         | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | CORPORATE_HIGH_YIELD | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | CONVERTIBLE          | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | CALLABLE             | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | EMERGING             | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | INTERNATIONAL        | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Bond         | AUTRE                | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Structure    | STRUCTURE_TAUX       | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Structure    | STRUCTURE_CREDIT     | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
+| Structure    | CDO                  | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               |                   |                      |                     |
++--------------+----------------------+-------------------------+--------------------------+--------------------------------+---------------------------+-------------------+----------------------+---------------------+
+|              |                      | BOND_VALOC              | BOND_COUPON_COURU        | BOND_CLEAN_MARKET_VALUE        | BOND_VALOTH               | FUTURECOURT_SENSI | DURATION_BETA        | CDS_SPREAD_DURATION |
+|              |                      | CASH_VALOC              | CDS_COUPON_COURU         | CASH_VALOC                     | CASH_VALOC                | SENSI_BETA        | FUTURECOURT_DURATION |                     |
+|              |                      | CDS_VALO                | INDEXLINKED_COUPON_COURU | CDS_CLEAN_MARKET_VALUE         | FUTURECOURT_VALOTH        | SENSI_OPTION      |                      |                     |
+|              |                      | FUTUREINDEX_VALOC       | SWAP_COUPON_COURU        | INDEXLINKED_CLEAN_MARKET_VALUE | FUTURELONG_VALOTH         |                   |                      |                     |
+|              |                      | INDEXLINKED_VALOC       |                          | OPCVM_VALOC                    | NOMINAL_AS_VALOTH         |                   |                      |                     |
+|              |                      | OPCVM_VALOC             |                          | OPTION_FUTURELONG_VALOC        | OPCVM_VALOC               |                   |                      |                     |
+|              |                      | OPTION_FUTURELONG_VALOC |                          | SWAP_CLEAN_MARKET_VALUE        | OPTION_FUTURECOURT_VALOTH |                   |                      |                     |
+|              |                      | SWAP_VALOC              |                          |                                | OPTION_FUTURELONG_VALOTH  |                   |                      |                     |
+|              |                      |                         |                          |                                | SWAP_VALOTH               |                   |                      |                     |
++--------------+----------------------+-------------------------+--------------------------+--------------------------------+---------------------------+-------------------+----------------------+---------------------+
+|              |                      | Position only                        |                          |                                |                |                   |                      |                     |
++--------------+----------------------+-------------------------+--------------------------+--------------------------------+---------------------------+-------------------+----------------------+---------------------+

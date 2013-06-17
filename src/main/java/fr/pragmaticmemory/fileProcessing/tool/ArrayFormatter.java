@@ -7,6 +7,10 @@ import fr.pragmaticmemory.fileProcessing.processor.arrayFormatter.ArrayFormatter
 import fr.pragmaticmemory.fileProcessing.routeProvider.MappedFileRouteProvider;
 public class ArrayFormatter {
 
+    private ArrayFormatter() {
+    }
+
+
     public static void main(String[] args) throws Exception {
         String inputFileName = null;
         String outputFileName = null;
