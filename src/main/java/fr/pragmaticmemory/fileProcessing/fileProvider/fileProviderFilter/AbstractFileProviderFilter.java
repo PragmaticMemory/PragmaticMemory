@@ -1,4 +1,5 @@
-package fr.pragmaticmemory.fileProcessing.fileProvider;
+package fr.pragmaticmemory.fileProcessing.fileProvider.fileProviderFilter;
+import fr.pragmaticmemory.fileProcessing.fileProvider.FileProvider;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.fileProcessing.fileProvider;
+package fr.pragmaticmemory.fileProcessing.fileProvider.fileProviderFilter;
 
 import java.io.File;
 public interface FileFilter {
