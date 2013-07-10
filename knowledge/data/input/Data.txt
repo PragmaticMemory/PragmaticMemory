@@ -1294,7 +1294,8 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     O'Reilly's CD bookshelfs : http://docstore.mik.ua/orelly/index.html
     Articles sur java (dont quiz très intéressant) : http://thecodersbreakfast.net/
     Différents moyens de filtrer une collection : http://guidogarcia.net/blog/2011/10/29/java-different-ways-filter-collection/
-
+    Appel java en xslt : http://cafeconleche.org/books/xmljava/chapters/ch17s03.html
+    
 --------
 - Unix -
 --------
@@ -1441,3 +1442,6 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
       La quantité est le nombre d'obligations possédées.
     - les actions sont cotés "en pièce", c'est-à-dire que la cotation d'une action est exprimée en devise, et donne le prix d'une action.
       La quantité est le nombre d'action possédées.
+      
+  Références
+    - Econoclate, l'économie pour les nuls et les autres (en particulier, rubrique "Questions et réponses") : http://econo.free.fr/

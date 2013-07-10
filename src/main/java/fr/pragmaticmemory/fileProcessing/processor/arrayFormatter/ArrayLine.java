@@ -27,7 +27,7 @@ public class ArrayLine {
     }
 
 
-    public int getCellsNumber() {
+    public int getCellNumber() {
         return getCellContents().length;
     }
 
@@ -46,9 +46,9 @@ public class ArrayLine {
 
 
     private String[] buildCellContents() {
-        String[] cells = StringUtils.split(lineContent, CELL_SEPARATOR);
-        trim(cells);
-        return Arrays.copyOfRange(cells, 1, cells.length - 1);
+        String[] extractedCellContents = StringUtils.split(lineContent, CELL_SEPARATOR);
+        trim(extractedCellContents);
+        return Arrays.copyOfRange(extractedCellContents, 1, extractedCellContents.length - 1);
     }
 
 
