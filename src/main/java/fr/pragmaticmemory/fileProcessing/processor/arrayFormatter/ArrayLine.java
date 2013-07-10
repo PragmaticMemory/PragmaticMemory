@@ -22,11 +22,6 @@ public class ArrayLine {
     }
 
 
-    public boolean isDataLine() {
-        return !isSeparator();
-    }
-
-
     public int getCellNumber() {
         return getCellContents().length;
     }
