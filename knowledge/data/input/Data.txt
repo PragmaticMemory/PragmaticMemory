@@ -550,7 +550,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 
   Effacer un tag
     git tag -d v1
-    
+
   Modifier le message du dernier commit (non encore pushé)
     git commit --amend -m 'new message'
 
@@ -560,9 +560,13 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
         login COMPTE_GITHUB
         password MOT_DE_PASSE
 
+  Lister les alias de répertoires Git distant
+    git remote -v
+
   Références
-    Commande reset                  : http://git-scm.com/2011/07/11/reset.html
+    Guide synthétique               : http://gitref.org/
     Pro Git                         : http://git-scm.com/book
+    Commande reset                  : http://git-scm.com/2011/07/11/reset.html
     Git Community Book en français  : http://alx.github.com/gitbook/index.html
     Tutorial "Immersion"            : http://gitimmersion.com
     Tutorial "Git c'est facile 2"   : http://www.yterium.net/GIT-c-est-facile-2
@@ -882,17 +886,17 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 
     d'avance / par avance :
       "par avance" est plus littéraire que "d'avance"
-    
+
     entre autres : 
       "autres" prend un "s"
-    
+
     se rappeler / se souvenir :
       cf : http://www.pincetonfrancais.be/v1/article.php3?id_article=4
-    
+
   Références : 
     http://www.cnrtl.fr/definition/
     http://www.projet-voltaire.fr/blog/
-  
+
 ---------------
 - Web et Wiki -
 ---------------
@@ -1266,9 +1270,9 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     +-----------+--------+
     | java.util | Arrays |
     +-----------+--------+
-    
+
     Arrays.copyOfRange(T[] original, int from, int to)
-  
+
   Références
     Liste des librairies tiers java : http://www.jdocs.com/page/AllLibraries
     Librairies Apache Common (Liste et documentation) : http://commons.apache.org
@@ -1295,7 +1299,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     Articles sur java (dont quiz très intéressant) : http://thecodersbreakfast.net/
     Différents moyens de filtrer une collection : http://guidogarcia.net/blog/2011/10/29/java-different-ways-filter-collection/
     Appel java en xslt : http://cafeconleche.org/books/xmljava/chapters/ch17s03.html
-    
+
 --------
 - Unix -
 --------
@@ -1433,7 +1437,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   Abréviations courantes                  : http://monsu.desiderio.free.fr/atelier/abrevia.html
   Abréviations courantes MR               : http://fr.wikipedia.org/wiki/MR
   Raccourcis clavier d'Internet Explorer  : http://windows.microsoft.com/fr-BE/windows-vista/Internet-Explorer-8-keyboard-shortcuts
-  
+
 -----------
 - Finance -
 -----------
@@ -1442,6 +1446,6 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
       La quantité est le nombre d'obligations possédées.
     - les actions sont cotés "en pièce", c'est-à-dire que la cotation d'une action est exprimée en devise, et donne le prix d'une action.
       La quantité est le nombre d'action possédées.
-      
+
   Références
     - Econoclate, l'économie pour les nuls et les autres (en particulier, rubrique "Questions et réponses") : http://econo.free.fr/
