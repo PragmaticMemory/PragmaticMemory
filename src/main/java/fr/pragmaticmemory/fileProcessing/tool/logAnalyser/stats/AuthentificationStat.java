@@ -1,5 +1,7 @@
-package fr.pragmaticmemory.fileProcessing.tool;
+package fr.pragmaticmemory.fileProcessing.tool.logAnalyser.stats;
 
+import fr.pragmaticmemory.fileProcessing.tool.logAnalyser.core.LogAnalyser;
+import fr.pragmaticmemory.fileProcessing.tool.logAnalyser.core.LogAnalyserEngine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;

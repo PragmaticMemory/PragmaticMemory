@@ -1,4 +1,4 @@
-package fr.pragmaticmemory.fileProcessing.tool;
+package fr.pragmaticmemory.fileProcessing.tool.logAnalyser.core;
 import fr.pragmaticmemory.fileProcessing.processor.TextProcessor;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public abstract class LogAnalyser extends TextProcessor {
     static private final Pattern DATE_TIME_PATTERN = Pattern.compile("(\\s*\\d+ \\w+ \\d+ \\d+:\\d+:\\d+,\\d+).+");
-    static final String COLUMN_SEPARATOR = "|";
+    static protected final String COLUMN_SEPARATOR = "|";
     protected List<String> outputLines = new ArrayList<String>();
 
 

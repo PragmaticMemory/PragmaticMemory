@@ -1,9 +1,6 @@
-package fr.pragmaticmemory.fileProcessing.tool;
-import fr.pragmaticmemory.fileProcessing.core.Processor;
-import fr.pragmaticmemory.fileProcessing.core.RouteProvider;
-import fr.pragmaticmemory.fileProcessing.fileProvider.SingleFileProvider;
-import fr.pragmaticmemory.fileProcessing.processor.TextProcessor;
-import fr.pragmaticmemory.fileProcessing.routeProvider.MappedFileRouteProvider;
+package fr.pragmaticmemory.fileProcessing.tool.logAnalyser.stats;
+import fr.pragmaticmemory.fileProcessing.tool.logAnalyser.core.LogAnalyser;
+import fr.pragmaticmemory.fileProcessing.tool.logAnalyser.core.LogAnalyserEngine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -18,18 +15,12 @@ public class RequestTimeout {
 
 
     public static void main(String[] args) throws Exception {
-        String inputFileName = "C:\\Users\\cignett\\Desktop\\Nouveau dossier\\ServeurLog.txt";
-        String outputFileName = "C:\\Users\\cignett\\Desktop\\Nouveau dossier\\Stat.txt";
-
-        SingleFileProvider inputFileProvider = new SingleFileProvider(inputFileName);
-        SingleFileProvider outputFileProvider = new SingleFileProvider(outputFileName);
-        RouteProvider routeProvider = new MappedFileRouteProvider(inputFileProvider, outputFileProvider);
-        Processor processor = new RequestTimeoutProcessor();
-        processor.process(routeProvider);
+        LogAnalyserEngine logAnalyserEngine = new LogAnalyserEngine(false, new RequestTimeoutProcessor());
+        logAnalyserEngine.analyse();
     }
 
 
-    static private class RequestTimeoutProcessor extends TextProcessor {
+    static private class RequestTimeoutProcessor extends LogAnalyser {
 
         private String handler = "";
 
