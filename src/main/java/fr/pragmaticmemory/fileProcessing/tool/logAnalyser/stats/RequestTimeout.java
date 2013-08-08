@@ -1,6 +1,7 @@
 package fr.pragmaticmemory.fileProcessing.tool.logAnalyser.stats;
 import fr.pragmaticmemory.fileProcessing.tool.logAnalyser.core.LogAnalyser;
 import fr.pragmaticmemory.fileProcessing.tool.logAnalyser.core.LogAnalyserEngine;
+import fr.pragmaticmemory.fileProcessing.tool.logAnalyser.core.SideEnum;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -15,7 +16,7 @@ public class RequestTimeout {
 
 
     public static void main(String[] args) throws Exception {
-        LogAnalyserEngine logAnalyserEngine = new LogAnalyserEngine(false, new RequestTimeoutProcessor());
+        LogAnalyserEngine logAnalyserEngine = new LogAnalyserEngine(SideEnum.SERVER, new RequestTimeoutProcessor());
         logAnalyserEngine.analyse();
     }
 
