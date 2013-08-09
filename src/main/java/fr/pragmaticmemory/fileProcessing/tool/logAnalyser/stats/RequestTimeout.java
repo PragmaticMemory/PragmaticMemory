@@ -23,12 +23,10 @@ public class RequestTimeout {
 
     static private class RequestTimeoutProcessor extends LogAnalyser {
 
-        private String handler = "";
-
-
         @Override
         protected List<String> processFileContent(List<String> inputLines) throws Exception {
             List<String> output = new ArrayList<String>();
+            String handler = "";
             for (int lineIndex = 1, inputLinesSize = inputLines.size(); lineIndex < inputLinesSize; lineIndex++) {
                 String line = inputLines.get(lineIndex);
                 Matcher handlerMatcher = HANDLER_PATTERN.matcher(line);
