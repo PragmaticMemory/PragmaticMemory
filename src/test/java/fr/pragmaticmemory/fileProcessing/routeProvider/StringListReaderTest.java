@@ -34,7 +34,7 @@ public class StringListReaderTest extends TestCase {
     }
 
 
-    public void testStringListReaderWithBufferReader() throws Exception {
+    public void testBufferedReaderReadLine() throws Exception {
         BufferedReader bufferedReader = new BufferedReader(STRING_LIST_READER);
         Assert.assertEquals(LINE_1, bufferedReader.readLine());
         Assert.assertEquals(LINE_2, bufferedReader.readLine());
@@ -42,7 +42,7 @@ public class StringListReaderTest extends TestCase {
     }
 
 
-    public void testStringListReader() throws Exception {
+    public void testRead() throws Exception {
         assetRead(8, "Première", 1, 8);
         assetRead(7, " ligne\n", 0, 7);
         assetRead(13, "Seconde ligne", 0, 13);
