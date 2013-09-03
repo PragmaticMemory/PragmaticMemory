@@ -21,7 +21,7 @@ public class StringListRoute implements Route {
 
 
     public Writer getWriter() throws Exception {
-        stringWriter = new StringListWriter("\n");
+        stringWriter = new StringListWriter("\r\n");
         return stringWriter;
     }
 

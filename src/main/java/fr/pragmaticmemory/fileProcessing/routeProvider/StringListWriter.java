@@ -11,6 +11,7 @@ public class StringListWriter extends Writer {
     private List<StringWriter> stringWriterList = new ArrayList<StringWriter>();
     private int currentWriterIndex = 0;
     private String separator = "\n";
+    private StringBuilder cache = new StringBuilder();
 
 
     public StringListWriter(String separator) {
@@ -22,32 +23,25 @@ public class StringListWriter extends Writer {
     public void write(char[] cbuf, int off, int len) throws IOException {
         char[] subArray = Arrays.copyOfRange(cbuf, off, off + len);
         String substring = new String(subArray);
-        String[] lines = substring.split(separator, -1);
+        cache.append(substring);
 
-        int toBeWrittenlength = len;
-        for (int i = 0, linesLength = lines.length; i < linesLength - 1; i++) {
+        String[] lines = cache.toString().split(separator, -1);
+
+        if (lines.length == 1) {
+            cache = new StringBuilder();
+            cache.append(lines[0]);
+            return;
+        }
+
+        int lastIndex = lines.length - 1;
+        for (int i = 0; i < lastIndex; i++) {
             String line = lines[i];
-            if (line.length() == 0) {
-
-            }
-            else if (toBeWrittenlength <= line.length()) {
-                getCurrentWriter().write(subArray, 0, toBeWrittenlength);
-                return;
-            }
-            else {
-                getCurrentWriter().write(cbuf, off, line.length());
-                toBeWrittenlength = toBeWrittenlength - line.length();
-            }
-            getCurrentWriter();
+            getCurrentWriter().write(line, 0, line.length());
             currentWriterIndex++;
-            getCurrentWriter();
         }
-        if (lines.length > 0) {
-            String lastLine = lines[lines.length - 1];
-            if (!lastLine.isEmpty()) {
-                getCurrentWriter().write(lastLine, 0, lastLine.length());
-            }
-        }
+
+        cache = new StringBuilder();
+        cache.append(lines[lastIndex]);
     }
 
 
@@ -69,7 +63,8 @@ public class StringListWriter extends Writer {
 
     @Override
     public void flush() throws IOException {
-        // Todo
+        getCurrentWriter().write(cache.toString());
+        cache = new StringBuilder();
     }
 
 

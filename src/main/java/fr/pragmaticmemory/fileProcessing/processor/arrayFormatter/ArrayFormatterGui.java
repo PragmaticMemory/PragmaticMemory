@@ -1,8 +1,9 @@
 package fr.pragmaticmemory.fileProcessing.processor.arrayFormatter;
 import fr.pragmaticmemory.fileProcessing.routeProvider.StringListRouteProvider;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
@@ -13,6 +14,7 @@ public class ArrayFormatterGui {
         JFrame jFrame = new JFrame();
         jFrame.setVisible(true);
         final JTextArea textArea = new JTextArea();
+        textArea.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
         textArea.addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {
 
@@ -25,23 +27,40 @@ public class ArrayFormatterGui {
 
             public void keyReleased(KeyEvent e) {
                 String text = textArea.getText();
-                String[] lines = text.split("\n");
+                String separator = "\n";
+                String[] lines = text.split(separator);
 
-//                List<String> stringList = Arrays.asList(lines);
-                List<String> stringList = new ArrayList<String>();
-                stringList.add("+--+--+");
-                stringList.add("|col1|col2|");
+                List<String> stringList = Arrays.asList(lines);
+//                List<String> stringList = new ArrayList<String>();
+//                stringList.add("+--+--+");
+//                stringList.add("|col1|col2|");
                 ArrayFormatterProcessor processor = new ArrayFormatterProcessor();
                 StringListRouteProvider routeProvider = new StringListRouteProvider(stringList);
-                List<String> resultString;
+                List<String> resultLines;
                 try {
                     processor.process(routeProvider);
-                    resultString = routeProvider.getResultString();
+                    resultLines = routeProvider.getResultString();
+                    int resultLinesSize = resultLines.size();
+                    if (resultLinesSize == 1) {
+                        int caretPosition = textArea.getCaretPosition();
+                        textArea.setText(resultLines.get(0));
+                        textArea.setCaretPosition(caretPosition);
+                        return;
+                    }
+                    StringBuilder builder = new StringBuilder();
+                    for (int i = 0; i < resultLinesSize - 1; i++) {
+                        String line = resultLines.get(i);
+                        builder.append(line);
+                        builder.append(separator);
+                    }
+                    builder.append(lines[resultLinesSize - 1]);
+                    int caretPosition = textArea.getCaretPosition();
+                    textArea.setText(builder.toString());
+                    textArea.setCaretPosition(caretPosition);
                 }
-                catch (Exception e1) {
+                catch (Throwable e1) {
                     e1.printStackTrace();  // Todo
                 }
-                System.out.println();
             }
         });
 
