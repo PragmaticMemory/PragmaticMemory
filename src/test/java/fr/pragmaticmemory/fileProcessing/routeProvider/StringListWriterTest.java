@@ -1,4 +1,5 @@
 package fr.pragmaticmemory.fileProcessing.routeProvider;
+import java.io.BufferedWriter;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
@@ -8,25 +9,27 @@ public class StringListWriterTest extends TestCase {
     //                          012345678901234 56789012345678 9012345678901234
     // 0  - 44 (14, 28, 44 -> \n)
 
-//    public void testBufferedWriterLine() throws Exception {
-//        StringListWriter stringListWriter = new StringListWriter();
-//        BufferedWriter bufferedWriter = new BufferedWriter(stringListWriter);
-//        bufferedWriter.write("Première ligne");
+
+    public void testBufferedWriterLine() throws Exception {
+        StringListWriter stringListWriter = new StringListWriter("\r\n");
+        BufferedWriter bufferedWriter = new BufferedWriter(stringListWriter);
+        bufferedWriter.write("Première ligne");
+        bufferedWriter.newLine();
+        bufferedWriter.write("Seconde ligne");
+        bufferedWriter.newLine();
+        bufferedWriter.write("Troisième ligne");
 //        bufferedWriter.newLine();
-//        bufferedWriter.write("Seconde ligne");
-//        bufferedWriter.newLine();
-//        bufferedWriter.write("Troisième ligne");
-//        bufferedWriter.flush();
-//
-//        Assert.assertEquals(3, stringListWriter.getLineNumber());
-//        Assert.assertEquals("Première ligne", stringListWriter.getLine(0));
-//        Assert.assertEquals("Seconde ligne", stringListWriter.getLine(1));
-//        Assert.assertEquals("Troisième ligne", stringListWriter.getLine(2));
-//    }
+        bufferedWriter.flush();
+
+        Assert.assertEquals(3, stringListWriter.getLineNumber());
+        Assert.assertEquals("Première ligne", stringListWriter.getLine(0));
+        Assert.assertEquals("Seconde ligne", stringListWriter.getLine(1));
+        Assert.assertEquals("Troisième ligne", stringListWriter.getLine(2));
+    }
 
 
     public void testWrite() throws Exception {
-        StringListWriter writer = new StringListWriter();
+        StringListWriter writer = new StringListWriter("\n");
         Assert.assertEquals(0, writer.getLineNumber());
 
         writer.write(LINE, 1, 7);

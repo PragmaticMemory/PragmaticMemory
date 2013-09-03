@@ -10,9 +10,11 @@ public class StringListWriter extends Writer {
 
     private List<StringWriter> stringWriterList = new ArrayList<StringWriter>();
     private int currentWriterIndex = 0;
+    private String separator = "\n";
 
 
-    public StringListWriter() {
+    public StringListWriter(String separator) {
+        this.separator = separator;
     }
 
 
@@ -20,7 +22,7 @@ public class StringListWriter extends Writer {
     public void write(char[] cbuf, int off, int len) throws IOException {
         char[] subArray = Arrays.copyOfRange(cbuf, off, off + len);
         String substring = new String(subArray);
-        String[] lines = substring.split("\\n", -1);
+        String[] lines = substring.split(separator, -1);
 
         int toBeWrittenlength = len;
         for (int i = 0, linesLength = lines.length; i < linesLength - 1; i++) {

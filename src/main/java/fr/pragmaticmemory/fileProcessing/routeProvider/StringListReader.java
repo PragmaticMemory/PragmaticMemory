@@ -8,13 +8,14 @@ import java.util.Arrays;
 import java.util.List;
 public class StringListReader extends Reader {
 
+    static final String LINE_SEPARATOR = "\n";
     private List<Reader> readerList = new ArrayList<Reader>();
     private int currentReaderIndex = 0;
 
 
     public StringListReader(List<String> lineList) {
         for (int i = 0, stringListSize = lineList.size(); i < stringListSize; i++) {
-            readerList.add(new StringReader(lineList.get(i) + "\n"));
+            readerList.add(new StringReader(lineList.get(i) + LINE_SEPARATOR));
         }
     }
 
