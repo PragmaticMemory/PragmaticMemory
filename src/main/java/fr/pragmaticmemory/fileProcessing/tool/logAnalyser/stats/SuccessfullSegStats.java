@@ -44,7 +44,7 @@ public class SuccessfullSegStats {
                 boolean isEnd = endMatcher.find();
 
                 if (isStart || isEnd) {
-                    String newDay = extractDay(inputLine);
+                    String newDay = extractDate(inputLine);
                     if (!newDay.equals(day)) {
                         addOutputLine();
                         day = newDay;

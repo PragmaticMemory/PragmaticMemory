@@ -8,7 +8,8 @@ import java.util.regex.Pattern;
 
 public abstract class LogAnalyser extends TextProcessor {
     static private final Pattern DATE_TIME_PATTERN = Pattern.compile("(\\s*\\d+ \\w+ \\d+ \\d+:\\d+:\\d+,\\d+).+");
-    static private final Pattern DAY_PATTERN = Pattern.compile("(\\s*\\d+ \\w+ \\d+).+");
+    static private final Pattern DATE_PATTERN = Pattern.compile("\\s*(\\d+ \\w+ \\d+) \\d+:\\d+:\\d+,\\d+.+");
+    static private final Pattern TIME_PATTERN = Pattern.compile("\\s*\\d+ \\w+ \\d+ (\\d+:\\d+:\\d+,\\d+).+");
     static protected final String COLUMN_SEPARATOR = "|";
     protected List<String> outputLines = new ArrayList<String>();
 
@@ -20,8 +21,15 @@ public abstract class LogAnalyser extends TextProcessor {
     }
 
 
-    protected String extractDay(String line) throws ParseException {
-        Matcher matcher = DAY_PATTERN.matcher(line);
+    protected String extractDate(String line) throws ParseException {
+        Matcher matcher = DATE_PATTERN.matcher(line);
+        matcher.find();
+        return matcher.group(1);
+    }
+
+
+    protected String extractTime(String line) throws ParseException {
+        Matcher matcher = TIME_PATTERN.matcher(line);
         matcher.find();
         return matcher.group(1);
     }
