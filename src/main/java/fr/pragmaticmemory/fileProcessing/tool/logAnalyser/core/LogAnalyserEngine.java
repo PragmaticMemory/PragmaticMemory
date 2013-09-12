@@ -5,9 +5,9 @@ import fr.pragmaticmemory.fileProcessing.fileProvider.SingleFileProvider;
 import fr.pragmaticmemory.fileProcessing.routeProvider.MappedFileRouteProvider;
 public class LogAnalyserEngine {
 
-    static final String CLIENT_LOG_FILE_NAME = "C:\\Users\\cignett\\Desktop\\Nouveau dossier\\ClientLog.txt";
-    static final String SERVER_LOG_FILE_NAME = "C:\\Users\\cignett\\Desktop\\Nouveau dossier\\ServeurLog.txt";
-    static final String OUTPUT_FILE_NAME = "C:\\Users\\cignett\\Desktop\\Stat.txt";
+    static final String CLIENT_LOG_FILE_NAME = "C:\\Users\\cignett\\Desktop\\Seg\\ClientLog.txt";
+    static final String SERVER_LOG_FILE_NAME = "C:\\Users\\cignett\\Desktop\\Seg\\ServeurLog.txt";
+    static final String OUTPUT_FILE_NAME = "C:\\Users\\cignett\\Desktop\\Seg\\Stat.txt";
     private SideEnum sideEnum;
     private LogAnalyser logAnalyser;
 

@@ -1,32 +1,16 @@
-+--------------------------+---------------------------------------+--------------------------------+-------------------------------------+
-| Generator                | Input xml tag                         | xslt                           | Output files                        |
-+--------------------------+---------------------------------------+--------------------------------+-------------------------------------+
-| SqlGenerator             |                                       | SQLTable.xsl                   | {tableName}.tab                     |
-|                          |                                       | SQLTableGap.xsl                | {tableName}-gap.sq                  |
-|                          |                                       | SQLTableSequence.xsl           |
-|                          |                                       | SQLTableTriggerForSequence.xsl | TR_{tableName}_SEQ_I.sql            |
-| ViewGenerator            | //data/entity[feature/view]           | View.xsl                       | {viewId}.sql                        |
-| BeanGenerator            | bean                                  | Bean.xsl                       | {fullClassName}.java                |
-| StructureGenerator       | doc-structure                         | Structure.xsl                  | structure.xml                       |
-| NewHandlerGenerator      | handler-new                           | NewHandler.xsl                 | {id}.java                           |
-| DeleteHandlerGenerator   | handler-delete                        | DeleteHandler.xsl              | {id}.java                           |
-| UpdateHandlerGenerator   | handler-update                        | UpdateHandler.xsl              | {id}.java                           |
-| SelectHandlerGenerator   | //data/entity[feature/handler-select] | PreSelectHandler.xsl           | AbstractSelect{fullClassName}.java  |
-|                          |                                       | SelectHandler.xsl              | ...Handler.java                     |
-| CommandHandlerGenerator  |                                       |                                |                                     |
-| ArchiveHandlerGenerator  | handler-archive                       | ArchiveHandler.xsl             | {feature/handler-archive[@id]}.java |
-| SqlHandlerGenerator      | handler-sql                           | SqlHandler.xsl                 | {id}Handler.java                    |
-| CastorGenerator          | castor                                | Mapping.xsl                    | Mapping.xml                         |
-| RequetorHandlerGenerator | handler-requetor                      | RequetorHandler.xsl            | {id}Handler.java                    |
-| RequetorDefGenerator     | requetor def                          | RequetorDef.xsl                | RequetorDef.xml                     |
-| IndexGenerator           | sql-index                             | Index.xsl                      | {tableName}.sql                     |
-| ConstraintGenerator      | sql-constraint                        | Constraint.xsl                 | {tableName}.sql                     |
-| TriggerDeleteGenerator   | trigger-delete                        | TriggerDelete.xsl              | TR_{tableName}_D.txt                |
-| TriggerInsertGenerator   | trigger-insert                        | TriggerInsert.xsl              | TR_{tableName}_I.txt                |
-| TriggerUpdateGenerator   | trigger-update                        | TriggerUpdate.xsl              | TR_{tableName}_U.txt                |
-| TriggerIUGenerator       | trigger-iu                            | TriggerIU.xsl                  | TR_{tableName}_IU.txt               |
-| RoleGenerator            | /data/roles                           | Role.xsl                       | role.xml                            |
-| ReferentialGenerator     |                                       | ReferentialPreference.xsl      | referential-preference.xml          |
-|                          |                                       | ReferentialMapping.xsl         | referential-mapping.xml             |
-| GlobGenerator            | glob                                  | Glob.xsl                       | {fullClassName}.java                |
-+--------------------------+---------------------------------------+--------------------------------+-------------------------------------+
++--------------------------+----------------------+---------------------------------------------+
+| Constante                | Commande             | Dao method                                  |
++--------------------------+----------------------+---------------------------------------------+
+| REQ_DELTA                | DeltaBBGCommand      | getDelta                                    |
+| REQ_DEVISE               | DeviseBBGCommand     | getDevises                                  |
+| REQ_DURATION             | DurationBBGCommand   | getDuration                                 |
+| REQ_INSTRUMENT_BLOOMBERG | InstrumentBBGCommand | getInstrumentWithoutUnderlyingFromBloomberg |
+| REQ_ISIN_CHEAPEST        | CheapestBBGCommand   | getCheapest                                 |
+| REQ_ISIN_SOUSJACENT      | IsinBBGCommand       | getIsinSousjacent                           |
+| REQ_ISSUER               | IssuerBBGCommand     | getIssuer                                   |
+| REQ_MATURITE             | MaturityBBGCommand   | getDateMaturite                             |
+| REQ_PRIX                 | PriceBBGCommand      | getPrix                                     |
+| REQ_SENSI_BLOOMBERG      | SensiBBGCommand      | getSensi                                    |
+| REQ_SENSI_SWAP           | SensiSwapBBGCommand  | getSensiSwap                                |
+| REQ_YIELD_BLOOMBERG      | YieldBBGCommand      | getYield                                    |
++--------------------------+----------------------+---------------------------------------------+
