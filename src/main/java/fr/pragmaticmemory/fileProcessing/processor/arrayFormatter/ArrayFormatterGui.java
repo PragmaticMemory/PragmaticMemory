@@ -22,49 +22,55 @@ public class ArrayFormatterGui {
 
 
             public void keyPressed(KeyEvent e) {
+//                processAction(textArea);
             }
 
 
             public void keyReleased(KeyEvent e) {
-                String text = textArea.getText();
-                String separator = "\n";
-                String[] lines = text.split(separator);
-
-                List<String> stringList = Arrays.asList(lines);
-//                List<String> stringList = new ArrayList<String>();
-//                stringList.add("+--+--+");
-//                stringList.add("|col1|col2|");
-                ArrayFormatterProcessor processor = new ArrayFormatterProcessor();
-                StringListRouteProvider routeProvider = new StringListRouteProvider(stringList);
-                List<String> resultLines;
-                try {
-                    processor.process(routeProvider);
-                    resultLines = routeProvider.getResultString();
-                    int resultLinesSize = resultLines.size();
-                    if (resultLinesSize == 1) {
-                        int caretPosition = textArea.getCaretPosition();
-                        textArea.setText(resultLines.get(0));
-                        textArea.setCaretPosition(caretPosition);
-                        return;
-                    }
-                    StringBuilder builder = new StringBuilder();
-                    for (int i = 0; i < resultLinesSize - 1; i++) {
-                        String line = resultLines.get(i);
-                        builder.append(line);
-                        builder.append(separator);
-                    }
-                    builder.append(lines[resultLinesSize - 1]);
-                    int caretPosition = textArea.getCaretPosition();
-                    textArea.setText(builder.toString());
-                    textArea.setCaretPosition(caretPosition);
-                }
-                catch (Throwable e1) {
-                    e1.printStackTrace();  // Todo
-                }
+                processAction(textArea);
             }
         });
 
         jFrame.add(textArea);
         jFrame.pack();
+    }
+
+
+    private static void processAction(JTextArea textArea) {
+        String text = textArea.getText();
+        String separator = "\n";
+        String[] lines = text.split(separator);
+
+        List<String> stringList = Arrays.asList(lines);
+//                List<String> stringList = new ArrayList<String>();
+//                stringList.add("+--+--+");
+//                stringList.add("|col1|col2");
+        ArrayFormatterProcessor processor = new ArrayFormatterProcessor();
+        StringListRouteProvider routeProvider = new StringListRouteProvider(stringList);
+        List<String> resultLines;
+        try {
+            processor.process(routeProvider);
+            resultLines = routeProvider.getResultString();
+            int resultLinesSize = resultLines.size();
+            if (resultLinesSize == 1) {
+                int caretPosition = textArea.getCaretPosition();
+                textArea.setText(resultLines.get(0));
+                textArea.setCaretPosition(caretPosition);
+                return;
+            }
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < resultLinesSize - 1; i++) {
+                String line = resultLines.get(i);
+                builder.append(line);
+                builder.append(separator);
+            }
+            builder.append(resultLines.get(resultLinesSize - 1));
+            int caretPosition = textArea.getCaretPosition();
+            textArea.setText(builder.toString());
+            textArea.setCaretPosition(caretPosition);
+        }
+        catch (Throwable e1) {
+            e1.printStackTrace();  // Todo
+        }
     }
 }
