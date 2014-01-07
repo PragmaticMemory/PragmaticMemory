@@ -1,16 +1,16 @@
 ﻿----------------
 - Mise en page -
 ----------------
-  Nombre de caractère par ligne à l'écran :
+  Nombre de caractère par ligne à l'écran
     La mesure a été effectuée de la manière suivante
       - affichage de Notepad++ en plein écran
       - fichier > Nouveau
       - décompte du nombre de caractère de la première ligne pouvant être affichés sans scroller
-  Résultat :
-    écran large    (1680 x 1050) : 203
-    écran standard (1280 x 800)  : 153
+    Résultat
+      écran large    (1680 x 1050) : 203
+      écran standard (1280 x 800)  : 153
 
-  Template de tableau :
+  Template de tableau
     +-----------+----------+
     | header 1  | header 2 |
     +-----------+----------+
@@ -19,42 +19,8 @@
     |           |          |
     +-----------+----------+
 
-  Marqueur du nombre de caractères :
+  Marqueur du nombre de caractères
                                               50>                                              100>                                              150>
-----------
-- Tâches -
-----------
-  A faire :
-    - Mise à jour de la rubrique "Séparation" (plus de fichier de link, 2 xslt, ...)
-    - Gérer les tag reference au lieu des tag link uniquement ?
-    - Compléter le fichier de données avec la liste de mots en français
-    - Compléter le fichier de données avec la liste de mots en anglais
-    - Rédiger la xsd validant Data.xml
-
-  Fait :
-    - Afficher les packages / classes sous forme de tableaux dans la section java
-    - Trouver le moyen le plus simple d'appliquer une xslt à un xml : Ecriture d'une classe java
-    - Ecrire une xslt de vue et une xslt de media appelables successivement
-    - Trouver un moyen de stoker le code : GitHub
-    - Gérer l'imbrication de code dans un tableau dans Wikispaces
-    - Rédiger les fichiers xml correspondant aux pages existantes sur PragmaticMemory.wikispaces
-    - Rédiger les fichiers xslt de mise en page au format wikispaces
-    - Choix du lieu de stockage des fichiers de données (xml), styles (xslt) et schemas (xsd)
-        -> Wikispaces
-          avantages     : Wiki gratuit pour un usage privé
-          inconvénients : les versions des fichiers téléchargés dans Wikispaces ne peuvent pas être supprimées.
-                            Conséquence : la limite de taille risque d'être atteinte rapidement si les mises à jour sont fréquentes.
-        -> Google Docs
-          avantages     : Gratuit
-          inconvénients : Site non accessible à partir du bureau
-        -> Digiposte
-          avantages     : Gratuit
-                            Structure ayant plus de chance de durer que d'autre sites
-          inconvénients : Pas de gestion de version : deux fichiers avec un nom identique sont stockés comme deux fichiers différents
-    - Séparer les données du formattage : Utilisation des xslt
-    - Séparer le formattage lié à la vue du formattage lié au media de diffusion : Création de xslt de vue et de xslt de media
-    - Gérer les indentations de ligne de code
-    - Gérer le language (java, sql,...) dans la balise de code
 
 -------------
 - Principes -
@@ -63,19 +29,22 @@
   La principale problèmatique est d'éliminer tout ce qui n'est pas indispensable ou qui peut minimiser la compréhension.
 
   Clarté
-    - de formulation :
+    - de formulation
       Entre deux formulations d'une même information, utiliser la plus claire.
       (à développer) Utiliser la mise en forme pour permettre une distinction des types d'information
-    - lisibilité (utilisation de tabulations)
+    - lisibilité
+        utilisation de tabulations pour les niveaux de listes
+        pas de : à la fin des rubriques
+
 
   Homogénéité
-    - de forme :
+    - de forme
       Utiliser la même forme pour transmettre un même type d'information.
       voir l'utilisation
         -> des temps (futur, présent, ...)
         -> de la casse (majuscule ou minuscule)
         -> de la ponctuation
-    - de terme :
+    - de terme
       Utiliser toujours les mêmes termes pour désigner une même notion.
 
 
@@ -86,43 +55,16 @@
         de la taille des lignes à 150 caractères
         de la longueur des tabulations à 2 espaces
 
-  Séparation
-    - des Données / présentation :
-      Distinguer les informations utiles (données à transmettre) de la mise en page (manière de transmettre les données).
-      Il est ainsi possible d'avoir différentes vues d'un même ensemble de donnée, les différentes vues pouvant être destinées :
-        -> à un rendu par différents outils (wikispaces, wikipedia, navigateur web, ...)
-        -> à insiter sur différents aspects d'un ensemble de données au sein d'un même outil
-      La mise en oeuvre de ce principe est faite par l'utilisation 3 types de fichiers sont utilisés :
-        -> un fichier de "données", d'extension xml, stockant les données utiles
-        -> des fichiers "style", d'extension xslt, définissant chacun un style de présentation
-        ->  des fichiers "link", d'extension xml, chancun associant le fichier de données à un fichier de style
-      Format du fichier de lien
-        <?xml version="1.0" encoding="UTF-8"?>
-        <?xml-stylesheet href="StyleUrl" type="text/xsl" ?>
-        <!DOCTYPE linkedData [<!ENTITY data SYSTEM "DataUrl">]>
-        <linkedData>
-        &data;
-        </linkedData>
-        avec à remplacer dans le template (+ exemple dans le cas de Subversion):
-          -> StyleUrl : adresse Wikispaces du fichier xslt (http://pragmaticmemory.wikispaces.com/file/view/SubversionWikispaces.xsl/353079998/SubversionWikispaces.xsl)
-          -> DataUrl : adresse Wikispaces du fichier xml (http://pragmaticmemory.wikispaces.com/file/view/Subversion.xml/353000074/Subversion.xml)
-          -> Exemple : dans le cas de la page Subversion, Wikispaces.xml associe le fichier de données de Data.xml à la feuille de style Wikispaces.xslt
-      Les fichiers xml doivent être encodés en UTF-8.
-      Concernant les liens vers les pièces jointes Wikispaces contenant les versions de ces fichiers :
-        -> toute mise à jour du fichier de données nécessite la mise à jour de tous les fichiers de link
-        -> toute mise à jour d'un fichier de vue nécessite la mise à jour du fichier link associé
-    - des concepts dans les métadonnées :
-      Liste des concepts : item, group, reference, method, task
 
-  Concision :
-    - de taille :
+  Concision
+    - de taille
       Entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité
       Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.
         -> exemple          : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)
         -> contre-exemple   : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)
       Utiliser les participes-présent plutôt que les subordonnées :
         "permettant" au lieu de "qui permettent" (gain de 4 caractères)
-    - factorisation :
+    - factorisation
       Eliminer les redondances de mots ou de groupes de mots
       Eliminer les redondances d'informations d'un texte avec son titre (à développer)
       Principe des "code smell". Exemple de "code smell" de répétition de mot
@@ -220,7 +162,7 @@
       file set > ... | Foreach{$_.FullName} > string set
       file set > ... | Foreach{$_.Name} > string set
 
-  Exemples :
+  Exemples
     copie de tous les fichiers contenus dans le répertoire "C:\Temp\PS", avec ajout de BEGIN sur la première ligne et de END sur la dernière lignes
       sans utilisation de pipe au sein du Foreach :
         Get-ChildItem -r "C:\Temp\PS" | where {!$_.PsIsContainer} | Foreach{$input=$_.FullName;$output=$_.PSParentPath+"\"+$_.BaseName+".copie.txt";$output;$content=Get-Content($input);Out-File -filePath "$output" -inputObject "BEGIN";Out-File -append -filePath "$output" -inputObject $content;Out-File -append -filePath "$output" -inputObject "END"}
@@ -265,7 +207,7 @@
       TextFX > TextFX Edit > Delete Surplus Blank Lines (mais comportement étrange avec les lignes contenant uniquement des espaces)
 
   Distribuer sur différentes lignes des items faisant partie d'une liste
-    Exemple :
+    Exemple
                  A
       A, B, C -> B
                  C
@@ -276,7 +218,7 @@
       remplacer par : \r\n
 
   Assembler différentes lignes en une liste
-    Exemple :
+    Exemple
       A
       B -> A, B, C
       C
@@ -305,7 +247,7 @@
       2/ passer en majuscule (CTRL + SHIFT + U)
 
   Comparer 2 listes
-    Dans un feuille Excel :
+    Dans une feuille Excel
       en A1, saisir le formattage conditionnel : =ET(NON(ESTVIDE(A1)); NB.SI($B$1:$B$10000; A1)=0)
       en B1, saisir le formattage conditionnel : =ET(NON(ESTVIDE(B1)); NB.SI($A$1:$A$10000; B1)=0)
       copier le format de A1 sur la colonne A
@@ -581,7 +523,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 - SQL -
 -------
   sélectionner le maximum d'une colonne en fonction d'une autre colonne
-    Exemple :
+    Exemple
         create table max_test(code varchar(3), value int)
         insert into max_test(code, value) values ('A', 3)
         insert into max_test(code, value) values ('A', 4)
@@ -648,18 +590,18 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   Le fichier sql.ini
     Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier sql.ini(présent par exemple dans C:\Program Files\sybase\12.5.1\ini).
     Ils sont définis suivant le template :
-        [DATA_SERVEUR_NAME]
-        query=TCP,server-name,port
+      [DATA_SERVEUR_NAME]
+      query=TCP,server-name,port
     Dans l'exemple, server-name est le nom ou l'alias d'une machine
     Un data serveur peut héberger plusieurs bases
     Si A et B sont 2 bases sur un même data server, et si a est un objet de A et b un objet de B, a peut référencer b en utilisant la syntaxe B..b
 
   L'outil isql
     Outil Sybase permettant l'exécution d'un script sql via la syntaxe :
-        isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql
-        Le fichier d'entrée (ex: script.sql) passé à isql peut inclure un fichier (ex : include.sql) à l'aide de la syntaxe :
-            :r C:\Temp\include.sql
-        Il ne doit pas y avoir d'espace entre le début de la ligne et le :r
+      isql -UUSER -PPASSWORD -SDATA_SERVER -DBASE -i C:\Temp\sql\script.sql
+      Le fichier d'entrée (ex: script.sql) passé à isql peut inclure un fichier (ex : include.sql) à l'aide de la syntaxe :
+          :r C:\Temp\include.sql
+      Il ne doit pas y avoir d'espace entre le début de la ligne et le :r
 
   L'outil bcp
     Outil Sybase permettant de sauvegarder les données d'une table dans un fichier, ou d'alimenter une table à partir des données d'un fichier.
@@ -668,15 +610,15 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     Alimentation d'une table à partir d'un fichier
         bcp BASE..TABLE in C:\...\file.csv -U USERNAME -P PASSWORD -S DATASERVER -t ";" -c
 
-  Système de verrouillage de table :
+  Système de verrouillage de table
     Une table est composée de pages. Une page est composées de lignes (row).
-    Les différents systèmes de verrouillage d'une table sont :
-        Allpages locking    : vérouille l'intégralité de la table lors d'une modification de celle-ci (tout select est mis en attente pendant la mise à jour).
-                              c'est le système de verrouillage par défaut d'une table.
-        Datapages locking   : système de verrouillage d'une table dans lequel toutes les pages contenant les lignes en cours de modifications sont verrouillées.
-        Datarows locking    : système de verrouillage d'une table dans lequel toutes les lignes en cours de modifications sont verrouillées.
-                              Il existe un nombre maximal de verrous sur une base Sybase.
-                              Utiliser des verrous de type Datarows permet une granularité plus fine de verrouillage mais accroît les risques d'atteindre la limite maximale du nombre de verrous (du fait de l'attribution d'un verrou à chaque ligne modifiée)
+    Il existe différents systèmes de verrouillage d'une table.
+      Allpages locking    : vérouille l'intégralité de la table lors d'une modification de celle-ci (tout select est mis en attente pendant la mise à jour).
+                            c'est le système de verrouillage par défaut d'une table.
+      Datapages locking   : système de verrouillage d'une table dans lequel toutes les pages contenant les lignes en cours de modifications sont verrouillées.
+      Datarows locking    : système de verrouillage d'une table dans lequel toutes les lignes en cours de modifications sont verrouillées.
+                            Il existe un nombre maximal de verrous sur une base Sybase.
+                            Utiliser des verrous de type Datarows permet une granularité plus fine de verrouillage mais accroît les risques d'atteindre la limite maximale du nombre de verrous (du fait de l'attribution d'un verrou à chaque ligne modifiée)
 
 -------
 - DOS -
@@ -719,16 +661,17 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   LESSCHARDEF
     Variable d'environnement lue par >Less, permettant de définir un jeux de caractères
     La chaîne de caractère affectée à cette variable défini le type des caractères de 0 à 255.
-    Les caractères possibles sont les suivants :
-    +-----------+-----------------------+
-    | Caractère | Signification         |
-    +-----------+-----------------------+
-    |      .    | caractère normal      |
-    |      c    | caractère de contrôle |
-    |      b    | binaire               |
-    +-----------+-----------------------+
+    Liste des caractères possibles
+      +-----------+-----------------------+
+      | Caractère | Signification         |
+      +-----------+-----------------------+
+      |      .    | caractère normal      |
+      |      c    | caractère de contrôle |
+      |      b    | binaire               |
+      +-----------+-----------------------+
     Chacun des caractères ci-dessus peut être précédé par un nombre indiquent sur combien de caractères porte le caractère suivant dans la chaîne
-    Exemple : le jeu prédéfini ascii correspond à 8bcccbcc18b95.b (caractères : 8 binaires + 3 contrôles + 1 binaire + 2 contrôles + 18 binaires + 95 normaux + 1 binaire soit 128 caractères définis)
+    Exemple
+      le jeu prédéfini ascii correspond à 8bcccbcc18b95.b (caractères : 8 binaires + 3 contrôles + 1 binaire + 2 contrôles + 18 binaires + 95 normaux + 1 binaire soit 128 caractères définis)
 
 -----------
 - Clavier -
@@ -736,9 +679,12 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   Basculer entre anglais et français
     ALT + SHIFT
 
-----------
-- RegExp -
-----------
+  Références
+    Raccourcis clavier d'Internet Explorer : http://windows.microsoft.com/fr-BE/windows-vista/Internet-Explorer-8-keyboard-shortcuts
+
+--------------------------------
+- RegExp (expression régulière)-
+--------------------------------
   IntelliJ
       \t : matche avec les tabulations
       \r : non reconnu
@@ -755,14 +701,21 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
       Le symbole indiquant la négation porte sur l'ensemble des caratères qui suivent.
       L'expression signifie donc non(\W ou \d) soit non(\W) et non(\d) c'est-à-dire \w et non(\d).
 
+  Expressions régulières applicable à cette page
+    Recherche des rubriques dans cette page
+      ^-\s.+\s-$
+
+    Recherche des sujet dans cette page
+      ^  \w
+
+    Recherche des espaces de fin de ligne
+      \s+$
 -----------
 - Anglais -
 -----------
-  Les transcriptions phonétiques sont tirées du site suivant : http://www.wordreference.com
-  Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple iː au lieu de i) : http://dictionary.reference.com
-  Traduction : http://www.wordreference.com
-  Liste des symboles phonétiques : http://www.wordreference.com/fr/French-Pronunciation.aspx
-  Prononciation des sons ipa : http://www.antimoon.com/how/pronunc-soundsipa.htm
+  Description
+    Les transcriptions phonétiques sont tirées du site suivant : http://www.wordreference.com
+    Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple iː au lieu de i) : http://dictionary.reference.com
 
   +----------------+----------------------------------+-------------------------------------------------------+
   | mot            | phonétique                       | définition                                            |
@@ -866,6 +819,11 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | December  | dɪˈsembəʳ         |
   +-----------+-------------------+
 
+  Références
+    Traduction : http://www.wordreference.com
+    Liste des symboles phonétiques : http://www.wordreference.com/fr/French-Pronunciation.aspx
+    Prononciation des sons ipa : http://www.antimoon.com/how/pronunc-soundsipa.htm
+
 ------------
 - Français -
 ------------
@@ -877,31 +835,32 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   | atermoiement | (souvent au pluriel) action de différer, retarder; hésitation, tergiversation |
   +----------------------------------------------------------------------------------------------+
 
-  Expressions :
-    à nouveau / de nouveau : 
+  Expressions
+    à nouveau / de nouveau
       "à nouveau"  signifie "d'une nouvelle façon"
       "de nouveau" signifie "de la même façon"
-      Exemples :  J'ai raté ce dessin, je vais le faire à nouveau  : d'une nouvelle façon, donc il a plus de chance d'être réussi. 
+      Exemples :  J'ai raté ce dessin, je vais le faire à nouveau  : d'une nouvelle façon, donc il a plus de chance d'être réussi.
                   J'ai raté ce dessin, je vais le faire de nouveau : de la même façon, donc il sera encore raté.
 
-    d'avance / par avance :
+    d'avance / par avance
       "par avance" est plus littéraire que "d'avance"
 
-    entre autres : 
+    entre autres
       "autres" prend un "s"
 
-    se rappeler / se souvenir :
+    se rappeler / se souvenir
       cf : http://www.pincetonfrancais.be/v1/article.php3?id_article=4
 
-  Références : 
+  Références
     http://www.cnrtl.fr/definition/
     http://www.projet-voltaire.fr/blog/
 
 ---------------
 - Web et Wiki -
 ---------------
-  Créer son wiki      : http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki
-  Créer son site web  : http://www.2createawebsite.com
+  Références
+    Créer son wiki     : http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki
+    Créer son site web : http://www.2createawebsite.com
 
 -------
 - XML -
@@ -929,8 +888,13 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 --------
 - Java -
 --------
+
   Jvm
     Java virtual machine (machine virtuelle java)
+
+  Outils d'analyse d'une jvm
+    VisualVM
+    JConsole : permet en particulier de détecter les deadlock
 
   Classpath
     Ensemble de chemins utilisés par la jvm pour localiser les différentes ressources (dont les classes).
@@ -1002,14 +966,14 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     | TableCellEditor.getTableCellEditorComponent()     | method         | doit renvoyer le composant d'édition                                                                                                                                                                                                          |
     +---------------------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-    Définitions de (et différence entre) column index et model index :
+    Définitions de (et différence entre) column index et model index
       Lors de l'assignation du TableModel à une JTable, pour chaque index i entre 0 et TableModel.getColumnCount(), un TableColumn est créé avec le nom TableModel.getColumnName(i) et avec un model index égal à i.
       De plus, ces TableColumn sont stockés dans le TableColumnModel.
       On appelle column index l'index de stockage d'un TableColumn au sein du TableColumnModel.
       Le model index d'une TableColumn ne varient jamais.
       Par contre, le column index peut varier lors d'un déplacement de colonne.
       L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.
-    Remarque : le tri de chaînes de caractères dépend de la locale
+      Remarque : le tri de chaînes de caractères dépend de la locale
 
   Classes liées aux JTree
     +----------------------------------------------------+--------+--------------------------------------------------------------------------------------------------------------------------+
@@ -1303,7 +1267,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 --------
 - Unix -
 --------
-  shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling :
+  shebang / sha-bang / hashbang / pound-bang / hash-exclam / hash-pling
     Ligne en début de fichier débutant par #!, indiquant au système que le fichier est un script et par quel est son interpréteur associé.
 
     +-------------------+------------------------------------------+
@@ -1322,9 +1286,10 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 
   Connaître les tailles des systèmes de fichier
     Utiliser la commande "df" (disk free)
-  
+
   Afficher les tailles des fonctions "du" et "df" au format standard (Ko, Mo)
     utiliser l'option -h (h pour human, c'est-à-dire lisible par un human)
+
 ----------
 - Hudson -
 ----------
@@ -1395,24 +1360,31 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     |     Ç     |     0199     |
     +-----------+--------------+
 
-  Références :
+  Références
     Liste de codes des caractères : http://www.toutimages.com/codes_caracteres.htm
+
+----------------
+- Sténographie -
+----------------
+  Références
+    Abréviations courantes    : http://monsu.desiderio.free.fr/atelier/abrevia.html
+    Abréviations courantes MR : http://fr.wikipedia.org/wiki/MR
 
 ------------
 - Sécurité -
 ------------
-  Clés asymétriques :
+  Clés asymétriques
     La propriété des clés asymétriques est qu'un message chiffré par une clé publique n'est lisible que par le propriétaire de la clé privée correspondante.
     À l'inverse, un message chiffré par la clé privée sera lisible par tous ceux qui possèdent la clé publique.
     Ainsi, le détenteur de la clé privée peut signer les messages qu'il envoi et lire les messages qui lui sont adressés.
-    
-  Cas de l'autenthification sur un serveur :
-  Un couple (clé publique, clé privé) est généré.
-  La clé publique est déployé sur le serveur.
-  L'utilisateur conserve sa clé privée, qu'il utilise lorqu'il veut se connecter.
-  Il y a autant de couple (clé publique, clé privé) que d'utilisateur.
 
-  Références :
+  Cas de l'autenthification sur un serveur
+    Un couple (clé publique, clé privé) est généré.
+    La clé publique est déployé sur le serveur.
+    L'utilisateur conserve sa clé privée, qu'il utilise lorqu'il veut se connecter.
+    Il y a autant de couple (clé publique, clé privé) que d'utilisateur.
+
+  Références
     Convivialité des mots de passe                      : http://www.baekdal.com/insights/password-security-usability
     Convivialité des mots de passe (FAQ)                : http://www.baekdal.com/insights/the-usability-of-passwords-faq
     Comprendre et maîtriser les clés SSH                : http://www.git-attitude.fr/2010/09/13/comprendre-et-maitriser-les-cles-ssh
@@ -1423,7 +1395,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 --------------
 - Confluence -
 --------------
-  Créer une section que l'on peut masquer / afficher :
+  Créer une section que l'on peut masquer / afficher
     1/ Déclarer le plugin composition-setup en début de page :
       {composition-setup}
       cloak.toggle.type = default
@@ -1448,16 +1420,70 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   Raccourci pour la complétion de nom
     CTRL + K
 
-----------
-- Divers -
-----------
-  Comprendre nos impôts                   : http://www.yterium.net/Comprendre-nos-impots
-  5 alternatives gratuites à Visio        : http://maketecheasier.com/5-best-free-alternatives-to-microsoft-visio/2012/01/20
-  Distribution des niveaux de vie en 2009 : http://www.insee.fr/fr/themes/tableau.asp?reg_id=0&amp;ref_id=NATnon04247
-  Test salaire                            : http://www.inegalites.fr/spip.php?page=salaire
-  Abréviations courantes                  : http://monsu.desiderio.free.fr/atelier/abrevia.html
-  Abréviations courantes MR               : http://fr.wikipedia.org/wiki/MR
-  Raccourcis clavier d'Internet Explorer  : http://windows.microsoft.com/fr-BE/windows-vista/Internet-Explorer-8-keyboard-shortcuts
+---------
+- Droit -
+---------
+  RTT (Syntec)
+    En forfait jour, le nombre de RTT est défini comme le nombre de jours qui fait en sorte qu'un cadre travaille 218.
+    On a donc : nb jours année - nb samedis/dimanches - nb jours fériés - nb RTT = 218
+    On parle de "forfait jour" pour les cadres (218 jours)
+    218 jours = 217 jours + 1 jour au titre de la journée de la solidarité
+    2 logiques possibles :
+      - Logique d'acquisition (acquisition progressive, au réél) : le droit aux jours de RTT s'acquiert en fonction de la durée réelle de travail
+      - Logique forfaitaire (acquisition forfaitaire) : Le nombre de jours ou demi-journées de RTT est déterminé une fois pour toutes de façon forfaitaire en début d'année et les absences n'ont pas d'incidence sur ce nombre de jours.
+    Remarque : calcul de Rtt parfois arrondi à la journée.demi-journée supérieure
+
+    Exemple d'absence
+      Vos salariés bénéficient de 16 jours de RTT dans l’année. Ils travaillent 212 jours sur l’année. L’un d’entre eux est malade pendant 1 mois, ce qui représente 20 jours de travail.
+      Il n’aura plus droit qu’à : [(212 – 20) / 212] x 16 = 14,49 jours de RTT sur l’année (à arrondir, en fonction de l’accord, à la journée ou à la demi-journée supérieure).
+
+    Exemple d'absence
+      Une entreprise travaille 203 jours dans l'année et accorde 22 jours de RTT. Par conséquent, un jour de RTT est dû pour 9,227 jours de travail (203/22).
+      Un salarié absent 12 jours a droit à : (203 - 12)/9,227 = 20,70 jours de RTT.
+
+    Références
+      http://www.syntec-ingenierie.fr/social-et-formation/ressources-de-droit-social/faq/duree-de-travail/
+      http://www.developpez.net/forums/d1004654/emploi-etudes-informatique/droit-travail/conges/calcul-rtt-cadre-modalite-2-a/
+      http://forum-juridique.net-iris.fr/travail/155403-syntec-cadre-forfait-hebdo-218-jours-an.html
+      http://www.withyou.fr/withyou-2012/component/zoo/item/les-rtt
+      http://www.journaldunet.com/management/pratique/conges/5018/calcul-des-jours-de-rtt.html
+      http://www.wk-rh.fr/preview/BeDhHlCfJnJmEiBeImCf/editionXHTML/glpq/110-150_-_jours_de_rtt_sur_l_annee__comment_calculer_les_heures_supplementaires_et_quelle_est_l_incidence_des_absences_/110-150_-_jours_de_rtt_sur_l_annee__comment_calculer_les_heures_supplementaires_et_quelle_est_l_incidence_des_absences_
+      http://www.wk-rh.fr/preview/BeDhHlDgJnAdKqGjGjKp/editionXHTML/lpaye/505-2_-_modalites_d_acquisition_des_jours_de_rtt/505-2_-_modalites_d_acquisition_des_jours_de_rtt
+      http://www.wk-rh.fr/preview/FiOsHlBhHnAd/edition/gldtq/droit_du_travail_au_quotidien/120-160_comment_organiser_la_rtt_par_l_attribution_de_jours_de_repos_sur_l_annee_
+      http://aca-ce.fr/calcul-rtt/
+      http://psa.unsa.org/Texte-pdf/TravCadr.pdf
+      http://www.fr.adp.com/adp-actualites-evenements/actualite-sociale/conges/mai-2012-acquisition-jours-rtt-pendant-conge-maternite
+      http://www1.editions-tissot.fr/actualite/droit-du-travail-article.aspx?secteur=PME&id_art=1354&titre=Jours+de+RTT%E2%80%A6+comment+les+calculer+%3F
+      http://www.cfdt-accenture.org/web/all_workforces_all_levels/5-mes-actualites.php?item=159
+      http://www.cfecgc-valenciennes.org/article-salaries-en-forfait-jour-les-rtt-ne-peuvent-pas-etre-proratisees-en-cas-d-arret-maladie-93038299.html
+      http://avocats.fr/space/carolevercheyregrard/content/_612F159D-1071-45CF-BA13-5A36BEFA3668
+
+  Références
+    Comprendre nos impôts                   : http://www.yterium.net/Comprendre-nos-impots
+    Distribution des niveaux de vie en 2009 : http://www.insee.fr/fr/themes/tableau.asp?reg_id=0&amp;ref_id=NATnon04247
+    Test salaire                            : http://www.inegalites.fr/spip.php?page=salaire
+
+-------------
+- Technique -
+-------------
+  Batteries Lithium-Ion : http://ecoinfo.cnrs.fr/article209.html
+                          http://www.tomshardware.fr/articles/Li-ion-batterie-conservation-entretiens-fabrication,2-396.html
+
+  Port USB
+    Les connecteurs de type A sont du côté du "host device" (qui fournissent l'énergie).
+    Les connecteurs de type B sont du côté du dispositif recevant l'énergie.
+    La raison de l'existence de ces 2 types de connecteurs permettent d'éviter de connecter entre eux 2 "host device".
+
+  Références
+    Port USB : http://en.wikipedia.org/wiki/USB
+
+  Connectique video 
+    Références : http://www.figer.com/Publications/prises.htm
+-------------
+- Logiciels -
+-------------
+  Références
+    5 alternatives gratuites à Visio : http://maketecheasier.com/5-best-free-alternatives-to-microsoft-visio/2012/01/20
 
 -----------
 - Finance -
