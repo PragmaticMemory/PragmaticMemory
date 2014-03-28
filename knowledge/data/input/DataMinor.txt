@@ -1,176 +1,176 @@
--------------
+﻿-------------
 - Principes -
 -------------
-  L'objectif de cette section est de lister les principes permettant d'am�liorer la forme du wiki.
-  La principale probl�matique est d'�liminer tout ce qui n'est pas indispensable ou qui peut minimiser la compr�hension.
+  L'objectif de cette section est de lister les principes permettant d'améliorer la forme du wiki.
+  La principale problèmatique est d'éliminer tout ce qui n'est pas indispensable ou qui peut minimiser la compréhension.
 
-  Clart�
+  Clarté
     - de formulation
-      Entre deux formulations d'une m�me information, utiliser la plus claire.
-      (� d�velopper) Utiliser la mise en forme pour permettre une distinction des types d'information
-    - lisibilit�
+      Entre deux formulations d'une même information, utiliser la plus claire.
+      (à développer) Utiliser la mise en forme pour permettre une distinction des types d'information
+    - lisibilité
         utilisation de tabulations pour les niveaux de listes
-        pas de : � la fin des rubriques
+        pas de : à la fin des rubriques
 
 
-  Homog�n�it�
+  Homogénéité
     - de forme
-      Utiliser la m�me forme pour transmettre un m�me type d'information.
+      Utiliser la même forme pour transmettre un même type d'information.
       voir l'utilisation
-        -> des temps (futur, pr�sent, ...)
+        -> des temps (futur, présent, ...)
         -> de la casse (majuscule ou minuscule)
         -> de la ponctuation
     - de terme
-      Utiliser toujours les m�mes termes pour d�signer une m�me notion.
+      Utiliser toujours les mêmes termes pour désigner une même notion.
 
 
-  Portabilit�
-    - du support des donn�es
-    - du format (adaptation aux tailles d'�cran)
+  Portabilité
+    - du support des données
+    - du format (adaptation aux tailles d'écran)
       limitation
-        de la taille des lignes � 150 caract�res
-        de la longueur des tabulations � 2 espaces
+        de la taille des lignes à 150 caractères
+        de la longueur des tabulations à 2 espaces
 
 
   Concision
     - de taille
-      Entre deux formulations aussi claire d'une m�me information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homog�n�it�
-      Utiliser les formulations avec verbe plut�t que celles avec substantif : ces formulations sont g�n�ralement plus courtes. M�me s'il exite des cas o� elles sont plus longues, on les utilisera syst�matiquement au nom du principe d'homog�nit�.
-        -> exemple          : dire "Utiliser une variable" plut�t que "Utilisation d'une variable" (gain de 5 carat�res)
-        -> contre-exemple   : "Trier les lignes" plus long que "Tri de lignes" (3 caract�res de plus)
-      Utiliser les participes-pr�sent plut�t que les subordonn�es :
-        "permettant" au lieu de "qui permettent" (gain de 4 caract�res)
+      Entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité
+      Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.
+        -> exemple          : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)
+        -> contre-exemple   : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)
+      Utiliser les participes-présent plutôt que les subordonnées :
+        "permettant" au lieu de "qui permettent" (gain de 4 caractères)
     - factorisation
       Eliminer les redondances de mots ou de groupes de mots
-      Eliminer les redondances d'informations d'un texte avec son titre (� d�velopper)
-      Principe des "code smell". Exemple de "code smell" de r�p�tition de mot
+      Eliminer les redondances d'informations d'un texte avec son titre (à développer)
+      Principe des "code smell". Exemple de "code smell" de répétition de mot
         La liste :
-          Principes d'homog�n�it�
-          Principe de s�paration
+          Principes d'homogénéité
+          Principe de séparation
           Principe de concision
-        peut �tre remplac�e par :
+        peut être remplacée par :
           Principes
-            Homog�neit�
-            S�paration
+            Homogéneité
+            Séparation
             Concision
 
 -----------
 - Anglais -
 -----------
 Description
-    Les transcriptions phon�tiques sont tir�es du site suivant : http://www.wordreference.com
-    Pour tous les mots dont la phon�tique n'apparait pas sur le site pr�c�dent, la phon�tique est inspir�e du site suivant (mais en utilisant les symboles du site pr�c�dent, par exemple i? au lieu de i) : http://dictionary.reference.com
+    Les transcriptions phonétiques sont tirées du site suivant : http://www.wordreference.com
+    Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple i? au lieu de i) : http://dictionary.reference.com
 
   +----------------+----------------------------------+-------------------------------------------------------+
-  | mot            | phon�tique                       | d�finition                                            |
+  | mot            | phonétique                       | définition                                            |
   +----------------+----------------------------------+-------------------------------------------------------+
-  | agile          | '�d?a?l/'�d?l                    | agile                                                 |
-  | aka            | (abr�viation) also known as      |                                                       |
-  | area           | 'e?r??                           | r�gion, superficie                                    |
-  | ash            | �?                               | cendre                                                |
-  | automatically  | ???t?'m�t?kl?                    | automatiquement                                       |
-  | bat            | b�t                              | chauve-souris                                         |
+  | agile          | ˈædʒaɪl/ˈædʒl                    | agile                                                 |
+  | aka            | (abréviation) also known as      |                                                       |
+  | area           | ˈeərɪə                           | région, superficie                                    |
+  | ash            | æʃ                               | cendre                                                |
+  | automatically  | ˌɔːtəˈmætɪklɪ                    | automatiquement                                       |
+  | bat            | bæt                              | chauve-souris                                         |
   | bet            | bet                              |                                                       |
-  | bot            | b?t                              |                                                       |
-  | bribe          | bra?b                            | soudoyer, pot de vin                                  |
-  | but            | b?t                              | mais                                                  |
-  | barrage        | 'b�r??? ; b?'r???                | barrage                                               |
-  | bloodstain     | 'bl?dste?n                       | tache de sang                                         |
-  | browse         |  bra?z                           | naviguer                                              |
-  | confluence     | 'k?nfl??ns                       |                                                       |
-  | comfort        | 'k?mf?t                          | confort                                               |
-  | comfortable    | 'k?mft?bl/'k?mf?rtbl             | confortable                                           |
-  | command        | k?'m??nd/k?'m�nd                 |                                                       |
-  | cumbersome     | 'k?mb?rs?m                       | [objet] encombrant [proc�d�, bureaucracie] lourd      |
-  | database       | 'de?t??be?s                      | base de donn�es                                       |
-  | determine      | d?'t??m?n                        |                                                       |
-  | directly       | da?'r?ktli (UK) d?'r?ktli(US)    | directement                                           |
-  | directory      | da?'rekt?r?/d?'rekt?r?/d?'rektr? | r�pertoire                                            |
-  | eclipse        | ?'kl?ps                          | �clipse                                               |
-  | era            | '??r?                            | �poque                                                |
-  | error          | 'er?(r)                          | erreur                                                |
-  | extreme        | ?k'stri?m                        | extreme                                               |
-  | flaccid        | 'fl�s?d/'fl�ks?d                 | flasque, mou                                          |
-  | France         | fr??ns                           | La France                                             |
-  | GUI            | 'gui?                            | Gui User Interface                                    |
-  | house (houses) | 'ha?s ('ha?z?z)                  | maison                                                |
-  | housing        | 'ha?z??                          | logement                                              |
-  | Hudson         | 'h?ds?n                          |                                                       |
-  | integer        | '?nt?d??r                        | math�matiques : entier                                |
-  | intertwine     | ??nt?r'twa?n                     | entrem�ler (histoire, destin)                         |
-  | java           | 'd???v?                          |                                                       |
-  | ladder         | 'l�d?(r)                         | �chelle                                               |
-  | library        | 'la?br?r?/'la?brer?              |                                                       |
-  | limb           | l?m                              | membre (bras , jambe) / branche principale d'un arbre |
-  | loophole       | 'lu?ph??l                        | �chappatoire, faille (ex : texte de loi), meurtri�re  |
-  | ludicrous      | 'lu?d?kr?s                       | ridicule, absurde                                     |
-  | maven          | 'me?v?n                          | expert                                                |
-  | oath           | ???                              | serment                                               |
-  | obstacle       | '?bst?kl                         | obstacle                                              |
-  | outlet         | 'a?tl?t                          | point de vente / exutoire (for emotion)               |
-  | passage        | 'p�s?d?                          | couloir                                               |
-  | pawn           | p??n                             | pions (aux �checs)                                    |
-  | phase          | fe?z                             | phase                                                 |
-  | platform       | 'pl�tf??m                        | plateforme                                            |
-  | pragmatic      | pr�g'm�t?k                       | pragmatic                                             |
-  | probe          | 'pr??b                           | enqu�te, sonde                                        |
-  | procedure      | pr?'si?d??(r)                    | proc�dure                                             |
-  | program        | 'pr??gr�m/'pr??gr?m              | programme                                             |
-  | raw            | r??                              | brut (raw data : donn�es brutes)                      |
-  | reassure       | ?ri??'???(r)/ri??'???r           | rassurer (quelqu'un) (about : sur)                    |
-  | release        | r?'li?s                          | lib�rer, livrer                                       |
-  | row            | r??                              | ligne                                                 |
-  | rug            |'r?g                              | tapis                                                 |
-  | server         | 's??v?(r)                        | serveur                                               |
-  | source         | s??s                             | source                                                |
-  | subversion     | s?'bv???n/s?'bv??r?n             |                                                       |
-  | thumb          | ??m                              | pouce                                                 |
-  | toe            | t??                              | orteil                                                |
-  | tortoise       | 't??t?s                          | tortue (terrestre)                                    |
-  | turtle         | 't??tl                           | tortue (g�n�rique)                                    |
-  | variable       | 've?r??bl                        | variable                                              |
-  | wind           | 'w?nd                            | vent                                                  |
-  | wind           | 'wa?nd                           | enrouler                                              |
-  | workstation    | 'w??k?ste???n                    | http://www.webopedia.com/TERM/W/workstation.html      |
-  | wound          | wu?nd                            | blessure                                              |
-  | wound          | 'wa?nd                           | preterit / past perfect de wind (enrouler)            |
+  | bot            | bɒt                              |                                                       |
+  | bribe          | braɪb                            | soudoyer, pot de vin                                  |
+  | but            | bʌt                              | mais                                                  |
+  | barrage        | ˈbærɑːʒ ; bəˈrɑːʒ                | barrage                                               |
+  | bloodstain     | ˈblʌdsteɪn                       | tache de sang                                         |
+  | browse         |  braʊz                           | naviguer                                              |
+  | confluence     | ˈkɒnflʊəns                       |                                                       |
+  | comfort        | ˈkʌmfət                          | confort                                               |
+  | comfortable    | ˈkʌmftəbl/ˈkʌmfərtbl             | confortable                                           |
+  | command        | kəˈmɑːnd/kəˈmænd                 |                                                       |
+  | cumbersome     | ˈkʌmbərsəm                       | [objet] encombrant [procédé, bureaucracie] lourd      |
+  | database       | ˈdeɪtəˌbeɪs                      | base de données                                       |
+  | determine      | dɪˈtɜːmɪn                        |                                                       |
+  | directly       | daɪˈrɛktli (UK) dɪˈrɛktli(US)    | directement                                           |
+  | directory      | daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ | répertoire                                            |
+  | eclipse        | ɪˈklɪps                          | éclipse                                               |
+  | era            | ˈɪərə                            | époque                                                |
+  | error          | ˈerə(r)                          | erreur                                                |
+  | extreme        | ɪkˈstriːm                        | extreme                                               |
+  | flaccid        | ˈflæsɪd/ˈflæksɪd                 | flasque, mou                                          |
+  | France         | frɑːns                           | La France                                             |
+  | GUI            | ˈguiː                            | Gui User Interface                                    |
+  | house (houses) | ˈhaʊs (ˈhaʊzɪz)                  | maison                                                |
+  | housing        | ˈhaʊzɪŋ                          | logement                                              |
+  | Hudson         | ˈhʌdsən                          |                                                       |
+  | integer        | ˈɪntɪdʒər                        | mathématiques : entier                                |
+  | intertwine     | ˌɪntərˈtwaɪn                     | entremêler (histoire, destin)                         |
+  | java           | ˈdʒɑːvə                          |                                                       |
+  | ladder         | ˈlædə(r)                         | échelle                                               |
+  | library        | ˈlaɪbrərɪ/ˈlaɪbrerɪ              |                                                       |
+  | limb           | lɪm                              | membre (bras , jambe) / branche principale d'un arbre |
+  | loophole       | ˈluːphəʊl                        | échappatoire, faille (ex : texte de loi), meurtrière  |
+  | ludicrous      | ˈluːdɪkrəs                       | ridicule, absurde                                     |
+  | maven          | ˈmeɪvən                          | expert                                                |
+  | oath           | əʊθ                              | serment                                               |
+  | obstacle       | ˈɒbstəkl                         | obstacle                                              |
+  | outlet         | ˈaʊtlɪt                          | point de vente / exutoire (for emotion)               |
+  | passage        | ˈpæsɪdʒ                          | couloir                                               |
+  | pawn           | pɔːn                             | pions (aux échecs)                                    |
+  | phase          | feɪz                             | phase                                                 |
+  | platform       | ˈplætfɔːm                        | plateforme                                            |
+  | pragmatic      | prægˈmætɪk                       | pragmatic                                             |
+  | probe          | ˈprəʊb                           | enquête, sonde                                        |
+  | procedure      | prəˈsiːdʒə(r)                    | procédure                                             |
+  | program        | ˈprəʊɡræm/ˈprəʊɡrəm              | programme                                             |
+  | raw            | rɔː                              | brut (raw data : données brutes)                      |
+  | reassure       | ˌriːəˈʃɔː(r)/riːəˈʃʊər           | rassurer (quelqu'un) (about : sur)                    |
+  | release        | rɪˈliːs                          | libérer, livrer                                       |
+  | row            | rəʊ                              | ligne                                                 |
+  | rug            |ˈrʌg                              | tapis                                                 |
+  | server         | ˈsɜːvə(r)                        | serveur                                               |
+  | source         | sɔːs                             | source                                                |
+  | subversion     | səˈbvɜːʃn/səˈbvɜːrʒn             |                                                       |
+  | thumb          | θʌm                              | pouce                                                 |
+  | toe            | təʊ                              | orteil                                                |
+  | tortoise       | ˈtɔːtəs                          | tortue (terrestre)                                    |
+  | turtle         | ˈtɜːtl                           | tortue (générique)                                    |
+  | variable       | ˈveərɪəbl                        | variable                                              |
+  | wind           | ˈwɪnd                            | vent                                                  |
+  | wind           | ˈwaɪnd                           | enrouler                                              |
+  | workstation    | ˈwɜːkˌsteɪʃən                    | http://www.webopedia.com/TERM/W/workstation.html      |
+  | wound          | wuːnd                            | blessure                                              |
+  | wound          | ˈwaʊnd                           | preterit / past perfect de wind (enrouler)            |
   +----------------+----------------------------------+-------------------------------------------------------+
 
   +-----------+----------------------+----------+
-  | anglais   | phon�tique UK / US   | fran�ais |
+  | anglais   | phonétique UK / US   | français |
   +-----------+----------------------+----------+
-  | Monday    | 'm?nde?   / 'm?ndi   | lundi    |
-  | Tuesday   | 'tju?zde? / 'tju?zdi | mardi    |
-  | Wednesday | 'w?nzde?  / 'w?nzdi  | mercredi |
-  | Thursday  | '???rzde? / '???rzdi | jeudi    |
-  | Friday    | 'fra?de?  / 'fra?di  | vendredi |
+  | Monday    | ˈmʌndeɪ   / ˈmʌndi   | lundi    |
+  | Tuesday   | ˈtjuːzdeɪ / 'tjuːzdi | mardi    |
+  | Wednesday | ˈwɛnzdeɪ  / ˈwɛnzdi  | mercredi |
+  | Thursday  | ˈθɜːrzdeɪ / ˈθɜːrzdi | jeudi    |
+  | Friday    | ˈfraɪdeɪ  / ˈfraɪdi  | vendredi |
   +-----------+----------------------+----------+
 
   +-----------+-------------------+
-  | anglais   | phon�tique        |
+  | anglais   | phonétique        |
   +-----------+-------------------+
-  | January   | 'd?�nj??r?        |
-  | February  | 'febr??r?         |
-  | March     | 'm??rt?           |
-  | April     | 'e?pr?l           |
-  | May       | 'me?              |
-  | June      | d?u?n             |
-  | July      | d?u'la? / d??'la? |
-  | August    | '??g?st           |
-  | September | sep'temb??        |
-  | October   | ?k't??b??         |
-  | November  | n??'vemb??        |
-  | December  | d?'semb??         |
+  | January   | ˈdʒænjʊərɪ        |
+  | February  | ˈfebrʊərɪ         |
+  | March     | ˈmɑːrtʃ           |
+  | April     | ˈeɪprəl           |
+  | May       | ˈmeɪ              |
+  | June      | dʒuːn             |
+  | July      | dʒuˈlaɪ / dʒəˈlaɪ |
+  | August    | ˈɔːgəst           |
+  | September | sepˈtembəʳ        |
+  | October   | ɒkˈtəʊbəʳ         |
+  | November  | nəʊˈvembəʳ        |
+  | December  | dɪˈsembəʳ         |
   +-----------+-------------------+
 
-  R�f�rences
+  Références
     Traduction : http://www.wordreference.com
-    Liste des symboles phon�tiques : http://www.wordreference.com/fr/French-Pronunciation.aspx
+    Liste des symboles phonétiques : http://www.wordreference.com/fr/French-Pronunciation.aspx
     Prononciation des sons ipa : http://www.antimoon.com/how/pronunc-soundsipa.htm
 
 ---------------
 - Web et Wiki -
 ---------------
-  R�f�rences
-    Cr�er son wiki     : http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki
-    Cr�er son site web : http://www.2createawebsite.com
+  Références
+    Créer son wiki     : http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki
+    Créer son site web : http://www.2createawebsite.com
