@@ -21,63 +21,6 @@
 
   Marqueur du nombre de caractères
                                               50>                                              100>                                              150>
-
--------------
-- Principes -
--------------
-  L'objectif de cette section est de lister les principes permettant d'améliorer la forme du wiki.
-  La principale problèmatique est d'éliminer tout ce qui n'est pas indispensable ou qui peut minimiser la compréhension.
-
-  Clarté
-    - de formulation
-      Entre deux formulations d'une même information, utiliser la plus claire.
-      (à développer) Utiliser la mise en forme pour permettre une distinction des types d'information
-    - lisibilité
-        utilisation de tabulations pour les niveaux de listes
-        pas de : à la fin des rubriques
-
-
-  Homogénéité
-    - de forme
-      Utiliser la même forme pour transmettre un même type d'information.
-      voir l'utilisation
-        -> des temps (futur, présent, ...)
-        -> de la casse (majuscule ou minuscule)
-        -> de la ponctuation
-    - de terme
-      Utiliser toujours les mêmes termes pour désigner une même notion.
-
-
-  Portabilité
-    - du support des données
-    - du format (adaptation aux tailles d'écran)
-      limitation
-        de la taille des lignes à 150 caractères
-        de la longueur des tabulations à 2 espaces
-
-
-  Concision
-    - de taille
-      Entre deux formulations aussi claire d'une même information, utiliser la plus courte, sauf si elle ne respecte pas le principe d'homogénéité
-      Utiliser les formulations avec verbe plutôt que celles avec substantif : ces formulations sont généralement plus courtes. Même s'il exite des cas où elles sont plus longues, on les utilisera systématiquement au nom du principe d'homogénité.
-        -> exemple          : dire "Utiliser une variable" plutôt que "Utilisation d'une variable" (gain de 5 caratères)
-        -> contre-exemple   : "Trier les lignes" plus long que "Tri de lignes" (3 caractères de plus)
-      Utiliser les participes-présent plutôt que les subordonnées :
-        "permettant" au lieu de "qui permettent" (gain de 4 caractères)
-    - factorisation
-      Eliminer les redondances de mots ou de groupes de mots
-      Eliminer les redondances d'informations d'un texte avec son titre (à développer)
-      Principe des "code smell". Exemple de "code smell" de répétition de mot
-        La liste :
-          Principes d'homogénéité
-          Principe de séparation
-          Principe de concision
-        peut être remplacée par :
-          Principes
-            Homogéneité
-            Séparation
-            Concision
-
 --------------
 - Powershell -
 --------------
@@ -316,6 +259,7 @@
   Fichier de configuration globale Git
     fichier .gitConfig dans le répertoire %USERPROFILE%
     Récupérable en java par : System.getProperty("user.home");
+
   Branche
     Pour Git, une branche est un pointeur sur un commit spécifique. Lors du checkout d'une branche, le HEAD et la branche pointent sur le même commit.
 
@@ -526,12 +470,10 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     Exemple
         create table max_test(code varchar(3), value int)
         insert into max_test(code, value) values ('A', 3)
-        insert into max_test(code, value) values ('A', 4)
         insert into max_test(code, value) values ('A', 5)
-        insert into max_test(code, value) values ('B', 1)
         insert into max_test(code, value) values ('B', 4)
-        insert into max_test(code, value) values ('C', 7)
         insert into max_test(code, value) values ('C', 6)
+        insert into max_test(code, value) values ('C', 7)
         insert into max_test(code, value) values ('C', 5)
 
     select code, max(value) from max_test group by code
@@ -710,119 +652,15 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 
     Recherche des espaces de fin de ligne
       \s+$
+
 -----------
 - Anglais -
 -----------
-  Description
-    Les transcriptions phonétiques sont tirées du site suivant : http://www.wordreference.com
-    Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple iː au lieu de i) : http://dictionary.reference.com
-
-  +----------------+----------------------------------+-------------------------------------------------------+
-  | mot            | phonétique                       | définition                                            |
-  +----------------+----------------------------------+-------------------------------------------------------+
-  | agile          | ˈædʒaɪl/ˈædʒl                    | agile                                                 |
-  | aka            | (abréviation) also known as      |                                                       |
-  | area           | ˈeərɪə                           | région, superficie                                    |
-  | ash            | æʃ                               | cendre                                                |
-  | automatically  | ˌɔːtəˈmætɪklɪ                    | automatiquement                                       |
-  | bat            | bæt                              | chauve-souris                                         |
-  | bet            | bet                              |                                                       |
-  | bot            | bɒt                              |                                                       |
-  | bribe          | braɪb                            | soudoyer, pot de vin                                  |
-  | but            | bʌt                              | mais                                                  |
-  | barrage        | ˈbærɑːʒ ; bəˈrɑːʒ                | barrage                                               |
-  | bloodstain     | ˈblʌdsteɪn                       | tache de sang                                         |
-  | browse         |  braʊz                           | naviguer                                              |
-  | confluence     | ˈkɒnflʊəns                       |                                                       |
-  | comfort        | ˈkʌmfət                          | confort                                               |
-  | comfortable    | ˈkʌmftəbl/ˈkʌmfərtbl             | confortable                                           |
-  | command        | kəˈmɑːnd/kəˈmænd                 |                                                       |
-  | cumbersome     | ˈkʌmbərsəm                       | [objet] encombrant [procédé, bureaucracie] lourd      |
-  | database       | ˈdeɪtəˌbeɪs                      | base de données                                       |
-  | determine      | dɪˈtɜːmɪn                        |                                                       |
-  | directly       | daɪˈrɛktli (UK) dɪˈrɛktli(US)    | directement                                           |
-  | directory      | daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ | répertoire                                            |
-  | eclipse        | ɪˈklɪps                          | éclipse                                               |
-  | era            | ˈɪərə                            | époque                                                |
-  | error          | ˈerə(r)                          | erreur                                                |
-  | extreme        | ɪkˈstriːm                        | extreme                                               |
-  | flaccid        | ˈflæsɪd/ˈflæksɪd                 | flasque, mou                                          |
-  | France         | frɑːns                           | La France                                             |
-  | GUI            | ˈguiː                            | Gui User Interface                                    |
-  | house (houses) | ˈhaʊs (ˈhaʊzɪz)                  | maison                                                |
-  | housing        | ˈhaʊzɪŋ                          | logement                                              |
-  | Hudson         | ˈhʌdsən                          |                                                       |
-  | integer        | ˈɪntɪdʒər                        | mathématiques : entier                                |
-  | intertwine     | ˌɪntərˈtwaɪn                     | entremêler (histoire, destin)                         |
-  | java           | ˈdʒɑːvə                          |                                                       |
-  | ladder         | ˈlædə(r)                         | échelle                                               |
-  | library        | ˈlaɪbrərɪ/ˈlaɪbrerɪ              |                                                       |
-  | limb           | lɪm                              | membre (bras , jambe) / branche principale d'un arbre |
-  | loophole       | ˈluːphəʊl                        | échappatoire, faille (ex : texte de loi), meurtrière  |
-  | ludicrous      | ˈluːdɪkrəs                       | ridicule, absurde                                     |
-  | maven          | ˈmeɪvən                          | expert                                                |
-  | oath           | əʊθ                              | serment                                               |
-  | obstacle       | ˈɒbstəkl                         | obstacle                                              |
-  | outlet         | ˈaʊtlɪt                          | point de vente / exutoire (for emotion)               |
-  | passage        | ˈpæsɪdʒ                          | couloir                                               |
-  | pawn           | pɔːn                             | pions (aux échecs)                                    |
-  | phase          | feɪz                             | phase                                                 |
-  | platform       | ˈplætfɔːm                        | plateforme                                            |
-  | pragmatic      | prægˈmætɪk                       | pragmatic                                             |
-  | probe          | ˈprəʊb                           | enquête, sonde                                        |
-  | procedure      | prəˈsiːdʒə(r)                    | procédure                                             |
-  | program        | ˈprəʊɡræm/ˈprəʊɡrəm              | programme                                             |
-  | raw            | rɔː                              | brut (raw data : données brutes)                      |
-  | reassure       | ˌriːəˈʃɔː(r)/riːəˈʃʊər           | rassurer (quelqu'un) (about : sur)                    |
-  | release        | rɪˈliːs                          | libérer, livrer                                       |
-  | row            | rəʊ                              | ligne                                                 |
-  | rug            |ˈrʌg                              | tapis                                                 |
-  | server         | ˈsɜːvə(r)                        | serveur                                               |
-  | source         | sɔːs                             | source                                                |
-  | subversion     | səˈbvɜːʃn/səˈbvɜːrʒn             |                                                       |
-  | thumb          | θʌm                              | pouce                                                 |
-  | toe            | təʊ                              | orteil                                                |
-  | tortoise       | ˈtɔːtəs                          | tortue (terrestre)                                    |
-  | turtle         | ˈtɜːtl                           | tortue (générique)                                    |
-  | variable       | ˈveərɪəbl                        | variable                                              |
-  | wind           | ˈwɪnd                            | vent                                                  |
-  | wind           | ˈwaɪnd                           | enrouler                                              |
-  | workstation    | ˈwɜːkˌsteɪʃən                    | http://www.webopedia.com/TERM/W/workstation.html      |
-  | wound          | wuːnd                            | blessure                                              |
-  | wound          | ˈwaʊnd                           | preterit / past perfect de wind (enrouler)            |
-  +----------------+----------------------------------+-------------------------------------------------------+
-
-  +-----------+----------------------+----------+
-  | anglais   | phonétique UK / US   | français |
-  +-----------+----------------------+----------+
-  | Monday    | ˈmʌndeɪ   / ˈmʌndi   | lundi    |
-  | Tuesday   | ˈtjuːzdeɪ / 'tjuːzdi | mardi    |
-  | Wednesday | ˈwɛnzdeɪ  / ˈwɛnzdi  | mercredi |
-  | Thursday  | ˈθɜːrzdeɪ / ˈθɜːrzdi | jeudi    |
-  | Friday    | ˈfraɪdeɪ  / ˈfraɪdi  | vendredi |
-  +-----------+----------------------+----------+
-
-  +-----------+-------------------+
-  | anglais   | phonétique        |
-  +-----------+-------------------+
-  | January   | ˈdʒænjʊərɪ        |
-  | February  | ˈfebrʊərɪ         |
-  | March     | ˈmɑːrtʃ           |
-  | April     | ˈeɪprəl           |
-  | May       | ˈmeɪ              |
-  | June      | dʒuːn             |
-  | July      | dʒuˈlaɪ / dʒəˈlaɪ |
-  | August    | ˈɔːgəst           |
-  | September | sepˈtembəʳ        |
-  | October   | ɒkˈtəʊbəʳ         |
-  | November  | nəʊˈvembəʳ        |
-  | December  | dɪˈsembəʳ         |
-  +-----------+-------------------+
-
-  Références
-    Traduction : http://www.wordreference.com
-    Liste des symboles phonétiques : http://www.wordreference.com/fr/French-Pronunciation.aspx
-    Prononciation des sons ipa : http://www.antimoon.com/how/pronunc-soundsipa.htm
+  Pluriel :
+    - en anglais  : tout ce qui est différent de 1
+    - en français : commence à partir de 2
+    Références :
+      https://www.druide.com/enquetes/15-gramme-ou-15-grammes
 
 ------------
 - Français -
@@ -855,32 +693,13 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     http://www.cnrtl.fr/definition/
     http://www.projet-voltaire.fr/blog/
 
----------------
-- Web et Wiki -
----------------
-  Références
-    Créer son wiki     : http://fr.mashable.com/2008/07/30/30-solutions-pour-creer-votre-propre-wiki
-    Créer son site web : http://www.2createawebsite.com
-
 -------
 - XML -
 -------
-  Tutoriaux xml
-    xml, xslt, dtd, ... : http://www.liafa.univ-paris-diderot.fr/~carton/Enseignement/XML/Cours/index.html
 
   Testeurs Xslt online
     mark bucayan : http://markbucayan.appspot.com/xslt/index.html
     xslt cake : http://www.xsltcake.com
-
-  Tutoriaux Xslt
-    Article sur les node set intermédiaires (utilisé pour l'imbrication de formatages comme élément de liste souligné) : http://xmlfr.org/documentations/faq/041013-0001
-    Regroupement xslt : la méthode Muenchian : http://www.jenitennison.com/xslt/grouping/muenchian.html
-    Traitement des espaces blancs : décrire la problématique en citant le livre "XSLT Fondamental" de Philippe Drix, aux éditions Eyrolles.
-
-  Tutoriaux XSD
-    Tutorial Xsd 1  : http://www.codeproject.com/Articles/18426/XSD-Tutorial-Part-1-of-5-Elements-and-Attributes
-    Tutorial Xsd 2  : http://www.w3schools.com/schema/default.asp
-    DTD et XSD      : http://gilles-chagnon.developpez.com/cours/xml/dtd-et-schemas
 
   Validateur XSD online
     Xsd online validator : http://www.corefiling.com/opensource/schemaValidate.html
@@ -975,6 +794,10 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
       L'ordre de stockage des TableColumn dans le TableColumnModel (column index) représente l'ordre d'affichage des colonnes par la JTable.
       Remarque : le tri de chaînes de caractères dépend de la locale
 
+    Si l'ascenceur horizontal d'une JScrollBar contenant une JTable n'apparait pas, même quand des colonnes ne sont pas visibles dans son viewport
+      Vérifier que le mode de redimensionnement de la JTable est bien en AUTO_RESIZE_OFF.
+      Si ce n'est pas le cas, appeler setAutoResizeMode(JTable.AUTO_RESIZE_OFF)
+       
   Classes liées aux JTree
     +----------------------------------------------------+--------+--------------------------------------------------------------------------------------------------------------------------+
     | Objet                                              | Type   | Description                                                                                                              |
@@ -1045,6 +868,21 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
   Effectuer un traitement à la fermeture d'un JInternalFrame
     Passer une instance de javax.swing.event.InternalFrameAdapter à la méthode JInternalFrame.addInternalFrameListener(...)
 
+  Retrouver la fenêtre (Window) dans la quelle est contenu un composant Component (c)
+    SwingUtilities.getWindowAncestor(c)
+
+  Faire passer une fenêtre w (Window) au premier plan
+    w.toFront()
+
+  Trier une liste en utilisant un comparator
+    utiliser Collections.sort(...)
+  
+  Chainer des comparator (c'est-à-dire, tri sur critère 1, puis critère 2, puis critère 3...)
+    utiliser ComparatorUtils.chainedComparator(...)
+  
+  Inverser un comparator
+    utiliser ComparatorUtils.reversedComparator(...)
+  
   Lire les lignes d'un fichier (jdk6)
     +-----------+-----------+
     | package   | class     |
@@ -1172,58 +1010,58 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     }
 
     L'éxécution du code précédent affiche la sortie suivante :
-        MATCH !
-        group()= abcd
-        offset before first matched character = 0
-        offset after last matched character= 4
-        groupCount = 3
+      MATCH !
+      group()= abcd
+      offset before first matched character = 0
+      offset after last matched character= 4
+      groupCount = 3
         group(0) = abcd
-        offset before group(0) first character= 0
-        offset after group(0) last character = 4
+          offset before group(0) first character= 0
+          offset after group(0) last character = 4
         group(1) = a
-        offset before group(1) first character= 0
-        offset after group(1) last character = 1
+          offset before group(1) first character= 0
+          offset after group(1) last character = 1
         group(2) = bc
-        offset before group(2) first character= 1
-        offset after group(2) last character = 3
+          offset before group(2) first character= 1
+          offset after group(2) last character = 3
         group(3) = d
-        offset before group(3) first character= 3
-        offset after group(3) last character = 4
-        MATCH !
-        group()= efgh
-        offset before first matched character = 5
-        offset after last matched character= 9
-        groupCount = 3
+          offset before group(3) first character= 3
+          offset after group(3) last character = 4
+      MATCH !
+      group()= efgh
+      offset before first matched character = 5
+      offset after last matched character= 9
+      groupCount = 3
         group(0) = efgh
-        offset before group(0) first character= 5
-        offset after group(0) last character = 9
+          offset before group(0) first character= 5
+          offset after group(0) last character = 9
         group(1) = e
-        offset before group(1) first character= 5
-        offset after group(1) last character = 6
+          offset before group(1) first character= 5
+          offset after group(1) last character = 6
         group(2) = fg
-        offset before group(2) first character= 6
-        offset after group(2) last character = 8
+          offset before group(2) first character= 6
+          offset after group(2) last character = 8
         group(3) = h
-        offset before group(3) first character= 8
-        offset after group(3) last character = 9
-        MATCH !
-        group()= ijkl
-        offset before first matched character = 9
-        offset after last matched character= 13
-        groupCount = 3
+          offset before group(3) first character= 8
+          offset after group(3) last character = 9
+      MATCH !
+      group()= ijkl
+      offset before first matched character = 9
+      offset after last matched character= 13
+      groupCount = 3
         group(0) = ijkl
-        offset before group(0) first character= 9
-        offset after group(0) last character = 13
+          offset before group(0) first character= 9
+          offset after group(0) last character = 13
         group(1) = i
-        offset before group(1) first character= 9
-        offset after group(1) last character = 10
+          offset before group(1) first character= 9
+          offset after group(1) last character = 10
         group(2) = jk
-        offset before group(2) first character= 10
-        offset after group(2) last character = 12
+          offset before group(2) first character= 10
+          offset after group(2) last character = 12
         group(3) = l
-        offset before group(3) first character= 12
-        offset after group(3) last character = 13
-        modifiedString = X XXmn
+          offset before group(3) first character= 12
+          offset after group(3) last character = 13
+      modifiedString = X XXmn
 
   Décompiler des classes java
     utiliser l'outil JD-GUI (http://java.decompiler.free.fr/?q=jdgui)
@@ -1479,6 +1317,7 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
 
   Connectique video 
     Références : http://www.figer.com/Publications/prises.htm
+
 -------------
 - Logiciels -
 -------------
