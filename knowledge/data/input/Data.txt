@@ -376,6 +376,11 @@
 
     Commandes Git
 
+      Paramètre des commandes Git
+        Les paramètres des commandes git peuvent exister
+          - sous leur forme complète        : --nom_de_parametre
+          - parfoir, sous une forme abrègée :  -x                (où x est une lettre)
+
       Commande commit
         Création d'un commit fils du commit pointé par le HEAD.
         Après le commit créé, le HEAD est déplacé vers ce nouveau commit ainsi que la branche si le HEAD n'est pas détaché.
@@ -482,25 +487,26 @@
       git reflog
 
       Principaux formats
-      +--------+-------------------------------------------------+     +--------+-------------------------------------------------+
-      | Format | Description                                     |     | Format | Description                                     |
-      +--------+-------------------------------------------------+     +--------+-------------------------------------------------+
-      |   %H   | Commit hash                                     |     |   %an  | Author name                                     |
-      |   %h   | Abbreviated commit hash                         |     |   %ae  | Author e-mail                                   |
-      |   %T   | Tree hash                                       |     |   %ad  | Author date (format respects the –date= option) |
-      |   %t   | Abbreviated tree hash                           |     |   %ar  | Author date, relative                           |
-      |   %P   | Parent hashes                                   |     |   %cn  | Committer name                                  |
-      |   %p   | Abbreviated parent hashes                       |     |   %ce  | Committer email                                 |
-      |   %s   | Subject                                         |     |   %cd  | Committer date                                  |
-      |        |                                                 |     |   %cr  | Committer date, relative                        | 
-      +--------+-------------------------------------------------+     +--------+-------------------------------------------------+
+      +--------+---------------------------+     +--------+-------------------------------------------------+
+      | Format | Description               |     | Format | Description                                     |
+      +--------+---------------------------+     +--------+-------------------------------------------------+
+      |   %H   | Commit hash               |     |   %an  | Author name                                     |
+      |   %h   | Abbreviated commit hash   |     |   %ae  | Author e-mail                                   |
+      |   %T   | Tree hash                 |     |   %ad  | Author date (format respects the –date= option) |
+      |   %t   | Abbreviated tree hash     |     |   %ar  | Author date, relative                           |
+      |   %P   | Parent hashes             |     |   %cn  | Committer name                                  |
+      |   %p   | Abbreviated parent hashes |     |   %ce  | Committer email                                 |
+      |   %s   | Subject                   |     |   %cd  | Committer date                                  |
+      |        |                           |     |   %cr  | Committer date, relative                        | 
+      +--------+---------------------------+     +--------+-------------------------------------------------+
 
     Connaitre les "parent number" d'un merge
       git show --pretty=raw SHA1 (cette commande affiche les parents dans l'ordre, le premier indice étant 1)
 
-    Afficher l'historique des commit (version graphique)
-      gitk
-      gitk --all
+    Afficher l'historique des commit (version graphique)    
+      Utiliser Gitk, qui est le "Git repository browser" :
+        gitk
+        gitk --all
 
     Afficher les différences
       git diff            : différences entre le répertoire de travail et l'index (unified diff format)
@@ -545,8 +551,9 @@
   Mettre des modifications de côté (= faire un stash)
 
     git stash                 : place les modifications locales (répertoire de travail + index) sur le dessus de la pile des stash.
-                                Après exécution de cette commande, il n'y a plus de modification locale.
+                                Après exécution de cette commande, il n'y a plus de modification locale (exécution cachée de "git reset --hard").
                                 Les fichiers non suivis ne font pas parti du stash.
+    git stash list            : affiche la pile des stash
     git stash apply           : récupére en local le stash du dessus de la pile (qui reste sur le dessus de la pile)
                                 Applique uniquement les modifications sur le répertoire de travail, mais pas sur l'index. 
     git stash apply stash@{0} : équivalent à la commande précédente
@@ -559,8 +566,8 @@
                                   git stash drop
     git stash drop            : se débarrasse du stash sur le dessus de la pile des stash
     git stash drop stash@{2}  : se débarrasse du 3ème stash à partir du dessus de la pile des stash
-    git stash list            : affiche la pile des stash
-    git stash show  -p        : montre les modifications du stash sur le dessus de la pile
+    git stash clear           : supprimer toute la pile des stash
+    git stash show -p         : montre les modifications du stash sur le dessus de la pile
                                 p = patch
 
   Gestion des répertoires Git distants (remote repositories) et interactions
@@ -676,7 +683,7 @@
     Recovering lost commits         : http://www.programblings.com/2008/06/07/the-illustrated-guide-to-recovering-lost-commits-with-git/
     Git internals                   : https://github.com/pluralsight/git-internals-pdf/releases/download/v2.0/peepcode-git.pdf
     Git diff (gitguys)              : http://www.gitguys.com/topics/git-diff/
-    Liste des principales commandes : http://www.siteground.com/tutorials/git/commands.htm
+    Liste des principales commandes : http://www.siteground.com/tutorials/git/commands.htm    
     Memo Git                        : http://blog.adrien-robert.me/2011/02/19/un-memo-pour-git/
 
 -------
@@ -1442,6 +1449,57 @@
 
     Arrays.copyOfRange(T[] original, int from, int to)
 
+  Détecter le proxy utilisé par un PC
+    +-----------+-------------------+
+    | package   | class             |
+    +-----------+-------------------+
+    | java.util | Iterator          |
+    |           | List              |
+    | java.net  | InetSocketAddress |
+    |           | Proxy             |
+    |           | ProxySelector     |
+    |           | URI               |
+    +-----------+-------------------+
+
+    public static void main(String[] args) {
+      try {
+        System.setProperty("java.net.useSystemProxies", "true");
+        List<Proxy> proxyList = ProxySelector.getDefault().select(new URI("http://www.yahoo.com/"));
+
+        for (Iterator iter = proxyList.iterator(); iter.hasNext(); ) {
+          Proxy proxy = (Proxy)iter.next();
+          System.out.println("proxy type : " + proxy.type());
+          InetSocketAddress addr = (InetSocketAddress)proxy.address();
+          if (addr == null) {
+            System.out.println("no Proxy");
+            return;
+          }
+          System.out.println("proxy hostname : " + addr.getHostName());
+          System.out.println("proxy port : " + addr.getPort());
+        }
+      }
+      catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+
+    Référence : http://stackoverflow.com/questions/1626549/authenticated-http-proxy-with-java
+  
+  Récupérer les différentes informations d'une URL
+
+    URL url = new URL("http://example.com:80/docs/books/tutorial/index.html?name=networking#DOWNLOADING");
+
+    url.getProtocol()  : http
+    url.getAuthority() : example.com:80
+    url.getHost()      : example.com
+    url.getPort()      : 80
+    url.getPath()      : /docs/books/tutorial/index.html
+    url.getQuery()     : name=networking
+    url.getFile()      : /docs/books/tutorial/index.html?name=networking
+    url.getRef()       : DOWNLOADING
+      
+    Référence : http://docs.oracle.com/javase/tutorial/networking/urls/urlInfo.html
+      
   Références
     Liste des librairies tiers java : http://www.jdocs.com/page/AllLibraries
     Librairies Apache Common (Liste et documentation) : http://commons.apache.org
@@ -1617,6 +1675,18 @@
       {cloak:id=Step1|visible=false} !horodate.PNG|align=center!
       {cloak}
 
+
+----------------
+- Web Services -
+----------------
+  Les 3 types :
+  - XML-RCP
+  - SOAP
+  - REST
+  
+  Références :
+   Les 3 types de Web Service : http://www.journaldunet.com/developpeur/tutoriel/xml/041105-xml-rpc-soap-rest-1a.shtml
+   Annuaire des API           : http://www.programmableweb.com/apis/directory
 
 ---------
 - Excel -
