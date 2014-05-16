@@ -1679,14 +1679,39 @@
 ----------------
 - Web Services -
 ----------------
-  Les 3 types :
-  - XML-RCP
-  - SOAP
-  - REST
+
+  Format d'une url :
+    url = scheme://domain:port/path?query_string#fragment_id
+  
+    scheme       : le protocole (http, https, ftp, file, ...)
+    query_string : les données à passer au serveur.
+                   exemple : param_name_1=value_1&param_name_2=value_2
+    fragment_id  : indentifie une position particulière au sein même de la ressource
+    
+    exemple :
+      url          = http://example.com:80/docs/books/tutorial/index.html?name=networking#DOWNLOADING
+      scheme       = http
+      domain       = example.com
+      port         = 80
+      path         = /docs/books/tutorial/index.html
+      query_string = name=networking
+      fragment_id  = DOWNLOADING
+
+  Les 3 types de Web Service :
+    - XML-RCP
+    - SOAP
+    - REST (le plus simple à manipuler)
+  
+  Les types de format de fichier :
+    - XML
+    - JSON : format récursif compatible avec JavaScript
+  
   
   Références :
    Les 3 types de Web Service : http://www.journaldunet.com/developpeur/tutoriel/xml/041105-xml-rpc-soap-rest-1a.shtml
    Annuaire des API           : http://www.programmableweb.com/apis/directory
+   REST                       : http://www.croes.org/gerald/blog/qu-est-ce-que-rest/447/
+   rest vs soap               : http://geeknizer.com/rest-vs-soap-using-http-choosing-the-right-webservice-protocol/
 
 ---------
 - Excel -
