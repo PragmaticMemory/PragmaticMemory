@@ -915,12 +915,15 @@
 - Français -
 ------------
   Définition : http://www.lexilogos.com/francais_langue_dictionnaires.htm
-
-  +--------------+-------------------------------------------------------------------------------+
-  | mot          | définition                                                                    |
-  +--------------+-------------------------------------------------------------------------------+
-  | atermoiement | (souvent au pluriel) action de différer, retarder; hésitation, tergiversation |
-  +----------------------------------------------------------------------------------------------+
+               http://www.le-dictionnaire.com
+  +----------------+-------------------------------------------------------------------------------+
+  | mot            | définition                                                                    |
+  +----------------+-------------------------------------------------------------------------------+
+  | atermoiement   | (souvent au pluriel) action de différer, retarder; hésitation, tergiversation |
+  | magnanime      | miséricordieux, bienveillant, clément                                         |
+  | miséricordieux | (religion) qui pardonne facilement                                            |
+  | pusillanime    | manquant de courage, craignant les responsabilités                            |
+  +------------------------------------------------------------------------------------------------+
 
   Expressions
     à nouveau / de nouveau
