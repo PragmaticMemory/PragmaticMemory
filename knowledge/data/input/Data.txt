@@ -1706,18 +1706,25 @@
     - XML
     - JSON : format récursif compatible avec JavaScript
   
+  Les 4 couches
+    process     : découverte du service
+    description : wsdl
+    invocation  : rest, soap, wml-rpc
+    transport   : http
+    
   
   Références :
    Les 3 types de Web Service : http://www.journaldunet.com/developpeur/tutoriel/xml/041105-xml-rpc-soap-rest-1a.shtml
    Annuaire des API           : http://www.programmableweb.com/apis/directory
    REST                       : http://www.croes.org/gerald/blog/qu-est-ce-que-rest/447/
    rest vs soap               : http://geeknizer.com/rest-vs-soap-using-http-choosing-the-right-webservice-protocol/
-
+   rest, soap, rcp            : http://jimmyzimmerman.com/blog/2007/01/soap-xml-rpc-and-rest.html
+   http://www.java-forums.org/ocpjwsd/56588-tutorial-review-java-web-services-web-service-developer-exam.html
 ---------
 - Excel -
 ---------
   Différence entre 2 dates
-    Utiliser la fonction "cachée" (c'est-à-dire non documenté) DATEDIF
+    Utiliser la fonction "cachée" (c'est-à-dire non documentée) DATEDIF
 
 -----------
 - Outlook -

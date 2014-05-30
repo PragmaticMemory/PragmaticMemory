@@ -59,83 +59,95 @@
 -----------
 Description
     Les transcriptions phonétiques sont tirées du site suivant : http://www.wordreference.com
-    Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple i? au lieu de i) : http://dictionary.reference.com
+    Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple iː au lieu de i) : http://dictionary.reference.com
 
-  +----------------+----------------------------------+-------------------------------------------------------+
-  | mot            | phonétique                       | définition                                            |
-  +----------------+----------------------------------+-------------------------------------------------------+
-  | agile          | ˈædʒaɪl/ˈædʒl                    | agile                                                 |
-  | aka            | (abréviation) also known as      |                                                       |
-  | area           | ˈeərɪə                           | région, superficie                                    |
-  | ash            | æʃ                               | cendre                                                |
-  | automatically  | ˌɔːtəˈmætɪklɪ                    | automatiquement                                       |
-  | bat            | bæt                              | chauve-souris                                         |
-  | bet            | bet                              |                                                       |
-  | bot            | bɒt                              |                                                       |
-  | bribe          | braɪb                            | soudoyer, pot de vin                                  |
-  | but            | bʌt                              | mais                                                  |
-  | barrage        | ˈbærɑːʒ ; bəˈrɑːʒ                | barrage                                               |
-  | bloodstain     | ˈblʌdsteɪn                       | tache de sang                                         |
-  | browse         |  braʊz                           | naviguer                                              |
-  | confluence     | ˈkɒnflʊəns                       |                                                       |
-  | comfort        | ˈkʌmfət                          | confort                                               |
-  | comfortable    | ˈkʌmftəbl/ˈkʌmfərtbl             | confortable                                           |
-  | command        | kəˈmɑːnd/kəˈmænd                 |                                                       |
-  | cumbersome     | ˈkʌmbərsəm                       | [objet] encombrant [procédé, bureaucracie] lourd      |
-  | database       | ˈdeɪtəˌbeɪs                      | base de données                                       |
-  | determine      | dɪˈtɜːmɪn                        |                                                       |
-  | directly       | daɪˈrɛktli (UK) dɪˈrɛktli(US)    | directement                                           |
-  | directory      | daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ | répertoire                                            |
-  | eclipse        | ɪˈklɪps                          | éclipse                                               |
-  | era            | ˈɪərə                            | époque                                                |
-  | error          | ˈerə(r)                          | erreur                                                |
-  | extreme        | ɪkˈstriːm                        | extreme                                               |
-  | flaccid        | ˈflæsɪd/ˈflæksɪd                 | flasque, mou                                          |
-  | France         | frɑːns                           | La France                                             |
-  | GUI            | ˈguiː                            | Gui User Interface                                    |
-  | house (houses) | ˈhaʊs (ˈhaʊzɪz)                  | maison                                                |
-  | housing        | ˈhaʊzɪŋ                          | logement                                              |
-  | Hudson         | ˈhʌdsən                          |                                                       |
-  | integer        | ˈɪntɪdʒər                        | mathématiques : entier                                |
-  | intertwine     | ˌɪntərˈtwaɪn                     | entremêler (histoire, destin)                         |
-  | java           | ˈdʒɑːvə                          |                                                       |
-  | ladder         | ˈlædə(r)                         | échelle                                               |
-  | library        | ˈlaɪbrərɪ/ˈlaɪbrerɪ              |                                                       |
-  | limb           | lɪm                              | membre (bras , jambe) / branche principale d'un arbre |
-  | loophole       | ˈluːphəʊl                        | échappatoire, faille (ex : texte de loi), meurtrière  |
-  | ludicrous      | ˈluːdɪkrəs                       | ridicule, absurde                                     |
-  | maven          | ˈmeɪvən                          | expert                                                |
-  | oath           | əʊθ                              | serment                                               |
-  | obstacle       | ˈɒbstəkl                         | obstacle                                              |
-  | outlet         | ˈaʊtlɪt                          | point de vente / exutoire (for emotion)               |
-  | passage        | ˈpæsɪdʒ                          | couloir                                               |
-  | pawn           | pɔːn                             | pions (aux échecs)                                    |
-  | phase          | feɪz                             | phase                                                 |
-  | platform       | ˈplætfɔːm                        | plateforme                                            |
-  | pragmatic      | prægˈmætɪk                       | pragmatic                                             |
-  | probe          | ˈprəʊb                           | enquête, sonde                                        |
-  | procedure      | prəˈsiːdʒə(r)                    | procédure                                             |
-  | program        | ˈprəʊɡræm/ˈprəʊɡrəm              | programme                                             |
-  | raw            | rɔː                              | brut (raw data : données brutes)                      |
-  | reassure       | ˌriːəˈʃɔː(r)/riːəˈʃʊər           | rassurer (quelqu'un) (about : sur)                    |
-  | release        | rɪˈliːs                          | libérer, livrer                                       |
-  | row            | rəʊ                              | ligne                                                 |
-  | rug            |ˈrʌg                              | tapis                                                 |
-  | server         | ˈsɜːvə(r)                        | serveur                                               |
-  | source         | sɔːs                             | source                                                |
-  | subversion     | səˈbvɜːʃn/səˈbvɜːrʒn             |                                                       |
-  | thumb          | θʌm                              | pouce                                                 |
-  | toe            | təʊ                              | orteil                                                |
-  | tortoise       | ˈtɔːtəs                          | tortue (terrestre)                                    |
-  | turtle         | ˈtɜːtl                           | tortue (générique)                                    |
-  | variable       | ˈveərɪəbl                        | variable                                              |
-  | wind           | ˈwɪnd                            | vent                                                  |
-  | wind           | ˈwaɪnd                           | enrouler                                              |
-  | workstation    | ˈwɜːkˌsteɪʃən                    | http://www.webopedia.com/TERM/W/workstation.html      |
-  | wound          | wuːnd                            | blessure                                              |
-  | wound          | ˈwaʊnd                           | preterit / past perfect de wind (enrouler)            |
-  +----------------+----------------------------------+-------------------------------------------------------+
+  +----------------+----------------------------------+---------------------------------------------------------+
+  | mot            | phonétique                       | définition                                              |
+  +----------------+----------------------------------+---------------------------------------------------------+
+  | agile          | ˈædʒaɪl/ˈædʒl                    | agile                                                   |
+  | aka            | (abréviation) also known as      |                                                         |
+  | area           | ˈeərɪə                           | région, superficie                                      |
+  | ash            | æʃ                               | cendre                                                  |
+  | automatically  | ˌɔːtəˈmætɪklɪ                    | automatiquement                                         |
+  | bat            | bæt                              | chauve-souris                                           |
+  | bet            | bet                              |                                                         |
+  | bot            | bɒt                              |                                                         |
+  | bribe          | braɪb                            | vt : soudoyer; n : pot de vin                           |
+  | but            | bʌt                              | mais                                                    |
+  | barrage        | ˈbærɑːʒ ; bəˈrɑːʒ                | barrage                                                 |
+  | bloodstain     | ˈblʌdsteɪn                       | tache de sang                                           |
+  | browse         |  braʊz                           | naviguer                                                |
+  | confluence     | ˈkɒnflʊəns                       |                                                         |
+  | comfort        | ˈkʌmfət                          | confort                                                 |
+  | comfortable    | ˈkʌmftəbl/ˈkʌmfərtbl             | confortable                                             |
+  | command        | kəˈmɑːnd/kəˈmænd                 |                                                         |
+  | cumbersome     | ˈkʌmbərsəm                       | [objet] encombrant [procédé, bureaucracie] lourd        |
+  | database       | ˈdeɪtəˌbeɪs                      | base de données                                         |
+  | determine      | dɪˈtɜːmɪn                        |                                                         |
+  | directly       | daɪˈrɛktli (UK) dɪˈrɛktli(US)    | directement                                             |
+  | directory      | daɪˈrektərɪ/dɪˈrektərɪ/dɪˈrektrɪ | répertoire                                              |
+  | dodge          | dɒdʒ                             | vt : esquiver, éviter; n : esquive, déviation           |
+  | eclipse        | ɪˈklɪps                          | éclipse                                                 |
+  | era            | ˈɪərə                            | époque                                                  |
+  | error          | ˈerə(r)                          | erreur                                                  |
+  | extreme        | ɪkˈstriːm                        | extreme                                                 |
+  | flaccid        | ˈflæsɪd/ˈflæksɪd                 | flasque, mou                                            |
+  | France         | frɑːns                           | La France                                               |
+  | grin           | grɪn                             | vi : faire une large sourire; n : large sourire, rictus |
+  | groan          | grəʊn                            | gémissement, plainte, grincement                        |
+  | GUI            | ˈguiː                            | Gui User Interface                                      |
+  | house (houses) | ˈhaʊs (ˈhaʊzɪz)                  | maison                                                  |
+  | housing        | ˈhaʊzɪŋ                          | logement                                                |
+  | Hudson         | ˈhʌdsən                          |                                                         |
+  | integer        | ˈɪntɪdʒər                        | mathématiques : entier                                  |
+  | intertwine     | ˌɪntərˈtwaɪn                     | entremêler (histoire, destin)                           |
+  | java           | ˈdʒɑːvə                          |                                                         |
+  | ladder         | ˈlædə(r)                         | échelle                                                 |
+  | library        | ˈlaɪbrərɪ/ˈlaɪbrerɪ              |                                                         |
+  | limb           | lɪm                              | membre (bras , jambe) / branche principale d'un arbre   |
+  | loophole       | ˈluːphəʊl                        | échappatoire, faille (ex : texte de loi), meurtrière    |
+  | ludicrous      | ˈluːdɪkrəs                       | ridicule, absurde                                       |
+  | maven          | ˈmeɪvən                          | expert                                                  |
+  | mutter         | ˈmʌtəʳ                           | marmonner, bredouiller, bafouiller                      |
+  | oath           | əʊθ                              | serment                                                 |
+  | obstacle       | ˈɒbstəkl                         | obstacle                                                |
+  | outlet         | ˈaʊtlɪt                          | point de vente / exutoire (for emotion)                 |
+  | passage        | ˈpæsɪdʒ                          | couloir                                                 |
+  | pawn           | pɔːn                             | pions (aux échecs)                                      |
+  | phase          | feɪz                             | phase                                                   |
+  | platform       | ˈplætfɔːm                        | plateforme                                              |
+  | pragmatic      | prægˈmætɪk                       | pragmatic                                               |
+  | probe          | ˈprəʊb                           | enquête, sonde                                          |
+  | procedure      | prəˈsiːdʒə(r)                    | procédure                                               |
+  | program        | ˈprəʊɡræm/ˈprəʊɡrəm              | programme                                               |
+  | raw            | rɔː                              | brut (raw data : données brutes)                        |
+  | reassure       | ˌriːəˈʃɔː(r)/riːəˈʃʊər           | rassurer (quelqu'un) (about : sur)                      |
+  | release        | rɪˈliːs                          | libérer, livrer                                         |
+  | row            | rəʊ                              | ligne                                                   |
+  | rug            |ˈrʌg                              | tapis                                                   |
+  | server         | ˈsɜːvə(r)                        | serveur                                                 |
+  | shiver         |ˈʃɪvəʳ                            | vi : frissonner, trembler. nm : frisson                 |
+  | shudder        | ˈʃʌdəʳ                           | vi : trembler, frémir, vibrer                           |
+  | source         | sɔːs                             | source                                                  |
+  | stealth        | stelθ                            | discret, furtif                                         |
+  | subversion     | səˈbvɜːʃn/səˈbvɜːrʒn             |                                                         |
+  | thumb          | θʌm                              | pouce                                                   |
+  | toe            | təʊ                              | orteil                                                  |
+  | tumble         | ˈtʌmbl                           | vi : tomber, chuter; n : chute                          |
+  | tortoise       | ˈtɔːtəs                          | tortue (terrestre)                                      |
+  | turtle         | ˈtɜːtl                           | tortue (générique)                                      |
+  | variable       | ˈveərɪəbl                        | variable                                                |
+  | wind           | ˈwɪnd                            | vent                                                    |
+  | wind           | ˈwaɪnd                           | enrouler                                                |
+  | workstation    | ˈwɜːkˌsteɪʃən                    | http://www.webopedia.com/TERM/W/workstation.html        |
+  | wound          | wuːnd                            | blessure                                                |
+  | wound          | ˈwaʊnd                           | preterit / past perfect de wind (enrouler)              |
+  +----------------+----------------------------------+---------------------------------------------------------+
 
+  vi : verbe intransitif
+  vt : verbe transitif
+  n  : nom
+  
   +-----------+----------------------+----------+
   | anglais   | phonétique UK / US   | français |
   +-----------+----------------------+----------+
@@ -167,7 +179,46 @@ Description
     Traduction : http://www.wordreference.com
     Liste des symboles phonétiques : http://www.wordreference.com/fr/French-Pronunciation.aspx
     Prononciation des sons ipa : http://www.antimoon.com/how/pronunc-soundsipa.htm
+    Liste de mots : http://mondesadecouvrir.over-blog.net/20-categorie-667785.html
 
+  Postpositions
+    ABOUT          : Mouvements divers et idée de "ça et là".
+    ACROSS         : Idée de faire passer (idée).
+                     A ne pas confondre avec through, qui signifie "à travers" (un volume ou un plan vertical ).
+    APART          : Idée d'éclatement, de séparation, de morcellement, de désagrégation.
+    AWAY           : 1/ Idée d'éloignement.
+                     2/ Idée de disparition progressive.
+                     3/ Idée de disparition totale.
+    BACK           : 1/ Mouvement vers l'arrière.
+                     2/ Idée de retour.
+    DOWN           : 1/ Mouvement vers le bas.
+                     2/ Idée de "coucher sur le papier".
+                     3/ Idée de diminution, d'atténuation.
+    IN             : Idée d'intérieur.
+    OFF            : 1/ Idée d'ôter, d'éteindre, d'annuler.
+                     2/ Idée de se séparer, de partir.
+                     3/ Idée de déclencher.
+    ON             : 1/ Idée de progression, de continuation
+                     2/ Idée de mettre un vêtement.
+                     3/ Idée de mise en marche, d'allumer, d'ouvrir.
+    OUT            : 1/ Idée d'extérieur.
+                     2/ Idée d'accomplissement total.
+                     3/ Idée de disparition totale.
+                     4/ Idée d'extension.
+                     5/ Idée de distribution, de répartition.
+                     6/ Idée de soudaineté.
+    OVER           : 1/ Idée de passage de A à B.
+                     2/ Idée de (re)tourner, faire basculer.
+                     3/ Idée de répétition.
+    ROUND (AROUND) : 1/ Mouvement circulaire.
+                     2/ Idée de faire circuler quelque chose.
+    THROUGH        : 1/ Idée de traverser sans s'arrêter.
+                     2/ Idée d'aller jusqu'au bout.
+    UP             : 1/ Mouvement vers le haut, position en hauteur.
+                     2/ Idée d'achèvement complet.
+                     3/ Idée d'une plus grande intensité.
+
+    Référence : http://blogmmelopes.weebly.com/uploads/1/1/7/3/11731566/chapitre7exerc.pdf
 ---------------
 - Web et Wiki -
 ---------------
