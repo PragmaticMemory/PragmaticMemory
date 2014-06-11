@@ -61,8 +61,14 @@ Description
     Les transcriptions phonétiques sont tirées du site suivant : http://www.wordreference.com
     Pour tous les mots dont la phonétique n'apparait pas sur le site précédent, la phonétique est inspirée du site suivant (mais en utilisant les symboles du site précédent, par exemple iː au lieu de i) : http://dictionary.reference.com
 
-
-  A réexporter sans les espaces vers l'Excel :
+    Prononciation anglais britannique / américain : http://dictionary.cambridge.org/
+                                                    cliquer sur le lien "Focus on the pronunciation of"
+                                                    http://dictionary.cambridge.org/help/phonetics.html
+    
+    
+  
+  >>>>>>>>>>>>>
+  A supprimer
   +--------------------+-----------------+------+---------------------+--------------------------------------+---------------------------------------------------------+
   | mot                | phonétique      | type | contexte            | définition (anglais)                 | définition (français)                                   |
   +--------------------+-----------------+------+---------------------+--------------------------------------+---------------------------------------------------------+
@@ -196,8 +202,7 @@ Description
   | wound              | ˈwaʊnd          |      |                     |                                      | preterit / past perfect de wind (enrouler)              |
   +--------------------+-----------------+------+---------------------+--------------------------------------+---------------------------------------------------------+
 
-  >>>>>>>>>>>>>
-  A supprimer
+  <<<<<<<<<<<<<
   
   vi : verbe intransitif
   vt : verbe transitif
@@ -207,37 +212,8 @@ Description
   qqn : quelqu'un
   sth : something
   sb : somebody
-  
-  +-----------+----------------------+----------+
-  | anglais   | phonétique UK / US   | français |
-  +-----------+----------------------+----------+
-  | Monday    | ˈmʌndeɪ   / ˈmʌndi   | lundi    |
-  | Tuesday   | ˈtjuːzdeɪ / 'tjuːzdi | mardi    |
-  | Wednesday | ˈwɛnzdeɪ  / ˈwɛnzdi  | mercredi |
-  | Thursday  | ˈθɜːrzdeɪ / ˈθɜːrzdi | jeudi    |
-  | Friday    | ˈfraɪdeɪ  / ˈfraɪdi  | vendredi |
-  +-----------+----------------------+----------+
 
-  +-----------+-------------------+
-  | anglais   | phonétique        |
-  +-----------+-------------------+
-  | January   | ˈdʒænjʊərɪ        |
-  | February  | ˈfebrʊərɪ         |
-  | March     | ˈmɑːrtʃ           |
-  | April     | ˈeɪprəl           |
-  | May       | ˈmeɪ              |
-  | June      | dʒuːn             |
-  | July      | dʒuˈlaɪ / dʒəˈlaɪ |
-  | August    | ˈɔːgəst           |
-  | September | sepˈtembəʳ        |
-  | October   | ɒkˈtəʊbəʳ         |
-  | November  | nəʊˈvembəʳ        |
-  | December  | dɪˈsembəʳ         |
-  +-----------+-------------------+
-  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-  
-  
-  
+
   Références
     Traduction : http://www.wordreference.com
     Liste des symboles phonétiques : http://www.wordreference.com/fr/French-Pronunciation.aspx
