@@ -212,6 +212,7 @@ Description
   qqn : quelqu'un
   sth : something
   sb : somebody
+  abbr : abbreviation
 
 
   Références

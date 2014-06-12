@@ -1729,6 +1729,11 @@
   Différence entre 2 dates
     Utiliser la fonction "cachée" (c'est-à-dire non documentée) DATEDIF
 
+  Références de cellules
+    $A:$A       : colonne A
+    $A:$H       : colonnes A à H
+    $A:$H;$J:$J : colonnes A à H et colonne J
+  
 -----------
 - Outlook -
 -----------
