@@ -971,6 +971,10 @@
     Ensemble de chemins utilisés par la jvm pour localiser les différentes ressources (dont les classes).
     Un classpath peut contenir : des noms de jar; des répertoires (dans ce cas, le répertoire en question doit contenir des .class au sein de sous-répertoires reproduisant l'arborescence des packages).
 
+  Java Web Start
+    Démarrer la visionneuse du cache de Java Web Start
+      javaws -viewer
+
   Class literal
     Tout objet qui représente une classe (par exemple String.class)
 
