@@ -768,13 +768,22 @@
     select @@servername
 
   Le fichier sql.ini
-    Les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier sql.ini(présent par exemple dans C:\Program Files\sybase\12.5.1\ini).
+    Sur Windows, les adaptive server (également appelés data server dans cette page, par opposition aux serveurs physiques) sont définis dans le fichier sql.ini.
+    Exemple de Localisation du fichier sql.ini sous Windows : C:\Program Files\sybase\12.5.1\ini
     Ils sont définis suivant le template :
       [DATA_SERVEUR_NAME]
       query=TCP,server-name,port
     Dans l'exemple, server-name est le nom ou l'alias d'une machine
     Un data serveur peut héberger plusieurs bases
     Si A et B sont 2 bases sur un même data server, et si a est un objet de A et b un objet de B, a peut référencer b en utilisant la syntaxe B..b
+
+  Le fichier interfaces
+    Le fichier interfaces est l'équivalent du fichier sql.ini sur les machines Unix.
+    Il peut être trouvé en se plaçant "dans le home de l'utilisateur sybase" via la commande : cd ~sybase
+    On y retrouve les mêmes informations que dans un fichier sql.ini, mais sous un format différent.
+    Exemple de format :
+      ADM_PRD1_SQL
+        query tcp ether p-adm-bdd1 14100
 
   L'outil isql
     Outil Sybase permettant l'exécution d'un script sql via la syntaxe :
@@ -1727,6 +1736,7 @@
    rest vs soap               : http://geeknizer.com/rest-vs-soap-using-http-choosing-the-right-webservice-protocol/
    rest, soap, rcp            : http://jimmyzimmerman.com/blog/2007/01/soap-xml-rpc-and-rest.html
    http://www.java-forums.org/ocpjwsd/56588-tutorial-review-java-web-services-web-service-developer-exam.html
+   
 ---------
 - Excel -
 ---------
@@ -1738,6 +1748,8 @@
     $A:$H       : colonnes A à H
     $A:$H;$J:$J : colonnes A à H et colonne J
   
+  Passer en formule matricielle (array formulas)
+    CTRL + SHIFT + ENTER
 -----------
 - Outlook -
 -----------
