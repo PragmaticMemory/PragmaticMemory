@@ -85,6 +85,7 @@ Description
   sth : something
   sb : somebody
   abbr : abbreviation
+  pp : past participle
 
 
   Références
