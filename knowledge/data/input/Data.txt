@@ -402,7 +402,28 @@
         Déplacement du HEAD et de la branche courante, avec mise à jour optionnelle de l'index et du répertoire de travail.
 
       Commande rebase
-        Déplacement d'une succession de commit (modification de leur parent)
+        Sert à changer la base d'une branche, c'est-à-dire son point de départ.
+
+        Faire un rebase interactif
+          git rebase -i SHA1 :
+            - rebase interactif à partir du commit identifié par SHA1. Tous les commits descendant du commit (exclus) identifié par SHA1 peuvent être modifiés;
+            - conseil : à utiliser en association avec gitk pour bien visualiser l'arbre à modifier
+        
+        Annuler un commit interactif
+          git rebase --abort
+        
+        Splitter un commit (SHA1) en plusieurs commits
+          - git rebase -i PARENT_SHA1
+          - git reset HEAD~
+          - faire les add/commit du premier split commit
+          - ...
+          - faire les add/commit du dernier split commit
+          - git rebase --continue
+        
+        Eviter un merge en pushant sur un repo Git distant
+          git push -f origin master
+          (dans le cas du push de la branche master sur le repo distant origin; -f signifie force)
+          Attention cependant à ne faire cette opération que si le repo distant n'a pas changé (pour éviter l'écrasement de données commitées par d'autres personnes)
 
       Commande stash
         Stash signifie "mettre de côté".
@@ -673,6 +694,7 @@
     Tutorial "Git ready"            : http://gitready.com
     Tutorial "Learn GitHub"         : http://learn.github.com/p/intro.html
     Tutorial "Learn GitHub" (suite) : http://learn.github.com/p/diff.html
+    Tutorial "Enfin comprendre Git" : http://www.miximum.fr/enfin-comprendre-git.html
     Tutorial                        : https://www.atlassian.com/fr/git/tutorial/
     Utiliser Git en entreprise      : http://canop.org/blog/?p=101
     A Visual Git Reference (+++)    : http://marklodato.github.com/visual-git-guide/index-en.html
@@ -685,6 +707,10 @@
     Git diff (gitguys)              : http://www.gitguys.com/topics/git-diff/
     Liste des principales commandes : http://www.siteground.com/tutorials/git/commands.htm    
     Memo Git                        : http://blog.adrien-robert.me/2011/02/19/un-memo-pour-git/
+    Git merge --stash               : http://365git.tumblr.com/post/4364212086/git-merge-squash
+    Merge et rebase                 : http://www.git-attitude.fr/2014/05/04/bien-utiliser-git-merge-et-rebase/
+    git revert                      : https://www.atlassian.com/fr/git/tutorial/undoing-changes#!revert
+    http://git-scm.com/book/en/Git-Tools-Rewriting-History
 
 -------
 - SQL -
@@ -1108,7 +1134,22 @@
       - soit exécuter ce code dans un thread différent de l'EDT puis appeler un SwingUtilities.invokeAndWait
       - soit utiliser un SwingWorker dans l'EDT qui exécutera de manière transparente ce code dans un thread autre que l'EDT
 
+  Version(s) java
+    - A la compilation, on indique dans quel bytecode compiler. C'est la "version du bytecode".
+    - Une JRE démarre une JVM. "Version JRE" et "version JVM" sont donc confondues. Sur un même poste peuvent être installées plusieurs JRE.
+    - JavaWebStart (JWS) possède également une version : c'est la "version JWS".
+      JWS s'execute dans une JVM.
+      A l'ouverture d'un jnlp, JWS consulte ce jnlp pour savoir quel JRE utiliser.
+      Ce JRE sélectionné instancie une JVM dans laquelle s'exécutera l'application associée au jnlp.
+      Remarque : la version du JRE sélectionné par JWS n'est pas nécessairement la même que celle de la JVM dans laquelle s'éxécute JWS.
 
+      On a les relations suivantes (compatibilité ascendante) :
+        version du bytecode (= version du JDK) < version JRE (=version JVM) < version JWS
+
+    Remarque dans le cas de l'utilisation de maven : le fichier pom.xml de l'application précise la cible du bytecode, mais sans version mineure (par exemple 1.6 mais pas 1.6.0_24).
+                                                     La version dans le pom.xml doit dans ce cas correspondre à la version majeure du JDK.
+    
+    
   Classes liées aux JTable
     +---------------------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | Objet                                             | Type           | Description                                                                                                                                                                                                                                   |
@@ -1815,11 +1856,20 @@
 -----------
 - Finance -
 -----------
-  Différence cotation "en pièce" / "en nominal"
+  Mode de cotation : différence cotation "en pièce" / "en nominal"
     - les obligations sont côtées "en nominal", c'est-à-dire que la cotation d'une obligation est exprimée en pourcentage de son nominal.
       La quantité est le nombre d'obligations possédées.
     - les actions sont cotés "en pièce", c'est-à-dire que la cotation d'une action est exprimée en devise, et donne le prix d'une action.
       La quantité est le nombre d'action possédées.
 
+  Mode d'expression des quantités :
+    (cf http://www.fimarkets.com/pages/reglement_livraison.php)
+    - en nombre de titre (parfois appelé "en quantité")
+    - en nominal, c'est-à-dire sous la forme d'un montant
+    
+    Pour les obligations : valeur faciale = valeur nominale = face value
+
+
   Références
     - Econoclate, l'économie pour les nuls et les autres (en particulier, rubrique "Questions et réponses") : http://econo.free.fr/
+    - concernant les modes de cotations : https://www.easybourse.com/bourse/pedagogie/fiche/les-obligations-70
