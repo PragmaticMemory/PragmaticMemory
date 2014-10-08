@@ -1317,6 +1317,14 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     | #!/usr/bin/ruby   | Ruby                                     |
     +-------------------+------------------------------------------+
 
+  Connaître les pourcentages d'occupation du ssytème de fichier
+    Utiliser la commande "du" (disk usage)
+
+  Connaître les tailles des systèmes de fichier
+    Utiliser la commande "df" (disk free)
+  
+  Afficher les tailles des fonctions "du" et "df" au format standard (Ko, Mo)
+    utiliser l'option -h (h pour human, c'est-à-dire lisible par un human)
 ----------
 - Hudson -
 ----------
@@ -1397,6 +1405,12 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
     La propriété des clés asymétriques est qu'un message chiffré par une clé publique n'est lisible que par le propriétaire de la clé privée correspondante.
     À l'inverse, un message chiffré par la clé privée sera lisible par tous ceux qui possèdent la clé publique.
     Ainsi, le détenteur de la clé privée peut signer les messages qu'il envoi et lire les messages qui lui sont adressés.
+    
+  Cas de l'autenthification sur un serveur :
+  Un couple (clé publique, clé privé) est généré.
+  La clé publique est déployé sur le serveur.
+  L'utilisateur conserve sa clé privée, qu'il utilise lorqu'il veut se connecter.
+  Il y a autant de couple (clé publique, clé privé) que d'utilisateur.
 
   Références :
     Convivialité des mots de passe                      : http://www.baekdal.com/insights/password-security-usability
@@ -1420,6 +1434,13 @@ Voir http://stackoverflow.com/questions/5798930/whats-the-difference-between-git
       {toggle-cloak:id=Step1}{*}capture d'écran*
       {cloak:id=Step1|visible=false} !horodate.PNG|align=center!
       {cloak}
+
+
+---------
+- Excel -
+---------
+  Différence entre 2 dates
+    Utiliser la fonction "cachée" (c'est-à-dire non documenté) DATEDIF
 
 -----------
 - Outlook -
