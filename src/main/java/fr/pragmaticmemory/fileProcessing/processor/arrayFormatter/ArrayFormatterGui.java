@@ -8,7 +8,22 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
+import static java.awt.event.KeyEvent.VK_DELETE;
+import static java.awt.event.KeyEvent.VK_DOWN;
+import static java.awt.event.KeyEvent.VK_LEFT;
+import static java.awt.event.KeyEvent.VK_UP;
+
 public class ArrayFormatterGui {
+
+
+    static final int[] IGNORED_KEYS = {VK_UP, VK_DOWN, VK_LEFT, VK_DOWN, VK_DELETE};
+    static final List<Integer> ignoredKeyList;
+
+    static
+    {
+            ignoredKeyList = null;
+
+    }
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame();
@@ -27,13 +42,27 @@ public class ArrayFormatterGui {
 
 
             public void keyReleased(KeyEvent e) {
+
+                if (ignoreKey(e.getKeyCode())) {
+                    return;
+                }
                 processAction(textArea);
+            }
+
+
+            private boolean ignoreKey(int keyCode) {
+                if (keyCode == VK_UP || keyCode == VK_DOWN || keyCode == VK_LEFT || keyCode == VK_DOWN
+                    || keyCode == VK_DELETE) {
+                    return true;
+                }
+                return false;
             }
         });
 
         jFrame.add(textArea);
         jFrame.pack();
     }
+
 
 
     private static void processAction(JTextArea textArea) {
@@ -67,7 +96,7 @@ public class ArrayFormatterGui {
             builder.append(resultLines.get(resultLinesSize - 1));
             int caretPosition = textArea.getCaretPosition();
             textArea.setText(builder.toString());
-            textArea.setCaretPosition(caretPosition);
+            textArea.setCaretPosition(caretPosition + 1);
         }
         catch (Throwable e1) {
             e1.printStackTrace();  // Todo
