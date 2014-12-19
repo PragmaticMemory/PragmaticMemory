@@ -772,6 +772,9 @@
   Obtenir la liste des groupes
     sp_helpgroup
 
+  Voir les droits d'un utilisateur
+    sp_helprotect {user}
+    
   Vérifier la nullité d'une variable
     if( @nom_de_la_variable is null)...
 
@@ -988,11 +991,28 @@
 --------
 
   Jvm
-    Java virtual machine (machine virtuelle java)
+    Java virtual machine (machine virtuelle java). Responsable de l'exécution du bytecode
+    Sur Windows :
+      - jvm.dll   : implémentation de la jvm
+      - java.exe  : wrapper de jvm.dll, application "Win32 Console" (Windows ouvre une console)
+      - javaw.exe : wrapper de jvm.dll, application "Win32 Gui"     (Windows n'ouvre pas de console)
+    Remarque : à ne pas confondre avec l'exécutable Java Web Start qui s'appelle javaws.exe
 
+  JDK
+    Java Development Kit
+    Utilisé entre autre pour compiler le code source afin de produire du bytecode
+  
+  JRE
+    Java Runtime Environment.
+    Appelée aussi "Java Runtime".
+    JRE = JVM + Java Packages Classes(util, math, lang, awt, swing, ...) + runtime libraries.
+    
+  JDK, JRE, JVM
+    http://www.javabeat.net/what-is-the-difference-between-jrejvm-and-jdk/
+    
   Outils d'analyse d'une jvm
-    VisualVM
-    JConsole : permet en particulier de détecter les deadlock
+    VisualVM (jvisualvm.exe)
+    JConsole (jconsole.exe) : permet en particulier de détecter les deadlocks
 
   Classpath
     Ensemble de chemins utilisés par la jvm pour localiser les différentes ressources (dont les classes).
@@ -1001,6 +1021,12 @@
   Java Web Start
     Démarrer la visionneuse du cache de Java Web Start
       javaws -viewer
+
+  Configurer Java Web Start
+    Panneau de configuration > Java
+      Lister les JRE installées sur le poste : voir l'onglet  Java
+      Afficher la console : onglet "Avancé", Paramètres > Console Java > Afficher la console
+      Les informations configurées sont sauvées dans C:\Users\cignett\AppData\LocalLow\Sun\Java\Deployment\deployment.properties
 
   Class literal
     Tout objet qui représente une classe (par exemple String.class)
